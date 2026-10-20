@@ -1,0 +1,4 @@
+name,latitude,longitude,elevation_m,symbol
+Example summit,38.58,-121.50,100,peak
+Example cabin,38.55,-121.46,,cabin
+Example trees,38.60,-121.54,,tree

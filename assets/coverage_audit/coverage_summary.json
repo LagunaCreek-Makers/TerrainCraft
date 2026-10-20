@@ -1,0 +1,25 @@
+{
+  "svg_files": 1662,
+  "valid_svg_files": 1662,
+  "invalid_svg_files": [],
+  "svg_by_directory": {
+    "cultural_icons": 6,
+    "icon_variants": 804,
+    "icons": 240,
+    "regional_icons": 468,
+    "site_icons": 3,
+    "sports_icons": 21,
+    "unlicensed_placeholders": 120
+  },
+  "catalog_entries": 1028,
+  "catalog_by_collection": {
+    "institution-team": 255,
+    "regional": 117,
+    "state-cultural": 656
+  },
+  "entries_with_svg": 908,
+  "entries_with_simplified": 773,
+  "entries_with_verified_multiple_perspectives": 0,
+  "missing_artwork": 120,
+  "important": "Generic/shared motifs and algorithmic styles do not count as authentic per-site artwork or perspectives. NPS/UNESCO entries only count if synced catalog CSV exists."
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "unesco-252",
+    "unesco_id": "252",
+    "name": "Taj Mahal",
+    "jurisdiction": "India",
+    "source_url": "https://whc.unesco.org/en/list/252/",
+    "artwork_status": "original-stylized-site-specific-unverified",
+    "perspective_verified": false,
+    "variants": {
+      "front": "unesco-252.svg",
+      "side": "unesco-252--side.svg",
+      "three-quarter": "unesco-252--three-quarter.svg",
+      "simplified": "unesco-252--simplified.svg"
+    }
+  },
+  {
+    "id": "unesco-438",
+    "unesco_id": "438",
+    "name": "Great Wall",
+    "jurisdiction": "China",
+    "source_url": "https://whc.unesco.org/en/list/438/",
+    "artwork_status": "original-stylized-site-specific-unverified",
+    "perspective_verified": false,
+    "variants": {
+      "front": "unesco-438.svg",
+      "side": "unesco-438--side.svg",
+      "three-quarter": "unesco-438--three-quarter.svg",
+      "simplified": "unesco-438--simplified.svg"
+    }
+  },
+  {
+    "id": "unesco-394",
+    "unesco_id": "394",
+    "name": "Acropolis, Athens",
+    "jurisdiction": "Greece",
+    "source_url": "https://whc.unesco.org/en/list/394/",
+    "artwork_status": "original-stylized-site-specific-unverified",
+    "perspective_verified": false,
+    "variants": {
+      "front": "unesco-394.svg",
+      "side": "unesco-394--side.svg",
+      "three-quarter": "unesco-394--three-quarter.svg",
+      "simplified": "unesco-394--simplified.svg"
+    }
+  },
+  {
+    "id": "unesco-320",
+    "unesco_id": "320",
+    "name": "Petra",
+    "jurisdiction": "Jordan",
+    "source_url": "https://whc.unesco.org/en/list/320/",
+    "artwork_status": "original-stylized-site-specific-unverified",
+    "perspective_verified": false,
+    "variants": {
+      "front": "unesco-320.svg",
+      "side": "unesco-320--side.svg",
+      "three-quarter": "unesco-320--three-quarter.svg",
+      "simplified": "unesco-320--simplified.svg"
+    }
+  },
+  {
+    "id": "unesco-274",
+    "unesco_id": "274",
+    "name": "Historic Sanctuary of Machu Picchu",
+    "jurisdiction": "Peru",
+    "source_url": "https://whc.unesco.org/en/list/274/",
+    "artwork_status": "original-stylized-site-specific-unverified",
+    "perspective_verified": false,
+    "variants": {
+      "front": "unesco-274.svg",
+      "side": "unesco-274--side.svg",
+      "three-quarter": "unesco-274--three-quarter.svg",
+      "simplified": "unesco-274--simplified.svg"
+    }
+  },
+  {
+    "id": "unesco-373",
+    "unesco_id": "373",
+    "name": "Stonehenge, Avebury and Associated Sites",
+    "jurisdiction": "United Kingdom",
+    "source_url": "https://whc.unesco.org/en/list/373/",
+    "artwork_status": "original-stylized-site-specific-unverified",
+    "perspective_verified": false,
+    "variants": {
+      "front": "unesco-373.svg",
+      "side": "unesco-373--side.svg",
+      "three-quarter": "unesco-373--three-quarter.svg",
+      "simplified": "unesco-373--simplified.svg"
+    }
+  }
+]

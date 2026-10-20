@@ -1,0 +1,2402 @@
+[
+  {
+    "id": "generic-001",
+    "title": "mountain pictogram 1",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_001.svg"
+  },
+  {
+    "id": "generic-002",
+    "title": "historic-house pictogram 1",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_002.svg"
+  },
+  {
+    "id": "generic-003",
+    "title": "monument pictogram 1",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_003.svg"
+  },
+  {
+    "id": "generic-004",
+    "title": "bridge pictogram 1",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_004.svg"
+  },
+  {
+    "id": "generic-005",
+    "title": "compass pictogram 1",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_005.svg"
+  },
+  {
+    "id": "generic-006",
+    "title": "spire pictogram 1",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_006.svg"
+  },
+  {
+    "id": "generic-007",
+    "title": "museum pictogram 1",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_007.svg"
+  },
+  {
+    "id": "generic-008",
+    "title": "ridge pictogram 1",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_008.svg"
+  },
+  {
+    "id": "generic-009",
+    "title": "tree pictogram 1",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_009.svg"
+  },
+  {
+    "id": "generic-010",
+    "title": "globe pictogram 1",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_010.svg"
+  },
+  {
+    "id": "generic-011",
+    "title": "capitol pictogram 1",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_011.svg"
+  },
+  {
+    "id": "generic-012",
+    "title": "tower pictogram 1",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_012.svg"
+  },
+  {
+    "id": "generic-013",
+    "title": "water pictogram 1",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_013.svg"
+  },
+  {
+    "id": "generic-014",
+    "title": "lighthouse pictogram 1",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_014.svg"
+  },
+  {
+    "id": "generic-015",
+    "title": "trail pictogram 1",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_015.svg"
+  },
+  {
+    "id": "generic-016",
+    "title": "city pictogram 1",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_016.svg"
+  },
+  {
+    "id": "generic-017",
+    "title": "river pictogram 1",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_017.svg"
+  },
+  {
+    "id": "generic-018",
+    "title": "fort pictogram 1",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_018.svg"
+  },
+  {
+    "id": "generic-019",
+    "title": "peak pictogram 1",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_019.svg"
+  },
+  {
+    "id": "generic-020",
+    "title": "building pictogram 1",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_020.svg"
+  },
+  {
+    "id": "generic-021",
+    "title": "mountain pictogram 2",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_021.svg"
+  },
+  {
+    "id": "generic-022",
+    "title": "historic-house pictogram 2",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_022.svg"
+  },
+  {
+    "id": "generic-023",
+    "title": "monument pictogram 2",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_023.svg"
+  },
+  {
+    "id": "generic-024",
+    "title": "bridge pictogram 2",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_024.svg"
+  },
+  {
+    "id": "generic-025",
+    "title": "compass pictogram 2",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_025.svg"
+  },
+  {
+    "id": "generic-026",
+    "title": "spire pictogram 2",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_026.svg"
+  },
+  {
+    "id": "generic-027",
+    "title": "museum pictogram 2",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_027.svg"
+  },
+  {
+    "id": "generic-028",
+    "title": "ridge pictogram 2",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_028.svg"
+  },
+  {
+    "id": "generic-029",
+    "title": "tree pictogram 2",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_029.svg"
+  },
+  {
+    "id": "generic-030",
+    "title": "globe pictogram 2",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_030.svg"
+  },
+  {
+    "id": "generic-031",
+    "title": "capitol pictogram 2",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_031.svg"
+  },
+  {
+    "id": "generic-032",
+    "title": "tower pictogram 2",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_032.svg"
+  },
+  {
+    "id": "generic-033",
+    "title": "water pictogram 2",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_033.svg"
+  },
+  {
+    "id": "generic-034",
+    "title": "lighthouse pictogram 2",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_034.svg"
+  },
+  {
+    "id": "generic-035",
+    "title": "trail pictogram 2",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_035.svg"
+  },
+  {
+    "id": "generic-036",
+    "title": "city pictogram 2",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_036.svg"
+  },
+  {
+    "id": "generic-037",
+    "title": "river pictogram 2",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_037.svg"
+  },
+  {
+    "id": "generic-038",
+    "title": "fort pictogram 2",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_038.svg"
+  },
+  {
+    "id": "generic-039",
+    "title": "peak pictogram 2",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_039.svg"
+  },
+  {
+    "id": "generic-040",
+    "title": "building pictogram 2",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_040.svg"
+  },
+  {
+    "id": "generic-041",
+    "title": "mountain pictogram 3",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_041.svg"
+  },
+  {
+    "id": "generic-042",
+    "title": "historic-house pictogram 3",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_042.svg"
+  },
+  {
+    "id": "generic-043",
+    "title": "monument pictogram 3",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_043.svg"
+  },
+  {
+    "id": "generic-044",
+    "title": "bridge pictogram 3",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_044.svg"
+  },
+  {
+    "id": "generic-045",
+    "title": "compass pictogram 3",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_045.svg"
+  },
+  {
+    "id": "generic-046",
+    "title": "spire pictogram 3",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_046.svg"
+  },
+  {
+    "id": "generic-047",
+    "title": "museum pictogram 3",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_047.svg"
+  },
+  {
+    "id": "generic-048",
+    "title": "ridge pictogram 3",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_048.svg"
+  },
+  {
+    "id": "generic-049",
+    "title": "tree pictogram 3",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_049.svg"
+  },
+  {
+    "id": "generic-050",
+    "title": "globe pictogram 3",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_050.svg"
+  },
+  {
+    "id": "generic-051",
+    "title": "capitol pictogram 3",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_051.svg"
+  },
+  {
+    "id": "generic-052",
+    "title": "tower pictogram 3",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_052.svg"
+  },
+  {
+    "id": "generic-053",
+    "title": "water pictogram 3",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_053.svg"
+  },
+  {
+    "id": "generic-054",
+    "title": "lighthouse pictogram 3",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_054.svg"
+  },
+  {
+    "id": "generic-055",
+    "title": "trail pictogram 3",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_055.svg"
+  },
+  {
+    "id": "generic-056",
+    "title": "city pictogram 3",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_056.svg"
+  },
+  {
+    "id": "generic-057",
+    "title": "river pictogram 3",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_057.svg"
+  },
+  {
+    "id": "generic-058",
+    "title": "fort pictogram 3",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_058.svg"
+  },
+  {
+    "id": "generic-059",
+    "title": "peak pictogram 3",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_059.svg"
+  },
+  {
+    "id": "generic-060",
+    "title": "building pictogram 3",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_060.svg"
+  },
+  {
+    "id": "generic-061",
+    "title": "mountain pictogram 4",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_061.svg"
+  },
+  {
+    "id": "generic-062",
+    "title": "historic-house pictogram 4",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_062.svg"
+  },
+  {
+    "id": "generic-063",
+    "title": "monument pictogram 4",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_063.svg"
+  },
+  {
+    "id": "generic-064",
+    "title": "bridge pictogram 4",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_064.svg"
+  },
+  {
+    "id": "generic-065",
+    "title": "compass pictogram 4",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_065.svg"
+  },
+  {
+    "id": "generic-066",
+    "title": "spire pictogram 4",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_066.svg"
+  },
+  {
+    "id": "generic-067",
+    "title": "museum pictogram 4",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_067.svg"
+  },
+  {
+    "id": "generic-068",
+    "title": "ridge pictogram 4",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_068.svg"
+  },
+  {
+    "id": "generic-069",
+    "title": "tree pictogram 4",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_069.svg"
+  },
+  {
+    "id": "generic-070",
+    "title": "globe pictogram 4",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_070.svg"
+  },
+  {
+    "id": "generic-071",
+    "title": "capitol pictogram 4",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_071.svg"
+  },
+  {
+    "id": "generic-072",
+    "title": "tower pictogram 4",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_072.svg"
+  },
+  {
+    "id": "generic-073",
+    "title": "water pictogram 4",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_073.svg"
+  },
+  {
+    "id": "generic-074",
+    "title": "lighthouse pictogram 4",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_074.svg"
+  },
+  {
+    "id": "generic-075",
+    "title": "trail pictogram 4",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_075.svg"
+  },
+  {
+    "id": "generic-076",
+    "title": "city pictogram 4",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_076.svg"
+  },
+  {
+    "id": "generic-077",
+    "title": "river pictogram 4",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_077.svg"
+  },
+  {
+    "id": "generic-078",
+    "title": "fort pictogram 4",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_078.svg"
+  },
+  {
+    "id": "generic-079",
+    "title": "peak pictogram 4",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_079.svg"
+  },
+  {
+    "id": "generic-080",
+    "title": "building pictogram 4",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_080.svg"
+  },
+  {
+    "id": "generic-081",
+    "title": "mountain pictogram 5",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_081.svg"
+  },
+  {
+    "id": "generic-082",
+    "title": "historic-house pictogram 5",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_082.svg"
+  },
+  {
+    "id": "generic-083",
+    "title": "monument pictogram 5",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_083.svg"
+  },
+  {
+    "id": "generic-084",
+    "title": "bridge pictogram 5",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_084.svg"
+  },
+  {
+    "id": "generic-085",
+    "title": "compass pictogram 5",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_085.svg"
+  },
+  {
+    "id": "generic-086",
+    "title": "spire pictogram 5",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_086.svg"
+  },
+  {
+    "id": "generic-087",
+    "title": "museum pictogram 5",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_087.svg"
+  },
+  {
+    "id": "generic-088",
+    "title": "ridge pictogram 5",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_088.svg"
+  },
+  {
+    "id": "generic-089",
+    "title": "tree pictogram 5",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_089.svg"
+  },
+  {
+    "id": "generic-090",
+    "title": "globe pictogram 5",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_090.svg"
+  },
+  {
+    "id": "generic-091",
+    "title": "capitol pictogram 5",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_091.svg"
+  },
+  {
+    "id": "generic-092",
+    "title": "tower pictogram 5",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_092.svg"
+  },
+  {
+    "id": "generic-093",
+    "title": "water pictogram 5",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_093.svg"
+  },
+  {
+    "id": "generic-094",
+    "title": "lighthouse pictogram 5",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_094.svg"
+  },
+  {
+    "id": "generic-095",
+    "title": "trail pictogram 5",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_095.svg"
+  },
+  {
+    "id": "generic-096",
+    "title": "city pictogram 5",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_096.svg"
+  },
+  {
+    "id": "generic-097",
+    "title": "river pictogram 5",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_097.svg"
+  },
+  {
+    "id": "generic-098",
+    "title": "fort pictogram 5",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_098.svg"
+  },
+  {
+    "id": "generic-099",
+    "title": "peak pictogram 5",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_099.svg"
+  },
+  {
+    "id": "generic-100",
+    "title": "building pictogram 5",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_100.svg"
+  },
+  {
+    "id": "generic-101",
+    "title": "mountain pictogram 6",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_101.svg"
+  },
+  {
+    "id": "generic-102",
+    "title": "historic-house pictogram 6",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_102.svg"
+  },
+  {
+    "id": "generic-103",
+    "title": "monument pictogram 6",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_103.svg"
+  },
+  {
+    "id": "generic-104",
+    "title": "bridge pictogram 6",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_104.svg"
+  },
+  {
+    "id": "generic-105",
+    "title": "compass pictogram 6",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_105.svg"
+  },
+  {
+    "id": "generic-106",
+    "title": "spire pictogram 6",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_106.svg"
+  },
+  {
+    "id": "generic-107",
+    "title": "museum pictogram 6",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_107.svg"
+  },
+  {
+    "id": "generic-108",
+    "title": "ridge pictogram 6",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_108.svg"
+  },
+  {
+    "id": "generic-109",
+    "title": "tree pictogram 6",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_109.svg"
+  },
+  {
+    "id": "generic-110",
+    "title": "globe pictogram 6",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_110.svg"
+  },
+  {
+    "id": "generic-111",
+    "title": "capitol pictogram 6",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_111.svg"
+  },
+  {
+    "id": "generic-112",
+    "title": "tower pictogram 6",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_112.svg"
+  },
+  {
+    "id": "generic-113",
+    "title": "water pictogram 6",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_113.svg"
+  },
+  {
+    "id": "generic-114",
+    "title": "lighthouse pictogram 6",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_114.svg"
+  },
+  {
+    "id": "generic-115",
+    "title": "trail pictogram 6",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_115.svg"
+  },
+  {
+    "id": "generic-116",
+    "title": "city pictogram 6",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_116.svg"
+  },
+  {
+    "id": "generic-117",
+    "title": "river pictogram 6",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_117.svg"
+  },
+  {
+    "id": "generic-118",
+    "title": "fort pictogram 6",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_118.svg"
+  },
+  {
+    "id": "generic-119",
+    "title": "peak pictogram 6",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_119.svg"
+  },
+  {
+    "id": "generic-120",
+    "title": "building pictogram 6",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_120.svg"
+  },
+  {
+    "id": "generic-121",
+    "title": "mountain pictogram 7",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_121.svg"
+  },
+  {
+    "id": "generic-122",
+    "title": "historic-house pictogram 7",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_122.svg"
+  },
+  {
+    "id": "generic-123",
+    "title": "monument pictogram 7",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_123.svg"
+  },
+  {
+    "id": "generic-124",
+    "title": "bridge pictogram 7",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_124.svg"
+  },
+  {
+    "id": "generic-125",
+    "title": "compass pictogram 7",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_125.svg"
+  },
+  {
+    "id": "generic-126",
+    "title": "spire pictogram 7",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_126.svg"
+  },
+  {
+    "id": "generic-127",
+    "title": "museum pictogram 7",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_127.svg"
+  },
+  {
+    "id": "generic-128",
+    "title": "ridge pictogram 7",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_128.svg"
+  },
+  {
+    "id": "generic-129",
+    "title": "tree pictogram 7",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_129.svg"
+  },
+  {
+    "id": "generic-130",
+    "title": "globe pictogram 7",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_130.svg"
+  },
+  {
+    "id": "generic-131",
+    "title": "capitol pictogram 7",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_131.svg"
+  },
+  {
+    "id": "generic-132",
+    "title": "tower pictogram 7",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_132.svg"
+  },
+  {
+    "id": "generic-133",
+    "title": "water pictogram 7",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_133.svg"
+  },
+  {
+    "id": "generic-134",
+    "title": "lighthouse pictogram 7",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_134.svg"
+  },
+  {
+    "id": "generic-135",
+    "title": "trail pictogram 7",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_135.svg"
+  },
+  {
+    "id": "generic-136",
+    "title": "city pictogram 7",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_136.svg"
+  },
+  {
+    "id": "generic-137",
+    "title": "river pictogram 7",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_137.svg"
+  },
+  {
+    "id": "generic-138",
+    "title": "fort pictogram 7",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_138.svg"
+  },
+  {
+    "id": "generic-139",
+    "title": "peak pictogram 7",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_139.svg"
+  },
+  {
+    "id": "generic-140",
+    "title": "building pictogram 7",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_140.svg"
+  },
+  {
+    "id": "generic-141",
+    "title": "mountain pictogram 8",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_141.svg"
+  },
+  {
+    "id": "generic-142",
+    "title": "historic-house pictogram 8",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_142.svg"
+  },
+  {
+    "id": "generic-143",
+    "title": "monument pictogram 8",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_143.svg"
+  },
+  {
+    "id": "generic-144",
+    "title": "bridge pictogram 8",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_144.svg"
+  },
+  {
+    "id": "generic-145",
+    "title": "compass pictogram 8",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_145.svg"
+  },
+  {
+    "id": "generic-146",
+    "title": "spire pictogram 8",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_146.svg"
+  },
+  {
+    "id": "generic-147",
+    "title": "museum pictogram 8",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_147.svg"
+  },
+  {
+    "id": "generic-148",
+    "title": "ridge pictogram 8",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_148.svg"
+  },
+  {
+    "id": "generic-149",
+    "title": "tree pictogram 8",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_149.svg"
+  },
+  {
+    "id": "generic-150",
+    "title": "globe pictogram 8",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_150.svg"
+  },
+  {
+    "id": "generic-151",
+    "title": "capitol pictogram 8",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_151.svg"
+  },
+  {
+    "id": "generic-152",
+    "title": "tower pictogram 8",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_152.svg"
+  },
+  {
+    "id": "generic-153",
+    "title": "water pictogram 8",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_153.svg"
+  },
+  {
+    "id": "generic-154",
+    "title": "lighthouse pictogram 8",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_154.svg"
+  },
+  {
+    "id": "generic-155",
+    "title": "trail pictogram 8",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_155.svg"
+  },
+  {
+    "id": "generic-156",
+    "title": "city pictogram 8",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_156.svg"
+  },
+  {
+    "id": "generic-157",
+    "title": "river pictogram 8",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_157.svg"
+  },
+  {
+    "id": "generic-158",
+    "title": "fort pictogram 8",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_158.svg"
+  },
+  {
+    "id": "generic-159",
+    "title": "peak pictogram 8",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_159.svg"
+  },
+  {
+    "id": "generic-160",
+    "title": "building pictogram 8",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_160.svg"
+  },
+  {
+    "id": "generic-161",
+    "title": "mountain pictogram 9",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_161.svg"
+  },
+  {
+    "id": "generic-162",
+    "title": "historic-house pictogram 9",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_162.svg"
+  },
+  {
+    "id": "generic-163",
+    "title": "monument pictogram 9",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_163.svg"
+  },
+  {
+    "id": "generic-164",
+    "title": "bridge pictogram 9",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_164.svg"
+  },
+  {
+    "id": "generic-165",
+    "title": "compass pictogram 9",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_165.svg"
+  },
+  {
+    "id": "generic-166",
+    "title": "spire pictogram 9",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_166.svg"
+  },
+  {
+    "id": "generic-167",
+    "title": "museum pictogram 9",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_167.svg"
+  },
+  {
+    "id": "generic-168",
+    "title": "ridge pictogram 9",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_168.svg"
+  },
+  {
+    "id": "generic-169",
+    "title": "tree pictogram 9",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_169.svg"
+  },
+  {
+    "id": "generic-170",
+    "title": "globe pictogram 9",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_170.svg"
+  },
+  {
+    "id": "generic-171",
+    "title": "capitol pictogram 9",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_171.svg"
+  },
+  {
+    "id": "generic-172",
+    "title": "tower pictogram 9",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_172.svg"
+  },
+  {
+    "id": "generic-173",
+    "title": "water pictogram 9",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_173.svg"
+  },
+  {
+    "id": "generic-174",
+    "title": "lighthouse pictogram 9",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_174.svg"
+  },
+  {
+    "id": "generic-175",
+    "title": "trail pictogram 9",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_175.svg"
+  },
+  {
+    "id": "generic-176",
+    "title": "city pictogram 9",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_176.svg"
+  },
+  {
+    "id": "generic-177",
+    "title": "river pictogram 9",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_177.svg"
+  },
+  {
+    "id": "generic-178",
+    "title": "fort pictogram 9",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_178.svg"
+  },
+  {
+    "id": "generic-179",
+    "title": "peak pictogram 9",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_179.svg"
+  },
+  {
+    "id": "generic-180",
+    "title": "building pictogram 9",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_180.svg"
+  },
+  {
+    "id": "generic-181",
+    "title": "mountain pictogram 10",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_181.svg"
+  },
+  {
+    "id": "generic-182",
+    "title": "historic-house pictogram 10",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_182.svg"
+  },
+  {
+    "id": "generic-183",
+    "title": "monument pictogram 10",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_183.svg"
+  },
+  {
+    "id": "generic-184",
+    "title": "bridge pictogram 10",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_184.svg"
+  },
+  {
+    "id": "generic-185",
+    "title": "compass pictogram 10",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_185.svg"
+  },
+  {
+    "id": "generic-186",
+    "title": "spire pictogram 10",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_186.svg"
+  },
+  {
+    "id": "generic-187",
+    "title": "museum pictogram 10",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_187.svg"
+  },
+  {
+    "id": "generic-188",
+    "title": "ridge pictogram 10",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_188.svg"
+  },
+  {
+    "id": "generic-189",
+    "title": "tree pictogram 10",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_189.svg"
+  },
+  {
+    "id": "generic-190",
+    "title": "globe pictogram 10",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_190.svg"
+  },
+  {
+    "id": "generic-191",
+    "title": "capitol pictogram 10",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_191.svg"
+  },
+  {
+    "id": "generic-192",
+    "title": "tower pictogram 10",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_192.svg"
+  },
+  {
+    "id": "generic-193",
+    "title": "water pictogram 10",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_193.svg"
+  },
+  {
+    "id": "generic-194",
+    "title": "lighthouse pictogram 10",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_194.svg"
+  },
+  {
+    "id": "generic-195",
+    "title": "trail pictogram 10",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_195.svg"
+  },
+  {
+    "id": "generic-196",
+    "title": "city pictogram 10",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_196.svg"
+  },
+  {
+    "id": "generic-197",
+    "title": "river pictogram 10",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_197.svg"
+  },
+  {
+    "id": "generic-198",
+    "title": "fort pictogram 10",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_198.svg"
+  },
+  {
+    "id": "generic-199",
+    "title": "peak pictogram 10",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_199.svg"
+  },
+  {
+    "id": "generic-200",
+    "title": "building pictogram 10",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_200.svg"
+  },
+  {
+    "id": "generic-201",
+    "title": "mountain pictogram 11",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_201.svg"
+  },
+  {
+    "id": "generic-202",
+    "title": "historic-house pictogram 11",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_202.svg"
+  },
+  {
+    "id": "generic-203",
+    "title": "monument pictogram 11",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_203.svg"
+  },
+  {
+    "id": "generic-204",
+    "title": "bridge pictogram 11",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_204.svg"
+  },
+  {
+    "id": "generic-205",
+    "title": "compass pictogram 11",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_205.svg"
+  },
+  {
+    "id": "generic-206",
+    "title": "spire pictogram 11",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_206.svg"
+  },
+  {
+    "id": "generic-207",
+    "title": "museum pictogram 11",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_207.svg"
+  },
+  {
+    "id": "generic-208",
+    "title": "ridge pictogram 11",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_208.svg"
+  },
+  {
+    "id": "generic-209",
+    "title": "tree pictogram 11",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_209.svg"
+  },
+  {
+    "id": "generic-210",
+    "title": "globe pictogram 11",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_210.svg"
+  },
+  {
+    "id": "generic-211",
+    "title": "capitol pictogram 11",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_211.svg"
+  },
+  {
+    "id": "generic-212",
+    "title": "tower pictogram 11",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_212.svg"
+  },
+  {
+    "id": "generic-213",
+    "title": "water pictogram 11",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_213.svg"
+  },
+  {
+    "id": "generic-214",
+    "title": "lighthouse pictogram 11",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_214.svg"
+  },
+  {
+    "id": "generic-215",
+    "title": "trail pictogram 11",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_215.svg"
+  },
+  {
+    "id": "generic-216",
+    "title": "city pictogram 11",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_216.svg"
+  },
+  {
+    "id": "generic-217",
+    "title": "river pictogram 11",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_217.svg"
+  },
+  {
+    "id": "generic-218",
+    "title": "fort pictogram 11",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_218.svg"
+  },
+  {
+    "id": "generic-219",
+    "title": "peak pictogram 11",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_219.svg"
+  },
+  {
+    "id": "generic-220",
+    "title": "building pictogram 11",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_220.svg"
+  },
+  {
+    "id": "generic-221",
+    "title": "mountain pictogram 12",
+    "category": "mountain",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_221.svg"
+  },
+  {
+    "id": "generic-222",
+    "title": "historic-house pictogram 12",
+    "category": "historic-house",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_222.svg"
+  },
+  {
+    "id": "generic-223",
+    "title": "monument pictogram 12",
+    "category": "monument",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_223.svg"
+  },
+  {
+    "id": "generic-224",
+    "title": "bridge pictogram 12",
+    "category": "bridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_224.svg"
+  },
+  {
+    "id": "generic-225",
+    "title": "compass pictogram 12",
+    "category": "compass",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_225.svg"
+  },
+  {
+    "id": "generic-226",
+    "title": "spire pictogram 12",
+    "category": "spire",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_226.svg"
+  },
+  {
+    "id": "generic-227",
+    "title": "museum pictogram 12",
+    "category": "museum",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_227.svg"
+  },
+  {
+    "id": "generic-228",
+    "title": "ridge pictogram 12",
+    "category": "ridge",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_228.svg"
+  },
+  {
+    "id": "generic-229",
+    "title": "tree pictogram 12",
+    "category": "tree",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_229.svg"
+  },
+  {
+    "id": "generic-230",
+    "title": "globe pictogram 12",
+    "category": "globe",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_230.svg"
+  },
+  {
+    "id": "generic-231",
+    "title": "capitol pictogram 12",
+    "category": "capitol",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_231.svg"
+  },
+  {
+    "id": "generic-232",
+    "title": "tower pictogram 12",
+    "category": "tower",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_232.svg"
+  },
+  {
+    "id": "generic-233",
+    "title": "water pictogram 12",
+    "category": "water",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_233.svg"
+  },
+  {
+    "id": "generic-234",
+    "title": "lighthouse pictogram 12",
+    "category": "lighthouse",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_234.svg"
+  },
+  {
+    "id": "generic-235",
+    "title": "trail pictogram 12",
+    "category": "trail",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_235.svg"
+  },
+  {
+    "id": "generic-236",
+    "title": "city pictogram 12",
+    "category": "city",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_236.svg"
+  },
+  {
+    "id": "generic-237",
+    "title": "river pictogram 12",
+    "category": "river",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_237.svg"
+  },
+  {
+    "id": "generic-238",
+    "title": "fort pictogram 12",
+    "category": "fort",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_238.svg"
+  },
+  {
+    "id": "generic-239",
+    "title": "peak pictogram 12",
+    "category": "peak",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_239.svg"
+  },
+  {
+    "id": "generic-240",
+    "title": "building pictogram 12",
+    "category": "building",
+    "jurisdiction": "global",
+    "landmark": "",
+    "license": "CC0-1.0 (original generated artwork)",
+    "source": "TerrainCraft procedural original",
+    "svg_file": "icons/icon_240.svg"
+  }
+]

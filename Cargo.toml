@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/terraincraft-core", "crates/terraincraft-cli", "crates/terraincraft-desktop"]
+resolver = "2"
