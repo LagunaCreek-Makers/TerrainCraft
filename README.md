@@ -9,6 +9,24 @@ cargo test --workspace
 cargo run -p terraincraft-cli -- examples/demo.csv output 220
 ```
 
+### CLI options
+
+```text
+terraincraft-cli <input> <output_dir> <bed_mm> [options]
+
+  --settings <file.json>      Load print export settings; flags below override it
+  --base-mm <mm>              Base thickness under the terrain (default 3)
+  --connectors <mode>         none | underside | seam-sockets (default none)
+  --seam-dowel-guides         Export seam dowel drilling guides and a printable dowel
+  --repair-winding            Fix inconsistent triangle winding before export
+  --strict-mesh               Write no tile STLs if any tile fails preflight
+  --check-intersections       Run the triangle self-intersection audit
+```
+
+A settings file uses the same names, e.g. `{"base_mm": 10, "connectors": "seam-sockets", "strict_mesh": true}`.
+Earlier releases read these from `TERRAINCRAFT_*` environment variables; those are no longer read, and the CLI prints a warning if one is set.
+
+
 This writes watertight terrain tile STL files and eight **open engraving contour** SVGs. SVGs are **not** closed laser cutting profiles. Do not use them as cut paths without polygonization and validation.
 
 ## Implemented
@@ -234,7 +252,7 @@ annular, closed blind cylindrical pockets and a pocket roof. The original
 post-print drilling templates remain the default. Opt in to integrated sockets:
 
 ```bash
-TERRAINCRAFT_INTEGRATED_SOCKETS=1 cargo run -p terraincraft-cli -- examples/demo.csv out 200
+cargo run -p terraincraft-cli -- examples/demo.csv out 200 --connectors underside
 ```
 
 The desktop process recognizes the same environment variable. **Limitations:**
@@ -258,7 +276,7 @@ The new `terraincraft-core::seam_joints` module identifies shared **vertical til
 Enable the optional CLI export with a base thick enough for the 3 mm dowels (3.3 mm holes, centered at 3 mm):
 
 ```sh
-TERRAINCRAFT_BASE_MM=8 TERRAINCRAFT_SEAM_GUIDES=1 cargo run -p terraincraft-cli -- examples/demo.csv output 220
+cargo run -p terraincraft-cli -- examples/demo.csv output 220 --base-mm 8 --seam-dowel-guides
 ```
 
 Files: `seam_dowel_manifest.csv`, `seam_rXX_cYY_<side>.svg`. The CLI still exports ordinary terrain STLs and the existing underside registration system. **This phase does not yet modify the STL seam walls, provide interlocking dovetails, or produce a verified watertight seam-boolean mesh.** The new module includes pairing and base-thickness tests. Build and test with `cargo test --workspace` on a Rust-equipped machine.
@@ -266,7 +284,7 @@ Files: `seam_dowel_manifest.csv`, `seam_rXX_cYY_<side>.svg`. The CLI still expor
 ## v2.4 — Printable horizontal seam dowels and assembly preflight
 
 - Added `seam_fabrication.rs`: closed, chamfered cylindrical dowel mesh generator; matched-hole geometric preflight; and a simple offline assembly SVG.
-- The CLI now exports `seam_dowel.stl` and `seam_assembly.svg` alongside the existing seam drilling guides and manifest when `TERRAINCRAFT_SEAM_GUIDES=1` or `TERRAINCRAFT_SEAM_DOWELS=1`.
+- The CLI now exports `seam_dowel.stl` and `seam_assembly.svg` alongside the existing seam drilling guides and manifest when `--seam-dowel-guides` or `--seam-dowel-guides`.
 - Each printed dowel spans two adjacent holes of the configured depth. Dowel nominal diameter is smaller than the drill-hole diameter by the configured clearance.
 - Preflight detects unpaired holes, mismatched positions, and holes that are too close to each other.
 - **Important limitation:** This release does NOT boolean-subtract mating sockets into the vertical terrain tile walls. Drill the sidewalls using the SVG guides before installing the printed dowels. The v2.2 underside experimental sockets are unrelated to these sidewall connectors.
@@ -275,26 +293,24 @@ Files: `seam_dowel_manifest.csv`, `seam_rXX_cYY_<side>.svg`. The CLI still expor
 
 ## v2.5 — Experimental sidewall sockets
 
-Set `TERRAINCRAFT_BASE_MM=10 TERRAINCRAFT_SEAM_SOCKETS=1` when invoking the CLI to attempt integrated blind horizontal sockets. This mode replaces selected sidewall triangles with circular openings, pocket walls and end caps. It rejects holes crossing individual DEM wall segments, so **dense DEM grids may fail**; resample the DEM or use the existing drilling guides. Sidewall and underside socket modes cannot currently be combined. Mesh manifoldness and slicer compatibility have **not been verified**. This is an experimental geometry implementation, not production-ready printable joinery.
+Set `--base-mm 10` --connectors seam-sockets` when invoking the CLI to attempt integrated blind horizontal sockets. This mode replaces selected sidewall triangles with circular openings, pocket walls and end caps. It rejects holes crossing individual DEM wall segments, so **dense DEM grids may fail**; resample the DEM or use the existing drilling guides. Sidewall and underside socket modes cannot currently be combined. Mesh manifoldness and slicer compatibility have **not been verified**. This is an experimental geometry implementation, not production-ready printable joinery.
 
 ## v2.6 — Mesh topology audit and strict export mode
 
-Every terrain tile exported by the CLI now receives an entry in `mesh_audit.csv` with triangle count, degenerate triangles, unmatched boundary edges, edges shared by more than two faces, and inconsistently oriented shared edges. The default behavior is **report-only**, preserving experimental exports. Set `TERRAINCRAFT_STRICT_MESH=1` to reject a batch if any tile fails the closed-oriented-manifold audit. The CSV is written before strict-mode failure so you can inspect the problem.
+Every terrain tile exported by the CLI now receives an entry in `mesh_audit.csv` with triangle count, degenerate triangles, unmatched boundary edges, edges shared by more than two faces, and inconsistently oriented shared edges. The default behavior is **report-only**, preserving experimental exports. Set `--strict-mesh` to reject a batch if any tile fails the closed-oriented-manifold audit. The CSV is written before strict-mode failure so you can inspect the problem.
 
 ```sh
-TERRAINCRAFT_BASE_MM=10 TERRAINCRAFT_SEAM_SOCKETS=1 TERRAINCRAFT_STRICT_MESH=1 \
-  cargo run -p terraincraft-cli -- examples/demo.csv output 220
+cargo run -p terraincraft-cli -- examples/demo.csv output 220 --base-mm 10 --connectors seam-sockets --strict-mesh
 ```
 
 The audit uses exact vertex coordinates and edge incidence. It **does not** prove that the mesh is printable: self-intersections, overlapping coplanar triangles, inside-out disconnected shells, minimum wall thickness and physical connector tolerances still require additional validation. This phase does not remove the DEM-segment socket restriction or implement automatic mesh repair. Tests are included but have not been run in this environment.
 
 ## v2.7 — Conservative mesh orientation repair
 
-Set `TERRAINCRAFT_REPAIR_WINDING=1` to attempt to correct inconsistent triangle winding before binary STL export. The new `mesh_repair.rs` module constructs shared-edge adjacency, traverses connected components, and reverses triangles when necessary to make neighboring faces consistently oriented. It refuses to modify meshes with open boundaries, non-manifold edges, degenerate triangles, or contradictory orientation constraints. The CLI writes `mesh_repair.csv` (repair/refusal and flip count), and continues to write the post-repair `mesh_audit.csv`. Combine with `TERRAINCRAFT_STRICT_MESH=1` to reject any remaining invalid topology. This repair does **not** fill holes, remove intersections, reconstruct high-resolution seam sockets, guarantee outward-facing normals, or validate printability.
+Set `--repair-winding` to attempt to correct inconsistent triangle winding before binary STL export. The new `mesh_repair.rs` module constructs shared-edge adjacency, traverses connected components, and reverses triangles when necessary to make neighboring faces consistently oriented. It refuses to modify meshes with open boundaries, non-manifold edges, degenerate triangles, or contradictory orientation constraints. The CLI writes `mesh_repair.csv` (repair/refusal and flip count), and continues to write the post-repair `mesh_audit.csv`. Combine with `--strict-mesh` to reject any remaining invalid topology. This repair does **not** fill holes, remove intersections, reconstruct high-resolution seam sockets, guarantee outward-facing normals, or validate printability.
 
 ```sh
-TERRAINCRAFT_REPAIR_WINDING=1 TERRAINCRAFT_STRICT_MESH=1 \
-  cargo run -p terraincraft-cli -- examples/demo.csv output 220
+cargo run -p terraincraft-cli -- examples/demo.csv output 220 --repair-winding --strict-mesh
 ```
 
 The module has unit tests for reversed faces, already-correct faces and open mesh refusal. Run `cargo test --workspace` in an environment with Cargo installed. Compilation and tests have not been verified in this environment.
@@ -305,7 +321,7 @@ The module has unit tests for reversed faces, already-correct faces and open mes
 New `manufacturing.rs` computes axis-aligned bounds, signed enclosed volume (mm³),
 triangle surface area (mm²), and finite-coordinate checks. The CLI now writes
 `manufacturing_report.csv` for every tile alongside `mesh_audit.csv`.
-`TERRAINCRAFT_STRICT_MESH=1` rejects tiles with open/nonmanifold or inconsistent
+`--strict-mesh` rejects tiles with open/nonmanifold or inconsistent
 mesh topology, inward-facing shells (negative signed volume), or invalid extents.
 
 **Limitations:** This is a conservative *review gate*, not printability certification.
@@ -316,9 +332,9 @@ Rust compilation are still required.
 
 ## v2.9 — Optional triangle crossing preflight
 
-Set `TERRAINCRAFT_CHECK_INTERSECTIONS=1` to produce `intersection_report.csv` for exported terrain tiles. The Rust-only detector tests strict, non-coplanar triangle/segment crossings after bounding-box filtering. It excludes pairs sharing an exact vertex, does **not** resolve coplanar overlaps, and caps expensive pair tests at 250,000 per tile. A report with `complete=false` is **inconclusive**, not a clean bill of health. With `TERRAINCRAFT_STRICT_MESH=1`, detected crossings and incomplete scans reject the export. This is a diagnostic step, **not** automatic repair or proof of watertightness. For dense meshes a spatial acceleration structure and robust coplanar predicates remain necessary.
+Set `--check-intersections` to produce `intersection_report.csv` for exported terrain tiles. The Rust-only detector tests strict, non-coplanar triangle/segment crossings after bounding-box filtering. It excludes pairs sharing an exact vertex, does **not** resolve coplanar overlaps, and caps expensive pair tests at 250,000 per tile. A report with `complete=false` is **inconclusive**, not a clean bill of health. With `--strict-mesh`, detected crossings and incomplete scans reject the export. This is a diagnostic step, **not** automatic repair or proof of watertightness. For dense meshes a spatial acceleration structure and robust coplanar predicates remain necessary.
 
-Example: `TERRAINCRAFT_CHECK_INTERSECTIONS=1 TERRAINCRAFT_STRICT_MESH=1 cargo run -p terraincraft-cli -- examples/demo.csv output 220`.
+Example: `cargo run -p terraincraft-cli -- examples/demo.csv output 220 --check-intersections --strict-mesh`.
 
 
 ## v3.0 — Sweep-and-prune intersection acceleration (source-only)
@@ -331,7 +347,7 @@ Example: `TERRAINCRAFT_CHECK_INTERSECTIONS=1 TERRAINCRAFT_STRICT_MESH=1 cargo ru
 
 ## v3.1 — Sidewall socket preflight and assembly preview
 
-When `TERRAINCRAFT_SEAM_SOCKETS=1`, the CLI now writes `seam_socket_preflight.csv`
+With `--connectors seam-sockets`, the CLI now writes `seam_socket_preflight.csv`
 and `seam_socket_preview.svg` before generating STLs. The preview is a plan-view
 schematic of tile outlines and connector locations: green markers meet the
 current socket-mesher's geometric restrictions; red markers do not. Invalid
@@ -343,7 +359,7 @@ new Boolean geometry engine. The preview is not a drilling template.
 
 ## v3.2 — Coplanar mesh intersection checks
 
-The optional `TERRAINCRAFT_CHECK_INTERSECTIONS=1` audit now detects positive-area coplanar triangle overlaps in addition to non-coplanar crossings. `intersection_report.csv` includes a `coplanar_overlaps` column; overlaps also contribute to the `crossings` total, so existing strict validation rejects them. Three new tests cover contained coplanar triangles, edge contact, and separate parallel planes.
+The optional `--check-intersections` audit now detects positive-area coplanar triangle overlaps in addition to non-coplanar crossings. `intersection_report.csv` includes a `coplanar_overlaps` column; overlaps also contribute to the `crossings` total, so existing strict validation rejects them. Three new tests cover contained coplanar triangles, edge contact, and separate parallel planes.
 
 **Limitations:** Faces sharing exact vertices remain excluded from intersection testing, and tangent contacts or numerical edge cases can be missed. Integrated sidewall sockets are still limited by DEM segment width; v3.2 does not implement high-resolution socket reconstruction. Compilation and runtime validation are not claimed.
 
@@ -406,9 +422,7 @@ sockets that span multiple raster cells, while still rejecting sockets outside t
 base, too deep for the tile, or overlapping other sockets. Run with:
 
 ```bash
-TERRAINCRAFT_BASE_MM=10 TERRAINCRAFT_SEAM_SOCKETS=1 \
-TERRAINCRAFT_STRICT_MESH=1 TERRAINCRAFT_CHECK_INTERSECTIONS=1 \
-cargo run -p terraincraft-cli -- examples/demo.csv output 220
+cargo run -p terraincraft-cli -- examples/demo.csv output 220 --base-mm 10 --connectors seam-sockets --strict-mesh --check-intersections
 ```
 
 **Unverified:** Rust compilation and mesh topology checks have not been run in the
@@ -439,16 +453,14 @@ intersection checking, slicer inspection, and fit calibration.
 ## v4.1 — Fail-closed connector exports and strict preflight
 
 - Integrated seam-socket mesh generation now checks for a closed, consistently wound manifold **before returning geometry**. Invalid connector meshes produce an error instead of a printable STL.
-- The CLI now generates and audits **all** terrain tiles before writing any tile STL. With `TERRAINCRAFT_STRICT_MESH=1`, a failed preflight writes diagnostic CSVs and exits without writing terrain STLs.
+- The CLI now generates and audits **all** terrain tiles before writing any tile STL. With `--strict-mesh`, a failed preflight writes diagnostic CSVs and exits without writing terrain STLs.
 - Existing STLs in a reused output directory are **not deleted**. Use a new/empty output directory for a strict manufacturing run.
 - This is not a mesh Boolean repair engine. Socket triangulation, self-intersection detection, printer fit, and GUI rendering still need compiled and physical verification.
 
 Example:
 
 ```sh
-TERRAINCRAFT_BASE_MM=10 TERRAINCRAFT_SEAM_SOCKETS=1 \
-TERRAINCRAFT_STRICT_MESH=1 TERRAINCRAFT_CHECK_INTERSECTIONS=1 \
-cargo run -p terraincraft-cli -- examples/demo.csv output_v4_1 220
+cargo run -p terraincraft-cli -- examples/demo.csv output_v4_1 220 --base-mm 10 --connectors seam-sockets --strict-mesh --check-intersections
 ```
 
 ## v4.2 — shaded desktop assembly view (experimental)

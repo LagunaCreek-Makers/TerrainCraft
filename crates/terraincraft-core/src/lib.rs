@@ -4,6 +4,7 @@ pub mod cartography;
 pub mod contours;
 pub mod engraving_editor;
 pub mod engraving_preview;
+pub mod export_settings;
 pub mod geotiff;
 pub mod geoview;
 pub mod gis;

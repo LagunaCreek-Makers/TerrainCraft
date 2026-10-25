@@ -1,20 +1,101 @@
-use std::{env, fs, path::PathBuf};
+use clap::Parser;
+use std::{fs, path::PathBuf};
+use terraincraft_core::export_settings::{ConnectorMode, PrintExportSettings};
 use terraincraft_core::gis::read_asc;
 use terraincraft_core::laser::{cut_parts, layout, sheet_svg, split_oversized};
 use terraincraft_core::{mesh, tiles, Dem, TerrainSettings};
-fn run() -> Result<(), Box<dyn std::error::Error>> {
-    let args: Vec<String> = env::args().collect();
-    if args.len() != 4 {
-        return Err("Usage: terraincraft-cli <heightmap.csv|grid.asc|dem.tif> <output_dir> <bed_mm>\nCSV rows must contain numeric elevations; no header. Demo input: examples/demo.csv".into());
+
+/// Generate 3D-print terrain tiles, laser sheets and contour engravings from an elevation grid.
+#[derive(Parser)]
+#[command(
+    version,
+    after_help = "CSV rows must contain numeric elevations; no header. Demo input: examples/demo.csv"
+)]
+struct Args {
+    /// Elevation input: .csv heightmap, .asc ESRI ASCII grid, or uncompressed .tif
+    input: PathBuf,
+    /// Directory to write outputs into (created if missing)
+    output: PathBuf,
+    /// Square print bed size in millimeters
+    bed_mm: f64,
+    /// JSON file of print export settings; command-line flags override it
+    #[arg(long)]
+    settings: Option<PathBuf>,
+    /// Base thickness under the terrain, in millimeters [default: 3]
+    #[arg(long)]
+    base_mm: Option<f64>,
+    /// Alignment features cut into each tile: none, underside or seam-sockets
+    #[arg(long)]
+    connectors: Option<ConnectorMode>,
+    /// Also export seam dowel drilling guides, manifest and printable dowel
+    #[arg(long)]
+    seam_dowel_guides: bool,
+    /// Attempt to fix inconsistent triangle winding before export
+    #[arg(long)]
+    repair_winding: bool,
+    /// Write no tile STLs if any tile fails manufacturing preflight
+    #[arg(long)]
+    strict_mesh: bool,
+    /// Run the triangle self-intersection audit on every tile
+    #[arg(long)]
+    check_intersections: bool,
+}
+
+impl Args {
+    fn export_settings(&self) -> Result<PrintExportSettings, String> {
+        let mut s = match &self.settings {
+            Some(path) => PrintExportSettings::from_json(
+                &fs::read_to_string(path).map_err(|e| format!("{}: {e}", path.display()))?,
+            )?,
+            None => PrintExportSettings::default(),
+        };
+        if let Some(base) = self.base_mm {
+            s.base_mm = base;
+        }
+        if let Some(mode) = self.connectors {
+            s.connectors = mode;
+        }
+        s.seam_dowel_guides |= self.seam_dowel_guides;
+        s.repair_winding |= self.repair_winding;
+        s.strict_mesh |= self.strict_mesh;
+        s.check_intersections |= self.check_intersections;
+        s.validate()?;
+        Ok(s)
     }
-    let is_tif = args[1].to_ascii_lowercase().ends_with(".tif")
-        || args[1].to_ascii_lowercase().ends_with(".tiff");
+}
+
+/// Earlier releases read options from TERRAINCRAFT_* environment variables. Warn rather
+/// than silently ignoring them so existing scripts don't quietly change behavior.
+fn warn_legacy_env() {
+    for (var, flag) in [
+        ("TERRAINCRAFT_BASE_MM", "--base-mm <mm>"),
+        ("TERRAINCRAFT_INTEGRATED_SOCKETS", "--connectors underside"),
+        ("TERRAINCRAFT_SEAM_SOCKETS", "--connectors seam-sockets"),
+        ("TERRAINCRAFT_SEAM_GUIDES", "--seam-dowel-guides"),
+        ("TERRAINCRAFT_SEAM_DOWELS", "--seam-dowel-guides"),
+        ("TERRAINCRAFT_REPAIR_WINDING", "--repair-winding"),
+        ("TERRAINCRAFT_STRICT_MESH", "--strict-mesh"),
+        ("TERRAINCRAFT_CHECK_INTERSECTIONS", "--check-intersections"),
+    ] {
+        if std::env::var_os(var).is_some() {
+            eprintln!("Warning: {var} is no longer read; use {flag} instead");
+        }
+    }
+}
+
+fn run() -> Result<(), Box<dyn std::error::Error>> {
+    warn_legacy_env();
+    let args = Args::parse();
+    let opts = args.export_settings()?;
+    let input_path = &args.input;
+    let lower = input_path.to_string_lossy().to_ascii_lowercase();
+    let is_tif = lower.ends_with(".tif") || lower.ends_with(".tiff");
     let input = if is_tif {
         String::new()
     } else {
-        fs::read_to_string(&args[1])?
+        fs::read_to_string(input_path)?
     };
-    let is_asc = args[1].to_ascii_lowercase().ends_with(".asc");
+    let is_asc = lower.ends_with(".asc");
     let rows: Vec<Vec<f64>> = if is_asc || is_tif {
         Vec::new()
     } else {
@@ -29,7 +110,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             .collect::<Result<Vec<_>, _>>()?
     };
     let dem = if is_tif {
-        terraincraft_core::geotiff::decode(&fs::read(&args[1])?)?
+        terraincraft_core::geotiff::decode(&fs::read(input_path)?)?
     } else if is_asc {
         read_asc(&input)?.dem
     } else {
@@ -40,16 +121,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         Dem::new(w, h, rows.into_iter().flatten().collect())?
     };
-    let output = PathBuf::from(&args[2]);
+    let output = args.output.clone();
     fs::create_dir_all(&output)?;
-    let bed: f64 = args[3].parse()?;
+    let bed = args.bed_mm;
     let s = TerrainSettings {
         width_mm: 400.,
         height_mm: 300.,
-        base_mm: std::env::var("TERRAINCRAFT_BASE_MM")
-            .ok()
-            .and_then(|v| v.parse::<f64>().ok())
-            .unwrap_or(3.),
+        base_mm: opts.base_mm,
         vertical_exaggeration: 2.,
         relief_mm: 25.,
     };
@@ -61,11 +139,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     )?;
     let reg = terraincraft_core::registration::RegistrationSettings::default();
     let guides = terraincraft_core::registration::guides(&dem, s, &tile_list, reg)?;
-    let integrated = std::env::var("TERRAINCRAFT_INTEGRATED_SOCKETS")
-        .ok()
-        .as_deref()
-        == Some("1");
-    let seam_integrated = std::env::var("TERRAINCRAFT_SEAM_SOCKETS").ok().as_deref() == Some("1");
+    let integrated = opts.connectors == ConnectorMode::Underside;
+    let seam_integrated = opts.connectors == ConnectorMode::SeamSockets;
     let seam_holes = if seam_integrated {
         Some(terraincraft_core::seam_joints::plan(
             &dem,
@@ -76,9 +151,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         None
     };
-    if seam_integrated && integrated {
-        return Err("Combining underside and sidewall sockets is not yet supported".into());
-    }
     if let Some(ref holes) = seam_holes {
         let checks = terraincraft_core::seam_preflight::inspect(&dem, s, &tile_list, holes)?;
         fs::write(
@@ -91,19 +163,16 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         )?;
         let failed = checks.iter().filter(|c| !c.compatible).count();
         if failed > 0 {
-            return Err(format!("{failed} sidewall sockets are incompatible with the current DEM mesh; see seam_socket_preflight.csv and seam_socket_preview.svg. Use seam drilling guides or a coarser DEM.").into());
+            return Err(format!("{failed} sidewall sockets are incompatible with the current DEM mesh; see seam_socket_preflight.csv and seam_socket_preview.svg. Use --seam-dowel-guides or a coarser DEM.").into());
         }
     }
-    let repair_winding = std::env::var("TERRAINCRAFT_REPAIR_WINDING").ok().as_deref() == Some("1");
+    let repair_winding = opts.repair_winding;
     let mut repair_csv = String::from("filename,status,flipped_triangles,details\n");
-    let strict_mesh = std::env::var("TERRAINCRAFT_STRICT_MESH").ok().as_deref() == Some("1");
+    let strict_mesh = opts.strict_mesh;
     let mut audit_csv = String::from(terraincraft_core::mesh_audit::CSV_HEADER);
     let mut invalid_tiles = Vec::new();
     let mut manufacturing_csv = String::from(terraincraft_core::manufacturing::CSV_HEADER);
-    let check_intersections = std::env::var("TERRAINCRAFT_CHECK_INTERSECTIONS")
-        .ok()
-        .as_deref()
-        == Some("1");
+    let check_intersections = opts.check_intersections;
     let mut intersection_csv=String::from("filename,tested_pairs,crossings,coplanar_overlaps,skipped_shared_vertex_pairs,broadphase_candidates,complete\n");
     let mut assembly_meshes: Vec<(terraincraft_core::Tile, Vec<[[f64; 3]; 3]>)> = Vec::new();
     for (tile, guide) in tile_list.iter().zip(&guides) {
@@ -225,9 +294,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         &terraincraft_core::registration::pin_mesh(reg, 32)?,
     )?;
 
-    if std::env::var("TERRAINCRAFT_SEAM_GUIDES").ok().as_deref() == Some("1")
-        || std::env::var("TERRAINCRAFT_SEAM_DOWELS").ok().as_deref() == Some("1")
-    {
+    if opts.seam_dowel_guides {
         let cfg = terraincraft_core::seam_joints::SeamSettings::default();
         let holes = terraincraft_core::seam_joints::plan(&dem, &tile_list, s, cfg)?;
         fs::write(
