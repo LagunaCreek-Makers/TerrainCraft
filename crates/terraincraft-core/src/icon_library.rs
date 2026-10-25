@@ -1,14 +1,24 @@
 //! Single-pass black-and-white SVG icon library with provenance metadata.
 //! Icons are original procedural pictograms, not depictions of specific landmarks.
-use serde::{Deserialize,Serialize};
-#[derive(Clone,Debug,Serialize,Deserialize)]
-pub struct IconRecord {pub id:String,pub title:String,pub category:String,pub jurisdiction:String,pub landmark:String,pub license:String,pub source:String,pub svg_file:String}
+use serde::{Deserialize, Serialize};
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct IconRecord {
+    pub id: String,
+    pub title: String,
+    pub category: String,
+    pub jurisdiction: String,
+    pub landmark: String,
+    pub license: String,
+    pub source: String,
+    pub svg_file: String,
+}
 /// 240 distinct geometric pictograms, suitable for SVG engraving and scalable to regions.
-pub fn procedural_icon(index:usize)->String {
- let kind=index%20; let variant=index/20;
- let mut paths=String::new();
- let y=6+(variant%4) as i32;
- match kind {
+pub fn procedural_icon(index: usize) -> String {
+    let kind = index % 20;
+    let variant = index / 20;
+    let mut paths = String::new();
+    let y = 6 + (variant % 4) as i32;
+    match kind {
   0=>paths.push_str("<path d='M4 54 L32 8 L60 54 Z M18 54 L32 30 L46 54'/>"),
   1=>paths.push_str("<path d='M8 56 V25 L32 6 L56 25 V56 Z M25 56 V38 H39 V56'/>"),
   2=>paths.push_str("<path d='M8 56 H56 M13 56 V17 H51 V56 M8 17 H56 M20 17 V8 H44 V17 M23 56 V34 H41 V56'/>"),
@@ -30,22 +40,57 @@ pub fn procedural_icon(index:usize)->String {
   18=>paths.push_str("<path d='M6 54 L32 8 L58 54 M12 43 H52 M20 30 H44 M32 8 V54'/>"),
   _=>paths.push_str("<path d='M8 54 H56 M16 54 V14 H48 V54 M10 14 H54 M25 14 V5 H39 V14 M24 54 V33 H40 V54'/>"),
  }
- // 12 distinctive secondary motifs, kept within 64x64 and in one monochrome stroke.
- if variant%3==0 { paths.push_str(&format!("<path d='M{} 58 H{}'/>",8+variant%8,56-variant%8)); }
- else if variant%3==1 { paths.push_str(&format!("<circle cx='{}' cy='{}' r='2'/>",14+variant%30,y+1)); }
- else { paths.push_str(&format!("<path d='M{} 59 l4 -4 l4 4'/>",12+variant%30)); }
- format!("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'><g fill='none' stroke='#000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'>{paths}</g></svg>")
+    // 12 distinctive secondary motifs, kept within 64x64 and in one monochrome stroke.
+    if variant % 3 == 0 {
+        paths.push_str(&format!(
+            "<path d='M{} 58 H{}'/>",
+            8 + variant % 8,
+            56 - variant % 8
+        ));
+    } else if variant % 3 == 1 {
+        paths.push_str(&format!(
+            "<circle cx='{}' cy='{}' r='2'/>",
+            14 + variant % 30,
+            y + 1
+        ));
+    } else {
+        paths.push_str(&format!("<path d='M{} 59 l4 -4 l4 4'/>", 12 + variant % 30));
+    }
+    format!("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'><g fill='none' stroke='#000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'>{paths}</g></svg>")
 }
 /// Insert an icon into a single-layer engraving without changing the underlying SVG.
-pub fn overlay_icon(mut svg:String,icon:&str,x_mm:f64,y_mm:f64,size_mm:f64)->Result<String,String>{
- if ![x_mm,y_mm,size_mm].iter().all(|x|x.is_finite())||size_mm<=0.||size_mm>1000. {return Err("Invalid icon placement".into())}
- let start=icon.find("<g ").ok_or("Icon must contain a vector group")?;
- let end=icon.rfind("</g>").ok_or("Invalid icon group")?+4;
- let inner=&icon[start..end];
- let group=format!("<g id=\"terraincraft-engraving-icon\" transform=\"translate({x_mm:.3} {y_mm:.3}) scale({:.6})\">{inner}</g>\n",size_mm/64.);
- let pos=svg.rfind("</svg>").ok_or("Missing SVG closing tag")?;svg.insert_str(pos,&group);Ok(svg)
+pub fn overlay_icon(
+    mut svg: String,
+    icon: &str,
+    x_mm: f64,
+    y_mm: f64,
+    size_mm: f64,
+) -> Result<String, String> {
+    if ![x_mm, y_mm, size_mm].iter().all(|x| x.is_finite()) || size_mm <= 0. || size_mm > 1000. {
+        return Err("Invalid icon placement".into());
+    }
+    let start = icon.find("<g ").ok_or("Icon must contain a vector group")?;
+    let end = icon.rfind("</g>").ok_or("Invalid icon group")? + 4;
+    let inner = &icon[start..end];
+    let group=format!("<g id=\"terraincraft-engraving-icon\" transform=\"translate({x_mm:.3} {y_mm:.3}) scale({:.6})\">{inner}</g>\n",size_mm/64.);
+    let pos = svg.rfind("</svg>").ok_or("Missing SVG closing tag")?;
+    svg.insert_str(pos, &group);
+    Ok(svg)
 }
-#[cfg(test)]mod tests {use super::*;
- #[test]fn icons_are_monochrome_vectors(){for i in 0..240{let s=procedural_icon(i);assert!(s.contains("stroke='#000'"));assert!(!s.contains("<image"));}}
- #[test]fn overlays(){let s=overlay_icon("<svg></svg>".into(),&procedural_icon(3),20.,30.,12.).unwrap();assert!(s.contains("translate(20.000 30.000)"));}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn icons_are_monochrome_vectors() {
+        for i in 0..240 {
+            let s = procedural_icon(i);
+            assert!(s.contains("stroke='#000'"));
+            assert!(!s.contains("<image"));
+        }
+    }
+    #[test]
+    fn overlays() {
+        let s = overlay_icon("<svg></svg>".into(), &procedural_icon(3), 20., 30., 12.).unwrap();
+        assert!(s.contains("translate(20.000 30.000)"));
+    }
 }
