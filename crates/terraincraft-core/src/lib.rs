@@ -20,12 +20,14 @@ pub mod mesh_repair;
 pub mod nodata;
 pub mod peaks;
 pub mod print_export;
+pub mod projection;
 pub mod registration;
 pub mod seam_fabrication;
 pub mod seam_joints;
 pub mod seam_preflight;
 pub mod seam_socket_mesh;
 pub mod socket_mesh;
+pub mod terrain_ops;
 use std::{
     fs::File,
     io::{self, Write},

@@ -26,6 +26,16 @@ terraincraft-cli <input> <output_dir> <bed_mm> [options]
 Model size: `--width-mm <mm>` (default 400) and `--exaggeration <x>`.
 GeoTIFF input (e.g. a USGS 3DEP download) is read with its georeference and printed at **true scale**: depth follows the ground extent and relief is the real vertical scale times the exaggeration (default 1). CSV grids have no ground size, so they use a 4:3 footprint with 25 mm of relief (exaggeration default 2). Nodata samples in GeoTIFF and ASCII grids are filled from their surroundings.
 
+**Download and terrain processing**
+
+- Input `usgs:WEST,SOUTH,EAST,NORTH` downloads USGS 3DEP elevation directly, e.g. `usgs:-121.85,46.8,-121.7,46.9` for Mount Rainier. Large areas are split into several requests on one shared pixel grid and stitched (up to 8192 px per side). `--resolution <px>` sets the long side; by default it targets ~0.5 mm per sample on the model, capped at the ~10 m native resolution. The raw download is saved as `usgs_elevation.tif`.
+- `--utm` resamples latitude/longitude data onto a UTM grid; recommended for regions more than about a degree across. Edges are trimmed slightly because the area is rotated by grid convergence in UTM.
+- `--smooth <samples>` applies Gaussian smoothing.
+- `--sea-level <m>` flattens everything at or below that elevation; `--water-depth <m>` recesses the flattened water so the coastline stays visible at true scale.
+- `--dem-only` writes the processed grid as `terrain.tif` and skips the manufacturing files.
+
+Example: `cargo run -p terraincraft-cli -- usgs:-122.6,37.7,-122.4,37.85 out 220 --width-mm 300 --sea-level 0 --water-depth 30 --exaggeration 2`
+
 A settings file uses the same names, e.g. `{"base_mm": 10, "connectors": "seam-sockets", "strict_mesh": true}`.
 Earlier releases read these from `TERRAINCRAFT_*` environment variables; those are no longer read, and the CLI prints a warning if one is set.
 

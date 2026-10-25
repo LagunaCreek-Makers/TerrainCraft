@@ -4,5 +4,5 @@ version = "0.3.0"
 edition = "2021"
 
 [dependencies]
-terraincraft-core = { path = "../terraincraft-core" }
+terraincraft-core = { path = "../terraincraft-core", features = ["download"] }
 clap = { version = "4.5", features = ["derive"] }

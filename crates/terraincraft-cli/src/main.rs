@@ -1,18 +1,25 @@
 use clap::Parser;
 use std::{fs, path::PathBuf};
 use terraincraft_core::export_settings::{ConnectorMode, PrintExportSettings};
+use terraincraft_core::georef::CrsUnits;
 use terraincraft_core::gis::read_asc;
 use terraincraft_core::laser::{cut_parts, layout, sheet_svg, split_oversized};
+use terraincraft_core::terrain_ops::{prepare, TerrainPrep};
+use terraincraft_core::usgs::Bounds;
 use terraincraft_core::{mesh, tiles, Dem, TerrainSettings};
 
 /// Generate 3D-print terrain tiles, laser sheets and contour engravings from an elevation grid.
 #[derive(Parser)]
 #[command(
     version,
-    after_help = "CSV rows must contain numeric elevations; no header. Demo input: examples/demo.csv"
+    after_help = concat!(
+        "CSV rows must contain numeric elevations; no header. Demo input: examples/demo.csv\n",
+        "Download from USGS 3DEP with an input of usgs:WEST,SOUTH,EAST,NORTH in degrees,\n",
+        "e.g. usgs:-121.85,46.8,-121.7,46.9 (Mount Rainier)."
+    )
 )]
 struct Args {
-    /// Elevation input: .csv heightmap, .asc ESRI ASCII grid, or uncompressed .tif
+    /// Elevation input: .csv heightmap, .asc ESRI ASCII grid, GeoTIFF, or usgs:W,S,E,N
     input: PathBuf,
     /// Directory to write outputs into (created if missing)
     output: PathBuf,
@@ -45,6 +52,91 @@ struct Args {
     /// Vertical exaggeration [default: 1 for georeferenced input, else 2]
     #[arg(long)]
     exaggeration: Option<f64>,
+    /// Pixels along the longer side for usgs: downloads [default: about 0.5 mm per
+    /// sample on the model, capped at the ~10 m native resolution]
+    #[arg(long)]
+    resolution: Option<u32>,
+    /// Resample latitude/longitude data onto a UTM grid (recommended above ~1 degree)
+    #[arg(long)]
+    utm: bool,
+    /// Gaussian smoothing radius in samples
+    #[arg(long, default_value_t = 0.)]
+    smooth: f64,
+    /// Flatten elevations at or below this level in meters (0 = sea level)
+    #[arg(long)]
+    sea_level: Option<f64>,
+    /// Recess flattened water this many meters below the sea level
+    #[arg(long, default_value_t = 0.)]
+    water_depth: f64,
+    /// Only write the processed elevation grid (terrain.tif) and skip manufacturing files
+    #[arg(long)]
+    dem_only: bool,
+}
+
+/// Load the elevation input, returning the DEM and the number of nodata samples filled.
+fn load_input(args: &Args) -> Result<(Dem, usize), Box<dyn std::error::Error>> {
+    let text = args.input.to_string_lossy();
+    if let Some(spec) = text.strip_prefix("usgs:") {
+        let v: Vec<f64> = spec
+            .split(',')
+            .map(|p| p.trim().parse::<f64>())
+            .collect::<Result<_, _>>()
+            .map_err(|_| "usgs: input must be four numbers: WEST,SOUTH,EAST,NORTH")?;
+        let [west, south, east, north] = v[..] else {
+            return Err("usgs: input must be four numbers: WEST,SOUTH,EAST,NORTH".into());
+        };
+        let bounds = Bounds {
+            west,
+            south,
+            east,
+            north,
+        };
+        bounds.validate()?;
+        let long_side = args
+            .resolution
+            .unwrap_or_else(|| bounds.suggested_long_side(args.width_mm, 0.5));
+        let plan = bounds.plan_download(long_side)?;
+        eprintln!(
+            "Downloading {} x {} samples from USGS 3DEP in {} request(s)",
+            plan.width,
+            plan.height,
+            plan.tiles.len()
+        );
+        let r = terraincraft_core::usgs::download(&bounds, long_side, &mut |done, total| {
+            eprintln!("  {done}/{total}")
+        })?;
+        fs::create_dir_all(&args.output)?;
+        fs::write(
+            args.output.join("usgs_elevation.tif"),
+            terraincraft_core::geotiff::encode(&r.dem)?,
+        )?;
+        return Ok((r.dem, r.filled_cells));
+    }
+    let lower = text.to_ascii_lowercase();
+    if lower.ends_with(".tif") || lower.ends_with(".tiff") {
+        let r = terraincraft_core::geotiff::decode(&fs::read(&args.input)?)?;
+        return Ok((r.dem, r.filled_cells));
+    }
+    let input = fs::read_to_string(&args.input)?;
+    if lower.ends_with(".asc") {
+        let g = read_asc(&input)?;
+        return Ok((g.dem, g.filled_cells));
+    }
+    let rows: Vec<Vec<f64>> = input
+        .lines()
+        .filter(|s| !s.trim().is_empty())
+        .map(|line| {
+            line.split(',')
+                .map(|v| v.trim().parse::<f64>())
+                .collect::<Result<Vec<_>, _>>()
+        })
+        .collect::<Result<Vec<_>, _>>()?;
+    let w = rows.first().ok_or("Empty CSV")?.len();
+    if rows.iter().any(|r| r.len() != w) {
+        return Err("CSV must be rectangular".into());
+    }
+    let h = rows.len();
+    Ok((Dem::new(w, h, rows.into_iter().flatten().collect())?, 0))
 }
 
 impl Args {
@@ -93,44 +185,44 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     warn_legacy_env();
     let args = Args::parse();
     let opts = args.export_settings()?;
-    let input_path = &args.input;
-    let lower = input_path.to_string_lossy().to_ascii_lowercase();
-    let is_tif = lower.ends_with(".tif") || lower.ends_with(".tiff");
-    let input = if is_tif {
-        String::new()
-    } else {
-        fs::read_to_string(input_path)?
-    };
-    let is_asc = lower.ends_with(".asc");
-    let rows: Vec<Vec<f64>> = if is_asc || is_tif {
-        Vec::new()
-    } else {
-        input
-            .lines()
-            .filter(|s| !s.trim().is_empty())
-            .map(|line| {
-                line.split(',')
-                    .map(|v| v.trim().parse::<f64>())
-                    .collect::<Result<Vec<_>, _>>()
-            })
-            .collect::<Result<Vec<_>, _>>()?
-    };
-    let (dem, filled) = if is_tif {
-        let r = terraincraft_core::geotiff::decode(&fs::read(input_path)?)?;
-        (r.dem, r.filled_cells)
-    } else if is_asc {
-        let g = read_asc(&input)?;
-        (g.dem, g.filled_cells)
-    } else {
-        let h = rows.len();
-        let w = rows.first().ok_or("Empty CSV")?.len();
-        if rows.iter().any(|r| r.len() != w) {
-            return Err("CSV must be rectangular".into());
-        }
-        (Dem::new(w, h, rows.into_iter().flatten().collect())?, 0)
-    };
+    let (source, filled) = load_input(&args)?;
     if filled > 0 {
         eprintln!("Filled {filled} missing elevation samples from their surroundings");
+    }
+    let prep = TerrainPrep {
+        utm: args.utm,
+        smooth_sigma: args.smooth,
+        sea_level_m: args.sea_level,
+        water_depth_m: args.water_depth,
+    };
+    if args.utm && !source.georef.is_some_and(|g| g.units == CrsUnits::Degrees) {
+        eprintln!("Warning: --utm needs latitude/longitude input; using the grid as is");
+    }
+    let (dem, report) = prepare(&source, &prep)?;
+    if report.reprojected {
+        let g = dem.georef.expect("reprojected DEMs are georeferenced");
+        println!(
+            "Reprojected to UTM (EPSG:{}): {} x {} samples at {:.1} m",
+            g.epsg.unwrap_or(0),
+            dem.width,
+            dem.height,
+            g.pixel_width
+        );
+    }
+    if args.sea_level.is_some() {
+        println!("Flattened {} samples as water", report.water_samples);
+    }
+    if args.dem_only {
+        fs::create_dir_all(&args.output)?;
+        let path = args.output.join("terrain.tif");
+        fs::write(&path, terraincraft_core::geotiff::encode(&dem)?)?;
+        println!(
+            "Wrote {} x {} grid to {}",
+            dem.width,
+            dem.height,
+            path.display()
+        );
+        return Ok(());
     }
     let output = args.output.clone();
     fs::create_dir_all(&output)?;

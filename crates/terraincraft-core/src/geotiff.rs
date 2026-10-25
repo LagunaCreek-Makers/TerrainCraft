@@ -4,8 +4,11 @@
 use crate::georef::{CrsUnits, GeoReference};
 use crate::Dem;
 use std::io::Cursor;
-use tiff::decoder::{Decoder, DecodingResult};
+use tiff::decoder::{ChunkType, Decoder, DecodingResult};
 use tiff::tags::Tag;
+
+/// Below the Mariana Trench (-10,994 m) to above Everest (8,849 m).
+const EARTH_ELEVATION_M: std::ops::RangeInclusive<f64> = -12_000.0..=9_000.0;
 
 /// Largest raster accepted, in samples.
 const MAX_SAMPLES: u64 = 25_000_000;
@@ -32,30 +35,119 @@ pub fn decode(bytes: &[u8]) -> Result<DecodedRaster, String> {
         .map(|v| v.into_string().map_err(err))
         .transpose()?
         .and_then(|s| s.trim().trim_end_matches(char::from(0)).parse::<f64>().ok());
-    let mut values: Vec<f64> = match decoder.read_image().map_err(err)? {
-        DecodingResult::F32(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::F64(v) => v,
-        DecodingResult::U8(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::U16(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::I8(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::I16(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::U32(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::I32(v) => v.into_iter().map(f64::from).collect(),
-        _ => return Err("Unsupported elevation sample type".into()),
-    };
+    let mut values = read_chunks(&mut decoder, nodata.unwrap_or(0.))?;
     let (w, h) = (w as usize, h as usize);
-    if values.len() != w * h {
-        return Err("Expected a single-band elevation raster".into());
-    }
-    // ESRI services mark missing data with -3.4e38 even without a nodata tag.
+    // ESRI marks missing data with ±3.4e38, often without a nodata tag. No real
+    // elevation lies outside Earth's range, so treat anything beyond it as missing.
     let missing: Vec<bool> = values
         .iter()
-        .map(|&v| !v.is_finite() || v < -1e30 || nodata.is_some_and(|n| v as f32 == n as f32))
+        .map(|&v| !EARTH_ELEVATION_M.contains(&v) || nodata.is_some_and(|n| v as f32 == n as f32))
         .collect();
     let filled_cells = crate::nodata::fill_missing(w, h, &mut values, &missing)?;
     let mut dem = Dem::new(w, h, values)?;
     dem.georef = georef;
     Ok(DecodedRaster { dem, filled_cells })
+}
+
+/// Read the image one strip or tile at a time. Writers following the GDAL convention
+/// (including the 3DEP ImageServer, for all-ocean tiles) omit chunks that hold no data by
+/// giving them a byte count of 0; `read_image` returns garbage for those, so they are
+/// skipped here and left as `sparse_fill` (the nodata value, else 0).
+fn read_chunks(decoder: &mut Decoder<Cursor<&[u8]>>, sparse_fill: f64) -> Result<Vec<f64>, String> {
+    let err = |e: tiff::TiffError| format!("TIFF: {e}");
+    let (w, h) = decoder.dimensions().map_err(err)?;
+    let (chunk_w, chunk_h) = decoder.chunk_dimensions();
+    let tiled = matches!(decoder.get_chunk_type(), ChunkType::Tile);
+    let counts = decoder
+        .get_tag_u64_vec(if tiled {
+            Tag::TileByteCounts
+        } else {
+            Tag::StripByteCounts
+        })
+        .map_err(err)?;
+    let across = if tiled { w.div_ceil(chunk_w) } else { 1 };
+    let (w, h) = (w as usize, h as usize);
+    let mut values = vec![sparse_fill; w * h];
+    for (i, &count) in counts.iter().enumerate() {
+        let i = i as u32;
+        let (x0, y0) = (
+            (i % across * chunk_w) as usize,
+            (i / across * chunk_h) as usize,
+        );
+        if count == 0 {
+            continue;
+        }
+        let (dw, dh) = decoder.chunk_data_dimensions(i);
+        let (dw, dh) = (dw as usize, dh as usize);
+        let chunk: Vec<f64> = match decoder.read_chunk(i).map_err(err)? {
+            DecodingResult::F32(v) => v.into_iter().map(f64::from).collect(),
+            DecodingResult::F64(v) => v,
+            DecodingResult::U8(v) => v.into_iter().map(f64::from).collect(),
+            DecodingResult::U16(v) => v.into_iter().map(f64::from).collect(),
+            DecodingResult::I8(v) => v.into_iter().map(f64::from).collect(),
+            DecodingResult::I16(v) => v.into_iter().map(f64::from).collect(),
+            DecodingResult::U32(v) => v.into_iter().map(f64::from).collect(),
+            DecodingResult::I32(v) => v.into_iter().map(f64::from).collect(),
+            _ => return Err("Unsupported elevation sample type".into()),
+        };
+        if chunk.len() != dw * dh || x0 + dw > w || y0 + dh > h {
+            return Err("Expected a single-band elevation raster".into());
+        }
+        for row in 0..dh {
+            let dst = (y0 + row) * w + x0;
+            values[dst..dst + dw].copy_from_slice(&chunk[row * dw..(row + 1) * dw]);
+        }
+    }
+    Ok(values)
+}
+
+/// Write a DEM as a single-band float32 GeoTIFF, including its georeference.
+pub fn encode(dem: &Dem) -> Result<Vec<u8>, String> {
+    use tiff::encoder::{colortype::Gray32Float, TiffEncoder};
+    let err = |e: tiff::TiffError| format!("TIFF: {e}");
+    let mut out = Cursor::new(Vec::new());
+    let mut enc = TiffEncoder::new(&mut out).map_err(err)?;
+    let mut img = enc
+        .new_image::<Gray32Float>(dem.width as u32, dem.height as u32)
+        .map_err(err)?;
+    if let Some(g) = dem.georef {
+        let e = img.encoder();
+        e.write_tag(
+            Tag::ModelPixelScaleTag,
+            &[g.pixel_width, g.pixel_height, 0.][..],
+        )
+        .map_err(err)?;
+        e.write_tag(
+            Tag::ModelTiepointTag,
+            &[0., 0., 0., g.origin_x, g.origin_y, 0.][..],
+        )
+        .map_err(err)?;
+        // Header (version 1.1.0, key count), then sorted (key, location 0, count 1, value).
+        let mut keys: Vec<u16> = vec![1, 1, 0, 0];
+        let projected = g.units == CrsUnits::Meters;
+        let mut add = |k: u16, v: u16| keys.extend_from_slice(&[k, 0, 1, v]);
+        add(GT_MODEL_TYPE, if projected { 1 } else { 2 });
+        add(GT_RASTER_TYPE, 1);
+        if let Some(epsg) = g.epsg {
+            add(
+                if projected {
+                    PROJECTED_CS_TYPE
+                } else {
+                    GEOGRAPHIC_TYPE
+                },
+                epsg,
+            );
+        }
+        if projected {
+            add(PROJ_LINEAR_UNITS, LINEAR_METER);
+        }
+        keys[3] = (keys.len() as u16 - 4) / 4;
+        e.write_tag(Tag::GeoKeyDirectoryTag, &keys[..])
+            .map_err(err)?;
+    }
+    let data: Vec<f32> = dem.heights.iter().map(|v| *v as f32).collect();
+    img.write_data(&data).map_err(err)?;
+    Ok(out.into_inner())
 }
 
 /// GeoKey IDs from the GeoTIFF 1.0 specification.
@@ -167,7 +259,7 @@ mod tests {
         assert!(d.georef.is_none());
     }
 
-    fn encode(values: &[f32], w: u32, h: u32, nodata: Option<&str>) -> Vec<u8> {
+    fn encode_raw(values: &[f32], w: u32, h: u32, nodata: Option<&str>) -> Vec<u8> {
         use tiff::encoder::{colortype::Gray32Float, TiffEncoder};
         let mut out = Cursor::new(Vec::new());
         let mut enc = TiffEncoder::new(&mut out).unwrap();
@@ -188,7 +280,7 @@ mod tests {
     }
     #[test]
     fn reads_georeference() {
-        let d = decode(&encode(&[1., 2., 3., 4., 5., 6.], 3, 2, None))
+        let d = decode(&encode_raw(&[1., 2., 3., 4., 5., 6.], 3, 2, None))
             .unwrap()
             .dem;
         let g = d.georef.unwrap();
@@ -227,16 +319,46 @@ mod tests {
             s.height_mm
         );
     }
+    /// A real 3DEP response whose all-ocean lower tile is sparse (byte count 0):
+    /// bbox -122.62,37.6,-122.57,37.9 at 25 x 150 pixels, Marin coast to off Pacifica.
+    #[test]
+    fn decodes_sparse_tiles_as_zero() {
+        let r = decode(include_bytes!("../../../examples/coast_sparse_25x150.tif")).unwrap();
+        let d = &r.dem;
+        assert_eq!((d.width, d.height, r.filled_cells), (25, 150, 0));
+        // Rows 128.. come from the omitted tile and must be sea level, not garbage.
+        assert!(d.heights[128 * 25..].iter().all(|v| *v == 0.));
+        // Land in the stored tile is intact (tifffile reads a 457.66 m maximum).
+        let (lo, hi) = d.min_max();
+        assert!((hi - 457.66).abs() < 0.01 && lo > -3., "{lo} {hi}");
+    }
+    #[test]
+    fn encode_round_trips_projected_and_geographic() {
+        for (epsg, units) in [(32610u16, CrsUnits::Meters), (4326, CrsUnits::Degrees)] {
+            let mut d = Dem::new(3, 2, vec![1., 2.5, 3., 4., 5., 6.]).unwrap();
+            d.georef = Some(GeoReference {
+                epsg: Some(epsg),
+                units,
+                origin_x: 594_000.,
+                origin_y: 5_190_000.,
+                pixel_width: 10.,
+                pixel_height: 10.,
+            });
+            let r = decode(&encode(&d).unwrap()).unwrap();
+            assert_eq!(r.dem.heights, d.heights);
+            assert_eq!(r.dem.georef, d.georef);
+        }
+    }
     #[test]
     fn fills_tagged_and_sentinel_nodata() {
-        let r = decode(&encode(
-            &[10., -9999., 10., 10., -3.4e38, 10.],
+        let r = decode(&encode_raw(
+            &[10., -9999., 10., 10., -3.4e38, -8.5e29],
             3,
             2,
             Some("-9999"),
         ))
         .unwrap();
-        assert_eq!(r.filled_cells, 2);
+        assert_eq!(r.filled_cells, 3);
         assert!(r.dem.heights.iter().all(|v| *v == 10.));
     }
 }

@@ -1,5 +1,5 @@
 //! Side panel controls and per-frame update loop.
-use crate::studio::{Studio, View};
+use crate::studio::{DownloadMsg, Studio, View};
 use eframe::egui::{self};
 use std::{fs, sync::mpsc};
 use terraincraft_core::engraving_editor::Annotation;
@@ -7,6 +7,7 @@ use terraincraft_core::usgs::Bounds;
 
 impl eframe::App for Studio {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        self.reprocess();
         self.sync_true_scale();
         if let Some(rx) = &self.map_results {
             let mut completed = Vec::new();
@@ -48,9 +49,13 @@ impl eframe::App for Studio {
         }
         if let Some(rx) = &self.download_rx {
             match rx.try_recv() {
-                Ok(result) => {
+                Ok(DownloadMsg::Progress(done, total)) => {
+                    self.message = format!("Downloading USGS 3DEP elevation: {done} of {total}…");
+                    ctx.request_repaint();
+                }
+                Ok(DownloadMsg::Done(result)) => {
                     self.download_rx = None;
-                    self.message = match result.and_then(|b| self.finish_download(b)) {
+                    self.message = match result.and_then(|r| self.finish_download(r)) {
                         Ok(()) => self.message.clone(),
                         Err(e) => format!("USGS error: {e}"),
                     };
@@ -82,7 +87,7 @@ impl eframe::App for Studio {
     ui.horizontal(|ui|{ui.label("West");ui.add(egui::DragValue::new(&mut self.west).speed(0.01));ui.label("East");ui.add(egui::DragValue::new(&mut self.east).speed(0.01));});
     ui.horizontal(|ui|{ui.label("South");ui.add(egui::DragValue::new(&mut self.south).speed(0.01));ui.label("North");ui.add(egui::DragValue::new(&mut self.north).speed(0.01));});
     ui.horizontal(|ui|{
-     ui.add(egui::Slider::new(&mut self.raster_pixels,128..=2048).text("Raster long side (px)"));
+     ui.add(egui::Slider::new(&mut self.raster_pixels,128..=terraincraft_core::usgs::MAX_DOWNLOAD_SIDE).logarithmic(true).text("Raster long side (px)"));
      let bounds=Bounds{west:self.west,south:self.south,east:self.east,north:self.north};
      if ui.button("Match print size").on_hover_text("About 0.5 mm per sample on the model, capped at the ~10 m native 3DEP resolution").clicked()&&bounds.validate().is_ok(){
       self.raster_pixels=bounds.suggested_long_side(self.width.max(self.height),0.5);
@@ -115,6 +120,16 @@ impl eframe::App for Studio {
     ui.add(egui::DragValue::new(&mut self.base).range(0.1..=100.).prefix("Base "));
     ui.add(egui::Slider::new(&mut self.relief,0.1..=300.).text("Relief mm"));
    }
+   ui.collapsing("Terrain processing",|ui|{
+    ui.checkbox(&mut self.prep.utm,"Reproject to UTM").on_hover_text("Recommended for regions more than about a degree across. Landmark and viewpoint placement assume latitude/longitude and become approximate.");
+    ui.add(egui::Slider::new(&mut self.prep.smooth_sigma,0.0..=10.0).text("Smoothing (samples)"));
+    let mut clip=self.prep.sea_level_m.is_some();
+    if ui.checkbox(&mut clip,"Flatten water at sea level").changed(){self.prep.sea_level_m=clip.then_some(0.);}
+    if let Some(level)=self.prep.sea_level_m.as_mut(){
+     ui.add(egui::DragValue::new(level).range(-500.0..=5000.).suffix(" m").prefix("Level "));
+     ui.add(egui::DragValue::new(&mut self.prep.water_depth_m).range(0.0..=1000.).suffix(" m").prefix("Recess water ")).on_hover_text("Lowers the water surface so the coastline stays visible at true scale");
+    }
+   });
    ui.add(egui::Slider::new(&mut self.exaggeration,0.1..=10.).text("Vertical exaggeration"));
    ui.separator();
    match self.view {
