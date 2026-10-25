@@ -1,3 +1,5 @@
+//! Rust-native terrain mesh and laser contour geometry. No Python dependency.
+
 pub mod icon_variants;
 pub mod seam_preflight;
 pub mod intersections;
@@ -21,7 +23,6 @@ pub mod geotiff;
 pub mod contours;
 pub mod gis;
 pub mod laser;
-//! Rust-native terrain mesh and laser contour geometry. No Python dependency.
 use std::{fs::File, io::{self, Write}, path::Path};
 
 #[derive(Clone, Debug)]

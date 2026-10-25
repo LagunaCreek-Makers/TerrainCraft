@@ -8,7 +8,7 @@ pub struct SocketCheck {pub tile_row:usize,pub tile_col:usize,pub side:String,pu
 pub fn inspect(d:&Dem,s:TerrainSettings,tiles:&[Tile],holes:&[SeamHole])->Result<Vec<SocketCheck>,String>{
  s.validate()?;
  let sx=s.width_mm/(d.width-1) as f64;let sy=s.height_mm/(d.height-1) as f64;
- let mut out=Vec::with_capacity(holes.len());
+ let mut out:Vec<SocketCheck>=Vec::with_capacity(holes.len());
  let mut accepted:Vec<(usize,usize,String,f64,f64,f64,usize)>=Vec::new();
  for hole in holes {
   let tile=tiles.iter().find(|t|t.row==hole.tile_row&&t.col==hole.tile_col).ok_or("Seam hole references unknown tile")?;

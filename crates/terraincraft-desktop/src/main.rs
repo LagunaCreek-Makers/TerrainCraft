@@ -1,6 +1,6 @@
-mod gpu_view;
 //! TerrainCraft v0.9: native Rust egui desktop inspection and manufacturing export.
 //! Deliberately no machine control or G-code generation.
+mod gpu_view;
 use eframe::egui::{self, Color32, Pos2, Rect, Sense, Stroke, Vec2};
 use std::{fs, path::Path, io::Cursor, sync::mpsc, thread, collections::{HashMap,HashSet}};
 use terraincraft_core::usgs::Bounds;
@@ -89,6 +89,7 @@ impl Studio {
     let path=cache.join(format!("{key}.png"));
     let tx=self.map_tx.as_ref().unwrap().clone();
     self.map_pending.insert(key.clone());self.map_requested.insert(key.clone());scheduled+=1;
+    let cache=cache.clone();
     thread::spawn(move||{
      let result=(||->Result<Vec<u8>,String>{
       if let Ok(meta)=fs::metadata(&path){if meta.modified().ok().and_then(|t|t.elapsed().ok()).map(|age|age.as_secs()<7*86400).unwrap_or(false){return fs::read(&path).map_err(|e|e.to_string());}}
@@ -161,7 +162,7 @@ impl Studio {
     }
    }
   }
-  painter.rect_stroke(rect,0.,Stroke::new(1.,Color32::GRAY),egui::StrokeKind::Inside);
+  painter.rect_stroke(rect,0.,Stroke::new(1.,Color32::GRAY));
   let cx=rect.center().x;let cy=rect.center().y;
   painter.line_segment([egui::pos2(cx-8.,cy),egui::pos2(cx+8.,cy)],Stroke::new(1.5,Color32::YELLOW));
   painter.line_segment([egui::pos2(cx,cy-8.),egui::pos2(cx,cy+8.)],Stroke::new(1.5,Color32::YELLOW));
@@ -378,6 +379,32 @@ impl Studio {
   let available=ui.available_size();
   let side=available.x.min(available.y*1.6).max(100.);
   let (rect,response)=ui.allocate_exact_size(Vec2::new(side,side*0.65),Sense::click_and_drag());
+  let painter=ui.painter_at(rect);
+  painter.rect_filled(rect,4.,Color32::from_rgb(28,43,49));
+  for i in 0..=10 {let f=i as f32/10.;let x=rect.left()+f*rect.width();let y=rect.top()+f*rect.height();
+   painter.line_segment([Pos2::new(x,rect.top()),Pos2::new(x,rect.bottom())],Stroke::new(0.5,Color32::DARK_GRAY));
+   painter.line_segment([Pos2::new(rect.left(),y),Pos2::new(rect.right(),y)],Stroke::new(0.5,Color32::DARK_GRAY));
+  }
+  let extent=GeographicExtent{west:self.west,south:self.south,east:self.east,north:self.north};
+  if extent.validate().is_err(){ui.colored_label(Color32::LIGHT_RED,"Invalid geographic bounds");return;}
+  let to_pos=|lat:f64,lon:f64| Pos2::new(rect.left()+((lon-extent.west)/(extent.east-extent.west)) as f32*rect.width(),rect.top()+((extent.north-lat)/(extent.north-extent.south)) as f32*rect.height());
+  if response.clicked(){if let Some(pos)=response.interact_pointer_pos(){self.observer_lon=extent.west+((pos.x-rect.left())/rect.width()) as f64*(extent.east-extent.west);self.observer_lat=extent.north-((pos.y-rect.top())/rect.height()) as f64*(extent.north-extent.south);self.geo_view_enabled=true;}}
+  if response.dragged(){if let Some(pos)=response.interact_pointer_pos(){let origin=to_pos(self.observer_lat,self.observer_lon);let dx=(pos.x-origin.x) as f64;let dy=(origin.y-pos.y) as f64;if dx.abs()+dy.abs()>4. {self.bearing=dx.atan2(dy).to_degrees().rem_euclid(360.);}}}
+  let origin=to_pos(self.observer_lat,self.observer_lon);
+  if rect.contains(origin){
+   let length=rect.width().min(rect.height())*0.32;
+   let left=(self.bearing-self.fov*0.5).to_radians();let right=(self.bearing+self.fov*0.5).to_radians();
+   for a in [left,right]{let end=Pos2::new(origin.x+length*a.sin() as f32,origin.y-length*a.cos() as f32);painter.line_segment([origin,end],Stroke::new(1.4,Color32::YELLOW));}
+   painter.circle_filled(origin,5.,Color32::LIGHT_GREEN);
+  }
+  painter.text(rect.left_top()+Vec2::new(7.,7.),egui::Align2::LEFT_TOP,format!("N ↑  {:.5}°, {:.5}°",self.observer_lat,self.observer_lon),egui::FontId::monospace(12.),Color32::WHITE);
+ }
+ fn draw_3d(&mut self,ui:&mut egui::Ui,dem:&Dem){
+  ui.label("Drag to orbit · Scroll to zoom · Terrain mesh preview (not G-code)");
+  let available=ui.available_size();
+  let (rect,response)=ui.allocate_exact_size(available,Sense::drag());
+  if response.dragged(){let delta=response.drag_delta();self.orbit_yaw+=delta.x*0.008;self.orbit_pitch=(self.orbit_pitch+delta.y*0.008).clamp(0.1,1.45);}
+  if response.hovered(){let scroll=ui.input(|i|i.raw_scroll_delta.y);self.orbit_zoom=(self.orbit_zoom*(scroll*0.001).exp()).clamp(0.2,8.);}
   if self.assembly_gpu {
    let parts=match tiles(dem,self.settings(),self.bed_x,self.bed_y,self.margin){Ok(p)=>p,Err(e)=>{ui.painter_at(rect).text(rect.center(),egui::Align2::CENTER_CENTER,e,egui::FontId::proportional(14.),Color32::LIGHT_RED);return;}};
    let holes=if self.assembly_connector_mode==2 {terraincraft_core::seam_joints::plan(dem,&parts,self.settings(),terraincraft_core::seam_joints::SeamSettings::default()).unwrap_or_default()}else{Vec::new()};
@@ -405,32 +432,6 @@ impl Studio {
      format!("GPU OpenGL depth buffer · {} triangles · {} mesh errors",triangles,errors),egui::FontId::monospace(12.),Color32::WHITE);
    return;
   }
-  let painter=ui.painter_at(rect);
-  painter.rect_filled(rect,4.,Color32::from_rgb(28,43,49));
-  for i in 0..=10 {let f=i as f32/10.;let x=rect.left()+f*rect.width();let y=rect.top()+f*rect.height();
-   painter.line_segment([Pos2::new(x,rect.top()),Pos2::new(x,rect.bottom())],Stroke::new(0.5,Color32::DARK_GRAY));
-   painter.line_segment([Pos2::new(rect.left(),y),Pos2::new(rect.right(),y)],Stroke::new(0.5,Color32::DARK_GRAY));
-  }
-  let extent=GeographicExtent{west:self.west,south:self.south,east:self.east,north:self.north};
-  if extent.validate().is_err(){ui.colored_label(Color32::LIGHT_RED,"Invalid geographic bounds");return;}
-  let to_pos=|lat:f64,lon:f64| Pos2::new(rect.left()+((lon-extent.west)/(extent.east-extent.west)) as f32*rect.width(),rect.top()+((extent.north-lat)/(extent.north-extent.south)) as f32*rect.height());
-  if response.clicked(){if let Some(pos)=response.interact_pointer_pos(){self.observer_lon=extent.west+((pos.x-rect.left())/rect.width()) as f64*(extent.east-extent.west);self.observer_lat=extent.north-((pos.y-rect.top())/rect.height()) as f64*(extent.north-extent.south);self.geo_view_enabled=true;}}
-  if response.dragged(){if let Some(pos)=response.interact_pointer_pos(){let origin=to_pos(self.observer_lat,self.observer_lon);let dx=(pos.x-origin.x) as f64;let dy=(origin.y-pos.y) as f64;if dx.abs()+dy.abs()>4. {self.bearing=dx.atan2(dy).to_degrees().rem_euclid(360.);}}}
-  let origin=to_pos(self.observer_lat,self.observer_lon);
-  if rect.contains(origin){
-   let length=rect.width().min(rect.height())*0.32;
-   let left=(self.bearing-self.fov*0.5).to_radians();let right=(self.bearing+self.fov*0.5).to_radians();
-   for a in [left,right]{let end=Pos2::new(origin.x+length*a.sin() as f32,origin.y-length*a.cos() as f32);painter.line_segment([origin,end],Stroke::new(1.4,Color32::YELLOW));}
-   painter.circle_filled(origin,5.,Color32::LIGHT_GREEN);
-  }
-  painter.text(rect.left_top()+Vec2::new(7.,7.),egui::Align2::LEFT_TOP,format!("N ↑  {:.5}°, {:.5}°",self.observer_lat,self.observer_lon),egui::FontId::monospace(12.),Color32::WHITE);
- }
- fn draw_3d(&mut self,ui:&mut egui::Ui,dem:&Dem){
-  ui.label("Drag to orbit · Scroll to zoom · Terrain mesh preview (not G-code)");
-  let available=ui.available_size();
-  let (rect,response)=ui.allocate_exact_size(available,Sense::drag());
-  if response.dragged(){let delta=response.drag_delta();self.orbit_yaw+=delta.x*0.008;self.orbit_pitch=(self.orbit_pitch+delta.y*0.008).clamp(0.1,1.45);}
-  if response.hovered(){let scroll=ui.input(|i|i.raw_scroll_delta.y);self.orbit_zoom=(self.orbit_zoom*(scroll*0.001).exp()).clamp(0.2,8.);}
   let painter=ui.painter_at(rect);painter.rect_filled(rect,0.,Color32::from_rgb(23,29,37));
   let (lo,hi)=dem.min_max();let span=(hi-lo).max(1e-9);
   let stride=((dem.width.max(dem.height)+85)/86).max(1);
@@ -536,8 +537,8 @@ impl Studio {
       let n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];
       let len=(n[0]*n[0]+n[1]*n[1]+n[2]*n[2]).sqrt();
       if len<1e-12 {skipped_faces+=1;continue;}
-      let light=([0.35_f64,-0.45,0.82]);
-      let diffuse=((n[0]*light.0+n[1]*light.1+n[2]*light.2)/len).abs();
+      let light=[0.35_f64,-0.45,0.82];
+      let diffuse=((n[0]*light[0]+n[1]*light[1]+n[2]*light[2])/len).abs();
       let brightness=(0.35+0.65*diffuse).clamp(0.,1.);
       let color=Color32::from_rgb((base_color[0]*brightness) as u8,(base_color[1]*brightness) as u8,(base_color[2]*brightness) as u8);
       let points=tri.map(|p|project(p[0]+offset_x,p[1]+offset_y,p[2]));
@@ -592,8 +593,8 @@ impl Studio {
       let cx=(a[0]+b[0]+c[0])/3.+offset_x;
       let cy=(a[1]+b[1]+c[1])/3.+offset_y;
       let cz=(a[2]+b[2]+c[2])/3.;
-      let ry=-(cx-center_x)*yaw.sin()+(cy-center_y)*yaw.cos();
-      let depth=(ry*pitch.sin()+cz*pitch.cos()) as f32;
+      let ry=-(cx-center_x)*yaw.sin() as f64+(cy-center_y)*yaw.cos() as f64;
+      let depth=(ry*pitch.sin() as f64+cz*pitch.cos() as f64) as f32;
       shaded_faces.push((depth,points,tint));
      }else{
       for e in 0..3 {painter.line_segment([points[e],points[(e+1)%3]],Stroke::new(0.6,color));drawn+=1;}
@@ -643,7 +644,7 @@ impl Studio {
   if self.view==View::Engraving {
    ui.heading(if self.engraving_perspective{"Perspective engraving preview"}else{"Topographic engraving preview"});
    ui.label("Live vector geometry preview · drag labels to reposition · export produces separate SVG groups.");
-   let size=ui.available_width().min(560.);let h=(size*(self.height/self.width).clamp(0.2,2.0)) as f32;let (r,response)=ui.allocate_exact_size(Vec2::new(size,h),Sense::click_and_drag());let painter=ui.painter_at(r);painter.rect_filled(r,2.,Color32::from_rgb(229,207,171));painter.rect_stroke(r,2.,Stroke::new(1.,Color32::DARK_GRAY),egui::StrokeKind::Inside);
+   let size=ui.available_width().min(560.);let h=size*(self.height/self.width).clamp(0.2,2.0) as f32;let (r,response)=ui.allocate_exact_size(Vec2::new(size,h),Sense::click_and_drag());let painter=ui.painter_at(r);painter.rect_filled(r,2.,Color32::from_rgb(229,207,171));painter.rect_stroke(r,2.,Stroke::new(1.,Color32::DARK_GRAY));
    let geometry=if self.engraving_perspective {
       let mut vp=Viewpoint{x:self.observer_x*(dem.width-1) as f64,y:self.observer_y*(dem.height-1) as f64,bearing_deg:self.bearing,pitch_deg:self.pitch,fov_deg:self.fov,eye_height_m:self.eye_height,max_distance_m:self.max_distance,pixel_size_x_m:self.pixel_size_m,pixel_size_y_m:self.pixel_size_m};
       if self.geo_view_enabled {
@@ -670,7 +671,7 @@ impl Studio {
    self.draw_3d(ui,&dem);
    return;
   }
-  let available=ui.available_size();let aspect=match self.view {View::Laser=>self.sheet_x/self.sheet_y,_=>self.width/self.height}.max(0.05);
+  let available=ui.available_size();let aspect=match self.view {View::Laser=>self.sheet_x/self.sheet_y,_=>self.width/self.height}.max(0.05) as f32;
   let w=available.x.min(available.y*aspect).max(10.);let h=w/aspect;
   let (rect,_)=ui.allocate_exact_size(Vec2::new(w,h),Sense::hover());let painter=ui.painter_at(rect);
   painter.rect_filled(rect,2.,Color32::from_rgb(28,36,42));
@@ -693,7 +694,7 @@ impl Studio {
     let r=Rect::from_min_max(Pos2::new(rect.left()+x as f32/(dem.width-1) as f32*rect.width(),rect.top()+y as f32/(dem.height-1) as f32*rect.height()),Pos2::new(rect.left()+((x+sx).min(dem.width-1)) as f32/(dem.width-1) as f32*rect.width(),rect.top()+((y+sy).min(dem.height-1)) as f32/(dem.height-1) as f32*rect.height()));
     painter.rect_filled(r,0.,col);
    }}
-   if self.view==View::Print {if let Ok(ts)=tiles(&dem,self.settings(),self.bed_x,self.bed_y,self.margin){for t in ts {let r=Rect::from_min_max(Pos2::new(rect.left()+t.x0 as f32/(dem.width-1) as f32*rect.width(),rect.top()+t.y0 as f32/(dem.height-1) as f32*rect.height()),Pos2::new(rect.left()+t.x1 as f32/(dem.width-1) as f32*rect.width(),rect.top()+t.y1 as f32/(dem.height-1) as f32*rect.height()));painter.rect_stroke(r,0.,Stroke::new(1.5,Color32::YELLOW),egui::StrokeKind::Inside);}}}
+   if self.view==View::Print {if let Ok(ts)=tiles(&dem,self.settings(),self.bed_x,self.bed_y,self.margin){for t in ts {let r=Rect::from_min_max(Pos2::new(rect.left()+t.x0 as f32/(dem.width-1) as f32*rect.width(),rect.top()+t.y0 as f32/(dem.height-1) as f32*rect.height()),Pos2::new(rect.left()+t.x1 as f32/(dem.width-1) as f32*rect.width(),rect.top()+t.y1 as f32/(dem.height-1) as f32*rect.height()));painter.rect_stroke(r,0.,Stroke::new(1.5,Color32::YELLOW));}}}
   }
  }
 }

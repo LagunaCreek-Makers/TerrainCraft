@@ -31,14 +31,22 @@ pub fn repair_winding(faces:&mut Vec<[[f64;3];3]>)->Result<RepairReport,String>{
     let mut flips=vec![None;faces.len()];
     for start in 0..faces.len(){
         if flips[start].is_some(){continue;}
-        flips[start]=Some(false);let mut queue=VecDeque::from([start]);
+        flips[start]=Some(false);let mut queue=VecDeque::from([start]);let mut component=vec![start];
         while let Some(i)=queue.pop_front(){
             let current=flips[i].unwrap();
             for &(j,different) in &adjacent[i]{
                 let desired=current^different;
-                match flips[j]{Some(existing) if existing!=desired=>return Err("Non-orientable or contradictory mesh topology".into()),Some(_)=>(),None=>{flips[j]=Some(desired);queue.push_back(j);}}
+                match flips[j]{Some(existing) if existing!=desired=>return Err("Non-orientable or contradictory mesh topology".into()),Some(_)=>(),None=>{flips[j]=Some(desired);queue.push_back(j);component.push(j);}}
             }
         }
+        // The seed face's orientation is arbitrary; make each closed shell face outward
+        // (positive signed volume). Assumes shells are not internal cavities.
+        let volume:f64=component.iter().map(|&i|{
+            let [a,b,c]=faces[i];
+            let v=a[0]*(b[1]*c[2]-b[2]*c[1])-a[1]*(b[0]*c[2]-b[2]*c[0])+a[2]*(b[0]*c[1]-b[1]*c[0]);
+            if flips[i]==Some(true){-v}else{v}
+        }).sum();
+        if volume<0.0{for &i in &component{flips[i]=flips[i].map(|f|!f);}}
     }
     let flipped_triangles=flips.iter().filter(|v|**v==Some(true)).count();
     for (face,flip) in faces.iter_mut().zip(flips){if flip==Some(true){face.swap(1,2);}}

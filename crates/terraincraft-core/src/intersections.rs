@@ -58,10 +58,11 @@ fn coplanar_overlap(a:&Tri,b:&Tri)->bool{
 pub fn inspect(faces:&[Tri],max_pairs:usize)->IntersectionReport{
     let mut r=IntersectionReport{tested_pairs:0,crossings:0,coplanar_overlaps:0,skipped_adjacent_pairs:0,broadphase_candidates:0,complete:true};
     if faces.len()<2{return r;}
-    let boxes:Vec<Aabb>=faces.iter().map(bounds).collect();
-    if boxes.iter().any(|b|(0..3).any(|k|!b.0[k].is_finite()||!b.1[k].is_finite())){
+    // Check vertices directly: f64::min/max discard NaN, so bounds alone would hide it.
+    if faces.iter().any(|t|t.iter().any(|p|p.iter().any(|v|!v.is_finite()))){
         r.complete=false;return r;
     }
+    let boxes:Vec<Aabb>=faces.iter().map(bounds).collect();
     let mut span=[0.0_f64;3];
     for k in 0..3 {
         let low=boxes.iter().map(|b|b.0[k]).fold(f64::INFINITY,f64::min);
