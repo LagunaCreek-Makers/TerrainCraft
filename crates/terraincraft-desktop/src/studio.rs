@@ -28,6 +28,8 @@ pub(crate) struct Studio {
     pub(crate) base: f64,
     pub(crate) relief: f64,
     pub(crate) exaggeration: f64,
+    /// Derive model depth and relief from the georeferenced ground size.
+    pub(crate) true_scale: bool,
     pub(crate) bed_x: f64,
     pub(crate) bed_y: f64,
     pub(crate) margin: f64,
@@ -136,6 +138,7 @@ impl Default for Studio {
             base: 3.,
             relief: 25.,
             exaggeration: 2.,
+            true_scale: true,
             bed_x: 220.,
             bed_y: 220.,
             margin: 5.,

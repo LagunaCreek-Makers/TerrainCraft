@@ -23,6 +23,9 @@ terraincraft-cli <input> <output_dir> <bed_mm> [options]
   --check-intersections       Run the triangle self-intersection audit
 ```
 
+Model size: `--width-mm <mm>` (default 400) and `--exaggeration <x>`.
+GeoTIFF input (e.g. a USGS 3DEP download) is read with its georeference and printed at **true scale**: depth follows the ground extent and relief is the real vertical scale times the exaggeration (default 1). CSV grids have no ground size, so they use a 4:3 footprint with 25 mm of relief (exaggeration default 2). Nodata samples in GeoTIFF and ASCII grids are filled from their surroundings.
+
 A settings file uses the same names, e.g. `{"base_mm": 10, "connectors": "seam-sockets", "strict_mesh": true}`.
 Earlier releases read these from `TERRAINCRAFT_*` environment variables; those are no longer read, and the CLI prints a warning if one is set.
 

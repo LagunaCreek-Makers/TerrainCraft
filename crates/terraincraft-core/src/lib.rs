@@ -5,6 +5,7 @@ pub mod contours;
 pub mod engraving_editor;
 pub mod engraving_preview;
 pub mod export_settings;
+pub mod georef;
 pub mod geotiff;
 pub mod geoview;
 pub mod gis;
@@ -16,6 +17,7 @@ pub mod laser;
 pub mod manufacturing;
 pub mod mesh_audit;
 pub mod mesh_repair;
+pub mod nodata;
 pub mod peaks;
 pub mod print_export;
 pub mod registration;
@@ -35,6 +37,8 @@ pub struct Dem {
     pub width: usize,
     pub height: usize,
     pub heights: Vec<f64>,
+    /// Where the grid sits on the ground, when the source was georeferenced.
+    pub georef: Option<georef::GeoReference>,
 }
 impl Dem {
     pub fn new(width: usize, height: usize, heights: Vec<f64>) -> Result<Self, String> {
@@ -49,6 +53,7 @@ impl Dem {
             width,
             height,
             heights,
+            georef: None,
         })
     }
     pub fn at(&self, x: usize, y: usize) -> f64 {
@@ -87,6 +92,36 @@ impl TerrainSettings {
             Ok(())
         }
     }
+}
+/// Settings that keep real-world proportions for a georeferenced DEM: the model
+/// depth follows the ground aspect and the relief is the true vertical scale times
+/// `vertical_exaggeration`. Elevations must be in meters.
+pub fn true_scale_settings(
+    dem: &Dem,
+    width_mm: f64,
+    base_mm: f64,
+    vertical_exaggeration: f64,
+) -> Result<TerrainSettings, String> {
+    let g = dem
+        .georef
+        .ok_or("True scale needs a georeferenced elevation source")?;
+    let (ground_x, ground_y) = g.sample_span_m(dem.width, dem.height);
+    if !(ground_x > 0. && ground_y > 0.) {
+        return Err("Georeferenced extent has no ground size".into());
+    }
+    let mm_per_m = width_mm / ground_x;
+    let (lo, hi) = dem.min_max();
+    let s = TerrainSettings {
+        width_mm,
+        height_mm: ground_y * mm_per_m,
+        base_mm,
+        vertical_exaggeration,
+        // `mesh` normalizes by the elevation range, so this gives exactly true scale.
+        // Flat terrain still needs a positive value to pass validation.
+        relief_mm: ((hi - lo) * mm_per_m).max(1e-6),
+    };
+    s.validate()?;
+    Ok(s)
 }
 #[derive(Clone, Copy, Debug)]
 pub struct Tile {
@@ -325,6 +360,24 @@ mod tests {
         assert!(contour_svg(&sample(), 200., 200., 2.)
             .unwrap()
             .contains("<path"));
+    }
+    #[test]
+    fn true_scale_preserves_proportions() {
+        let mut d = Dem::new(11, 6, (0..66).map(|i| (i % 11) as f64 * 100.).collect()).unwrap();
+        // 10 m pixels: samples span 100 m east-west and 50 m north-south.
+        d.georef = Some(georef::GeoReference {
+            epsg: Some(32610),
+            units: georef::CrsUnits::Meters,
+            origin_x: 0.,
+            origin_y: 0.,
+            pixel_width: 10.,
+            pixel_height: 10.,
+        });
+        let s = true_scale_settings(&d, 200., 3., 1.).unwrap();
+        assert_eq!(s.height_mm, 100.);
+        // 1000 m of relief at 2 mm per meter.
+        assert_eq!(s.relief_mm, 2000.);
+        assert!(true_scale_settings(&sample(), 200., 3., 1.).is_err());
     }
     #[test]
     fn rejects_nan() {

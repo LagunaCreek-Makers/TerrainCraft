@@ -7,6 +7,7 @@ use terraincraft_core::usgs::Bounds;
 
 impl eframe::App for Studio {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        self.sync_true_scale();
         if let Some(rx) = &self.map_results {
             let mut completed = Vec::new();
             for _ in 0..32 {
@@ -80,7 +81,13 @@ impl eframe::App for Studio {
     ui.label("WGS84 geographic bounding box (degrees)");
     ui.horizontal(|ui|{ui.label("West");ui.add(egui::DragValue::new(&mut self.west).speed(0.01));ui.label("East");ui.add(egui::DragValue::new(&mut self.east).speed(0.01));});
     ui.horizontal(|ui|{ui.label("South");ui.add(egui::DragValue::new(&mut self.south).speed(0.01));ui.label("North");ui.add(egui::DragValue::new(&mut self.north).speed(0.01));});
-    ui.add(egui::Slider::new(&mut self.raster_pixels,128..=1024).text("Raster width / height"));
+    ui.horizontal(|ui|{
+     ui.add(egui::Slider::new(&mut self.raster_pixels,128..=2048).text("Raster long side (px)"));
+     let bounds=Bounds{west:self.west,south:self.south,east:self.east,north:self.north};
+     if ui.button("Match print size").on_hover_text("About 0.5 mm per sample on the model, capped at the ~10 m native 3DEP resolution").clicked()&&bounds.validate().is_ok(){
+      self.raster_pixels=bounds.suggested_long_side(self.width.max(self.height),0.5);
+     }
+    });
     if let Ok(())=(Bounds{west:self.west,south:self.south,east:self.east,north:self.north}).validate(){ui.small(format!("Approximate geographic aspect ratio: {:.3}",Bounds{west:self.west,south:self.south,east:self.east,north:self.north}.approx_aspect()));}
     if ui.add_enabled(self.download_rx.is_none(),egui::Button::new("Download USGS elevation")).clicked(){if let Err(e)=self.begin_download(){self.message=e;}}
     ui.small("Downloads real USGS 3DEP raster. Internet required. For geographic accuracy, adjust model dimensions to match the reported aspect ratio.");
@@ -94,10 +101,20 @@ impl eframe::App for Studio {
    if ui.button("Load elevation grid").clicked(){if let Err(e)=self.load(){self.message=format!("Error: {e}");}}
    ui.label("Output folder");ui.text_edit_singleline(&mut self.output);
    ui.separator();ui.heading("Terrain dimensions (mm)");
+   let georeferenced=self.dem.as_ref().is_some_and(|d|d.georef.is_some());
+   ui.checkbox(&mut self.true_scale,"True scale (keep real-world proportions)").on_hover_text("For georeferenced sources: depth follows the ground and relief is true vertical scale × exaggeration");
+   let derived=self.true_scale&&georeferenced;
    ui.add(egui::DragValue::new(&mut self.width).range(1.0..=10000.).prefix("Width ").speed(1.));
-   ui.add(egui::DragValue::new(&mut self.height).range(1.0..=10000.).prefix("Height ").speed(1.));
-   ui.add(egui::DragValue::new(&mut self.base).range(0.1..=100.).prefix("Base "));
-   ui.add(egui::Slider::new(&mut self.relief,0.1..=300.).text("Relief mm"));
+   if derived {
+    ui.label(format!("Height {:.1} (from ground extent)",self.height));
+    ui.add(egui::DragValue::new(&mut self.base).range(0.1..=100.).prefix("Base "));
+    ui.label(format!("Relief {:.1} mm at this exaggeration",self.relief*self.exaggeration));
+   } else {
+    if self.true_scale&&self.dem.is_some(){ui.small("Source has no georeference; using manual height and relief.");}
+    ui.add(egui::DragValue::new(&mut self.height).range(1.0..=10000.).prefix("Height ").speed(1.));
+    ui.add(egui::DragValue::new(&mut self.base).range(0.1..=100.).prefix("Base "));
+    ui.add(egui::Slider::new(&mut self.relief,0.1..=300.).text("Relief mm"));
+   }
    ui.add(egui::Slider::new(&mut self.exaggeration,0.1..=10.).text("Vertical exaggeration"));
    ui.separator();
    match self.view {
