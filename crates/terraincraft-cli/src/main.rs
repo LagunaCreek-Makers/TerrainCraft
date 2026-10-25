@@ -39,6 +39,12 @@ struct Args {
     /// Run the triangle self-intersection audit on every tile
     #[arg(long)]
     check_intersections: bool,
+    /// Model width in millimeters
+    #[arg(long, default_value_t = 400.)]
+    width_mm: f64,
+    /// Vertical exaggeration [default: 1 for georeferenced input, else 2]
+    #[arg(long)]
+    exaggeration: Option<f64>,
 }
 
 impl Args {
@@ -109,27 +115,50 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             })
             .collect::<Result<Vec<_>, _>>()?
     };
-    let dem = if is_tif {
-        terraincraft_core::geotiff::decode(&fs::read(input_path)?)?
+    let (dem, filled) = if is_tif {
+        let r = terraincraft_core::geotiff::decode(&fs::read(input_path)?)?;
+        (r.dem, r.filled_cells)
     } else if is_asc {
-        read_asc(&input)?.dem
+        let g = read_asc(&input)?;
+        (g.dem, g.filled_cells)
     } else {
         let h = rows.len();
         let w = rows.first().ok_or("Empty CSV")?.len();
         if rows.iter().any(|r| r.len() != w) {
             return Err("CSV must be rectangular".into());
         }
-        Dem::new(w, h, rows.into_iter().flatten().collect())?
+        (Dem::new(w, h, rows.into_iter().flatten().collect())?, 0)
     };
+    if filled > 0 {
+        eprintln!("Filled {filled} missing elevation samples from their surroundings");
+    }
     let output = args.output.clone();
     fs::create_dir_all(&output)?;
     let bed = args.bed_mm;
-    let s = TerrainSettings {
-        width_mm: 400.,
-        height_mm: 300.,
-        base_mm: opts.base_mm,
-        vertical_exaggeration: 2.,
-        relief_mm: 25.,
+    // Georeferenced input keeps real proportions; bare grids fit a fixed 4:3 footprint
+    // and relief because their ground size is unknown.
+    let s = if dem.georef.is_some() {
+        let s = terraincraft_core::true_scale_settings(
+            &dem,
+            args.width_mm,
+            opts.base_mm,
+            args.exaggeration.unwrap_or(1.),
+        )?;
+        println!(
+            "True scale: {:.1} x {:.1} mm, {:.1} mm of relief",
+            s.width_mm,
+            s.height_mm,
+            s.relief_mm * s.vertical_exaggeration
+        );
+        s
+    } else {
+        TerrainSettings {
+            width_mm: args.width_mm,
+            height_mm: args.width_mm * 0.75,
+            base_mm: opts.base_mm,
+            vertical_exaggeration: args.exaggeration.unwrap_or(2.),
+            relief_mm: 25.,
+        }
     };
     let tile_list = tiles(&dem, s, bed, bed, 5.)?;
 

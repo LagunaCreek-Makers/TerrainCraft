@@ -1,28 +1,9 @@
 //! Project save/open, elevation loading, and USGS 3DEP download.
 use crate::studio::Studio;
-use std::{fs, io::Cursor, path::Path, sync::mpsc, thread};
+use std::{fs, path::Path, sync::mpsc, thread};
+use terraincraft_core::georef::CrsUnits;
 use terraincraft_core::usgs::Bounds;
 use terraincraft_core::{Dem, TerrainSettings};
-use tiff::decoder::{Decoder, DecodingResult};
-
-fn decode_tiff(bytes: &[u8]) -> Result<Dem, String> {
-    let mut decoder = Decoder::new(Cursor::new(bytes)).map_err(|e| format!("TIFF decoder: {e}"))?;
-    let (w, h) = decoder.dimensions().map_err(|e| e.to_string())?;
-    if w < 2 || h < 2 || (w as u64) * (h as u64) > 2_000_000 {
-        return Err("Invalid raster dimensions".into());
-    }
-    let values: Vec<f64> = match decoder.read_image().map_err(|e| e.to_string())? {
-        DecodingResult::F32(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::F64(v) => v,
-        DecodingResult::U8(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::U16(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::I16(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::U32(v) => v.into_iter().map(f64::from).collect(),
-        DecodingResult::I32(v) => v.into_iter().map(f64::from).collect(),
-        _ => return Err("Unsupported elevation pixel type".into()),
-    };
-    Dem::new(w as usize, h as usize, values)
-}
 
 impl Studio {
     pub(crate) fn save_project(&self) -> Result<String, String> {
@@ -48,7 +29,8 @@ impl Studio {
             east: self.east,
             north: self.north,
         };
-        let url = bounds.url(self.raster_pixels, self.raster_pixels)?;
+        let (w, h) = bounds.request_size(self.raster_pixels)?;
+        let url = bounds.url(w, h)?;
         let (tx, rx) = mpsc::channel();
         self.download_rx = Some(rx);
         self.message = "Downloading USGS 3DEP elevation data…".into();
@@ -85,18 +67,46 @@ impl Studio {
         Ok(())
     }
     pub(crate) fn finish_download(&mut self, bytes: Vec<u8>) -> Result<(), String> {
-        let dem = decode_tiff(&bytes)?;
+        let decoded = terraincraft_core::geotiff::decode(&bytes)?;
+        let dem = decoded.dem;
         let (w, h) = (dem.width, dem.height);
         fs::create_dir_all(&self.output).map_err(|e| e.to_string())?;
         let file = Path::new(&self.output).join("usgs_elevation.tif");
         fs::write(&file, bytes).map_err(|e| e.to_string())?;
         self.path = file.to_string_lossy().into_owned();
-        self.dem = Some(dem);
+        self.set_dem(dem);
         self.message = format!(
-            "Downloaded USGS elevation grid {} × {}. Source saved to {}",
-            w, h, self.path
+            "Downloaded USGS elevation grid {} × {}{}. Source saved to {}",
+            w,
+            h,
+            filled_note(decoded.filled_cells),
+            self.path
         );
         Ok(())
+    }
+    /// Install a newly loaded DEM. A geographic georeference replaces the selection
+    /// bounds with the raster's actual extent, so landmark and observer placement
+    /// use the coordinates the samples really cover.
+    fn set_dem(&mut self, dem: Dem) {
+        if let Some(g) = dem.georef.filter(|g| g.units == CrsUnits::Degrees) {
+            [self.west, self.south, self.east, self.north] = g.bounds(dem.width, dem.height);
+        }
+        self.dem = Some(dem);
+        self.sync_true_scale();
+    }
+    /// With true scale on and a georeferenced DEM, derive model height and relief from
+    /// the ground extent. Writing them back to the fields keeps every preview and export
+    /// that reads `height`/`relief` consistent, and saves them with the project.
+    pub(crate) fn sync_true_scale(&mut self) {
+        if !self.true_scale {
+            return;
+        }
+        if let Some(s) = self.dem.as_ref().and_then(|d| {
+            terraincraft_core::true_scale_settings(d, self.width, self.base, self.exaggeration).ok()
+        }) {
+            self.height = s.height_mm;
+            self.relief = s.relief_mm;
+        }
     }
     pub(crate) fn settings(&self) -> TerrainSettings {
         TerrainSettings {
@@ -114,14 +124,16 @@ impl Studio {
             .and_then(|v| v.to_str())
             .unwrap_or("")
             .to_ascii_lowercase();
-        let dem = match suffix.as_str() {
-            "tif" | "tiff" => decode_tiff(&bytes)?,
+        let (dem, filled) = match suffix.as_str() {
+            "tif" | "tiff" => {
+                let r = terraincraft_core::geotiff::decode(&bytes)?;
+                (r.dem, r.filled_cells)
+            }
             "asc" => {
-                terraincraft_core::gis::read_asc(
+                let g = terraincraft_core::gis::read_asc(
                     &String::from_utf8(bytes).map_err(|e| e.to_string())?,
-                )
-                .map_err(|e| e.to_string())?
-                .dem
+                )?;
+                (g.dem, g.filled_cells)
             }
             "csv" => {
                 let text = String::from_utf8(bytes).map_err(|e| e.to_string())?;
@@ -136,16 +148,17 @@ impl Studio {
                     .collect::<Result<Vec<_>, _>>()?;
                 let w = rows.first().ok_or("Empty CSV")?.len();
                 let h = rows.len();
-                Dem::new(w, h, rows.into_iter().flatten().collect())?
+                (Dem::new(w, h, rows.into_iter().flatten().collect())?, 0)
             }
-            _ => {
-                return Err(
-                    "Supported input formats: CSV, ESRI ASCII (.asc), uncompressed TIFF".into(),
-                )
-            }
+            _ => return Err("Supported input formats: CSV, ESRI ASCII (.asc), GeoTIFF".into()),
         };
-        self.message = format!("Loaded {} × {} elevation samples", dem.width, dem.height);
-        self.dem = Some(dem);
+        self.message = format!(
+            "Loaded {} × {} elevation samples{}",
+            dem.width,
+            dem.height,
+            filled_note(filled)
+        );
+        self.set_dem(dem);
         Ok(())
     }
     pub(crate) fn levels(&self, dem: &Dem) -> Vec<f64> {
@@ -153,5 +166,13 @@ impl Studio {
         (1..=self.layer_count)
             .map(|i| lo + (hi - lo) * i as f64 / (self.layer_count + 1) as f64)
             .collect()
+    }
+}
+
+fn filled_note(filled: usize) -> String {
+    if filled == 0 {
+        String::new()
+    } else {
+        format!(" ({filled} missing samples filled)")
     }
 }

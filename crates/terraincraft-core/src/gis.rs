@@ -7,13 +7,18 @@ pub struct GeoGrid {
     pub yll: f64,
     pub cell_size: f64,
     pub nodata: Option<f64>,
+    /// Number of nodata cells replaced by `nodata::fill_missing`.
+    pub filled_cells: usize,
 }
-/// Parses ESRI ASCII grids; rejects missing-data cells rather than inventing elevations.
+/// Parses ESRI ASCII grids. Nodata cells are filled from surrounding elevations.
 pub fn read_asc(input: &str) -> Result<GeoGrid, String> {
-    let mut lines = input.lines().filter(|l| !l.trim().is_empty());
+    let mut lines = input.lines().filter(|l| !l.trim().is_empty()).peekable();
     let mut headers = std::collections::HashMap::new();
-    for _ in 0..6 {
-        let l = lines.next().ok_or("Missing ASCII grid header")?;
+    // Five or six header lines: NODATA_value is optional.
+    while let Some(l) = lines.next_if(|l| {
+        l.trim_start()
+            .starts_with(|c: char| c.is_ascii_alphabetic())
+    }) {
         let mut t = l.split_whitespace();
         let k = t.next().ok_or("Empty header")?.to_ascii_lowercase();
         let v = t.next().ok_or("Missing header value")?;
@@ -62,20 +67,21 @@ pub fn read_asc(input: &str) -> Result<GeoGrid, String> {
         })
         .transpose()?;
     let mut values = Vec::with_capacity(w * h);
+    let mut missing = Vec::with_capacity(w * h);
     for l in lines {
         for token in l.split_whitespace() {
             let z = token.parse::<f64>().map_err(|_| "Non-numeric elevation")?;
-            if !z.is_finite() || nodata == Some(z) {
-                return Err(
-                    "Grid contains missing or invalid elevations; fill nodata before import".into(),
-                );
-            }
+            missing.push(!z.is_finite() || nodata == Some(z));
             values.push(z);
             if values.len() > w * h {
                 return Err("Too many elevation values".into());
             }
         }
     }
+    if values.len() != w * h {
+        return Err("Too few elevation values".into());
+    }
+    let filled_cells = crate::nodata::fill_missing(w, h, &mut values, &missing)?;
     let dem = Dem::new(w, h, values)?;
     Ok(GeoGrid {
         dem,
@@ -83,6 +89,7 @@ pub fn read_asc(input: &str) -> Result<GeoGrid, String> {
         yll,
         cell_size,
         nodata,
+        filled_cells,
     })
 }
 #[cfg(test)]
@@ -96,9 +103,17 @@ mod tests {
         assert_eq!(g.xll, 10.);
     }
     #[test]
-    fn rejects_missing() {
+    fn fills_missing() {
         let s="ncols 2\nnrows 2\nxllcorner 10\nyllcorner 20\ncellsize 3\nNODATA_value -9999\n1 -9999\n3 4\n";
-        assert!(read_asc(s).is_err());
+        let g = read_asc(s).unwrap();
+        assert_eq!(g.filled_cells, 1);
+        assert_eq!(g.dem.at(1, 0), 8. / 3.);
+    }
+    #[test]
+    fn nodata_header_is_optional() {
+        let g =
+            read_asc("ncols 2\nnrows 2\nxllcorner 0\nyllcorner 0\ncellsize 1\n1 2\n3 4\n").unwrap();
+        assert_eq!(g.dem.heights, vec![1., 2., 3., 4.]);
     }
 }
 
