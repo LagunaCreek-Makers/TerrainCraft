@@ -68,6 +68,56 @@ impl GeoReference {
     }
 }
 
+impl GeoReference {
+    fn utm_zone(&self) -> Option<crate::projection::UtmZone> {
+        let e = self.epsg?;
+        let (north, zone) = match e {
+            32601..=32660 => (true, e - 32600),
+            32701..=32760 => (false, e - 32700),
+            _ => return None,
+        };
+        Some(crate::projection::UtmZone {
+            zone: zone as u8,
+            north,
+        })
+    }
+
+    /// Fractional sample (column, row) of a latitude/longitude; sample (0, 0) is the center
+    /// of the top-left pixel. `None` for projected data in an unsupported CRS.
+    pub fn latlon_to_sample(&self, lat: f64, lon: f64) -> Option<(f64, f64)> {
+        let (x, y) = match self.units {
+            CrsUnits::Degrees => (lon, lat),
+            CrsUnits::Meters => self.utm_zone()?.forward(lat, lon),
+        };
+        Some((
+            (x - self.origin_x) / self.pixel_width - 0.5,
+            (self.origin_y - y) / self.pixel_height - 0.5,
+        ))
+    }
+
+    /// Latitude/longitude of a fractional sample position (inverse of `latlon_to_sample`).
+    pub fn sample_to_latlon(&self, col: f64, row: f64) -> Option<(f64, f64)> {
+        let x = self.origin_x + (col + 0.5) * self.pixel_width;
+        let y = self.origin_y - (row + 0.5) * self.pixel_height;
+        match self.units {
+            CrsUnits::Degrees => Some((y, x)),
+            CrsUnits::Meters => Some(self.utm_zone()?.inverse(x, y)),
+        }
+    }
+
+    /// Ground meters per sample along x and y near `row` (constant for projected data).
+    pub fn sample_size_m(&self, row: f64) -> (f64, f64) {
+        match self.units {
+            CrsUnits::Meters => (self.pixel_width, self.pixel_height),
+            CrsUnits::Degrees => {
+                let lat = self.origin_y - (row + 0.5) * self.pixel_height;
+                let (m_lon, m_lat) = meters_per_degree(lat);
+                (self.pixel_width * m_lon, self.pixel_height * m_lat)
+            }
+        }
+    }
+}
+
 /// Meters per degree of longitude and of latitude on the WGS84 ellipsoid.
 pub fn meters_per_degree(lat_deg: f64) -> (f64, f64) {
     const A: f64 = 6_378_137.;
@@ -108,6 +158,41 @@ mod tests {
         // ~0.15° of longitude and ~0.1° of latitude at 46.85°N, less one pixel.
         assert!((x - 11_406.).abs() < 30., "{x}");
         assert!((y - 11_081.).abs() < 30., "{y}");
+    }
+    #[test]
+    fn latlon_sample_round_trip_in_both_crs() {
+        let geo = GeoReference {
+            epsg: Some(4326),
+            units: CrsUnits::Degrees,
+            origin_x: -121.85,
+            origin_y: 46.9,
+            pixel_width: 0.001,
+            pixel_height: 0.001,
+        };
+        // The top-left pixel center is sample (0, 0).
+        let (c, r) = geo.latlon_to_sample(46.8995, -121.8495).unwrap();
+        assert!(c.abs() < 1e-9 && r.abs() < 1e-9);
+        let utm = GeoReference {
+            epsg: Some(32610),
+            units: CrsUnits::Meters,
+            origin_x: 590_000.,
+            origin_y: 5_195_000.,
+            pixel_width: 10.,
+            pixel_height: 10.,
+        };
+        // Mount Rainier summit, 594507.85 E 5189496.97 N (PROJ).
+        let (c, r) = utm.latlon_to_sample(46.8523, -121.7603).unwrap();
+        assert!(
+            (c - 450.2853).abs() < 1e-3 && (r - 549.8030).abs() < 1e-3,
+            "{c} {r}"
+        );
+        let (lat, lon) = utm.sample_to_latlon(c, r).unwrap();
+        assert!((lat - 46.8523).abs() < 1e-9 && (lon + 121.7603).abs() < 1e-9);
+        let other = GeoReference {
+            epsg: Some(2927),
+            ..utm
+        };
+        assert!(other.latlon_to_sample(46.85, -121.76).is_none());
     }
     #[test]
     fn projected_span() {

@@ -77,6 +77,18 @@ impl Studio {
         self.applied_prep = None;
         self.reprocess();
     }
+    /// Fetch USGS place names for the loaded area in the background.
+    pub(crate) fn begin_place_names(&mut self) {
+        let Some(bounds) = self.dem.as_ref().and_then(usgs::dem_bounds) else {
+            return;
+        };
+        let (tx, rx) = mpsc::channel();
+        self.names_rx = Some(rx);
+        self.message = "Downloading USGS place names…".into();
+        thread::spawn(move || {
+            let _ = tx.send(usgs::download_place_names(&bounds, &usgs::LANDFORM_CLASSES));
+        });
+    }
     /// Rebuild `dem` from `source_dem` when the processing settings changed.
     pub(crate) fn reprocess(&mut self) {
         let Some(source) = &self.source_dem else {

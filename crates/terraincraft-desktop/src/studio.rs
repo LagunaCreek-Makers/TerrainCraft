@@ -97,6 +97,18 @@ pub(crate) struct Studio {
     pub(crate) show_geo_map: bool,
     pub(crate) landmark_csv: String,
     pub(crate) show_landmarks: bool,
+    /// Show engraving elevations and contours in feet.
+    pub(crate) engraving_feet: bool,
+    /// Named features downloaded from USGS for the current area.
+    #[serde(skip)]
+    pub(crate) place_names: Vec<terraincraft_core::landmarks::Landmark>,
+    #[serde(skip)]
+    pub(crate) names_rx:
+        Option<mpsc::Receiver<Result<Vec<terraincraft_core::landmarks::Landmark>, String>>>,
+    /// Last engraving drawing and the inputs it was built from.
+    #[serde(skip)]
+    pub(crate) engraving_cache:
+        std::cell::RefCell<Option<(String, crate::engraving::DrawingResult)>>,
     pub(crate) assembly_exploded: bool,
     pub(crate) assembly_gap_mm: f64,
     pub(crate) show_assembly_labels: bool,
@@ -216,6 +228,10 @@ impl Default for Studio {
             show_geo_map: true,
             landmark_csv: String::new(),
             show_landmarks: true,
+            engraving_feet: false,
+            place_names: Vec::new(),
+            names_rx: None,
+            engraving_cache: Default::default(),
             assembly_exploded: true,
             assembly_gap_mm: 12.,
             show_assembly_labels: true,

@@ -168,7 +168,37 @@ impl Studio {
             let painter = ui.painter_at(r);
             painter.rect_filled(r, 2., Color32::from_rgb(229, 207, 171));
             painter.rect_stroke(r, 2., Stroke::new(1_f32, Color32::DARK_GRAY));
-            let geometry = if self.engraving_perspective {
+            if self.uses_drawing(&dem) {
+                match self.engraving_drawing(&dem) {
+                    Ok(drawing) => {
+                        for layer in &drawing.layers {
+                            let [cr, cg, cb] = layer.color;
+                            let stroke = Stroke::new(
+                                (layer.width_mm as f32 * 3.).max(0.6),
+                                Color32::from_rgb(cr / 2, cg / 2, cb / 2),
+                            );
+                            for line in &layer.lines {
+                                let pts: Vec<Pos2> = line
+                                    .iter()
+                                    .map(|(x, y)| {
+                                        Pos2::new(
+                                            r.left() + (*x / drawing.width_mm) as f32 * r.width(),
+                                            r.top() + (*y / drawing.height_mm) as f32 * r.height(),
+                                        )
+                                    })
+                                    .collect();
+                                painter.add(egui::Shape::line(pts, stroke));
+                            }
+                        }
+                    }
+                    Err(e) => {
+                        ui.colored_label(Color32::DARK_RED, format!("Preview: {e}"));
+                    }
+                }
+            }
+            let geometry = if self.uses_drawing(&dem) {
+                Ok(Vec::new())
+            } else if self.engraving_perspective {
                 let mut vp = Viewpoint {
                     x: self.observer_x * (dem.width - 1) as f64,
                     y: self.observer_y * (dem.height - 1) as f64,
@@ -246,13 +276,16 @@ impl Studio {
                     ui.colored_label(Color32::DARK_RED, format!("Preview: {e}"));
                 }
             }
-            painter.text(
-                Pos2::new(r.center().x, r.top() + 10.),
-                egui::Align2::CENTER_TOP,
-                &self.engraving_title,
-                egui::FontId::proportional(16.),
-                Color32::BLACK,
-            );
+            // The new renderer engraves its own title.
+            if !self.uses_drawing(&dem) {
+                painter.text(
+                    Pos2::new(r.center().x, r.top() + 10.),
+                    egui::Align2::CENTER_TOP,
+                    &self.engraving_title,
+                    egui::FontId::proportional(16.),
+                    Color32::BLACK,
+                );
+            }
             for (i, a) in self.annotations.iter_mut().enumerate() {
                 let p = Pos2::new(
                     r.left() + a.x as f32 * r.width(),

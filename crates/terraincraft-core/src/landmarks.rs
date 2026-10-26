@@ -17,6 +17,22 @@ fn escape(s: &str) -> String {
         .replace('"', "&quot;")
         .replace('\'', "&apos;")
 }
+/// Write landmarks in the CSV format `read_csv` reads. Commas in names become spaces.
+pub fn to_csv(items: &[Landmark]) -> String {
+    let mut out = String::from("name,latitude,longitude,elevation_m,symbol\n");
+    for l in items {
+        let _ = writeln!(
+            out,
+            "{},{},{},{},{}",
+            l.name.replace(',', " "),
+            l.lat,
+            l.lon,
+            l.elevation_m.map(|e| e.to_string()).unwrap_or_default(),
+            l.symbol.replace(',', " ")
+        );
+    }
+    out
+}
 /// Simple comma-delimited CSV. Names containing commas should be avoided in this initial format.
 pub fn read_csv(text: &str) -> Result<Vec<Landmark>, String> {
     let mut out = Vec::new();
