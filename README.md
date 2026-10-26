@@ -43,6 +43,14 @@ Example: `cargo run -p terraincraft-cli -- usgs:-122.6,37.7,-122.4,37.85 out 220
 - Meshes are simplified so no elevation sample moves more than 0.05 mm vertically (`--simplify <mm>`, or `--no-simplify` for the full grid). Tile edges are left untouched, so neighboring tiles still meet exactly. A Mount Rainier export shrinks from 26 MB to 6 MB of STL.
 - `terrain_tiles.3mf` holds every tile as a named part for PrusaSlicer, OrcaSlicer, Bambu Studio or Cura; `assembly_sheet.svg` is an A4 layout with tile numbers, north arrow, scale bar and map details.
 
+**Laser-cut stacked layers**
+
+- One layer per sheet of material: `--material-mm` (default 3) at the model's vertical scale, the same relief and exaggeration as the 3D print. Layer 1 is the whole map; each layer above is the ground at or above its elevation, with islands as separate parts and lakes as holes.
+- Outlines follow interpolated contours (not the raster grid), are cut along the map edge exactly so layers line up at the rim, and never overhang the layer below. Necks narrower than 1.5 mm, islands under 6 x 6 mm and holes under 3 x 3 mm are removed as uncuttable.
+- Each part is engraved with the outline of the next layer (where to glue it) and its part number (`L12`, `L12-3` for islands and pieces), hidden where the next layer covers it.
+- Cut paths are offset by half the kerf (`--kerf-mm`, default 0.15). Parts larger than the sheet (`--sheet-width-mm`, `--sheet-height-mm`, default 600 x 400) are split into equal pieces, then packed onto sheets.
+- Output: `laser_sheet_NN.svg` and `.dxf` (red `CUT`, blue `ENGRAVE` layers), `laser_manifest.csv`, and `laser_layers.svg`, a preview of all layers in place.
+
 A settings file uses the same names, e.g. `{"base_mm": 10, "connectors": "seam-sockets", "strict_mesh": true}`.
 Earlier releases read these from `TERRAINCRAFT_*` environment variables; those are no longer read, and the CLI prints a warning if one is set.
 

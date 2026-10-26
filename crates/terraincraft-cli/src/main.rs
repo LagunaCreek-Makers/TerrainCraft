@@ -3,7 +3,7 @@ use std::{fs, path::PathBuf};
 use terraincraft_core::export_settings::{ConnectorMode, PrintExportSettings};
 use terraincraft_core::georef::CrsUnits;
 use terraincraft_core::gis::read_asc;
-use terraincraft_core::laser::{cut_parts, layout, sheet_svg, split_oversized};
+use terraincraft_core::stack::{self, StackSettings};
 use terraincraft_core::terrain_ops::{prepare, TerrainPrep};
 use terraincraft_core::usgs::Bounds;
 use terraincraft_core::{mesh, tiles, Dem, TerrainSettings};
@@ -77,6 +77,18 @@ struct Args {
     /// Recess flattened water this many meters below the sea level
     #[arg(long, default_value_t = 0.)]
     water_depth: f64,
+    /// Laser material thickness in mm; one layer per thickness at the model's vertical scale
+    #[arg(long, default_value_t = 3.)]
+    material_mm: f64,
+    /// Laser kerf width in mm
+    #[arg(long, default_value_t = 0.15)]
+    kerf_mm: f64,
+    /// Laser sheet width in mm
+    #[arg(long, default_value_t = 600.)]
+    sheet_width_mm: f64,
+    /// Laser sheet height in mm
+    #[arg(long, default_value_t = 400.)]
+    sheet_height_mm: f64,
     /// Only write the processed elevation grid (terrain.tif) and skip manufacturing files
     #[arg(long)]
     dem_only: bool,
@@ -531,36 +543,40 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             terraincraft_core::contours::svg(&dem, s.width_mm, s.height_mm, level)?,
         )?;
     }
-    let levels = (1..=8)
-        .map(|i| lo + (hi - lo) * i as f64 / 9.)
-        .collect::<Vec<_>>();
-    let parts = cut_parts(&dem, s.width_mm, s.height_mm, &levels)?;
-    let parts = split_oversized(&parts, 594., 394.)?;
-    let placements = layout(&parts, 600., 400., 3.)?;
-    terraincraft_core::inspection::preflight(&parts, &placements, 600., 400., 3.)?;
-    fs::write(
-        output.join("laser_layout_report.html"),
-        terraincraft_core::inspection::report_html(&parts, &placements, 600., 400.),
-    )?;
+    let st = StackSettings {
+        material_mm: args.material_mm,
+        kerf_mm: args.kerf_mm,
+        sheet_w_mm: args.sheet_width_mm,
+        sheet_h_mm: args.sheet_height_mm,
+        ..StackSettings::default()
+    };
+    let levels = stack::levels_for_material(&dem, s, st.material_mm);
+    let parts = stack::build_parts(&dem, s, &levels, &st)?;
+    let placements = stack::place(&parts, &st)?;
     let sheets = placements.iter().map(|p| p.sheet).max().unwrap_or(0);
     for sheet in 1..=sheets {
         fs::write(
             output.join(format!("laser_sheet_{sheet:02}.svg")),
-            sheet_svg(&parts, &placements, sheet, 600., 400.),
+            stack::sheet_svg(&parts, &placements, sheet, &st),
+        )?;
+        fs::write(
+            output.join(format!("laser_sheet_{sheet:02}.dxf")),
+            stack::sheet_dxf(&parts, &placements, sheet, &st),
         )?;
     }
-    let mut manifest = String::from("part_id,level,sheet,x_mm,y_mm,width_mm,height_mm\n");
-    for p in &placements {
-        let level = parts.iter().find(|v| v.id == p.part_id).unwrap().level;
-        manifest.push_str(&format!(
-            "{},{},{},{},{},{},{}\n",
-            p.part_id, level, p.sheet, p.x_mm, p.y_mm, p.width_mm, p.height_mm
-        ));
-    }
-    fs::write(output.join("laser_manifest.csv"), manifest)?;
+    fs::write(
+        output.join("laser_manifest.csv"),
+        stack::manifest_csv(&parts, &placements),
+    )?;
+    fs::write(
+        output.join("laser_layers.svg"),
+        stack::layers_preview_svg(&parts, s.width_mm, s.height_mm),
+    )?;
     println!(
-        "Generated {} closed contour parts across {} laser sheets",
+        "Laser stack: {} parts in {} layers of {} mm on {} sheets",
         parts.len(),
+        parts.iter().map(|p| p.layer).max().unwrap_or(0),
+        st.material_mm,
         sheets
     );
     println!(

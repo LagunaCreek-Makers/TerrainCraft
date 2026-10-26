@@ -302,36 +302,24 @@ impl Studio {
         painter.rect_filled(rect, 2., Color32::from_rgb(28, 36, 42));
         if self.view == View::Laser {
             match self.laser_data(&dem) {
-                Ok((parts, placements)) => {
-                    for p in placements.iter().filter(|p| p.sheet == self.sheet) {
-                        if let Some(part) = parts.iter().find(|v| v.id == p.part_id) {
-                            let minx = part
-                                .outline
-                                .iter()
-                                .map(|v| v.0)
-                                .fold(f64::INFINITY, f64::min);
-                            let miny = part
-                                .outline
-                                .iter()
-                                .map(|v| v.1)
-                                .fold(f64::INFINITY, f64::min);
-                            let pts: Vec<Pos2> = part
-                                .outline
-                                .iter()
-                                .map(|(x, y)| {
-                                    Pos2::new(
-                                        rect.left()
-                                            + ((p.x_mm + x - minx) / self.sheet_x) as f32
-                                                * rect.width(),
-                                        rect.top()
-                                            + ((p.y_mm + y - miny) / self.sheet_y) as f32
-                                                * rect.height(),
-                                    )
-                                })
-                                .collect();
+                Ok(data) => {
+                    let st = self.stack_settings();
+                    let (cut, engrave) =
+                        terraincraft_core::stack::sheet_geometry(&data.0, &data.1, self.sheet, &st);
+                    let to_screen = |c: &terraincraft_core::geo::Coord<f64>| {
+                        Pos2::new(
+                            rect.left() + (c.x / self.sheet_x) as f32 * rect.width(),
+                            rect.top() + (c.y / self.sheet_y) as f32 * rect.height(),
+                        )
+                    };
+                    for (lines, color) in [
+                        (&engrave, Color32::from_rgb(110, 150, 255)),
+                        (&cut, Color32::LIGHT_RED),
+                    ] {
+                        for ls in lines.iter() {
                             painter.add(egui::Shape::line(
-                                pts,
-                                Stroke::new(1.3_f32, Color32::LIGHT_RED),
+                                ls.0.iter().map(to_screen).collect(),
+                                Stroke::new(1_f32, color),
                             ));
                         }
                     }

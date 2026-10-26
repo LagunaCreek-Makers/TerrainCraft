@@ -1,5 +1,8 @@
 //! Rust-native terrain mesh and laser contour geometry. No Python dependency.
 
+/// Re-exported so callers can use the polygon types in laser parts.
+pub use geo;
+
 pub mod cartography;
 pub mod contours;
 pub mod engraving_editor;
@@ -10,11 +13,9 @@ pub mod geotiff;
 pub mod geoview;
 pub mod gis;
 pub mod icon_variants;
-pub mod inspection;
 pub mod intersections;
 pub mod label;
 pub mod landmarks;
-pub mod laser;
 pub mod manufacturing;
 pub mod mesh_audit;
 pub mod mesh_repair;
@@ -29,6 +30,7 @@ pub mod seam_preflight;
 pub mod seam_socket_mesh;
 pub mod simplify;
 pub mod socket_mesh;
+pub mod stack;
 pub mod terrain_ops;
 pub mod threemf;
 use std::{
