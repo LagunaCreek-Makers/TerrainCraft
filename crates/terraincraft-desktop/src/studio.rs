@@ -41,6 +41,15 @@ pub(crate) struct Studio {
     #[serde(skip)]
     pub(crate) applied_prep: Option<TerrainPrep>,
     pub(crate) prep: TerrainPrep,
+    /// Engrave tile numbers under exported tiles.
+    pub(crate) print_labels: bool,
+    /// Simplify exported tile meshes to within `simplify_mm`.
+    pub(crate) print_simplify: bool,
+    pub(crate) simplify_mm: f64,
+    /// Slicer program to open exported 3MF files with.
+    pub(crate) slicer_path: String,
+    #[serde(skip)]
+    pub(crate) last_3mf: Option<String>,
     pub(crate) message: String,
     pub(crate) width: f64,
     pub(crate) height: f64,
@@ -154,6 +163,11 @@ impl Default for Studio {
             source_dem: None,
             applied_prep: None,
             prep: TerrainPrep::default(),
+            print_labels: true,
+            print_simplify: true,
+            simplify_mm: 0.05,
+            slicer_path: String::new(),
+            last_3mf: None,
             message: "Load an elevation grid to begin".into(),
             width: 400.,
             height: 300.,

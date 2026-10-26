@@ -36,6 +36,13 @@ GeoTIFF input (e.g. a USGS 3DEP download) is read with its georeference and prin
 
 Example: `cargo run -p terraincraft-cli -- usgs:-122.6,37.7,-122.4,37.85 out 220 --width-mm 300 --sea-level 0 --water-depth 30 --exaggeration 2`
 
+**3D print output**
+
+- Tiles are exported **north-up** (+x east, +y north). Earlier releases exported a north-south mirror image of the terrain.
+- Each tile's row-column number (e.g. `1-2`) is engraved 0.6 mm into its underside, mirrored so it reads correctly when the tile is turned over. `--no-labels` turns this off.
+- Meshes are simplified so no elevation sample moves more than 0.05 mm vertically (`--simplify <mm>`, or `--no-simplify` for the full grid). Tile edges are left untouched, so neighboring tiles still meet exactly. A Mount Rainier export shrinks from 26 MB to 6 MB of STL.
+- `terrain_tiles.3mf` holds every tile as a named part for PrusaSlicer, OrcaSlicer, Bambu Studio or Cura; `assembly_sheet.svg` is an A4 layout with tile numbers, north arrow, scale bar and map details.
+
 A settings file uses the same names, e.g. `{"base_mm": 10, "connectors": "seam-sockets", "strict_mesh": true}`.
 Earlier releases read these from `TERRAINCRAFT_*` environment variables; those are no longer read, and the CLI prints a warning if one is set.
 

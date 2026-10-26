@@ -42,6 +42,11 @@ pub struct PrintExportSettings {
     pub strict_mesh: bool,
     /// Run the triangle self-intersection audit on every tile.
     pub check_intersections: bool,
+    /// Engrave each tile's row-column number into its underside.
+    pub labels: bool,
+    /// Simplify tile meshes so no surface sample moves more than this many millimeters
+    /// vertically; `None` keeps the full grid mesh.
+    pub simplify_mm: Option<f64>,
 }
 
 impl Default for PrintExportSettings {
@@ -53,6 +58,8 @@ impl Default for PrintExportSettings {
             repair_winding: false,
             strict_mesh: false,
             check_intersections: false,
+            labels: true,
+            simplify_mm: Some(0.05),
         }
     }
 }
@@ -61,6 +68,9 @@ impl PrintExportSettings {
     pub fn validate(&self) -> Result<(), String> {
         if !self.base_mm.is_finite() || self.base_mm <= 0. {
             return Err("Base thickness must be a positive number of millimeters".into());
+        }
+        if self.simplify_mm.is_some_and(|t| !t.is_finite() || t < 0.) {
+            return Err("Simplification tolerance must be zero or a positive number".into());
         }
         Ok(())
     }

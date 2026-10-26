@@ -1,6 +1,7 @@
 //! Laser layout and manufacturing file export.
 use crate::studio::{Studio, View};
 use std::{fs, path::Path};
+use terraincraft_core::export_settings::PrintExportSettings;
 use terraincraft_core::laser::{cut_parts, layout, sheet_svg, split_oversized, CutPart, Placement};
 use terraincraft_core::{tiles, Dem};
 
@@ -22,7 +23,7 @@ impl Studio {
         )?;
         Ok((parts, placements))
     }
-    pub(crate) fn export(&self) -> Result<String, String> {
+    pub(crate) fn export(&mut self) -> Result<String, String> {
         let dem = self.dem.as_ref().ok_or("Load a terrain first")?;
         self.settings().validate()?;
         fs::create_dir_all(&self.output).map_err(|e| e.to_string())?;
@@ -78,10 +79,23 @@ impl Studio {
                         );
                     }
                 }
+                let opts = PrintExportSettings {
+                    base_mm: self.base,
+                    labels: self.print_labels,
+                    simplify_mm: self.print_simplify.then_some(self.simplify_mm.max(0.)),
+                    ..PrintExportSettings::default()
+                };
+                let s = self.settings();
                 let mut audit_csv = String::from(terraincraft_core::mesh_audit::CSV_HEADER);
+                let mut finished = Vec::new();
+                let mut warnings = Vec::new();
                 for t in &ts {
                     let name = format!("tile_r{:02}_c{:02}.stl", t.row + 1, t.col + 1);
-                    let faces = self.tile_print_mesh(dem, *t, &holes)?;
+                    // Previews use the raw mesh; exports are turned north-up and finished.
+                    let mut faces = self.tile_print_mesh(dem, *t, &holes)?;
+                    terraincraft_core::north_up(&mut faces, dem, s, *t);
+                    let (faces, w) = terraincraft_core::finish_tile(faces, s, *t, &opts)?;
+                    warnings.extend(w);
                     let audit = terraincraft_core::mesh_audit::audit(&faces);
                     audit_csv.push_str(&audit.csv_row(&name));
                     terraincraft_core::print_export::write_binary_stl(
@@ -89,9 +103,42 @@ impl Studio {
                         &faces,
                     )
                     .map_err(|e| e.to_string())?;
+                    finished.push((*t, faces));
                 }
                 fs::write(Path::new(&self.output).join("mesh_audit.csv"), audit_csv)
                     .map_err(|e| e.to_string())?;
+                let max_row = ts.iter().map(|t| t.row).max().unwrap_or(0);
+                let parts: Vec<_> = finished
+                    .iter()
+                    .map(|(t, triangles)| {
+                        let [x, y] = terraincraft_core::north_up_origin(dem, s, *t);
+                        terraincraft_core::threemf::Part {
+                            name: format!("Tile {}", terraincraft_core::tile_label(*t)),
+                            triangles,
+                            offset_mm: [
+                                x + t.col as f64 * 10.,
+                                y + (max_row - t.row) as f64 * 10.,
+                                0.,
+                            ],
+                        }
+                    })
+                    .collect();
+                let threemf = Path::new(&self.output).join("terrain_tiles.3mf");
+                fs::write(&threemf, terraincraft_core::threemf::write(&parts)?)
+                    .map_err(|e| e.to_string())?;
+                self.last_3mf = Some(threemf.to_string_lossy().into_owned());
+                let title = format!(
+                    "TerrainCraft: {}",
+                    Path::new(&self.path)
+                        .file_stem()
+                        .map(|n| n.to_string_lossy().into_owned())
+                        .unwrap_or_default()
+                );
+                fs::write(
+                    Path::new(&self.output).join("assembly_sheet.svg"),
+                    terraincraft_core::assembly_sheet::svg(dem, s, &ts, &title)?,
+                )
+                .map_err(|e| e.to_string())?;
                 for g in &guides {
                     fs::write(
                         Path::new(&self.output).join(format!(
@@ -114,10 +161,16 @@ impl Studio {
                 )
                 .map_err(|e| e.to_string())?;
 
+                let triangles: usize = finished.iter().map(|(_, f)| f.len()).sum();
                 Ok(format!(
-                    "Exported {} STL tiles and mesh audit to {} (verify audit before printing)",
+                    "Exported {} tiles ({triangles} triangles) as STL and terrain_tiles.3mf, plus assembly_sheet.svg, to {}{}",
                     ts.len(),
-                    self.output
+                    self.output,
+                    if warnings.is_empty() {
+                        String::new()
+                    } else {
+                        format!(". Warnings: {}", warnings.join("; "))
+                    }
                 ))
             }
             View::Laser => {
