@@ -355,8 +355,8 @@ impl Studio {
             return;
         }
         for tile in &parts {
-            let stride_x = ((tile.x1 - tile.x0 + 35) / 36).max(1);
-            let stride_y = ((tile.y1 - tile.y0 + 35) / 36).max(1);
+            let stride_x = (tile.x1 - tile.x0).div_ceil(36).max(1);
+            let stride_y = (tile.y1 - tile.y0).div_ceil(36).max(1);
             let xs: Vec<usize> = (tile.x0..tile.x1)
                 .step_by(stride_x)
                 .chain(std::iter::once(tile.x1))

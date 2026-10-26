@@ -20,12 +20,14 @@ pub mod mesh_repair;
 pub mod nodata;
 pub mod peaks;
 pub mod print_export;
+pub mod projection;
 pub mod registration;
 pub mod seam_fabrication;
 pub mod seam_joints;
 pub mod seam_preflight;
 pub mod seam_socket_mesh;
 pub mod socket_mesh;
+pub mod terrain_ops;
 use std::{
     fs::File,
     io::{self, Write},
@@ -319,7 +321,7 @@ pub fn contour_svg(
                     pts.push((xx, yy));
                 }
             }
-            for pair in pts.chunks_exact(2) {
+            for pair in pts.as_chunks::<2>().0 {
                 lines.push_str(&format!(
                     "<path d=\"M {:.4} {:.4} L {:.4} {:.4}\"/>\n",
                     pair[0].0, pair[0].1, pair[1].0, pair[1].1

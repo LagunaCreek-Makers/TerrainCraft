@@ -93,13 +93,13 @@ mod tests {
 
 /// Convert verified catalog coordinates to normalized coordinates inside a north-up
 /// geographic engraving extent. Points outside the engraving are omitted.
-pub fn positions_in_extent<'a>(
-    items: &'a [CatalogEntry],
+pub fn positions_in_extent(
+    items: &[CatalogEntry],
     west: f64,
     south: f64,
     east: f64,
     north: f64,
-) -> Result<Vec<(&'a CatalogEntry, f64, f64)>, String> {
+) -> Result<Vec<(&CatalogEntry, f64, f64)>, String> {
     if ![west, south, east, north].iter().all(|v| v.is_finite()) || east <= west || north <= south {
         return Err("Invalid engraving extent".into());
     }

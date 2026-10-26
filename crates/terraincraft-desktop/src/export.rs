@@ -121,7 +121,7 @@ impl Studio {
                 ))
             }
             View::Laser => {
-                let (parts, placements) = self.laser_data(&dem)?;
+                let (parts, placements) = self.laser_data(dem)?;
                 let count = placements.iter().map(|p| p.sheet).max().unwrap_or(0);
                 for n in 1..=count {
                     fs::write(

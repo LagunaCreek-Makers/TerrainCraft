@@ -24,9 +24,24 @@ pub struct GpuMesh {
     pub vertices: Vec<f32>,
     pub triangle_count: usize,
 }
+/// One tile to upload: its triangles in millimeters, (x, y) offset and RGB color.
+pub type TileBatch = (Vec<[[f64; 3]; 3]>, [f64; 2], [f32; 3]);
+
+/// Orbit camera for the assembly preview.
+#[derive(Clone, Copy, Debug)]
+pub struct Camera {
+    pub yaw: f32,
+    pub pitch: f32,
+    pub zoom: f32,
+    /// Point the camera orbits, in model millimeters.
+    pub center: [f32; 3],
+    /// Model size used to fit the view, in millimeters.
+    pub extent: f32,
+}
+
 impl GpuMesh {
     /// Each triangle is [x,y,z] in millimeters; per-tile translation is applied before upload.
-    pub fn from_tiles(tiles: &[(Vec<[[f64; 3]; 3]>, [f64; 2], [f32; 3])]) -> Self {
+    pub fn from_tiles(tiles: &[TileBatch]) -> Self {
         let mut vertices = Vec::new();
         for (faces, offset, color) in tiles {
             for face in faces {
@@ -69,34 +84,15 @@ impl GpuMesh {
 
 /// GPU view draws into an isolated color+depth framebuffer, then composites the result
 /// into the egui callback's viewport. No CPU depth sorting or triangle decimation.
-pub fn paint_rect(
-    ui: &mut egui::Ui,
-    rect: egui::Rect,
-    mesh: GpuMesh,
-    yaw: f32,
-    pitch: f32,
-    zoom: f32,
-    center: [f32; 3],
-    extent: f32,
-) {
+pub fn paint_rect(ui: &mut egui::Ui, rect: egui::Rect, mesh: GpuMesh, camera: Camera) {
     let callback = eframe::egui_glow::CallbackFn::new(move |info, painter| {
         let gl = painter.gl();
         // Render in a temporary offscreen framebuffer, ensuring a real depth attachment.
         // This keeps egui's own framebuffer and depth/stencil state independent.
         unsafe {
-            if let Err(err) = render(
-                gl,
-                &mesh,
-                info.viewport_in_pixels().width_px as i32,
-                info.viewport_in_pixels().height_px as i32,
-                info.viewport_in_pixels().left_px as i32,
-                info.viewport_in_pixels().from_bottom_px as i32,
-                yaw,
-                pitch,
-                zoom,
-                center,
-                extent,
-            ) {
+            let vp = info.viewport_in_pixels();
+            let viewport = [vp.width_px, vp.height_px, vp.left_px, vp.from_bottom_px];
+            if let Err(err) = render(gl, &mesh, viewport, camera) {
                 eprintln!("TerrainCraft GPU preview: {err}");
             }
         }
@@ -125,16 +121,18 @@ unsafe fn compile(
 unsafe fn render(
     gl: &glow::Context,
     mesh: &GpuMesh,
-    w: i32,
-    h: i32,
-    left: i32,
-    bottom: i32,
-    yaw: f32,
-    pitch: f32,
-    zoom: f32,
-    center: [f32; 3],
-    extent: f32,
+    // Width, height, left and bottom of the target area in physical pixels.
+    viewport: [i32; 4],
+    camera: Camera,
 ) -> Result<(), String> {
+    let [w, h, left, bottom] = viewport;
+    let Camera {
+        yaw,
+        pitch,
+        zoom,
+        center,
+        extent,
+    } = camera;
     if w <= 0 || h <= 0 || mesh.vertices.is_empty() {
         return Ok(());
     }

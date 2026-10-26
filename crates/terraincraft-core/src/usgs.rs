@@ -1,8 +1,85 @@
 //! USGS 3DEP geographic selection and safe raster request construction.
 //! Geographic coordinates are WGS84 degrees; longitude is X, latitude is Y.
-/// Request limits kept well inside what the 3DEP ImageServer will return.
+use crate::georef::{CrsUnits, GeoReference};
+use crate::Dem;
+
+/// Per-request limits kept well inside what the 3DEP ImageServer will return.
 const MAX_SIDE: u32 = 2048;
 const MAX_SAMPLES: u64 = 2_000_000;
+/// Side of each request in a tiled download. A merged remainder can add up to
+/// MIN_TILE, and (1380 + 16)² still stays under MAX_SAMPLES.
+const TILE_SIDE: u32 = 1380;
+const MIN_TILE: u32 = 16;
+/// Limits for a whole tiled download.
+pub const MAX_DOWNLOAD_SIDE: u32 = 8192;
+const MAX_DOWNLOAD_SAMPLES: u64 = 16_000_000;
+
+/// One request of a tiled download, and where its pixels go in the full raster.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DownloadTile {
+    pub bounds: Bounds,
+    pub col0: u32,
+    pub row0: u32,
+    pub width: u32,
+    pub height: u32,
+}
+
+/// A download split into service-sized requests on one shared pixel grid.
+#[derive(Clone, Debug, PartialEq)]
+pub struct DownloadPlan {
+    pub width: u32,
+    pub height: u32,
+    /// Square pixel size in degrees, shared by every tile so they abut exactly.
+    pub pixel_deg: f64,
+    pub west: f64,
+    pub north: f64,
+    pub tiles: Vec<DownloadTile>,
+}
+
+impl DownloadPlan {
+    /// Assemble decoded tiles (in `tiles` order) into one georeferenced DEM. Each
+    /// tile must have its planned size and, if georeferenced, sit where it was planned.
+    pub fn stitch(&self, parts: &[Dem]) -> Result<Dem, String> {
+        if parts.len() != self.tiles.len() {
+            return Err("Tile count does not match the download plan".into());
+        }
+        let (w, h) = (self.width as usize, self.height as usize);
+        let mut heights = vec![0.; w * h];
+        for (t, part) in self.tiles.iter().zip(parts) {
+            if (part.width, part.height) != (t.width as usize, t.height as usize) {
+                return Err(format!(
+                    "Tile at column {} row {} is {} x {}, expected {} x {}",
+                    t.col0, t.row0, part.width, part.height, t.width, t.height
+                ));
+            }
+            if let Some(g) = part.georef {
+                let off_x = (g.origin_x - t.bounds.west) / self.pixel_deg;
+                let off_y = (g.origin_y - t.bounds.north) / self.pixel_deg;
+                if off_x.abs() > 0.01 || off_y.abs() > 0.01 {
+                    return Err(format!(
+                        "Tile at column {} row {} is offset by {off_x:.3}, {off_y:.3} pixels",
+                        t.col0, t.row0
+                    ));
+                }
+            }
+            for row in 0..part.height {
+                let dst = (t.row0 as usize + row) * w + t.col0 as usize;
+                heights[dst..dst + part.width]
+                    .copy_from_slice(&part.heights[row * part.width..(row + 1) * part.width]);
+            }
+        }
+        let mut dem = Dem::new(w, h, heights)?;
+        dem.georef = Some(GeoReference {
+            epsg: Some(4326),
+            units: CrsUnits::Degrees,
+            origin_x: self.west,
+            origin_y: self.north,
+            pixel_width: self.pixel_deg,
+            pixel_height: self.pixel_deg,
+        });
+        Ok(dem)
+    }
+}
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Bounds {
@@ -69,7 +146,55 @@ impl Bounds {
         let ground = ((self.east - self.west) * m_lon).max((self.north - self.south) * m_lat);
         let for_print = model_long_side_mm / mm_per_sample.max(0.05);
         let native = ground / 10.;
-        for_print.min(native).clamp(16., MAX_SIDE as f64).round() as u32
+        for_print
+            .min(native)
+            .clamp(16., MAX_DOWNLOAD_SIDE as f64)
+            .round() as u32
+    }
+    /// Split a download with `long_side` pixels on the longer axis into requests the
+    /// service accepts. All tiles share one square pixel size and their bounds are exact
+    /// multiples of it, so the pieces line up with no resampling. The covered area may
+    /// differ from the selection by under one pixel on the east and south edges.
+    pub fn plan_download(&self, long_side: u32) -> Result<DownloadPlan, String> {
+        self.validate()?;
+        let (dx, dy) = (self.east - self.west, self.north - self.south);
+        let mut long = long_side.clamp(16, MAX_DOWNLOAD_SIDE) as f64;
+        let ratio = dx.max(dy) / dx.min(dy);
+        let fit = (MAX_DOWNLOAD_SAMPLES as f64 * ratio).sqrt();
+        long = long.min(fit.floor());
+        let pixel_deg = dx.max(dy) / long;
+        let (width, height) = (
+            (dx / pixel_deg).round() as u32,
+            (dy / pixel_deg).round() as u32,
+        );
+        if width.min(height) < 16 {
+            return Err("Selection is too narrow; widen the shorter side".into());
+        }
+        let mut tiles = Vec::new();
+        for (row0, h) in splits(height) {
+            for (col0, w) in splits(width) {
+                tiles.push(DownloadTile {
+                    bounds: Bounds {
+                        west: self.west + col0 as f64 * pixel_deg,
+                        east: self.west + (col0 + w) as f64 * pixel_deg,
+                        north: self.north - row0 as f64 * pixel_deg,
+                        south: self.north - (row0 + h) as f64 * pixel_deg,
+                    },
+                    col0,
+                    row0,
+                    width: w,
+                    height: h,
+                });
+            }
+        }
+        Ok(DownloadPlan {
+            width,
+            height,
+            pixel_deg,
+            west: self.west,
+            north: self.north,
+            tiles,
+        })
     }
     pub fn url(&self, width: u32, height: u32) -> Result<String, String> {
         self.validate()?;
@@ -81,6 +206,65 @@ impl Bounds {
         }
         Ok(format!("https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?bbox={},{},{},{}&bboxSR=4326&imageSR=4326&size={},{}&format=tiff&pixelType=F32&interpolation=RSP_BilinearInterpolation&f=image",self.west,self.south,self.east,self.north,width,height))
     }
+}
+/// Download `bounds` from the 3DEP ImageServer at `long_side` pixels on the longer axis,
+/// in as many requests as needed, and stitch them into one georeferenced DEM.
+/// `progress(done, total)` is called after each request.
+#[cfg(feature = "download")]
+pub fn download(
+    bounds: &Bounds,
+    long_side: u32,
+    progress: &mut dyn FnMut(usize, usize),
+) -> Result<crate::geotiff::DecodedRaster, String> {
+    let plan = bounds.plan_download(long_side)?;
+    let client = reqwest::blocking::Client::builder()
+        .timeout(std::time::Duration::from_secs(120))
+        .user_agent(concat!("TerrainCraft/", env!("CARGO_PKG_VERSION")))
+        .build()
+        .map_err(|e| e.to_string())?;
+    let mut parts = Vec::with_capacity(plan.tiles.len());
+    let mut filled_cells = 0;
+    for (i, t) in plan.tiles.iter().enumerate() {
+        let url = t.bounds.url(t.width, t.height)?;
+        let response = client
+            .get(url)
+            .send()
+            .and_then(|r| r.error_for_status())
+            .map_err(|e| format!("USGS request {} of {}: {e}", i + 1, plan.tiles.len()))?;
+        if response.content_length().unwrap_or(0) > 60_000_000 {
+            return Err("USGS response exceeds 60 MB".into());
+        }
+        let bytes = response.bytes().map_err(|e| e.to_string())?;
+        if bytes.len() < 4 || !matches!(&bytes[..4], b"II*\0" | b"MM\0*") {
+            return Err("USGS did not return a TIFF; check service availability".into());
+        }
+        let r = crate::geotiff::decode(&bytes)?;
+        filled_cells += r.filled_cells;
+        parts.push(r.dem);
+        progress(i + 1, plan.tiles.len());
+    }
+    Ok(crate::geotiff::DecodedRaster {
+        dem: plan.stitch(&parts)?,
+        filled_cells,
+    })
+}
+
+/// Split `total` pixels into (start, length) runs of TILE_SIDE, folding a remainder
+/// shorter than MIN_TILE into the last run so no request is degenerate.
+fn splits(total: u32) -> Vec<(u32, u32)> {
+    let mut out = Vec::new();
+    let mut start = 0;
+    while start < total {
+        let rest = total - start;
+        let len = if rest <= TILE_SIDE + MIN_TILE {
+            rest
+        } else {
+            TILE_SIDE
+        };
+        out.push((start, len));
+        start += len;
+    }
+    out
 }
 #[cfg(test)]
 mod tests {
@@ -148,6 +332,82 @@ mod tests {
             north: 0.001,
         };
         assert!(sliver.request_size(2048).is_err());
+    }
+    #[test]
+    fn plans_tiles_on_one_grid() {
+        let b = Bounds {
+            west: -122.,
+            south: 46.,
+            east: -121.,
+            north: 46.75,
+        };
+        let p = b.plan_download(4000).unwrap();
+        assert_eq!((p.width, p.height), (4000, 3000));
+        assert_eq!(p.tiles.len(), 9);
+        for t in &p.tiles {
+            assert!(t.width >= MIN_TILE && t.height >= MIN_TILE);
+            assert!(t.width as u64 * t.height as u64 <= MAX_SAMPLES);
+            // Each request's aspect matches its pixel shape, so pixels stay square.
+            let px = (t.bounds.east - t.bounds.west) / t.width as f64;
+            let py = (t.bounds.north - t.bounds.south) / t.height as f64;
+            assert!((px - p.pixel_deg).abs() < 1e-12 && (py - p.pixel_deg).abs() < 1e-12);
+        }
+        let covered: u64 = p
+            .tiles
+            .iter()
+            .map(|t| t.width as u64 * t.height as u64)
+            .sum();
+        assert_eq!(covered, 4000 * 3000);
+        // Small selections are a single request.
+        assert_eq!(b.plan_download(500).unwrap().tiles.len(), 1);
+        // Totals are capped.
+        let big = Bounds {
+            west: 0.,
+            south: 0.,
+            east: 5.,
+            north: 5.,
+        }
+        .plan_download(8192)
+        .unwrap();
+        assert!(big.width as u64 * big.height as u64 <= MAX_DOWNLOAD_SAMPLES);
+        assert_eq!(splits(1390), vec![(0, 1390)]);
+        assert_eq!(splits(2770), vec![(0, 1380), (1380, 1390)]);
+    }
+    #[test]
+    fn stitches_tiles_and_rejects_misalignment() {
+        let b = Bounds {
+            west: 0.,
+            south: 0.,
+            east: 3.,
+            north: 0.1,
+        };
+        let p = b.plan_download(3000).unwrap();
+        assert_eq!(p.tiles.len(), 3);
+        let parts: Vec<Dem> = p
+            .tiles
+            .iter()
+            .map(|t| {
+                let v = (0..t.width * t.height)
+                    .map(|i| (t.col0 + i % t.width) as f64)
+                    .collect();
+                let mut d = Dem::new(t.width as usize, t.height as usize, v).unwrap();
+                d.georef = Some(GeoReference {
+                    epsg: Some(4326),
+                    units: CrsUnits::Degrees,
+                    origin_x: t.bounds.west,
+                    origin_y: t.bounds.north,
+                    pixel_width: p.pixel_deg,
+                    pixel_height: p.pixel_deg,
+                });
+                d
+            })
+            .collect();
+        let d = p.stitch(&parts).unwrap();
+        assert_eq!((d.width, d.height), (3000, 100));
+        assert!((0..3000).all(|x| d.at(x, 57) == x as f64));
+        let mut shifted = parts.clone();
+        shifted[1].georef.as_mut().unwrap().origin_x += p.pixel_deg * 0.5;
+        assert!(p.stitch(&shifted).is_err());
     }
     #[test]
     fn suggested_resolution() {

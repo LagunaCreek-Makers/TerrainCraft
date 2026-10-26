@@ -6,7 +6,18 @@ use std::{
     sync::mpsc,
 };
 use terraincraft_core::engraving_editor::Annotation;
+use terraincraft_core::geotiff::DecodedRaster;
+use terraincraft_core::terrain_ops::TerrainPrep;
 use terraincraft_core::Dem;
+
+/// A downloaded map tile: its cache key and the image bytes or an error.
+pub(crate) type TileFetch = (String, Result<Vec<u8>, String>);
+
+/// Messages from the background USGS download thread.
+pub(crate) enum DownloadMsg {
+    Progress(usize, usize),
+    Done(Result<DecodedRaster, String>),
+}
 
 #[derive(PartialEq, Clone, Copy, Serialize, Deserialize)]
 pub(crate) enum View {
@@ -20,8 +31,16 @@ pub(crate) enum View {
 pub(crate) struct Studio {
     pub(crate) path: String,
     pub(crate) output: String,
+    /// Processed elevation grid that previews and exports use.
     #[serde(skip)]
     pub(crate) dem: Option<Dem>,
+    /// Elevation grid as loaded, before `prep` is applied.
+    #[serde(skip)]
+    pub(crate) source_dem: Option<Dem>,
+    /// The `prep` that produced `dem`, so changes trigger reprocessing.
+    #[serde(skip)]
+    pub(crate) applied_prep: Option<TerrainPrep>,
+    pub(crate) prep: TerrainPrep,
     pub(crate) message: String,
     pub(crate) width: f64,
     pub(crate) height: f64,
@@ -107,12 +126,12 @@ pub(crate) struct Studio {
     pub(crate) north: f64,
     pub(crate) raster_pixels: u32,
     #[serde(skip)]
-    pub(crate) download_rx: Option<mpsc::Receiver<Result<Vec<u8>, String>>>,
+    pub(crate) download_rx: Option<mpsc::Receiver<DownloadMsg>>,
     pub(crate) map_zoom: u8,
     pub(crate) map_markers: bool,
     pub(crate) map_marker_limit: usize,
     #[serde(skip)]
-    pub(crate) map_results: Option<mpsc::Receiver<(String, Result<Vec<u8>, String>)>>,
+    pub(crate) map_results: Option<mpsc::Receiver<TileFetch>>,
     #[serde(skip)]
     pub(crate) map_textures: HashMap<String, egui::TextureHandle>,
     #[serde(skip)]
@@ -120,7 +139,7 @@ pub(crate) struct Studio {
     #[serde(skip)]
     pub(crate) map_requested: HashSet<String>,
     #[serde(skip)]
-    pub(crate) map_tx: Option<mpsc::Sender<(String, Result<Vec<u8>, String>)>>,
+    pub(crate) map_tx: Option<mpsc::Sender<TileFetch>>,
     #[serde(skip)]
     pub(crate) map_drag_origin: Option<(f64, f64)>,
     #[serde(skip)]
@@ -132,6 +151,9 @@ impl Default for Studio {
             path: "examples/demo.csv".into(),
             output: "output".into(),
             dem: None,
+            source_dem: None,
+            applied_prep: None,
+            prep: TerrainPrep::default(),
             message: "Load an elevation grid to begin".into(),
             width: 400.,
             height: 300.,

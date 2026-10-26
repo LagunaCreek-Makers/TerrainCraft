@@ -227,7 +227,7 @@ pub fn guide_manifest(guides: &[TileGuide], reg: RegistrationSettings) -> String
 /// Cylindrical pin STL triangles, centered in XY, with its base at Z=0.
 pub fn pin_mesh(reg: RegistrationSettings, segments: usize) -> Result<Vec<[[f64; 3]; 3]>, String> {
     reg.validate()?;
-    if segments < 12 || segments > 256 {
+    if !(12..=256).contains(&segments) {
         return Err("Pin segment count must be 12..256".into());
     }
     let r = reg.pin_diameter_mm / 2.;
@@ -300,8 +300,10 @@ mod tests {
     }
     #[test]
     fn invalid_clearance() {
-        let mut r = RegistrationSettings::default();
-        r.hole_clearance_mm = -1.;
+        let r = RegistrationSettings {
+            hole_clearance_mm: -1.,
+            ..RegistrationSettings::default()
+        };
         assert!(r.validate().is_err());
     }
     #[test]

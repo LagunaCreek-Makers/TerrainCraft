@@ -73,22 +73,20 @@ impl Studio {
             let mesh = gpu_view::GpuMesh::from_tiles(&batches);
             let triangles = mesh.triangle_count;
             // Callback paints into the previously allocated rect.
-            gpu_view::paint_rect(
-                ui,
-                rect,
-                mesh,
-                self.orbit_yaw,
-                self.orbit_pitch,
-                self.orbit_zoom,
-                [
+            let camera = gpu_view::Camera {
+                yaw: self.orbit_yaw,
+                pitch: self.orbit_pitch,
+                zoom: self.orbit_zoom,
+                center: [
                     ((self.width + gap * parts.iter().map(|t| t.col).max().unwrap_or(0) as f64)
                         * 0.5) as f32,
                     ((self.height + gap * parts.iter().map(|t| t.row).max().unwrap_or(0) as f64)
                         * 0.5) as f32,
                     (self.base + self.relief * self.exaggeration) as f32 * 0.5,
                 ],
-                (self.width.max(self.height) + gap * parts.len() as f64) as f32,
-            );
+                extent: (self.width.max(self.height) + gap * parts.len() as f64) as f32,
+            };
+            gpu_view::paint_rect(ui, rect, mesh, camera);
             ui.painter_at(rect).text(
                 rect.left_top() + Vec2::new(8., 8.),
                 egui::Align2::LEFT_TOP,
@@ -105,7 +103,7 @@ impl Studio {
         painter.rect_filled(rect, 0., Color32::from_rgb(23, 29, 37));
         let (lo, hi) = dem.min_max();
         let span = (hi - lo).max(1e-9);
-        let stride = ((dem.width.max(dem.height) + 85) / 86).max(1);
+        let stride = dem.width.max(dem.height).div_ceil(86).max(1);
         let xs: Vec<usize> = (0..dem.width)
             .step_by(stride)
             .chain(std::iter::once(dem.width - 1))
