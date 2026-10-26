@@ -19,7 +19,7 @@ pub fn mesh_with_sockets(
 ) -> Result<Vec<Tri>, String> {
     s.validate()?;
     r.validate()?;
-    if segments < 12 || segments > 128 || segments % 4 != 0 {
+    if !(12..=128).contains(&segments) || !segments.is_multiple_of(4) {
         return Err("Socket segments must be divisible by 4, between 12 and 128".into());
     }
     if g.row != t.row || g.col != t.col {

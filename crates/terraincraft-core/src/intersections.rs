@@ -151,15 +151,14 @@ pub fn inspect(faces: &[Tri], max_pairs: usize) -> IntersectionReport {
         return r;
     }
     let boxes: Vec<Aabb> = faces.iter().map(bounds).collect();
-    let mut span = [0.0_f64; 3];
-    for k in 0..3 {
+    let span: [f64; 3] = std::array::from_fn(|k| {
         let low = boxes.iter().map(|b| b.0[k]).fold(f64::INFINITY, f64::min);
         let high = boxes
             .iter()
             .map(|b| b.1[k])
             .fold(f64::NEG_INFINITY, f64::max);
-        span[k] = high - low;
-    }
+        high - low
+    });
     let axis = (0..3)
         .max_by(|&a, &b| span[a].total_cmp(&span[b]))
         .unwrap_or(0);

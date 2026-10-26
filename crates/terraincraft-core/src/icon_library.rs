@@ -41,7 +41,7 @@ pub fn procedural_icon(index: usize) -> String {
   _=>paths.push_str("<path d='M8 54 H56 M16 54 V14 H48 V54 M10 14 H54 M25 14 V5 H39 V14 M24 54 V33 H40 V54'/>"),
  }
     // 12 distinctive secondary motifs, kept within 64x64 and in one monochrome stroke.
-    if variant % 3 == 0 {
+    if variant.is_multiple_of(3) {
         paths.push_str(&format!(
             "<path d='M{} 58 H{}'/>",
             8 + variant % 8,

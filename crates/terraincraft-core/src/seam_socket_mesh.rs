@@ -48,7 +48,7 @@ pub fn mesh_with_seam_sockets(
     segments: usize,
 ) -> Result<Vec<Tri>, String> {
     s.validate()?;
-    if !(16..=128).contains(&segments) || segments % 4 != 0 {
+    if !(16..=128).contains(&segments) || !segments.is_multiple_of(4) {
         return Err("Socket segments must be a multiple of four in [16,128]".into());
     }
     let sx = s.width_mm / (d.width - 1) as f64;
@@ -163,7 +163,7 @@ pub fn mesh_with_seam_sockets(
             .map_err(|e| format!("Sidewall triangulation failed: {e}"))?;
         let normal = outward(side);
         let mut patch = Vec::new();
-        for tri in indices.chunks_exact(3) {
+        for tri in indices.as_chunks::<3>().0 {
             let point = |i: usize| position(side, coords[2 * i], coords[2 * i + 1], 0., w, h);
             emit(
                 &mut patch,

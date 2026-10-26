@@ -321,7 +321,7 @@ pub fn contour_svg(
                     pts.push((xx, yy));
                 }
             }
-            for pair in pts.chunks_exact(2) {
+            for pair in pts.as_chunks::<2>().0 {
                 lines.push_str(&format!(
                     "<path d=\"M {:.4} {:.4} L {:.4} {:.4}\"/>\n",
                     pair[0].0, pair[0].1, pair[1].0, pair[1].1

@@ -9,8 +9,7 @@ pub type Triangle = [[f64; 3]; 3];
 /// A printable dowel oriented along Z, with a small lead-in chamfer.
 /// Diameter is nominal (without the socket clearance).
 pub fn dowel_mesh(settings: SeamSettings, segments: usize) -> Result<Vec<Triangle>, String> {
-    if segments < 12
-        || segments > 512
+    if !(12..=512).contains(&segments)
         || !settings.diameter_mm.is_finite()
         || settings.diameter_mm <= 0.
         || !settings.depth_mm.is_finite()

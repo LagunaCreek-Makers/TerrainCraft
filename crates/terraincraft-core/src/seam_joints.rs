@@ -213,7 +213,7 @@ mod tests {
         ];
         let h = plan(&d, &ts, s, SeamSettings::default()).unwrap();
         assert!(!h.is_empty());
-        for pair in h.chunks_exact(2) {
+        for pair in h.as_chunks::<2>().0 {
             assert_eq!(pair[0].seam_id, pair[1].seam_id);
             assert!((pair[0].along_mm - pair[1].along_mm).abs() < 1e-8);
         }

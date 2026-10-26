@@ -28,7 +28,7 @@ pub struct RepairReport {
 }
 /// Reorient triangles using shared-edge adjacency. Refuses open, non-manifold,
 /// degenerate, or non-orientable inputs. Does not fix self-intersections.
-pub fn repair_winding(faces: &mut Vec<[[f64; 3]; 3]>) -> Result<RepairReport, String> {
+pub fn repair_winding(faces: &mut [[[f64; 3]; 3]]) -> Result<RepairReport, String> {
     let before = audit(faces);
     if before.degenerate_triangles > 0
         || before.boundary_edges > 0

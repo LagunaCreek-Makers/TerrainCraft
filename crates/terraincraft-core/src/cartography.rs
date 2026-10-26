@@ -195,7 +195,7 @@ pub fn panorama_depth_svg(
         }
         svg.push_str("\"/></g>\n");
     }
-    let _=write!(svg,"<g id=\"annotations\" font-family=\"{}\" text-anchor=\"middle\"><text x=\"{:.2}\" y=\"12\" font-size=\"7\">{}</text></g>\n",xml(&o.font_family),o.width_mm/2.,xml(&o.title));
+    let _=writeln!(svg,"<g id=\"annotations\" font-family=\"{}\" text-anchor=\"middle\"><text x=\"{:.2}\" y=\"12\" font-size=\"7\">{}</text></g>",xml(&o.font_family),o.width_mm/2.,xml(&o.title));
     svg.push_str("</svg>\n");
     Ok(svg)
 }
@@ -226,9 +226,9 @@ pub fn panorama_svg(d: &Dem, v: Viewpoint, o: &EngravingOptions) -> Result<Strin
     s.push_str("\"/></g>\n");
     if o.style == EngravingStyle::Illustrated {
         s.push_str("<g id=\"decorative-frame\" fill=\"none\" stroke=\"#000\" stroke-width=\"0.25\"><rect x=\"2\" y=\"2\" width=\"");
-        let _ = write!(
+        let _ = writeln!(
             s,
-            "{}\" height=\"{}\"/></g>\n",
+            "{}\" height=\"{}\"/></g>",
             o.width_mm - 4.,
             o.height_mm - 4.
         );
@@ -286,7 +286,7 @@ pub fn panorama_with_peaks_svg(
         let y = (center - (p.elevation_angle_deg - v.pitch_deg).to_radians() * scale)
             .clamp(top, bottom);
         let label_y = (y - 6.).max(18.);
-        let _=write!(labels,"<circle cx=\"{x:.2}\" cy=\"{y:.2}\" r=\"0.9\"/><path d=\"M {x:.2} {y:.2} L {x:.2} {label_y:.2}\" stroke=\"#000\" stroke-width=\"0.12\"/><text x=\"{x:.2}\" y=\"{:.2}\" text-anchor=\"middle\">Candidate peak · {:.0} m</text>\n",label_y-1.,p.elevation_m);
+        let _=writeln!(labels,"<circle cx=\"{x:.2}\" cy=\"{y:.2}\" r=\"0.9\"/><path d=\"M {x:.2} {y:.2} L {x:.2} {label_y:.2}\" stroke=\"#000\" stroke-width=\"0.12\"/><text x=\"{x:.2}\" y=\"{:.2}\" text-anchor=\"middle\">Candidate peak · {:.0} m</text>",label_y-1.,p.elevation_m);
         occupied.push(x);
     }
     labels.push_str("</g>\n");
@@ -325,7 +325,7 @@ pub fn topdown_svg(d: &Dem, o: &EngravingOptions) -> Result<String, String> {
                 let _ = write!(s, "{} {:.3} {:.3} ", if j == 0 { "M" } else { "L" }, x, y);
             }
             if path.first() == path.last() {
-                s.push_str("Z");
+                s.push('Z');
             }
             s.push_str("\"/>\n");
         }
@@ -375,8 +375,10 @@ mod tests {
     }
     #[test]
     fn escapes_labels() {
-        let mut o = EngravingOptions::default();
-        o.title = "A&B <C>".into();
+        let o = EngravingOptions {
+            title: "A&B <C>".into(),
+            ..EngravingOptions::default()
+        };
         let svg = topdown_svg(&dem(), &o).unwrap();
         assert!(svg.contains("A&amp;B &lt;C&gt;"));
     }

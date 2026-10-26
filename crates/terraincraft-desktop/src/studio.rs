@@ -10,6 +10,9 @@ use terraincraft_core::geotiff::DecodedRaster;
 use terraincraft_core::terrain_ops::TerrainPrep;
 use terraincraft_core::Dem;
 
+/// A downloaded map tile: its cache key and the image bytes or an error.
+pub(crate) type TileFetch = (String, Result<Vec<u8>, String>);
+
 /// Messages from the background USGS download thread.
 pub(crate) enum DownloadMsg {
     Progress(usize, usize),
@@ -128,7 +131,7 @@ pub(crate) struct Studio {
     pub(crate) map_markers: bool,
     pub(crate) map_marker_limit: usize,
     #[serde(skip)]
-    pub(crate) map_results: Option<mpsc::Receiver<(String, Result<Vec<u8>, String>)>>,
+    pub(crate) map_results: Option<mpsc::Receiver<TileFetch>>,
     #[serde(skip)]
     pub(crate) map_textures: HashMap<String, egui::TextureHandle>,
     #[serde(skip)]
@@ -136,7 +139,7 @@ pub(crate) struct Studio {
     #[serde(skip)]
     pub(crate) map_requested: HashSet<String>,
     #[serde(skip)]
-    pub(crate) map_tx: Option<mpsc::Sender<(String, Result<Vec<u8>, String>)>>,
+    pub(crate) map_tx: Option<mpsc::Sender<TileFetch>>,
     #[serde(skip)]
     pub(crate) map_drag_origin: Option<(f64, f64)>,
     #[serde(skip)]

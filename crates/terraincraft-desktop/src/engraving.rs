@@ -107,7 +107,7 @@ impl Studio {
                 )?;
                 terraincraft_core::icon_library::overlay_icon(
                     svg,
-                    &self.selected_icon_svg().as_str(),
+                    self.selected_icon_svg().as_str(),
                     self.icon_x * self.width,
                     self.icon_y * self.height,
                     self.icon_size,
@@ -168,7 +168,7 @@ impl Studio {
                 )?;
                 terraincraft_core::icon_library::overlay_icon(
                     svg,
-                    &self.selected_icon_svg().as_str(),
+                    self.selected_icon_svg().as_str(),
                     self.icon_x * self.width,
                     self.icon_y * self.height,
                     self.icon_size,
