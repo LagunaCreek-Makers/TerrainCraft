@@ -46,6 +46,15 @@ struct Args {
     /// Run the triangle self-intersection audit on every tile
     #[arg(long)]
     check_intersections: bool,
+    /// Don't engrave tile numbers into the underside
+    #[arg(long)]
+    no_labels: bool,
+    /// Simplify meshes so no surface sample moves more than this many mm [default: 0.05]
+    #[arg(long)]
+    simplify: Option<f64>,
+    /// Keep the full grid mesh
+    #[arg(long, conflicts_with = "simplify")]
+    no_simplify: bool,
     /// Model width in millimeters
     #[arg(long, default_value_t = 400.)]
     width_mm: f64,
@@ -157,6 +166,15 @@ impl Args {
         s.repair_winding |= self.repair_winding;
         s.strict_mesh |= self.strict_mesh;
         s.check_intersections |= self.check_intersections;
+        if self.no_labels {
+            s.labels = false;
+        }
+        if let Some(t) = self.simplify {
+            s.simplify_mm = Some(t);
+        }
+        if self.no_simplify {
+            s.simplify_mm = None;
+        }
         s.validate()?;
         Ok(s)
     }
@@ -333,6 +351,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 }
             }
         }
+        terraincraft_core::north_up(&mut faces, &dem, s, *tile);
+        let (faces, warnings) = terraincraft_core::finish_tile(faces, s, *tile, &opts)?;
+        for w in warnings {
+            eprintln!("Warning: {w}");
+        }
         let audit = terraincraft_core::mesh_audit::audit(&faces);
         let filename = path.file_name().unwrap().to_string_lossy();
         audit_csv.push_str(&audit.csv_row(&filename));
@@ -383,6 +406,46 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         ));
         terraincraft_core::print_export::write_binary_stl(&path, faces)?;
     }
+    // One 3MF with every tile as a named part, spread out in assembly order with gaps.
+    let max_row = tile_list.iter().map(|t| t.row).max().unwrap_or(0);
+    let parts: Vec<_> = assembly_meshes
+        .iter()
+        .map(|(t, triangles)| {
+            let [x, y] = terraincraft_core::north_up_origin(&dem, s, *t);
+            terraincraft_core::threemf::Part {
+                name: format!("Tile {}", terraincraft_core::tile_label(*t)),
+                triangles,
+                offset_mm: [
+                    x + t.col as f64 * 10.,
+                    y + (max_row - t.row) as f64 * 10.,
+                    0.,
+                ],
+            }
+        })
+        .collect();
+    fs::write(
+        output.join("terrain_tiles.3mf"),
+        terraincraft_core::threemf::write(&parts)?,
+    )?;
+    let title = format!(
+        "TerrainCraft: {}",
+        args.input
+            .file_stem()
+            .map(|n| n.to_string_lossy().into_owned())
+            .unwrap_or_default()
+    );
+    fs::write(
+        output.join("assembly_sheet.svg"),
+        terraincraft_core::assembly_sheet::svg(&dem, s, &tile_list, &title)?,
+    )?;
+    let triangles: usize = assembly_meshes.iter().map(|(_, f)| f.len()).sum();
+    println!(
+        "{} tiles, {triangles} triangles{}",
+        assembly_meshes.len(),
+        opts.simplify_mm
+            .map(|t| format!(" (simplified to within {t} mm)"))
+            .unwrap_or_default()
+    );
     let assembly_refs: Vec<_> = assembly_meshes
         .iter()
         .map(

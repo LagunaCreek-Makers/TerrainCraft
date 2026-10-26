@@ -136,7 +136,24 @@ impl eframe::App for Studio {
     View::Terrain=>{ui.label("Elevation contours (engraving SVGs)");ui.add(egui::Slider::new(&mut self.layer_count,1..=60).text("Contour levels"));},
     View::Print=>{ui.heading("Print bed");ui.add(egui::DragValue::new(&mut self.bed_x).range(10.0..=2000.).prefix("Bed X "));ui.add(egui::DragValue::new(&mut self.bed_y).range(10.0..=2000.).prefix("Bed Y "));ui.add(egui::DragValue::new(&mut self.margin).range(0.0..=50.).prefix("Margin "));ui.separator();ui.checkbox(&mut self.assembly_exploded,"Exploded 3D assembly");ui.add(egui::Slider::new(&mut self.assembly_gap_mm,0.0..=80.0).text("Gap (mm)"));ui.checkbox(&mut self.show_assembly_labels,"Show tile row/column labels");ui.checkbox(&mut self.assembly_mesh_mode,"Render generated STL triangle mesh (slower)");ui.checkbox(&mut self.assembly_gpu,"GPU accelerated OpenGL solid preview (experimental)");ui.checkbox(&mut self.assembly_shaded,"Shaded solid mesh (depth-sorted)");ui.add_enabled_ui(self.assembly_mesh_mode,|ui|{ui.checkbox(&mut self.assembly_shaded,"Shaded solid triangles (depth sorted)");});
      ui.horizontal(|ui|{ui.label("Preview/export connectors:");ui.selectable_value(&mut self.assembly_connector_mode,0,"None");ui.selectable_value(&mut self.assembly_connector_mode,1,"Underside");ui.selectable_value(&mut self.assembly_connector_mode,2,"Seam sockets");});
-     ui.small("Mesh preview uses the same generated triangles as desktop STL export. Experimental connector geometry may fail topology validation. Seam sockets still require coarse enough wall segments.");},
+     ui.small("Mesh preview uses the same generated triangles as desktop STL export. Experimental connector geometry may fail topology validation. Seam sockets still require coarse enough wall segments.");
+     ui.separator();ui.heading("Export");
+     ui.checkbox(&mut self.print_labels,"Engrave tile numbers underneath").on_hover_text("Mirrored so they read correctly when the tile is turned over");
+     ui.horizontal(|ui|{
+      ui.checkbox(&mut self.print_simplify,"Simplify meshes to within");
+      ui.add_enabled(self.print_simplify,egui::DragValue::new(&mut self.simplify_mm).range(0.0..=1.0).speed(0.005).suffix(" mm"));
+     });
+     ui.horizontal(|ui|{
+      ui.label("Slicer");ui.text_edit_singleline(&mut self.slicer_path).on_hover_text("Path to PrusaSlicer, OrcaSlicer, Bambu Studio, Cura...");
+     });
+     if ui.add_enabled(self.last_3mf.is_some()&&!self.slicer_path.trim().is_empty(),egui::Button::new("Open exported 3MF in slicer")).clicked(){
+      if let Some(file)=&self.last_3mf{
+       self.message=match std::process::Command::new(self.slicer_path.trim()).arg(file).spawn(){
+        Ok(_)=>format!("Opened {file} in the slicer"),
+        Err(e)=>format!("Could not start the slicer: {e}"),
+       };
+      }
+     }},
     View::Engraving=>{ui.heading("Single-sheet engraving");ui.horizontal(|ui|{ui.label("Map preset");ui.selectable_value(&mut self.engraving_preset,0,"Survey");ui.selectable_value(&mut self.engraving_preset,1,"Minimal");ui.selectable_value(&mut self.engraving_preset,2,"Vintage");ui.selectable_value(&mut self.engraving_preset,3,"Cartoon");});
     ui.collapsing("B&W engraving icon library (240 procedural SVGs)",|ui|{
       ui.add(egui::Slider::new(&mut self.icon_id,0..=239).text("Icon index"));

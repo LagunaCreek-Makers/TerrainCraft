@@ -22,8 +22,6 @@ pub fn export(
     if parts.is_empty() {
         return Err("No assembly tiles".into());
     }
-    let dx = settings.width_mm / (dem.width - 1) as f64;
-    let dy = settings.height_mm / (dem.height - 1) as f64;
     let mut obj = String::from("# TerrainCraft assembly preview; coordinates in millimeters\nmtllib terrain_assembly.mtl\n");
     let mut mtl = String::from("# Alternating materials for identifying tile seams\n");
     for (name, rgb) in [
@@ -43,8 +41,8 @@ pub fn export(
         if t.x0 >= t.x1 || t.y0 >= t.y1 || t.x1 >= dem.width || t.y1 >= dem.height {
             return Err("Invalid assembly tile bounds".into());
         }
-        let ox = t.x0 as f64 * dx;
-        let oy = t.y0 as f64 * dy;
+        // Triangles are north-up tile meshes (see `crate::north_up`).
+        let [ox, oy] = crate::north_up_origin(dem, settings, t);
         writeln!(obj, "o tile_r{:02}_c{:02}", t.row + 1, t.col + 1).unwrap();
         writeln!(
             obj,

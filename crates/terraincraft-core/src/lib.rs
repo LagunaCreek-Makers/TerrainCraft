@@ -12,6 +12,7 @@ pub mod gis;
 pub mod icon_variants;
 pub mod inspection;
 pub mod intersections;
+pub mod label;
 pub mod landmarks;
 pub mod laser;
 pub mod manufacturing;
@@ -26,8 +27,10 @@ pub mod seam_fabrication;
 pub mod seam_joints;
 pub mod seam_preflight;
 pub mod seam_socket_mesh;
+pub mod simplify;
 pub mod socket_mesh;
 pub mod terrain_ops;
+pub mod threemf;
 use std::{
     fs::File,
     io::{self, Write},
@@ -250,6 +253,83 @@ pub fn mesh(dem: &Dem, s: TerrainSettings, t: Tile) -> Result<Vec<[Vec3; 3]>, St
     }
     Ok(f)
 }
+/// `mesh` lays raster rows out along +y, so north (row 0) lands at y = 0 and the tile is a
+/// mirror image of the map when seen from above. Convert a tile mesh to north-up
+/// coordinates (+x east, +y north, +z up) with the local origin at the tile's south-west
+/// corner, restoring outward-facing winding. Apply this after connectors are cut and
+/// before anything is exported, labeled or displayed.
+pub fn north_up(faces: &mut [[Vec3; 3]], dem: &Dem, s: TerrainSettings, t: Tile) {
+    let height = (t.y1 - t.y0) as f64 * s.height_mm / (dem.height - 1) as f64;
+    for f in faces.iter_mut() {
+        for p in f.iter_mut() {
+            p[1] = height - p[1];
+        }
+        f.swap(1, 2);
+    }
+}
+/// Name used for a tile everywhere: engraved underside, files, 3MF objects, assembly sheet.
+pub fn tile_label(t: Tile) -> String {
+    format!("{}-{}", t.row + 1, t.col + 1)
+}
+/// Final steps for one north-up tile mesh (see `north_up`), after connectors are cut and
+/// winding repaired: engrave its label and simplify it, per `opts`. A step that cannot be
+/// applied, or that would leave the mesh open, is skipped and explained in the warnings.
+pub fn finish_tile(
+    mut faces: Vec<[Vec3; 3]>,
+    s: TerrainSettings,
+    t: Tile,
+    opts: &export_settings::PrintExportSettings,
+) -> Result<(Vec<[Vec3; 3]>, Vec<String>), String> {
+    let mut warnings = Vec::new();
+    let closed = |f: &[[Vec3; 3]]| mesh_audit::audit(f).is_closed_oriented_manifold();
+    let name = tile_label(t);
+    if opts.labels {
+        // Scale the text with the tile: 1 mm strokes on small tiles, up to 3 mm on large.
+        let extent = |k: usize| {
+            let (lo, hi) = faces
+                .iter()
+                .flatten()
+                .fold((f64::INFINITY, f64::NEG_INFINITY), |(a, b), p| {
+                    (a.min(p[k]), b.max(p[k]))
+                });
+            hi - lo
+        };
+        let label = label::LabelSettings {
+            cell_mm: (extent(0).min(extent(1)) / 50.).clamp(1., 3.),
+            ..label::LabelSettings::default()
+        };
+        if label.depth_mm >= s.base_mm {
+            warnings.push(format!(
+                "Tile {name}: base is too thin for a {} mm label",
+                label.depth_mm
+            ));
+        } else {
+            match label::engrave(&faces, &name, label) {
+                Ok(f) if closed(&f) => faces = f,
+                Ok(_) => warnings.push(format!("Tile {name}: label skipped (mesh would open)")),
+                Err(e) => warnings.push(format!("Tile {name}: label skipped ({e})")),
+            }
+        }
+    }
+    if let Some(tolerance) = opts.simplify_mm {
+        let f = simplify::simplify(&faces, tolerance, s.base_mm)?;
+        if closed(&f) {
+            faces = f;
+        } else {
+            warnings.push(format!(
+                "Tile {name}: simplification skipped (mesh would open)"
+            ));
+        }
+    }
+    Ok((faces, warnings))
+}
+/// Where a north-up tile's local origin (its south-west corner) sits in the assembled model.
+pub fn north_up_origin(dem: &Dem, s: TerrainSettings, t: Tile) -> [f64; 2] {
+    [
+        t.x0 as f64 * s.width_mm / (dem.width - 1) as f64,
+        (dem.height - 1 - t.y1) as f64 * s.height_mm / (dem.height - 1) as f64,
+    ]
+}
 fn normal(t: &[Vec3; 3]) -> Vec3 {
     let a = [t[1][0] - t[0][0], t[1][1] - t[0][1], t[1][2] - t[0][2]];
     let b = [t[2][0] - t[0][0], t[2][1] - t[0][1], t[2][2] - t[0][2]];
@@ -382,6 +462,39 @@ mod tests {
         assert!(true_scale_settings(&sample(), 200., 3., 1.).is_err());
     }
     #[test]
+    fn north_up_puts_north_east_peak_at_back_right() {
+        // Raster row 0 is north; only the north-east sample is high.
+        let mut v = vec![0.; 9];
+        v[2] = 10.;
+        let d = Dem::new(3, 3, v).unwrap();
+        let s = settings();
+        let t = Tile {
+            row: 0,
+            col: 0,
+            x0: 0,
+            x1: 2,
+            y0: 0,
+            y1: 2,
+        };
+        let mut f = mesh(&d, s, t).unwrap();
+        let before = mesh_audit::audit(&f);
+        north_up(&mut f, &d, s, t);
+        let peak = f
+            .iter()
+            .flatten()
+            .fold([0.; 3], |a: [f64; 3], p| if p[2] > a[2] { *p } else { a });
+        assert_eq!((peak[0], peak[1]), (200., 200.));
+        assert!(before.is_closed_oriented_manifold());
+        assert!(mesh_audit::audit(&f).is_closed_oriented_manifold());
+        assert!(manufacturing::inspect(&f).signed_volume_mm3 > 0.);
+        // The south-most tile row starts at y = 0 in the assembly.
+        let ts = tiles(&d, s, 110., 110., 5.).unwrap();
+        let south = ts.iter().find(|t| t.row == 1 && t.col == 0).unwrap();
+        assert_eq!(north_up_origin(&d, s, *south), [0., 0.]);
+        let north = ts.iter().find(|t| t.row == 0 && t.col == 0).unwrap();
+        assert_eq!(north_up_origin(&d, s, *north), [0., 100.]);
+    }
+    #[test]
     fn rejects_nan() {
         assert!(Dem::new(2, 2, vec![0., 1., f64::NAN, 2.]).is_err());
     }
@@ -390,6 +503,7 @@ mod tests {
 pub mod usgs;
 
 pub mod assembly_obj;
+pub mod assembly_sheet;
 
 pub mod icon_library;
 pub mod map_providers;
