@@ -9,6 +9,39 @@ impl eframe::App for Studio {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         self.reprocess();
         self.sync_true_scale();
+        // Undo history: record settled changes; Ctrl+Z / Ctrl+Y (or Ctrl+Shift+Z) unless a
+        // text field is focused (it has its own undo); Ctrl+S saves the project.
+        let interacting = ctx.input(|i| i.pointer.any_down());
+        self.history.observe(
+            crate::history::snapshot(self),
+            std::time::Instant::now(),
+            interacting,
+        );
+        if self.history.settling() {
+            ctx.request_repaint_after(std::time::Duration::from_millis(450));
+        }
+        if !ctx.wants_keyboard_input() {
+            let (undo, redo, save) = ctx.input(|i| {
+                let cmd = i.modifiers.command;
+                (
+                    cmd && !i.modifiers.shift && i.key_pressed(egui::Key::Z),
+                    cmd && (i.key_pressed(egui::Key::Y)
+                        || (i.modifiers.shift && i.key_pressed(egui::Key::Z))),
+                    cmd && i.key_pressed(egui::Key::S),
+                )
+            });
+            if undo {
+                self.undo();
+            }
+            if redo {
+                self.redo();
+            }
+            if save {
+                self.message = self
+                    .save_project()
+                    .unwrap_or_else(|e| format!("Save error: {e}"));
+            }
+        }
         if let Some(rx) = &self.map_results {
             let mut completed = Vec::new();
             for _ in 0..32 {
@@ -46,6 +79,29 @@ impl eframe::App for Studio {
         if self.map_textures.len() > 192 {
             self.map_textures.clear();
             self.map_requested.clear();
+        }
+        if let Some(rx) = &self.search_rx {
+            match rx.try_recv() {
+                Ok(result) => {
+                    self.search_rx = None;
+                    match result {
+                        Ok(places) if places.is_empty() => self.message = "No places found".into(),
+                        Ok(places) => {
+                            self.message = format!("{} places found", places.len());
+                            let first = (places[0].lat, places[0].lon);
+                            self.search_results = places;
+                            self.map_go_to(first.0, first.1, 11);
+                            self.view = View::Terrain;
+                            self.terrain_show_map = true;
+                        }
+                        Err(e) => self.message = e,
+                    }
+                }
+                Err(mpsc::TryRecvError::Disconnected) => self.search_rx = None,
+                Err(mpsc::TryRecvError::Empty) => {
+                    ctx.request_repaint_after(std::time::Duration::from_millis(100));
+                }
+            }
         }
         if let Some(rx) = &self.names_rx {
             match rx.try_recv() {
@@ -91,15 +147,52 @@ impl eframe::App for Studio {
 
         egui::TopBottomPanel::top("header").show(ctx, |ui| {
             ui.horizontal(|ui| {
-                ui.heading("TerrainCraft · Rust Studio v5.0");
+                ui.heading("TerrainCraft");
                 ui.separator();
                 ui.selectable_value(&mut self.view, View::Terrain, "Terrain");
                 ui.selectable_value(&mut self.view, View::Print, "3D Print");
                 ui.selectable_value(&mut self.view, View::Laser, "Laser Layout");
                 ui.selectable_value(&mut self.view, View::Engraving, "Engraving Studio");
+                ui.separator();
+                if ui
+                    .add_enabled(self.history.can_undo(), egui::Button::new("Undo"))
+                    .on_hover_text("Ctrl+Z")
+                    .clicked()
+                {
+                    self.undo();
+                }
+                if ui
+                    .add_enabled(self.history.can_redo(), egui::Button::new("Redo"))
+                    .on_hover_text("Ctrl+Y or Ctrl+Shift+Z")
+                    .clicked()
+                {
+                    self.redo();
+                }
             });
         });
         egui::SidePanel::left("settings").resizable(true).default_width(290.).show(ctx,|ui|{
+   ui.heading("Find a place");
+   ui.horizontal(|ui|{
+    let edit=ui.add(egui::TextEdit::singleline(&mut self.search_query).hint_text("Mount Rainier, Matterhorn…").desired_width(170.));
+    let go=edit.lost_focus()&&ui.input(|i|i.key_pressed(egui::Key::Enter));
+    if (ui.add_enabled(self.search_rx.is_none(),egui::Button::new("Search")).clicked()||go)&&self.search_rx.is_none(){self.begin_search();}
+   });
+   let mut pick=None;
+   for (i,r) in self.search_results.iter().enumerate().take(10){
+    if ui.add(egui::Button::new(format!("{}. {}  ·  {}",i+1,r.name,r.detail)).wrap()).on_hover_text(format!("{:.4}, {:.4} ({})",r.lat,r.lon,r.source)).clicked(){pick=Some((r.lat,r.lon));}
+   }
+   if !self.search_results.is_empty(){ui.small("USGS GNIS (public domain) and OpenStreetMap Nominatim (© OpenStreetMap contributors)");}
+   if let Some((lat,lon))=pick{
+    self.map_go_to(lat,lon,12);
+    self.observer_lat=lat;self.observer_lon=lon;
+    self.view=View::Terrain;self.terrain_show_map=true;
+   }
+   if ui.button("Select about 10 km around the map center").on_hover_text("Or Shift-drag on the map").clicked(){
+    let (m_lon,m_lat)=terraincraft_core::georef::meters_per_degree(self.map_center_lat);
+    let (dx,dy)=(5000./m_lon,5000./m_lat);
+    [self.west,self.south,self.east,self.north]=[self.map_center_lon-dx,self.map_center_lat-dy,self.map_center_lon+dx,self.map_center_lat+dy];
+   }
+   ui.separator();
    ui.heading("Project");
    ui.collapsing("USGS 3DEP geographic selection",|ui|{
     ui.label("WGS84 geographic bounding box (degrees)");
@@ -338,11 +431,7 @@ impl eframe::App for Studio {
       ui.add(egui::Slider::new(&mut self.map_zoom,0..=17).text("Tile zoom"));
       ui.checkbox(&mut self.map_markers,"Show jurisdiction landmark markers");
       ui.add(egui::Slider::new(&mut self.map_marker_limit,10..=500).text("Maximum markers"));
-      if ui.button("Load map tile at observer").clicked(){
-       if let Err(e)=self.request_map_tile(){self.message=format!("Map tile: {e}");}
-      }
-      self.map_canvas(ui);
-      ui.small("Multi-tile map viewport. Visible tiles only; cached for at least 7 days. Provider attribution above.");
+      ui.small("The map in the Terrain workspace and the viewpoint map use this provider. Tiles are cached for 7 days.");
     });
     ui.collapsing("Editable engraving annotations",|ui|{
       if ui.button("Add text label").clicked(){self.annotations.push(Annotation{text:"New label".into(),x:0.5,y:0.5,size_mm:4.,rotation_deg:0.});}

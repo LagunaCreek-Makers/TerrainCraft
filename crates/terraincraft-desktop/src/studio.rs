@@ -97,10 +97,25 @@ pub(crate) struct Studio {
     pub(crate) show_geo_map: bool,
     pub(crate) landmark_csv: String,
     pub(crate) show_landmarks: bool,
+    /// Basemap center and whether the Terrain workspace shows the map (or the 3D view).
+    pub(crate) map_center_lat: f64,
+    #[serde(skip)]
+    pub(crate) history: crate::history::History,
+    pub(crate) map_center_lon: f64,
+    pub(crate) terrain_show_map: bool,
+    #[serde(skip)]
+    pub(crate) map_select_start: Option<(f64, f64)>,
+    #[serde(skip)]
+    pub(crate) map_aiming: bool,
+    pub(crate) search_query: String,
+    #[serde(skip)]
+    pub(crate) search_results: Vec<terraincraft_core::geocode::Place>,
+    #[serde(skip)]
+    pub(crate) search_rx:
+        Option<mpsc::Receiver<Result<Vec<terraincraft_core::geocode::Place>, String>>>,
     /// Show engraving elevations and contours in feet.
     pub(crate) engraving_feet: bool,
     /// Named features downloaded from USGS for the current area.
-    #[serde(skip)]
     pub(crate) place_names: Vec<terraincraft_core::landmarks::Landmark>,
     #[serde(skip)]
     pub(crate) names_rx:
@@ -166,10 +181,6 @@ pub(crate) struct Studio {
     pub(crate) map_requested: HashSet<String>,
     #[serde(skip)]
     pub(crate) map_tx: Option<mpsc::Sender<TileFetch>>,
-    #[serde(skip)]
-    pub(crate) map_drag_origin: Option<(f64, f64)>,
-    #[serde(skip)]
-    pub(crate) map_extent_first: Option<(f64, f64)>,
 }
 impl Default for Studio {
     fn default() -> Self {
@@ -228,6 +239,15 @@ impl Default for Studio {
             show_geo_map: true,
             landmark_csv: String::new(),
             show_landmarks: true,
+            map_center_lat: 46.85,
+            history: Default::default(),
+            map_center_lon: -121.76,
+            terrain_show_map: true,
+            map_select_start: None,
+            map_aiming: false,
+            search_query: String::new(),
+            search_results: Vec::new(),
+            search_rx: None,
             engraving_feet: false,
             place_names: Vec::new(),
             names_rx: None,
@@ -280,8 +300,6 @@ impl Default for Studio {
             map_pending: HashSet::new(),
             map_requested: HashSet::new(),
             map_tx: None,
-            map_drag_origin: None,
-            map_extent_first: None,
         }
     }
 }

@@ -149,6 +149,20 @@ impl Studio {
         }
     }
     pub(crate) fn draw(&mut self, ui: &mut egui::Ui) {
+        if self.view == View::Terrain {
+            ui.horizontal(|ui| {
+                ui.selectable_value(&mut self.terrain_show_map, true, "Map");
+                ui.add_enabled_ui(self.dem.is_some(), |ui| {
+                    ui.selectable_value(&mut self.terrain_show_map, false, "3D preview");
+                });
+                ui.label("Orange: download area · blue: loaded data");
+            });
+            if self.terrain_show_map || self.dem.is_none() {
+                let size = ui.available_size() - Vec2::new(0., 18.);
+                self.map_view(ui, size, false);
+                return;
+            }
+        }
         let Some(dem) = self.dem.clone() else {
             ui.centered_and_justified(|ui| {
                 ui.label("Load a DEM (.csv, .asc or .tif) to preview terrain");
@@ -308,7 +322,12 @@ impl Studio {
             }
             let _ = response;
             if self.show_geo_map && self.engraving_perspective {
-                self.draw_geo_map(ui);
+                ui.label("Viewpoint: click to place, drag from it to aim");
+                let size = Vec2::new(
+                    ui.available_width(),
+                    (ui.available_height() - 18.).max(160.),
+                );
+                self.map_view(ui, size, true);
             } else {
                 self.draw_3d(ui, &dem);
             }
