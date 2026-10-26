@@ -47,6 +47,25 @@ impl eframe::App for Studio {
             self.map_textures.clear();
             self.map_requested.clear();
         }
+        if let Some(rx) = &self.names_rx {
+            match rx.try_recv() {
+                Ok(result) => {
+                    self.names_rx = None;
+                    self.message = match result {
+                        Ok(names) => {
+                            let n = names.len();
+                            self.place_names = names;
+                            format!("Loaded {n} USGS place names")
+                        }
+                        Err(e) => format!("Place names: {e}"),
+                    };
+                }
+                Err(mpsc::TryRecvError::Disconnected) => self.names_rx = None,
+                Err(mpsc::TryRecvError::Empty) => {
+                    ctx.request_repaint_after(std::time::Duration::from_millis(100));
+                }
+            }
+        }
         if let Some(rx) = &self.download_rx {
             match rx.try_recv() {
                 Ok(DownloadMsg::Progress(done, total)) => {
@@ -330,7 +349,15 @@ impl eframe::App for Studio {
       let mut remove=None;
       for (i,a) in self.annotations.iter_mut().enumerate(){ui.group(|ui|{ui.horizontal(|ui|{ui.label(format!("Label {}",i+1));if ui.button("Remove").clicked(){remove=Some(i);}});ui.text_edit_singleline(&mut a.text);ui.add(egui::Slider::new(&mut a.x,0.0..=1.0).text("Horizontal"));ui.add(egui::Slider::new(&mut a.y,0.0..=1.0).text("Vertical"));ui.add(egui::Slider::new(&mut a.size_mm,1.0..=20.0).text("Text size mm"));ui.add(egui::Slider::new(&mut a.rotation_deg,-180.0..=180.0).text("Rotation"));});}
       if let Some(i)=remove{self.annotations.remove(i);}
-    });ui.checkbox(&mut self.engraving_perspective,"First-person perspective (otherwise top-down)");ui.checkbox(&mut self.show_geo_map,"Show geographic selection canvas");ui.checkbox(&mut self.show_landmarks,"Overlay imported landmark labels");ui.label("Landmark CSV or GeoJSON FeatureCollection (WGS84 points)");ui.text_edit_singleline(&mut self.landmark_csv);ui.label("Title");ui.text_edit_singleline(&mut self.engraving_title);ui.label("Subtitle");ui.text_edit_singleline(&mut self.engraving_subtitle);ui.label("SVG font family");ui.text_edit_singleline(&mut self.engraving_font);ui.add(egui::Slider::new(&mut self.engraving_style,0..=2).text("Style: 0=ridgeline 1=contour 2=illustrated"));if self.engraving_perspective {ui.checkbox(&mut self.geo_view_enabled,"Use geographic observer coordinates (USGS download)");
+    });ui.checkbox(&mut self.engraving_perspective,"First-person perspective (otherwise top-down)");ui.checkbox(&mut self.show_geo_map,"Show geographic selection canvas");ui.checkbox(&mut self.engraving_feet,"Elevations in feet");
+    ui.horizontal(|ui|{
+     let can=self.names_rx.is_none()&&self.dem.as_ref().is_some_and(|d|d.georef.is_some());
+     if ui.add_enabled(can,egui::Button::new("Download USGS place names")).on_hover_text("Named summits, passes and ridges for the loaded area from USGS GNIS (public domain)").clicked(){
+      self.begin_place_names();
+     }
+     ui.label(format!("{} names",self.place_names.len()));
+    });
+    ui.checkbox(&mut self.show_landmarks,"Overlay imported landmark labels");ui.label("Landmark CSV or GeoJSON FeatureCollection (WGS84 points)");ui.text_edit_singleline(&mut self.landmark_csv);ui.label("Title");ui.text_edit_singleline(&mut self.engraving_title);ui.label("Subtitle");ui.text_edit_singleline(&mut self.engraving_subtitle);ui.label("SVG font family");ui.text_edit_singleline(&mut self.engraving_font);ui.add(egui::Slider::new(&mut self.engraving_style,0..=2).text("Style: 0=ridgeline 1=contour 2=illustrated"));if self.engraving_perspective {ui.checkbox(&mut self.geo_view_enabled,"Use geographic observer coordinates (USGS download)");
     if self.geo_view_enabled {ui.add(egui::DragValue::new(&mut self.observer_lat).speed(0.001).prefix("Latitude "));ui.add(egui::DragValue::new(&mut self.observer_lon).speed(0.001).prefix("Longitude "));}
     ui.add(egui::Slider::new(&mut self.depth_bands,1..=8).text("Depth bands (1=original silhouette)"));
     ui.small("Multi-depth ridges currently omit summit labels; use one band for annotated peaks.");

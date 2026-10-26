@@ -51,6 +51,15 @@ Example: `cargo run -p terraincraft-cli -- usgs:-122.6,37.7,-122.4,37.85 out 220
 - Cut paths are offset by half the kerf (`--kerf-mm`, default 0.15). Parts larger than the sheet (`--sheet-width-mm`, `--sheet-height-mm`, default 600 x 400) are split into equal pieces, then packed onto sheets.
 - Output: `laser_sheet_NN.svg` and `.dxf` (red `CUT`, blue `ENGRAVE` layers), `laser_manifest.csv`, and `laser_layers.svg`, a preview of all layers in place.
 
+**Single-sheet engravings**
+
+- `--engrave-map` writes `engraving_map.svg`: contour lines with heavier, labeled index contours, named features, a coordinate frame (degrees and minutes, or UTM kilometers), scale bar, north arrow and title. Contours stop short of every label.
+- `--panorama LAT,LON,BEARING[,FOV]` writes `panorama.svg`: the landscape seen from that spot, with every visible ridgeline (heavier when nearer, with true terrain occlusion, earth curvature and refraction), named summits that are actually in sight, and a compass scale.
+- `--place-names` downloads named summits, passes and ridges for the area from the USGS Geographic Names Information System (public domain) and saves them as `place_names.csv`; `--names-file` uses your own CSV or GeoJSON instead. `--title` and `--feet` adjust the text.
+- All text is single-stroke vector lines (Hershey Roman Simplex, see `assets/fonts/hershey/NOTICE`), so nothing needs fonts or text-to-path conversion. Layers use LightBurn palette colors (black contours, blue index contours, green labels, orange frame) so each can get its own power and speed.
+
+Example: `cargo run -p terraincraft-cli -- usgs:-121.85,46.8,-121.7,46.9 out 220 --engrave-map --place-names --title "Mount Rainier" --dem-only`
+
 A settings file uses the same names, e.g. `{"base_mm": 10, "connectors": "seam-sockets", "strict_mesh": true}`.
 Earlier releases read these from `TERRAINCRAFT_*` environment variables; those are no longer read, and the CLI prints a warning if one is set.
 

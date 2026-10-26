@@ -5,6 +5,7 @@ pub use geo;
 
 pub mod cartography;
 pub mod contours;
+pub mod engrave;
 pub mod engraving_editor;
 pub mod engraving_preview;
 pub mod export_settings;
@@ -31,6 +32,7 @@ pub mod seam_socket_mesh;
 pub mod simplify;
 pub mod socket_mesh;
 pub mod stack;
+pub mod stroke_font;
 pub mod terrain_ops;
 pub mod threemf;
 use std::{

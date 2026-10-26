@@ -1,11 +1,17 @@
 use clap::Parser;
-use std::{fs, path::PathBuf};
+use std::{
+    fs,
+    path::{Path, PathBuf},
+};
+use terraincraft_core::engrave::{self, MapOptions, PanoramaOptions, PanoramaView};
 use terraincraft_core::export_settings::{ConnectorMode, PrintExportSettings};
 use terraincraft_core::georef::CrsUnits;
 use terraincraft_core::gis::read_asc;
+use terraincraft_core::landmarks::{read_landmarks, to_csv, Landmark};
 use terraincraft_core::stack::{self, StackSettings};
 use terraincraft_core::terrain_ops::{prepare, TerrainPrep};
 use terraincraft_core::usgs::Bounds;
+use terraincraft_core::usgs::LANDFORM_CLASSES;
 use terraincraft_core::{mesh, tiles, Dem, TerrainSettings};
 
 /// Generate 3D-print terrain tiles, laser sheets and contour engravings from an elevation grid.
@@ -89,6 +95,26 @@ struct Args {
     /// Laser sheet height in mm
     #[arg(long, default_value_t = 400.)]
     sheet_height_mm: f64,
+    /// Write a single-sheet topographic map engraving (engraving_map.svg)
+    #[arg(long)]
+    engrave_map: bool,
+    /// Write a first-person panorama engraving from LAT,LON looking toward BEARING
+    /// degrees, with an optional field of view (default 90): LAT,LON,BEARING[,FOV]
+    #[arg(long, value_name = "LAT,LON,BEARING[,FOV]")]
+    panorama: Option<String>,
+    /// Download named summits, passes and ridges for the area from USGS (GNIS) and label
+    /// them on engravings; saved as place_names.csv
+    #[arg(long)]
+    place_names: bool,
+    /// Label engravings with names from a CSV or GeoJSON file instead
+    #[arg(long, conflicts_with = "place_names")]
+    names_file: Option<PathBuf>,
+    /// Title engraved on the map or panorama
+    #[arg(long, default_value = "")]
+    title: String,
+    /// Show elevations and contours on engravings in feet
+    #[arg(long)]
+    feet: bool,
     /// Only write the processed elevation grid (terrain.tif) and skip manufacturing files
     #[arg(long)]
     dem_only: bool,
@@ -211,6 +237,82 @@ fn warn_legacy_env() {
     }
 }
 
+/// Named features for engravings: downloaded from USGS, read from a file, or none.
+fn place_names(
+    args: &Args,
+    dem: &Dem,
+    output: &Path,
+) -> Result<Vec<Landmark>, Box<dyn std::error::Error>> {
+    if let Some(path) = &args.names_file {
+        return Ok(read_landmarks(&fs::read_to_string(path)?)?);
+    }
+    if !args.place_names {
+        return Ok(Vec::new());
+    }
+    let bounds = terraincraft_core::usgs::dem_bounds(dem)
+        .ok_or("--place-names needs a georeferenced elevation source")?;
+    let names = terraincraft_core::usgs::download_place_names(&bounds, &LANDFORM_CLASSES)?;
+    fs::create_dir_all(output)?;
+    fs::write(output.join("place_names.csv"), to_csv(&names))?;
+    println!("Downloaded {} place names from USGS GNIS", names.len());
+    Ok(names)
+}
+
+/// Write the requested map and panorama engravings.
+fn write_engravings(
+    args: &Args,
+    dem: &Dem,
+    output: &Path,
+) -> Result<(), Box<dyn std::error::Error>> {
+    let names = place_names(args, dem, output)?;
+    fs::create_dir_all(output)?;
+    if args.engrave_map {
+        let o = MapOptions {
+            title: args.title.clone(),
+            feet: args.feet,
+            ..MapOptions::default()
+        };
+        let map = engrave::topo_map(dem, &names, &o)?;
+        fs::write(output.join("engraving_map.svg"), map.to_svg())?;
+        println!(
+            "Wrote engraving_map.svg ({} x {} mm)",
+            o.sheet_w_mm, o.sheet_h_mm
+        );
+    }
+    if let Some(spec) = &args.panorama {
+        let v: Vec<f64> = spec
+            .split(',')
+            .map(|p| p.trim().parse::<f64>())
+            .collect::<Result<_, _>>()
+            .map_err(|_| "--panorama expects LAT,LON,BEARING[,FOV]")?;
+        let (lat, lon, bearing, fov) = match v[..] {
+            [a, b, c] => (a, b, c, 90.),
+            [a, b, c, d] => (a, b, c, d),
+            _ => return Err("--panorama expects LAT,LON,BEARING[,FOV]".into()),
+        };
+        let view = PanoramaView {
+            lat,
+            lon,
+            bearing_deg: bearing,
+            fov_deg: fov,
+            eye_height_m: 1.7,
+            max_distance_km: 150.,
+        };
+        let o = PanoramaOptions {
+            title: args.title.clone(),
+            feet: args.feet,
+            ..PanoramaOptions::default()
+        };
+        let pano = engrave::panorama(dem, &names, &view, &o)?;
+        fs::write(output.join("panorama.svg"), pano.to_svg())?;
+        println!(
+            "Wrote panorama.svg ({} x {} mm)",
+            o.sheet_w_mm, o.sheet_h_mm
+        );
+    }
+    Ok(())
+}
+
 fn run() -> Result<(), Box<dyn std::error::Error>> {
     warn_legacy_env();
     let args = Args::parse();
@@ -241,6 +343,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     if args.sea_level.is_some() {
         println!("Flattened {} samples as water", report.water_samples);
+    }
+    if args.engrave_map || args.panorama.is_some() {
+        write_engravings(&args, &dem, &args.output)?;
     }
     if args.dem_only {
         fs::create_dir_all(&args.output)?;

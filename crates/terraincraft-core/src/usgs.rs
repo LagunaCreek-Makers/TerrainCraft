@@ -249,6 +249,118 @@ pub fn download(
     })
 }
 
+/// Latitude/longitude box around a georeferenced DEM (from its corner samples).
+pub fn dem_bounds(dem: &Dem) -> Option<Bounds> {
+    let g = dem.georef?;
+    let (w, h) = ((dem.width - 1) as f64, (dem.height - 1) as f64);
+    let corners: Vec<(f64, f64)> = [(0., 0.), (w, 0.), (0., h), (w, h)]
+        .iter()
+        .filter_map(|&(c, r)| g.sample_to_latlon(c, r))
+        .collect();
+    (corners.len() == 4).then(|| Bounds {
+        west: corners.iter().map(|p| p.1).fold(f64::INFINITY, f64::min),
+        east: corners
+            .iter()
+            .map(|p| p.1)
+            .fold(f64::NEG_INFINITY, f64::max),
+        south: corners.iter().map(|p| p.0).fold(f64::INFINITY, f64::min),
+        north: corners
+            .iter()
+            .map(|p| p.0)
+            .fold(f64::NEG_INFINITY, f64::max),
+    })
+}
+
+/// USGS Geographic Names (GNIS) landform classes worth labeling on engravings.
+pub const LANDFORM_CLASSES: [&str; 4] = ["Summit", "Pillar", "Gap", "Ridge"];
+
+/// Query URL for named landforms of `classes` in `bounds` from The National Map's
+/// geographic names service (USGS GNIS, public domain), one page of up to 2000 results.
+pub fn place_names_url(bounds: &Bounds, classes: &[&str], offset: usize) -> Result<String, String> {
+    bounds.validate()?;
+    if classes.is_empty()
+        || classes
+            .iter()
+            .any(|c| !c.chars().all(|ch| ch.is_ascii_alphabetic()))
+    {
+        return Err("Feature classes must be plain words".into());
+    }
+    let list = classes
+        .iter()
+        .map(|c| format!("%27{c}%27"))
+        .collect::<Vec<_>>()
+        .join(",");
+    Ok(format!(
+        "https://carto.nationalmap.gov/arcgis/rest/services/geonames/MapServer/5/query?where=gaz_featureclass+IN+({list})&geometry={},{},{},{}&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=gaz_name,gaz_featureclass&returnGeometry=true&outSR=4326&resultOffset={offset}&resultRecordCount=2000&f=json",
+        bounds.west, bounds.south, bounds.east, bounds.north
+    ))
+}
+
+/// Named features from one page of the names service: name, class (as the landmark
+/// symbol, lowercase) and the first point. Elevations come from the DEM when drawn.
+pub fn parse_place_names(json: &str) -> Result<(Vec<crate::landmarks::Landmark>, bool), String> {
+    let v: serde_json::Value =
+        serde_json::from_str(json).map_err(|e| format!("Names service: {e}"))?;
+    if let Some(e) = v.get("error") {
+        return Err(format!("Names service error: {e}"));
+    }
+    let mut out = Vec::new();
+    for f in v["features"]
+        .as_array()
+        .ok_or("Names service returned no features list")?
+    {
+        let name = f["attributes"]["gaz_name"].as_str().unwrap_or("").trim();
+        let class = f["attributes"]["gaz_featureclass"]
+            .as_str()
+            .unwrap_or("")
+            .to_lowercase();
+        let p = &f["geometry"]["points"][0];
+        let (Some(lon), Some(lat)) = (p[0].as_f64(), p[1].as_f64()) else {
+            continue;
+        };
+        if !name.is_empty() {
+            out.push(crate::landmarks::Landmark {
+                name: name.to_string(),
+                lat,
+                lon,
+                elevation_m: None,
+                symbol: class,
+            });
+        }
+    }
+    let more = v["exceededTransferLimit"].as_bool().unwrap_or(false);
+    Ok((out, more))
+}
+
+/// Download named landforms of `classes` inside `bounds`, following result pages.
+#[cfg(feature = "download")]
+pub fn download_place_names(
+    bounds: &Bounds,
+    classes: &[&str],
+) -> Result<Vec<crate::landmarks::Landmark>, String> {
+    let client = reqwest::blocking::Client::builder()
+        .timeout(std::time::Duration::from_secs(60))
+        .user_agent(concat!("TerrainCraft/", env!("CARGO_PKG_VERSION")))
+        .build()
+        .map_err(|e| e.to_string())?;
+    let mut all = Vec::new();
+    for page in 0..20 {
+        let url = place_names_url(bounds, classes, page * 2000)?;
+        let text = client
+            .get(url)
+            .send()
+            .and_then(|r| r.error_for_status())
+            .and_then(|r| r.text())
+            .map_err(|e| format!("Names service: {e}"))?;
+        let (features, more) = parse_place_names(&text)?;
+        all.extend(features);
+        if !more {
+            break;
+        }
+    }
+    Ok(all)
+}
+
 /// Split `total` pixels into (start, length) runs of TILE_SIDE, folding a remainder
 /// shorter than MIN_TILE into the last run so no request is degenerate.
 fn splits(total: u32) -> Vec<(u32, u32)> {
@@ -408,6 +520,34 @@ mod tests {
         let mut shifted = parts.clone();
         shifted[1].georef.as_mut().unwrap().origin_x += p.pixel_deg * 0.5;
         assert!(p.stitch(&shifted).is_err());
+    }
+    #[test]
+    fn place_names_query_and_parse() {
+        let b = Bounds {
+            west: -121.85,
+            south: 46.8,
+            east: -121.7,
+            north: 46.9,
+        };
+        let url = place_names_url(&b, &["Summit", "Gap"], 0).unwrap();
+        assert!(
+            url.contains("IN+(%27Summit%27,%27Gap%27)") && url.contains("-121.85,46.8,-121.7,46.9")
+        );
+        assert!(place_names_url(&b, &["Summit'; drop"], 0).is_err());
+        let json = r#"{"features":[
+            {"attributes":{"gaz_name":"Little Tahoma Peak","gaz_featureclass":"Summit"},
+             "geometry":{"points":[[-121.7114,46.8494]]}},
+            {"attributes":{"gaz_name":"","gaz_featureclass":"Summit"},
+             "geometry":{"points":[[-121.7,46.8]]}}],
+            "exceededTransferLimit":true}"#;
+        let (names, more) = parse_place_names(json).unwrap();
+        assert!(more);
+        assert_eq!(names.len(), 1);
+        assert_eq!(
+            (names[0].name.as_str(), names[0].symbol.as_str()),
+            ("Little Tahoma Peak", "summit")
+        );
+        assert!(parse_place_names(r#"{"error":{"code":400}}"#).is_err());
     }
     #[test]
     fn suggested_resolution() {
