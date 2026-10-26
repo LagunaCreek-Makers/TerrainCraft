@@ -1,27 +1,50 @@
 //! Laser layout and manufacturing file export.
 use crate::studio::{Studio, View};
+use std::sync::Arc;
 use std::{fs, path::Path};
 use terraincraft_core::export_settings::PrintExportSettings;
-use terraincraft_core::laser::{cut_parts, layout, sheet_svg, split_oversized, CutPart, Placement};
+use terraincraft_core::stack::{self, Part, Placement, StackSettings};
 use terraincraft_core::{tiles, Dem};
 
+/// Laser parts and their sheet placements, shared between the preview and export.
+pub(crate) type LaserResult = Result<Arc<(Vec<Part>, Vec<Placement>)>, String>;
+
 impl Studio {
-    pub(crate) fn laser_data(&self, dem: &Dem) -> Result<(Vec<CutPart>, Vec<Placement>), String> {
-        let parts = cut_parts(dem, self.width, self.height, &self.levels(dem))?;
-        let parts = split_oversized(
-            &parts,
-            self.sheet_x - 2. * self.gap,
-            self.sheet_y - 2. * self.gap,
-        )?;
-        let placements = layout(&parts, self.sheet_x, self.sheet_y, self.gap)?;
-        terraincraft_core::inspection::preflight(
-            &parts,
-            &placements,
-            self.sheet_x,
-            self.sheet_y,
-            self.gap,
-        )?;
-        Ok((parts, placements))
+    pub(crate) fn stack_settings(&self) -> StackSettings {
+        StackSettings {
+            material_mm: self.material,
+            kerf_mm: self.kerf,
+            sheet_w_mm: self.sheet_x,
+            sheet_h_mm: self.sheet_y,
+            spacing_mm: self.gap,
+            ..StackSettings::default()
+        }
+    }
+    /// The laser stack for `dem`, rebuilt only when the terrain or settings change.
+    pub(crate) fn laser_data(&self, dem: &Dem) -> LaserResult {
+        let st = self.stack_settings();
+        let s = self.settings();
+        let key = format!(
+            "{st:?}|{s:?}|{}|{}x{}|{:?}|{:?}",
+            self.path,
+            dem.width,
+            dem.height,
+            dem.min_max(),
+            self.applied_prep
+        );
+        if let Some((k, r)) = &*self.laser_cache.borrow() {
+            if *k == key {
+                return r.clone();
+            }
+        }
+        let result = (|| {
+            let levels = stack::levels_for_material(dem, s, st.material_mm);
+            let parts = stack::build_parts(dem, s, &levels, &st)?;
+            let placements = stack::place(&parts, &st)?;
+            Ok(Arc::new((parts, placements)))
+        })();
+        *self.laser_cache.borrow_mut() = Some((key, result.clone()));
+        result
     }
     pub(crate) fn export(&mut self) -> Result<String, String> {
         let dem = self.dem.as_ref().ok_or("Load a terrain first")?;
@@ -174,44 +197,38 @@ impl Studio {
                 ))
             }
             View::Laser => {
-                let (parts, placements) = self.laser_data(dem)?;
+                let data = self.laser_data(dem)?;
+                let (parts, placements) = (&data.0, &data.1);
+                let st = self.stack_settings();
                 let count = placements.iter().map(|p| p.sheet).max().unwrap_or(0);
+                let out = Path::new(&self.output);
                 for n in 1..=count {
                     fs::write(
-                        Path::new(&self.output).join(format!("laser_sheet_{n:02}.svg")),
-                        sheet_svg(&parts, &placements, n, self.sheet_x, self.sheet_y),
+                        out.join(format!("laser_sheet_{n:02}.svg")),
+                        stack::sheet_svg(parts, placements, n, &st),
+                    )
+                    .map_err(|e| e.to_string())?;
+                    fs::write(
+                        out.join(format!("laser_sheet_{n:02}.dxf")),
+                        stack::sheet_dxf(parts, placements, n, &st),
                     )
                     .map_err(|e| e.to_string())?;
                 }
-                let mut manifest =
-                    String::from("part_id,level,sheet,x_mm,y_mm,width_mm,height_mm\n");
-                for p in &placements {
-                    let level = parts
-                        .iter()
-                        .find(|v| v.id == p.part_id)
-                        .map(|v| v.level)
-                        .unwrap_or(0.);
-                    manifest.push_str(&format!(
-                        "{},{},{},{},{},{},{}\n",
-                        p.part_id, level, p.sheet, p.x_mm, p.y_mm, p.width_mm, p.height_mm
-                    ));
-                }
-                fs::write(Path::new(&self.output).join("laser_manifest.csv"), manifest)
-                    .map_err(|e| e.to_string())?;
                 fs::write(
-                    Path::new(&self.output).join("laser_layout_report.html"),
-                    terraincraft_core::inspection::report_html(
-                        &parts,
-                        &placements,
-                        self.sheet_x,
-                        self.sheet_y,
-                    ),
+                    out.join("laser_manifest.csv"),
+                    stack::manifest_csv(parts, placements),
                 )
                 .map_err(|e| e.to_string())?;
+                let s = self.settings();
+                fs::write(
+                    out.join("laser_layers.svg"),
+                    stack::layers_preview_svg(parts, s.width_mm, s.height_mm),
+                )
+                .map_err(|e| e.to_string())?;
+                let layers = parts.iter().map(|p| p.layer).max().unwrap_or(0);
                 Ok(format!(
-                    "Exported {} parts on {} laser sheets",
-                    parts.len(),
-                    count
+                    "Exported {} parts in {layers} layers on {count} sheets (SVG and DXF)",
+                    parts.len()
                 ))
             }
             View::Terrain => {

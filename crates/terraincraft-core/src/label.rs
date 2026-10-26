@@ -37,7 +37,7 @@ const GAP: i32 = 2;
 
 /// Seven-segment pattern (bits a..g = top, upper right, lower right, bottom, lower left,
 /// upper left, middle) for the characters labels use.
-fn segments(c: char) -> Option<u8> {
+pub(crate) fn segments(c: char) -> Option<u8> {
     Some(match c {
         '0' => 0b0111111,
         '1' => 0b0000110,
@@ -50,6 +50,7 @@ fn segments(c: char) -> Option<u8> {
         '8' => 0b1111111,
         '9' => 0b1101111,
         '-' => 0b1000000,
+        'L' => 0b0111000,
         ' ' => 0,
         _ => return None,
     })

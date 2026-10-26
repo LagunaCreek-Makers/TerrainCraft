@@ -66,6 +66,11 @@ pub(crate) struct Studio {
     pub(crate) gap: f64,
     pub(crate) layer_count: usize,
     pub(crate) material: f64,
+    /// Laser kerf width in millimeters.
+    pub(crate) kerf: f64,
+    /// Last laser stack and the inputs it was built from; rebuilt only when they change.
+    #[serde(skip)]
+    pub(crate) laser_cache: std::cell::RefCell<Option<(String, crate::export::LaserResult)>>,
     pub(crate) view: View,
     pub(crate) sheet: usize,
     pub(crate) engraving_perspective: bool,
@@ -183,6 +188,8 @@ impl Default for Studio {
             gap: 3.,
             layer_count: 8,
             material: 3.,
+            kerf: 0.15,
+            laser_cache: Default::default(),
             view: View::Terrain,
             sheet: 1,
             engraving_perspective: true,
