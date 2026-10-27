@@ -1,11 +1,11 @@
 TerrainCraft engraving icon library
 ===================================
 
-The icons in this directory come from four upstream sets and TerrainCraft's own
-landmark drawings. `catalog.json` records, for every icon, which set it came from, and
-for every set its version, license, license file and source; landmark icons also carry
-their own license, credit line, sources and review state. `tools/build_icon_library.py`
-regenerates this directory from the upstream npm packages and landmarks/manifest.json.
+The icons in this directory come from four upstream sets. `catalog.json` records, for
+every icon, which set it came from, and for every set its version, license, license
+file and source. `tools/build_icon_library.py` regenerates this directory from the
+upstream npm packages, and adds TerrainCraft's own landmark icons when a
+landmarks/manifest.json is present (none are bundled yet).
 
 tabler/     Tabler Icons (outline style), a curated subset
             Copyright (c) 2020-2026 Paweł Kuna
@@ -25,14 +25,6 @@ nps/        National Park Service map symbols (npmap-symbol-library)
             under the BSD license in nps/LICENSE.txt (Copyright 2013, Mapbox, LLC), which
             must accompany redistributions.
             https://github.com/nationalparkservice/symbol-library
-
-landmarks/  TerrainCraft landmark icons, dedicated to the public domain under CC0 1.0
-            (landmarks/LICENSE.txt), except where landmarks/manifest.json says otherwise:
-            - dem-ridgeline icons trace skylines from USGS 3DEP elevation data (public
-              domain);
-            - osm-footprint icons are drawn from OpenStreetMap building outlines and are
-              produced works under the ODbL 1.0. Credit "© OpenStreetMap contributors"
-              wherever they are used.
 
 Changes: Tabler's invisible 24x24 bounding-box path and CSS class are removed; Maki's
 and Temaki's XML declarations and element ids are removed; the NPS symbols' Illustrator

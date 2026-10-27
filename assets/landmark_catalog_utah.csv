@@ -1,27 +1,27 @@
 jurisdiction_type,jurisdiction,name,latitude,longitude,category,icon_id,rank,source_url,license,verified
-state,US-UT,Mount Timpanogos,40.39084,-111.64594,summit,landmarks:mount-timpanogos,1,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1446612,GNIS public domain,true
-state,US-UT,Kings Peak,40.77638,-110.37282,summit,landmarks:kings-peak,2,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1442332,GNIS public domain,true
-state,US-UT,Mount Nebo,39.82169,-111.76027,summit,landmarks:mount-nebo,3,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1443780,GNIS public domain,true
-state,US-UT,Lone Peak,40.52634,-111.75525,summit,landmarks:lone-peak,4,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429865,GNIS public domain,true
-state,US-UT,Mount Olympus,40.65663,-111.77091,summit,landmarks:mount-olympus,5,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1444093,GNIS public domain,true
-state,US-UT,Ben Lomond,41.36314,-111.96073,summit,landmarks:ben-lomond,6,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1438587,GNIS public domain,true
-state,US-UT,Navajo Mountain,37.03416,-110.86959,summit,landmarks:navajo-mountain,7,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/8537,GNIS public domain,true
-state,US-UT,Utah State Capitol,40.77722,-111.88806,building,landmarks:utah-state-capitol,8,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1454257,GNIS public domain,true
-state,US-UT,Salt Lake Temple,40.77047,-111.89196,building,landmarks:salt-lake-temple,9,https://www.wikidata.org/wiki/Q1122206,Wikidata CC0,true
-state,US-UT,Salt Lake Tabernacle,40.7704,-111.893,building,landmarks:salt-lake-tabernacle,10,https://www.wikidata.org/wiki/Q2140759,Wikidata CC0,true
-state,US-UT,Cathedral of the Madeleine,40.76972,-111.88167,building,landmarks:cathedral-of-the-madeleine,11,https://www.wikidata.org/wiki/Q2942483,Wikidata CC0,true
-state,US-UT,Delicate Arch,38.74276,-109.49402,arch,landmarks:delicate-arch,12,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1427330,GNIS public domain,true
-state,US-UT,Landscape Arch,38.79054,-109.6068,arch,landmarks:landscape-arch,13,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429470,GNIS public domain,true
-state,US-UT,Mesa Arch,38.38787,-109.86368,arch,landmarks:mesa-arch,14,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1434923,GNIS public domain,true
-state,US-UT,Rainbow Bridge,37.07722,-110.96417,arch,landmarks:rainbow-bridge,15,https://www.wikidata.org/wiki/Q1894724,Wikidata CC0,true
-state,US-UT,Thor's Hammer,37.62138,-112.16382,pillar,landmarks:thors-hammer,16,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1449100,GNIS public domain,true
-state,US-UT,Angels Landing,37.26918,-112.94794,summit,landmarks:angels-landing,17,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425118,GNIS public domain,true
-state,US-UT,Fisher Towers,38.72166,-109.30429,pillar,landmarks:fisher-towers,18,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441094,GNIS public domain,true
-state,US-UT,Goblin Valley,38.5667,-110.71,park,landmarks:goblin-valley,19,https://www.wikidata.org/wiki/Q1411137,Wikidata CC0,true
-state,US-UT,Golden Spike,41.6205,-112.547,historic,landmarks:golden-spike,20,https://www.wikidata.org/wiki/Q1535051,Wikidata CC0,true
-state,US-UT,Great Salt Lake,41.16667,-112.58333,lake,landmarks:great-salt-lake,21,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441459,GNIS public domain,true
-state,US-UT,Bonneville Salt Flats,40.79966,-113.80002,flat,landmarks:bonneville-salt-flats,22,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425872,GNIS public domain,true
-state,US-UT,Flaming Gorge Dam,40.9144,-109.421,dam,landmarks:flaming-gorge-dam,23,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441112,GNIS public domain,true
-state,US-UT,Bingham Canyon Mine,40.52222,-112.14944,mine,landmarks:bingham-canyon-mine,24,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1435143,GNIS public domain,true
-state,US-UT,Dead Horse Point,38.50582,-109.73317,park,landmarks:dead-horse-point,25,https://www.wikidata.org/wiki/Q129470,Wikidata CC0,true
-state,US-UT,Ogden Union Station,41.22083,-111.97972,building,landmarks:ogden-union-station,26,https://www.wikidata.org/wiki/Q7886079,Wikidata CC0,true
+state,US-UT,Mount Timpanogos,40.39084,-111.64594,summit,tabler:mountain,1,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1446612,GNIS public domain,true
+state,US-UT,Kings Peak,40.77638,-110.37282,summit,tabler:mountain,2,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1442332,GNIS public domain,true
+state,US-UT,Mount Nebo,39.82169,-111.76027,summit,tabler:mountain,3,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1443780,GNIS public domain,true
+state,US-UT,Lone Peak,40.52634,-111.75525,summit,tabler:mountain,4,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429865,GNIS public domain,true
+state,US-UT,Mount Olympus,40.65663,-111.77091,summit,tabler:mountain,5,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1444093,GNIS public domain,true
+state,US-UT,Ben Lomond,41.36314,-111.96073,summit,tabler:mountain,6,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1438587,GNIS public domain,true
+state,US-UT,Navajo Mountain,37.03416,-110.86959,summit,tabler:mountain,7,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/8537,GNIS public domain,true
+state,US-UT,Utah State Capitol,40.77722,-111.88806,building,temaki:capitol,8,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1454257,GNIS public domain,true
+state,US-UT,Salt Lake Temple,40.77047,-111.89196,building,maki:place-of-worship,9,https://www.wikidata.org/wiki/Q1122206,Wikidata CC0,true
+state,US-UT,Salt Lake Tabernacle,40.7704,-111.893,building,maki:place-of-worship,10,https://www.wikidata.org/wiki/Q2140759,Wikidata CC0,true
+state,US-UT,Cathedral of the Madeleine,40.76972,-111.88167,building,tabler:building-church,11,https://www.wikidata.org/wiki/Q2942483,Wikidata CC0,true
+state,US-UT,Delicate Arch,38.74276,-109.49402,arch,temaki:natural_arch,12,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1427330,GNIS public domain,true
+state,US-UT,Landscape Arch,38.79054,-109.6068,arch,temaki:natural_arch,13,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429470,GNIS public domain,true
+state,US-UT,Mesa Arch,38.38787,-109.86368,arch,temaki:natural_arch,14,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1434923,GNIS public domain,true
+state,US-UT,Rainbow Bridge,37.07722,-110.96417,arch,temaki:natural_arch,15,https://www.wikidata.org/wiki/Q1894724,Wikidata CC0,true
+state,US-UT,Thor's Hammer,37.62138,-112.16382,pillar,maki:natural,16,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1449100,GNIS public domain,true
+state,US-UT,Angels Landing,37.26918,-112.94794,summit,tabler:mountain,17,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425118,GNIS public domain,true
+state,US-UT,Fisher Towers,38.72166,-109.30429,pillar,maki:natural,18,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441094,GNIS public domain,true
+state,US-UT,Goblin Valley,38.5667,-110.71,park,maki:park,19,https://www.wikidata.org/wiki/Q1411137,Wikidata CC0,true
+state,US-UT,Golden Spike,41.6205,-112.547,historic,nps:historic-feature,20,https://www.wikidata.org/wiki/Q1535051,Wikidata CC0,true
+state,US-UT,Great Salt Lake,41.16667,-112.58333,lake,maki:water,21,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441459,GNIS public domain,true
+state,US-UT,Bonneville Salt Flats,40.79966,-113.80002,flat,maki:natural,22,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425872,GNIS public domain,true
+state,US-UT,Flaming Gorge Dam,40.9144,-109.421,dam,nps:dam,23,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441112,GNIS public domain,true
+state,US-UT,Bingham Canyon Mine,40.52222,-112.14944,mine,maki:industry,24,https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1435143,GNIS public domain,true
+state,US-UT,Dead Horse Point,38.50582,-109.73317,park,nps:scenic-viewpoint,25,https://www.wikidata.org/wiki/Q129470,Wikidata CC0,true
+state,US-UT,Ogden Union Station,41.22083,-111.97972,building,temaki:train_steam,26,https://www.wikidata.org/wiki/Q7886079,Wikidata CC0,true

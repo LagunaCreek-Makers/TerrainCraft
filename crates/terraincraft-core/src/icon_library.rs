@@ -215,27 +215,6 @@ mod tests {
         }
     }
     #[test]
-    fn landmark_icons_record_provenance() {
-        let landmarks: Vec<_> = all().iter().filter(|i| i.set == "landmarks").collect();
-        assert!(landmarks.len() >= 20);
-        for i in landmarks {
-            assert!(!i.sources.is_empty(), "{} has no sources", i.id);
-            assert!(
-                ["dem-ridgeline", "osm-footprint", "hand-drawn"].contains(&i.method.as_str()),
-                "{}",
-                i.id
-            );
-            assert!(
-                ["pending", "approved"].contains(&i.review.as_str()),
-                "{}",
-                i.id
-            );
-            if i.method == "osm-footprint" {
-                assert!(i.license.starts_with("ODbL") && i.attribution.contains("OpenStreetMap"));
-            }
-        }
-    }
-    #[test]
     fn utah_catalog_uses_library_icons() {
         let csv = include_str!("../../../assets/landmark_catalog_utah.csv");
         let entries = crate::landmark_catalog::parse_catalog(csv).unwrap();
