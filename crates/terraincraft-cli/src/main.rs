@@ -61,6 +61,10 @@ struct Args {
     /// Keep the full grid mesh
     #[arg(long, conflicts_with = "simplify")]
     no_simplify: bool,
+    /// Resample elevation finer than this many mm per sample on the model before making
+    /// print and laser files (0 keeps the full grid) [default: 0.3]
+    #[arg(long)]
+    sample_mm: Option<f64>,
     /// Model width in millimeters
     #[arg(long, default_value_t = 400.)]
     width_mm: f64,
@@ -213,6 +217,9 @@ impl Args {
         if self.no_simplify {
             s.simplify_mm = None;
         }
+        if let Some(v) = self.sample_mm {
+            s.sample_mm = v;
+        }
         s.validate()?;
         Ok(s)
     }
@@ -359,6 +366,17 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         );
         return Ok(());
     }
+    // Print and laser files need no more detail than the machines can reproduce.
+    let dem = match dem.resample_for_model(args.width_mm, opts.sample_mm) {
+        Some(coarse) => {
+            println!(
+                "Resampled {} x {} to {} x {} samples ({} mm apart on the model)",
+                dem.width, dem.height, coarse.width, coarse.height, opts.sample_mm
+            );
+            coarse
+        }
+        None => dem,
+    };
     let output = args.output.clone();
     fs::create_dir_all(&output)?;
     let bed = args.bed_mm;
@@ -431,6 +449,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let check_intersections = opts.check_intersections;
     let mut intersection_csv=String::from("filename,tested_pairs,crossings,coplanar_overlaps,skipped_shared_vertex_pairs,broadphase_candidates,complete\n");
     let mut assembly_meshes: Vec<(terraincraft_core::Tile, Vec<[[f64; 3]; 3]>)> = Vec::new();
+    let mut raw = Vec::with_capacity(tile_list.len());
     for (tile, guide) in tile_list.iter().zip(&guides) {
         let path = output.join(format!(
             "tile_r{:02}_c{:02}.stl",
@@ -469,10 +488,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         terraincraft_core::north_up(&mut faces, &dem, s, *tile);
-        let (faces, warnings) = terraincraft_core::finish_tile(faces, s, *tile, &opts)?;
+        raw.push((*tile, faces));
+    }
+    // Labels and simplification are the slow part; tiles are finished in parallel.
+    let finished = terraincraft_core::finish_tiles(raw, s, &opts)?;
+    for (tile, faces, warnings) in finished {
         for w in warnings {
             eprintln!("Warning: {w}");
         }
+        let path = output.join(format!(
+            "tile_r{:02}_c{:02}.stl",
+            tile.row + 1,
+            tile.col + 1
+        ));
         let audit = terraincraft_core::mesh_audit::audit(&faces);
         let filename = path.file_name().unwrap().to_string_lossy();
         audit_csv.push_str(&audit.csv_row(&filename));
@@ -500,7 +528,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         // Defer ALL STL writes until every tile has passed strict preflight.
         // A rejected job must not leave a partial collection of printable STLs.
-        assembly_meshes.push((*tile, faces));
+        assembly_meshes.push((tile, faces));
     }
     // Diagnostic reports are written even when strict preflight fails.
     fs::write(output.join("mesh_audit.csv"), &audit_csv)?;

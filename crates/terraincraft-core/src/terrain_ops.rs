@@ -54,6 +54,61 @@ pub fn prepare(dem: &Dem, prep: &TerrainPrep) -> Result<(Dem, PrepReport), Strin
 }
 
 impl Dem {
+    /// A coarser copy whose samples are at least `min_spacing_mm` apart on a model
+    /// `model_width_mm` wide, or `None` if the grid is already that coarse. Detail finer
+    /// than a printer or laser can reproduce only costs time: a 3000-sample grid across a
+    /// 400 mm model is 24 million triangles at 0.13 mm spacing. The grid is smoothed in
+    /// proportion first so detail averages out rather than aliasing, the outer samples
+    /// stay on the same ground positions, and the georeference is updated to match.
+    pub fn resample_for_model(&self, model_width_mm: f64, min_spacing_mm: f64) -> Option<Dem> {
+        if !(min_spacing_mm > 0. && model_width_mm > 0.) {
+            return None;
+        }
+        let spacing = model_width_mm / (self.width - 1) as f64;
+        if spacing >= min_spacing_mm {
+            return None;
+        }
+        let k = min_spacing_mm / spacing;
+        let w = ((self.width - 1) as f64 / k).floor() as usize + 1;
+        let h = ((self.height - 1) as f64 / k).floor() as usize + 1;
+        if w < 2 || h < 2 {
+            return None;
+        }
+        let mut smooth = self.clone();
+        smooth.smooth(k * 0.5).ok()?;
+        let (fx, fy) = (
+            (self.width - 1) as f64 / (w - 1) as f64,
+            (self.height - 1) as f64 / (h - 1) as f64,
+        );
+        let mut heights = Vec::with_capacity(w * h);
+        for j in 0..h {
+            for i in 0..w {
+                let (x, y) = (i as f64 * fx, j as f64 * fy);
+                let (x0, y0) = (
+                    (x as usize).min(self.width - 2),
+                    (y as usize).min(self.height - 2),
+                );
+                let (u, v) = (x - x0 as f64, y - y0 as f64);
+                let top = smooth.at(x0, y0) * (1. - u) + smooth.at(x0 + 1, y0) * u;
+                let bottom = smooth.at(x0, y0 + 1) * (1. - u) + smooth.at(x0 + 1, y0 + 1) * u;
+                heights.push(top * (1. - v) + bottom * v);
+            }
+        }
+        let mut out = Dem::new(w, h, heights).ok()?;
+        out.georef = self.georef.map(|g| {
+            let (pw, ph) = (g.pixel_width * fx, g.pixel_height * fy);
+            crate::georef::GeoReference {
+                // Keep the first sample center where it was.
+                origin_x: g.origin_x + (g.pixel_width - pw) * 0.5,
+                origin_y: g.origin_y - (g.pixel_height - ph) * 0.5,
+                pixel_width: pw,
+                pixel_height: ph,
+                ..g
+            }
+        });
+        Some(out)
+    }
+
     /// Gaussian smoothing with standard deviation `sigma` in samples. Edges are clamped,
     /// so the outline of the grid is unchanged. `sigma` of 0 leaves the grid as is.
     pub fn smooth(&mut self, sigma: f64) -> Result<(), String> {
@@ -149,6 +204,33 @@ mod tests {
             ..TerrainPrep::default()
         };
         assert!(!prepare(&d, &utm).unwrap().1.reprojected);
+    }
+    #[test]
+    fn resampling_keeps_extent_shape_and_georeference() {
+        use crate::georef::{CrsUnits, GeoReference};
+        // A smooth slope: resampling should reproduce it closely.
+        let (w, h) = (301, 201);
+        let v = (0..w * h)
+            .map(|i| (i % w) as f64 * 2. + (i / w) as f64)
+            .collect();
+        let mut d = Dem::new(w, h, v).unwrap();
+        d.georef = Some(GeoReference {
+            epsg: Some(32610),
+            units: CrsUnits::Meters,
+            origin_x: 1000.,
+            origin_y: 5000.,
+            pixel_width: 10.,
+            pixel_height: 10.,
+        });
+        // 300 intervals over 60 mm is 0.2 mm; ask for 0.5 mm.
+        let r = d.resample_for_model(60., 0.5).unwrap();
+        assert_eq!((r.width, r.height), (121, 81));
+        let (g0, g1) = (d.georef.unwrap(), r.georef.unwrap());
+        assert_eq!(g0.sample_span_m(w, h), g1.sample_span_m(r.width, r.height));
+        assert_eq!(g0.sample_to_latlon(0., 0.), g1.sample_to_latlon(0., 0.));
+        // Interior samples match the plane (edges are pulled slightly by smoothing).
+        assert!((r.at(60, 40) - (150. * 2. + 100.)).abs() < 1e-6);
+        assert!(d.resample_for_model(600., 0.5).is_none());
     }
     #[test]
     fn clips_water_to_recessed_surface() {

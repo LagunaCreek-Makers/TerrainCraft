@@ -107,45 +107,58 @@ impl Mesh {
         (first != Class::Other && faces.all(|c| c == first)).then_some(first)
     }
 
+    /// Vertices sharing a face with `u` (fans are small, so a linear dedup is fastest).
     fn neighbors(&self, u: usize) -> Vec<usize> {
-        let mut n: Vec<usize> = self.vert_faces[u]
-            .iter()
-            .flat_map(|&f| self.faces[f])
-            .filter(|&w| w != u)
-            .collect();
-        n.sort_unstable();
-        n.dedup();
+        let mut n = Vec::with_capacity(12);
+        for &f in &self.vert_faces[u] {
+            for w in self.faces[f] {
+                if w != u && !n.contains(&w) {
+                    n.push(w);
+                }
+            }
+        }
         n
     }
 
     /// Check collapsing `u` into `v`. Returns the worst vertical error and, for each
-    /// carried point, the face it lands in.
-    fn evaluate(&self, u: usize, v: usize, tolerance: f64) -> Option<(f64, Placed)> {
+    /// carried point, the face it lands in. With `quick`, only `u` itself is checked
+    /// (no points are placed): a lower bound on the full error, cheap enough to rank
+    /// every candidate.
+    fn evaluate(&self, u: usize, v: usize, tolerance: f64, quick: bool) -> Option<(f64, Placed)> {
         let class = self.movable(u)?;
-        let shared: Vec<usize> = self.vert_faces[u]
-            .iter()
-            .copied()
-            .filter(|&f| self.faces[f].contains(&v))
-            .collect();
-        if shared.len() != 2 {
+        let mut shared = [usize::MAX; 2];
+        let mut n_shared = 0;
+        for &f in &self.vert_faces[u] {
+            if self.faces[f].contains(&v) {
+                if n_shared == 2 {
+                    return None;
+                }
+                shared[n_shared] = f;
+                n_shared += 1;
+            }
+        }
+        if n_shared != 2 {
             return None;
         }
         // Link condition: u and v may share only the two vertices opposite their edge.
-        let opposite: Vec<usize> = shared
-            .iter()
-            .flat_map(|&f| self.faces[f])
-            .filter(|&w| w != u && w != v)
-            .collect();
-        let nv = self.neighbors(v);
-        let common = self
-            .neighbors(u)
-            .into_iter()
-            .filter(|w| *w != v && nv.binary_search(w).is_ok())
-            .count();
-        if common != 2 || opposite.len() != 2 || opposite[0] == opposite[1] {
-            return None;
+        // Only needed for the collapse actually made, so the quick ranking skips it.
+        if !quick {
+            let opposite: Vec<usize> = shared
+                .iter()
+                .flat_map(|&f| self.faces[f])
+                .filter(|&w| w != u && w != v)
+                .collect();
+            let nv = self.neighbors(v);
+            let common = self
+                .neighbors(u)
+                .into_iter()
+                .filter(|w| *w != v && nv.contains(w))
+                .count();
+            if common != 2 || opposite.len() != 2 || opposite[0] == opposite[1] {
+                return None;
+            }
         }
-        let mut new_faces = Vec::new();
+        let mut new_faces = Vec::with_capacity(self.vert_faces[u].len());
         for &f in &self.vert_faces[u] {
             if shared.contains(&f) {
                 continue;
@@ -163,6 +176,12 @@ impl Mesh {
         }
         if class == Class::Bottom {
             return Some((0., Vec::new()));
+        }
+        if quick {
+            let p = self.verts[u];
+            let z = new_faces.iter().find_map(|(_, t)| height_in(*t, p))?;
+            let e = (p[2] - z).abs();
+            return (e <= tolerance).then(|| (e, Vec::new()));
         }
         let carried = self.vert_faces[u]
             .iter()
@@ -183,11 +202,13 @@ impl Mesh {
         Some((worst, placed))
     }
 
-    fn best(&self, u: usize, tolerance: f64) -> Option<(f64, usize)> {
+    /// The neighbor to collapse `u` into with the smallest error, by the quick or the
+    /// full check.
+    fn best(&self, u: usize, tolerance: f64, quick: bool) -> Option<(f64, usize)> {
         self.movable(u)?;
         self.neighbors(u)
             .into_iter()
-            .filter_map(|v| self.evaluate(u, v, tolerance).map(|(e, _)| (e, v)))
+            .filter_map(|v| self.evaluate(u, v, tolerance, quick).map(|(e, _)| (e, v)))
             .min_by(|a, b| a.0.total_cmp(&b.0))
     }
 
@@ -232,20 +253,24 @@ pub fn simplify(
     let mut m = Mesh::build(faces, protect_below_z);
     let mut heap = BinaryHeap::new();
     let key = |e: f64| Reverse((e * 1e9) as u64);
+    // Candidates are ranked by the quick check; the full check runs once, when one
+    // reaches the front. If it fails, the vertex is re-ranked by full checks, which then
+    // hold when it comes up again unless its neighborhood changes (which restamps it).
     for u in 0..m.verts.len() {
-        if let Some((e, v)) = m.best(u, tolerance_mm) {
-            heap.push((key(e), u, v, 0u32));
+        if let Some((e, v)) = m.best(u, tolerance_mm, true) {
+            heap.push((key(e), u, v, 0u32, true));
         }
     }
-    while let Some((_, u, v, stamp)) = heap.pop() {
+    while let Some((_, u, v, stamp, quick)) = heap.pop() {
         if stamp != m.stamp[u] || m.vert_faces[u].is_empty() {
             continue;
         }
-        // Neighborhoods two steps away can change without restamping u; re-check.
-        let Some((_, placed)) = m.evaluate(u, v, tolerance_mm) else {
+        let Some((_, placed)) = m.evaluate(u, v, tolerance_mm, false) else {
             m.stamp[u] += 1;
-            if let Some((e, v)) = m.best(u, tolerance_mm) {
-                heap.push((key(e), u, v, m.stamp[u]));
+            // After a failed quick candidate, rank this vertex by full checks; after a
+            // failed full one (its neighborhood moved), start over with the quick check.
+            if let Some((e, v)) = m.best(u, tolerance_mm, !quick) {
+                heap.push((key(e), u, v, m.stamp[u], !quick));
             }
             continue;
         };
@@ -254,8 +279,8 @@ pub fn simplify(
         affected.push(v);
         for w in affected {
             m.stamp[w] += 1;
-            if let Some((e, t)) = m.best(w, tolerance_mm) {
-                heap.push((key(e), w, t, m.stamp[w]));
+            if let Some((e, t)) = m.best(w, tolerance_mm, true) {
+                heap.push((key(e), w, t, m.stamp[w], true));
             }
         }
     }
