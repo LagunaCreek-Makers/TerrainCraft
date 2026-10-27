@@ -304,7 +304,11 @@ impl eframe::App for Studio {
       });
       if let Some(icon)=lib::get(&self.library_icon){
        let set=lib::set_of(icon);
-       ui.small(format!("Selected: {} — {} {}, {}",icon.title,set.map_or("",|s|s.title.as_str()),set.map_or("",|s|s.version.as_str()),set.map_or("",|s|s.license.as_str())));
+       let license=if icon.license.is_empty(){set.map_or("",|s|s.license.as_str())}else{icon.license.as_str()};
+       ui.small(format!("Selected: {} — {} {}, {}",icon.title,set.map_or("",|s|s.title.as_str()),set.map_or("",|s|s.version.as_str()),license));
+       if !icon.attribution.is_empty(){ui.small(format!("Credit required: {}",icon.attribution));}
+       if icon.review=="pending"{ui.colored_label(egui::Color32::YELLOW,"Draft artwork, not yet reviewed");}
+       for s in &icon.sources{ui.hyperlink_to(egui::RichText::new(s).small(),s);}
       }
       ui.add(egui::Slider::new(&mut self.icon_x,0.0..=1.0).text("X position"));
       ui.add(egui::Slider::new(&mut self.icon_y,0.0..=1.0).text("Y position"));

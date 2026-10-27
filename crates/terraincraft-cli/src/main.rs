@@ -107,6 +107,11 @@ struct Args {
     /// degrees, with an optional field of view (default 90): LAT,LON,BEARING[,FOV]
     #[arg(long, value_name = "LAT,LON,BEARING[,FOV]")]
     panorama: Option<String>,
+    /// Write a 24 x 24 line icon of the skyline seen from LAT,LON looking toward BEARING
+    /// with field of view FOV (ridgeline_icon.svg), for the icon library. Terrain nearer
+    /// than NEAR_KM (default 0.5) is ignored; FRONT_KM adds the ridges up to that distance
+    #[arg(long, value_name = "LAT,LON,BEARING,FOV[,NEAR_KM[,FRONT_KM]]")]
+    ridgeline_icon: Option<String>,
     /// Download named summits, passes and ridges for the area from USGS (GNIS) and label
     /// them on engravings; saved as place_names.csv
     #[arg(long)]
@@ -340,6 +345,34 @@ fn write_engravings(
             o.sheet_w_mm, o.sheet_h_mm
         );
     }
+    if let Some(spec) = &args.ridgeline_icon {
+        let v: Vec<f64> = spec
+            .split(',')
+            .map(|p| p.trim().parse::<f64>())
+            .collect::<Result<_, _>>()
+            .map_err(|_| "--ridgeline-icon expects LAT,LON,BEARING,FOV[,NEAR_KM[,FRONT_KM]]")?;
+        let (&[lat, lon, bearing, fov], rest) = v
+            .split_at_checked(4)
+            .ok_or("--ridgeline-icon expects LAT,LON,BEARING,FOV[,NEAR_KM[,FRONT_KM]]")?
+        else {
+            unreachable!()
+        };
+        let range = terraincraft_core::icon_art::RidgelineRange {
+            near_km: rest.first().copied().unwrap_or(0.5),
+            front_km: rest.get(1).copied(),
+        };
+        let view = PanoramaView {
+            lat,
+            lon,
+            bearing_deg: bearing,
+            fov_deg: fov,
+            eye_height_m: 1.7,
+            max_distance_km: 150.,
+        };
+        let svg = terraincraft_core::icon_art::ridgeline_icon(dem, &view, range)?;
+        fs::write(output.join("ridgeline_icon.svg"), svg)?;
+        println!("Wrote ridgeline_icon.svg");
+    }
     Ok(())
 }
 
@@ -374,7 +407,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if args.sea_level.is_some() {
         println!("Flattened {} samples as water", report.water_samples);
     }
-    if args.engrave_map || args.panorama.is_some() {
+    if args.engrave_map || args.panorama.is_some() || args.ridgeline_icon.is_some() {
         write_engravings(&args, &dem, &args.output)?;
     }
     if args.dem_only {

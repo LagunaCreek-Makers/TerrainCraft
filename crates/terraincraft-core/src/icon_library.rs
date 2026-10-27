@@ -25,6 +25,21 @@ pub struct LibraryIcon {
     pub set: String,
     pub category: String,
     pub tags: Vec<String>,
+    /// How a landmark icon was made: `dem-ridgeline`, `osm-footprint` or `hand-drawn`.
+    #[serde(default)]
+    pub method: String,
+    /// Per-icon license, when it differs from its set's.
+    #[serde(default)]
+    pub license: String,
+    /// Credit line the license requires, if any.
+    #[serde(default)]
+    pub attribution: String,
+    /// Where the subject's facts and geometry came from.
+    #[serde(default)]
+    pub sources: Vec<String>,
+    /// Review state of TerrainCraft's own drawings: `pending` or `approved`.
+    #[serde(default)]
+    pub review: String,
 }
 
 #[derive(Deserialize)]
@@ -197,6 +212,18 @@ mod tests {
                         .all(|p| (p.0 == 0. || p.0 == 24.) && (p.1 == 0. || p.1 == 24.))
             });
             assert!(!full_frame, "{} engraves its bounding box", i.id);
+        }
+    }
+    #[test]
+    fn utah_catalog_uses_library_icons() {
+        let csv = include_str!("../../../assets/landmark_catalog_utah.csv");
+        let entries = crate::landmark_catalog::parse_catalog(csv).unwrap();
+        assert!((20..=30).contains(&entries.len()));
+        for e in &entries {
+            assert_eq!(e.jurisdiction, "US-UT");
+            assert!(e.source_url.starts_with("https://"), "{}", e.name);
+            let id = resolve(&e.icon_id).unwrap_or_else(|| panic!("{} has no icon", e.name));
+            assert!(svg(id).is_some());
         }
     }
     #[test]

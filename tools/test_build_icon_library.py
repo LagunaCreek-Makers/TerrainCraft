@@ -33,8 +33,21 @@ class IconLibraryTest(unittest.TestCase):
             (maki / 'icons' / 'circle.svg').write_text(svg('<path d="M1 1h2"/>'))
 
             out, rust = d / 'out', d / 'table.rs'
+            (out / 'landmarks').mkdir(parents=True)
+            (out / 'landmarks' / 'LICENSE.txt').write_text('CC0 1.0 Universal')
+            (out / 'landmarks' / 'peak.svg').write_text(svg('<path d="M2 20L12 4L22 20"/>'))
+            (out / 'landmarks' / 'manifest.json').write_text(json.dumps({
+                'set': {'name': 'landmarks', 'title': 'Landmarks', 'version': '0.1.0',
+                        'license': 'CC0-1.0', 'license_file': 'landmarks/LICENSE.txt',
+                        'source': 'x', 'package': 'x'},
+                'icons': [{'name': 'peak', 'title': 'Peak', 'category': 'Utah landmarks',
+                           'method': 'hand-drawn', 'review': 'pending', 'sources': ['https://x'],
+                           'site': {'lat': 1, 'lon': 2}}]}))
             icons = build(tabler, maki, out, rust)
-            self.assertEqual([i['id'] for i in icons], ['tabler:mountain', 'maki:volcano'])
+            self.assertEqual([i['id'] for i in icons],
+                             ['tabler:mountain', 'maki:volcano', 'landmarks:peak'])
+            self.assertEqual(icons[2]['review'], 'pending')
+            self.assertNotIn('site', icons[2])
             self.assertEqual(icons[0]['tags'], ['peak', '2'])
             text = (out / 'tabler' / 'mountain.svg').read_text()
             self.assertNotIn('stroke="none"', text)

@@ -14,6 +14,7 @@ pub mod georef;
 pub mod geotiff;
 pub mod geoview;
 pub mod gis;
+pub mod icon_art;
 mod icon_library_data;
 pub mod icon_variants;
 pub mod intersections;

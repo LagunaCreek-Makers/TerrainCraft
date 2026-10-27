@@ -1,19 +1,32 @@
 TerrainCraft engraving icon library
 ===================================
 
-The icons in this directory come from two upstream sets. `catalog.json` records, for
+The icons in this directory come from four upstream sets. `catalog.json` records, for
 every icon, which set it came from, and for every set its version, license, license
 file and source. `tools/build_icon_library.py` regenerates this directory from the
-upstream npm packages.
+upstream npm packages, and adds TerrainCraft's own landmark icons when a
+landmarks/manifest.json is present (none are bundled yet).
 
-tabler/  Tabler Icons (outline style), a curated subset
-         Copyright (c) 2020-2026 Paweł Kuna
-         MIT License, full text in tabler/LICENSE
-         https://tabler.io/icons
+tabler/     Tabler Icons (outline style), a curated subset
+            Copyright (c) 2020-2026 Paweł Kuna
+            MIT License, full text in tabler/LICENSE
+            https://tabler.io/icons
 
-maki/    Maki, by Mapbox
-         Dedicated to the public domain under CC0 1.0, full text in maki/LICENSE.txt
-         https://labs.mapbox.com/maki-icons/
+maki/       Maki, by Mapbox
+            Dedicated to the public domain under CC0 1.0, full text in maki/LICENSE.txt
+            https://labs.mapbox.com/maki-icons/
+
+temaki/     Temaki, by the Rapid editor team, a curated subset
+            Dedicated to the public domain under CC0 1.0, full text in temaki/LICENSE.md
+            https://github.com/rapideditor/temaki
+
+nps/        National Park Service map symbols (npmap-symbol-library)
+            Symbols designed by the National Park Service. The repository is distributed
+            under the BSD license in nps/LICENSE.txt (Copyright 2013, Mapbox, LLC), which
+            must accompany redistributions.
+            https://github.com/nationalparkservice/symbol-library
 
 Changes: Tabler's invisible 24x24 bounding-box path and CSS class are removed; Maki's
-XML declaration and element ids are removed. Drawings are otherwise unchanged.
+and Temaki's XML declarations and element ids are removed; the NPS symbols' Illustrator
+comments, ids, inline styles and fill colors are removed. Drawings are otherwise
+unchanged.
