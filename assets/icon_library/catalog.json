@@ -17,6 +17,33 @@
    "license_file": "maki/LICENSE.txt",
    "source": "https://labs.mapbox.com/maki-icons/",
    "package": "@mapbox/maki@8.2.0"
+  },
+  {
+   "name": "temaki",
+   "title": "Temaki",
+   "version": "5.13.0",
+   "license": "CC0-1.0",
+   "license_file": "temaki/LICENSE.md",
+   "source": "https://github.com/rapideditor/temaki",
+   "package": "@rapideditor/temaki@5.13.0"
+  },
+  {
+   "name": "nps",
+   "title": "National Park Service map symbols",
+   "version": "2.5.0",
+   "license": "BSD-3-Clause",
+   "license_file": "nps/LICENSE.txt",
+   "source": "https://github.com/nationalparkservice/symbol-library",
+   "package": "npmap-symbol-library@2.5.0"
+  },
+  {
+   "name": "landmarks",
+   "title": "TerrainCraft landmark icons",
+   "version": "0.1.0",
+   "license": "CC0-1.0",
+   "license_file": "landmarks/LICENSE.txt",
+   "source": "https://github.com/LagunaCreek-Makers/TerrainCraft",
+   "package": "assets/icon_library/landmarks"
   }
  ],
  "icons": [
@@ -8265,6 +8292,5476 @@
    "tags": [
     "zoo"
    ]
+  },
+  {
+   "id": "temaki:abseiling",
+   "title": "Abseiling",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "abseiling"
+   ]
+  },
+  {
+   "id": "temaki:aerialway_pole",
+   "title": "Aerialway pole",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "aerialway",
+    "pole"
+   ]
+  },
+  {
+   "id": "temaki:airport",
+   "title": "Airport",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "aeroways",
+    "buildings",
+    "vehicles",
+    "airport"
+   ]
+  },
+  {
+   "id": "temaki:amusement_park",
+   "title": "Amusement park",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "amusement",
+    "park"
+   ]
+  },
+  {
+   "id": "temaki:anchor_medal",
+   "title": "Anchor medal",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "military",
+    "water",
+    "anchor",
+    "medal"
+   ]
+  },
+  {
+   "id": "temaki:archery",
+   "title": "Archery",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "archery"
+   ]
+  },
+  {
+   "id": "temaki:army_tent",
+   "title": "Army tent",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "camping",
+    "military",
+    "army",
+    "tent"
+   ]
+  },
+  {
+   "id": "temaki:balance_beam",
+   "title": "Balance beam",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "playground",
+    "sports",
+    "balance",
+    "beam"
+   ]
+  },
+  {
+   "id": "temaki:barn",
+   "title": "Barn",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "barn"
+   ]
+  },
+  {
+   "id": "temaki:beach",
+   "title": "Beach",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "water",
+    "beach"
+   ]
+  },
+  {
+   "id": "temaki:bicycle_shed",
+   "title": "Bicycle shed",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "cycling",
+    "vehicles",
+    "bicycle",
+    "shed"
+   ]
+  },
+  {
+   "id": "temaki:bleachers",
+   "title": "Bleachers",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "seating",
+    "sports",
+    "bleachers"
+   ]
+  },
+  {
+   "id": "temaki:board_gondola_lift",
+   "title": "Board gondola lift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "people",
+    "vehicles",
+    "board",
+    "gondola",
+    "lift"
+   ]
+  },
+  {
+   "id": "temaki:board_hanging_rail",
+   "title": "Board hanging rail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "hanging",
+    "rail"
+   ]
+  },
+  {
+   "id": "temaki:board_heavy_rail",
+   "title": "Board heavy rail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "heavy",
+    "rail"
+   ]
+  },
+  {
+   "id": "temaki:board_light_rail",
+   "title": "Board light rail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "light",
+    "rail"
+   ]
+  },
+  {
+   "id": "temaki:board_monorail",
+   "title": "Board monorail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "monorail"
+   ]
+  },
+  {
+   "id": "temaki:board_subway",
+   "title": "Board subway",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "subway"
+   ]
+  },
+  {
+   "id": "temaki:board_train",
+   "title": "Board train",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "train"
+   ]
+  },
+  {
+   "id": "temaki:board_train_bullet",
+   "title": "Board train bullet",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "train",
+    "bullet"
+   ]
+  },
+  {
+   "id": "temaki:board_train_diesel",
+   "title": "Board train diesel",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "train",
+    "diesel"
+   ]
+  },
+  {
+   "id": "temaki:board_train_kids",
+   "title": "Board train kids",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "train",
+    "kids"
+   ]
+  },
+  {
+   "id": "temaki:board_train_steam",
+   "title": "Board train steam",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "train",
+    "steam"
+   ]
+  },
+  {
+   "id": "temaki:board_tram",
+   "title": "Board tram",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "people",
+    "railways",
+    "vehicles",
+    "board",
+    "tram"
+   ]
+  },
+  {
+   "id": "temaki:boat",
+   "title": "Boat",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "boat"
+   ]
+  },
+  {
+   "id": "temaki:boat_dry_dock",
+   "title": "Boat dry dock",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "boat",
+    "dry",
+    "dock"
+   ]
+  },
+  {
+   "id": "temaki:boat_floating",
+   "title": "Boat floating",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "boat",
+    "floating"
+   ]
+  },
+  {
+   "id": "temaki:boat_ramp",
+   "title": "Boat ramp",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "boat",
+    "ramp"
+   ]
+  },
+  {
+   "id": "temaki:boat_tour",
+   "title": "Boat tour",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "boat",
+    "tour"
+   ]
+  },
+  {
+   "id": "temaki:boating",
+   "title": "Boating",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "boating"
+   ]
+  },
+  {
+   "id": "temaki:boulder1",
+   "title": "Boulder1",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "boulder1"
+   ]
+  },
+  {
+   "id": "temaki:boulder2",
+   "title": "Boulder2",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "boulder2"
+   ]
+  },
+  {
+   "id": "temaki:boulder3",
+   "title": "Boulder3",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "boulder3"
+   ]
+  },
+  {
+   "id": "temaki:bowling",
+   "title": "Bowling",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "bowling"
+   ]
+  },
+  {
+   "id": "temaki:bowling_alt1",
+   "title": "Bowling alt1",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "bowling",
+    "alt1"
+   ]
+  },
+  {
+   "id": "temaki:bunker",
+   "title": "Bunker",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "military",
+    "bunker"
+   ]
+  },
+  {
+   "id": "temaki:buoy",
+   "title": "Buoy",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "buoy"
+   ]
+  },
+  {
+   "id": "temaki:cabin",
+   "title": "Cabin",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "cabin"
+   ]
+  },
+  {
+   "id": "temaki:camper_trailer",
+   "title": "Camper trailer",
+   "set": "temaki",
+   "category": "Camping",
+   "tags": [
+    "camping",
+    "vehicles",
+    "camper",
+    "trailer"
+   ]
+  },
+  {
+   "id": "temaki:camper_trailer_dump",
+   "title": "Camper trailer dump",
+   "set": "temaki",
+   "category": "Camping",
+   "tags": [
+    "camping",
+    "vehicles",
+    "camper",
+    "trailer",
+    "dump"
+   ]
+  },
+  {
+   "id": "temaki:campfire",
+   "title": "Campfire",
+   "set": "temaki",
+   "category": "Camping",
+   "tags": [
+    "camping",
+    "campfire"
+   ]
+  },
+  {
+   "id": "temaki:canoe",
+   "title": "Canoe",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "canoe"
+   ]
+  },
+  {
+   "id": "temaki:cape_landform",
+   "title": "Cape landform",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "cape",
+    "landform"
+   ]
+  },
+  {
+   "id": "temaki:capitol",
+   "title": "Capitol",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "capitol"
+   ]
+  },
+  {
+   "id": "temaki:casino",
+   "title": "Casino",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "casino"
+   ]
+  },
+  {
+   "id": "temaki:chairlift",
+   "title": "Chairlift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "people",
+    "snow",
+    "chairlift"
+   ]
+  },
+  {
+   "id": "temaki:cliff_falling_rocks",
+   "title": "Cliff falling rocks",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "cliff",
+    "falling",
+    "rocks"
+   ]
+  },
+  {
+   "id": "temaki:climbing",
+   "title": "Climbing",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "climbing"
+   ]
+  },
+  {
+   "id": "temaki:cooling_tower",
+   "title": "Cooling tower",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "infrastructure",
+    "cooling",
+    "tower"
+   ]
+  },
+  {
+   "id": "temaki:coral_reef",
+   "title": "Coral reef",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "landforms",
+    "plants",
+    "coral",
+    "reef"
+   ]
+  },
+  {
+   "id": "temaki:cross_country_skiing",
+   "title": "Cross country skiing",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "snow",
+    "sports",
+    "cross",
+    "country",
+    "skiing"
+   ]
+  },
+  {
+   "id": "temaki:dice",
+   "title": "Dice",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "dice"
+   ]
+  },
+  {
+   "id": "temaki:disc_golf_basket",
+   "title": "Disc golf basket",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "disc",
+    "golf",
+    "basket"
+   ]
+  },
+  {
+   "id": "temaki:diving",
+   "title": "Diving",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "diving"
+   ]
+  },
+  {
+   "id": "temaki:dog_shelter",
+   "title": "Dog shelter",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "buildings",
+    "dog",
+    "shelter"
+   ]
+  },
+  {
+   "id": "temaki:domed_tower",
+   "title": "Domed tower",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "domed",
+    "tower"
+   ]
+  },
+  {
+   "id": "temaki:drag_lift",
+   "title": "Drag lift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "drag",
+    "lift"
+   ]
+  },
+  {
+   "id": "temaki:embassy",
+   "title": "Embassy",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "embassy"
+   ]
+  },
+  {
+   "id": "temaki:field_hockey",
+   "title": "Field hockey",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "field",
+    "hockey"
+   ]
+  },
+  {
+   "id": "temaki:fire_hydrant",
+   "title": "Fire hydrant",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "fire",
+    "hydrant"
+   ]
+  },
+  {
+   "id": "temaki:fireplace",
+   "title": "Fireplace",
+   "set": "temaki",
+   "category": "Camping",
+   "tags": [
+    "camping",
+    "fireplace"
+   ]
+  },
+  {
+   "id": "temaki:fish_ladder",
+   "title": "Fish ladder",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "water",
+    "fish",
+    "ladder"
+   ]
+  },
+  {
+   "id": "temaki:fishing_pier",
+   "title": "Fishing pier",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "water",
+    "fishing",
+    "pier"
+   ]
+  },
+  {
+   "id": "temaki:florist",
+   "title": "Florist",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "florist"
+   ]
+  },
+  {
+   "id": "temaki:fountain",
+   "title": "Fountain",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "fountain"
+   ]
+  },
+  {
+   "id": "temaki:freight_car",
+   "title": "Freight car",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "freight",
+    "car"
+   ]
+  },
+  {
+   "id": "temaki:garden_bed",
+   "title": "Garden bed",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "garden",
+    "bed"
+   ]
+  },
+  {
+   "id": "temaki:geyser_from_ground",
+   "title": "Geyser from ground",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "geyser",
+    "from",
+    "ground"
+   ]
+  },
+  {
+   "id": "temaki:golf_green",
+   "title": "Golf green",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "golf",
+    "green"
+   ]
+  },
+  {
+   "id": "temaki:gondola_lift",
+   "title": "Gondola lift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "gondola",
+    "lift"
+   ]
+  },
+  {
+   "id": "temaki:goods_lift",
+   "title": "Goods lift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "goods",
+    "lift"
+   ]
+  },
+  {
+   "id": "temaki:grapes",
+   "title": "Grapes",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "food",
+    "plants",
+    "grapes"
+   ]
+  },
+  {
+   "id": "temaki:grass",
+   "title": "Grass",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "grass"
+   ]
+  },
+  {
+   "id": "temaki:gym",
+   "title": "Gym",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "gym"
+   ]
+  },
+  {
+   "id": "temaki:hang_gliding",
+   "title": "Hang gliding",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "hang",
+    "gliding"
+   ]
+  },
+  {
+   "id": "temaki:hangar",
+   "title": "Hangar",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "hangar"
+   ]
+  },
+  {
+   "id": "temaki:hanging_rail",
+   "title": "Hanging rail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "hanging",
+    "rail"
+   ]
+  },
+  {
+   "id": "temaki:heavy_rail",
+   "title": "Heavy rail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "heavy",
+    "rail"
+   ]
+  },
+  {
+   "id": "temaki:hinduism",
+   "title": "Hinduism",
+   "set": "temaki",
+   "category": "Religion",
+   "tags": [
+    "religion",
+    "hinduism"
+   ]
+  },
+  {
+   "id": "temaki:horizontal_bar",
+   "title": "Horizontal bar",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "horizontal",
+    "bar"
+   ]
+  },
+  {
+   "id": "temaki:horn_cleat",
+   "title": "Horn cleat",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "horn",
+    "cleat"
+   ]
+  },
+  {
+   "id": "temaki:horse_shelter",
+   "title": "Horse shelter",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "buildings",
+    "horse",
+    "shelter"
+   ]
+  },
+  {
+   "id": "temaki:horseshoe",
+   "title": "Horseshoe",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "sports",
+    "horseshoe"
+   ]
+  },
+  {
+   "id": "temaki:horseshoes",
+   "title": "Horseshoes",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "sports",
+    "horseshoes"
+   ]
+  },
+  {
+   "id": "temaki:houseboat",
+   "title": "Houseboat",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "vehicles",
+    "water",
+    "houseboat"
+   ]
+  },
+  {
+   "id": "temaki:hunting_blind",
+   "title": "Hunting blind",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "hunting",
+    "blind"
+   ]
+  },
+  {
+   "id": "temaki:hut",
+   "title": "Hut",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "hut"
+   ]
+  },
+  {
+   "id": "temaki:ice_fishing",
+   "title": "Ice fishing",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "snow",
+    "sports",
+    "water",
+    "ice",
+    "fishing"
+   ]
+  },
+  {
+   "id": "temaki:ice_skating",
+   "title": "Ice skating",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "people",
+    "snow",
+    "sports",
+    "water",
+    "ice",
+    "skating"
+   ]
+  },
+  {
+   "id": "temaki:inline_skating",
+   "title": "Inline skating",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "inline",
+    "skating"
+   ]
+  },
+  {
+   "id": "temaki:island_trees_building",
+   "title": "Island trees building",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "landforms",
+    "plants",
+    "island",
+    "trees",
+    "building"
+   ]
+  },
+  {
+   "id": "temaki:islet_tree",
+   "title": "Islet tree",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "plants",
+    "islet",
+    "tree"
+   ]
+  },
+  {
+   "id": "temaki:j_bar_lift",
+   "title": "J bar lift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "j",
+    "bar",
+    "lift"
+   ]
+  },
+  {
+   "id": "temaki:jet_skiing",
+   "title": "Jet skiing",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "people",
+    "vehicles",
+    "water",
+    "jet",
+    "skiing"
+   ]
+  },
+  {
+   "id": "temaki:kayaking",
+   "title": "Kayaking",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "vehicles",
+    "kayaking"
+   ]
+  },
+  {
+   "id": "temaki:latrine",
+   "title": "Latrine",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "camping",
+    "latrine"
+   ]
+  },
+  {
+   "id": "temaki:lawn",
+   "title": "Lawn",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "lawn"
+   ]
+  },
+  {
+   "id": "temaki:light_rail",
+   "title": "Light rail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "light",
+    "rail"
+   ]
+  },
+  {
+   "id": "temaki:manufactured_home",
+   "title": "Manufactured home",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "manufactured",
+    "home"
+   ]
+  },
+  {
+   "id": "temaki:maze",
+   "title": "Maze",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "maze"
+   ]
+  },
+  {
+   "id": "temaki:monorail",
+   "title": "Monorail",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "monorail"
+   ]
+  },
+  {
+   "id": "temaki:mountain_asterisk",
+   "title": "Mountain asterisk",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "healthcare",
+    "landforms",
+    "mountain",
+    "asterisk"
+   ]
+  },
+  {
+   "id": "temaki:mountain_cross",
+   "title": "Mountain cross",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "healthcare",
+    "landforms",
+    "mountain",
+    "cross"
+   ]
+  },
+  {
+   "id": "temaki:mountain_range",
+   "title": "Mountain range",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "snow",
+    "mountain",
+    "range"
+   ]
+  },
+  {
+   "id": "temaki:museum",
+   "title": "Museum",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "museum"
+   ]
+  },
+  {
+   "id": "temaki:natural_arch",
+   "title": "Natural arch",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "natural",
+    "arch"
+   ]
+  },
+  {
+   "id": "temaki:obelisk",
+   "title": "Obelisk",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "obelisk"
+   ]
+  },
+  {
+   "id": "temaki:paifang",
+   "title": "Paifang",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "religion",
+    "paifang"
+   ]
+  },
+  {
+   "id": "temaki:pet_store",
+   "title": "Pet store",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "pet",
+    "store"
+   ]
+  },
+  {
+   "id": "temaki:physiotherapist",
+   "title": "Physiotherapist",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "healthcare",
+    "people",
+    "sports",
+    "physiotherapist"
+   ]
+  },
+  {
+   "id": "temaki:pickleball",
+   "title": "Pickleball",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "pickleball"
+   ]
+  },
+  {
+   "id": "temaki:picnic_shelter",
+   "title": "Picnic shelter",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "camping",
+    "seating",
+    "picnic",
+    "shelter"
+   ]
+  },
+  {
+   "id": "temaki:pier_fixed",
+   "title": "Pier fixed",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "pier",
+    "fixed"
+   ]
+  },
+  {
+   "id": "temaki:pier_floating",
+   "title": "Pier floating",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "pier",
+    "floating"
+   ]
+  },
+  {
+   "id": "temaki:plant",
+   "title": "Plant",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "plant"
+   ]
+  },
+  {
+   "id": "temaki:platter_lift",
+   "title": "Platter lift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "platter",
+    "lift"
+   ]
+  },
+  {
+   "id": "temaki:play_structure",
+   "title": "Play structure",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "play",
+    "structure"
+   ]
+  },
+  {
+   "id": "temaki:psychic",
+   "title": "Psychic",
+   "set": "temaki",
+   "category": "Religion",
+   "tags": [
+    "people",
+    "religion",
+    "psychic"
+   ]
+  },
+  {
+   "id": "temaki:quakerism",
+   "title": "Quakerism",
+   "set": "temaki",
+   "category": "Religion",
+   "tags": [
+    "religion",
+    "quakerism"
+   ]
+  },
+  {
+   "id": "temaki:quay",
+   "title": "Quay",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "quay"
+   ]
+  },
+  {
+   "id": "temaki:rafting",
+   "title": "Rafting",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "water",
+    "rafting"
+   ]
+  },
+  {
+   "id": "temaki:rail_flag",
+   "title": "Rail flag",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "rail",
+    "flag"
+   ]
+  },
+  {
+   "id": "temaki:rail_profile",
+   "title": "Rail profile",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "rail",
+    "profile"
+   ]
+  },
+  {
+   "id": "temaki:railway_cable_track",
+   "title": "Railway cable track",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "railway",
+    "cable",
+    "track"
+   ]
+  },
+  {
+   "id": "temaki:railway_signals",
+   "title": "Railway signals",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "railway",
+    "signals"
+   ]
+  },
+  {
+   "id": "temaki:railway_track",
+   "title": "Railway track",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "railway",
+    "track"
+   ]
+  },
+  {
+   "id": "temaki:railway_track_askew",
+   "title": "Railway track askew",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "railway",
+    "track",
+    "askew"
+   ]
+  },
+  {
+   "id": "temaki:railway_track_mini",
+   "title": "Railway track mini",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "railway",
+    "track",
+    "mini"
+   ]
+  },
+  {
+   "id": "temaki:railway_track_narrow",
+   "title": "Railway track narrow",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "railway",
+    "track",
+    "narrow"
+   ]
+  },
+  {
+   "id": "temaki:railway_track_partial",
+   "title": "Railway track partial",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "railway",
+    "track",
+    "partial"
+   ]
+  },
+  {
+   "id": "temaki:real_estate_agency",
+   "title": "Real estate agency",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "real",
+    "estate",
+    "agency"
+   ]
+  },
+  {
+   "id": "temaki:roller_coaster",
+   "title": "Roller coaster",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "roller",
+    "coaster"
+   ]
+  },
+  {
+   "id": "temaki:row_houses",
+   "title": "Row houses",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "row",
+    "houses"
+   ]
+  },
+  {
+   "id": "temaki:ruins",
+   "title": "Ruins",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "ruins"
+   ]
+  },
+  {
+   "id": "temaki:saddle",
+   "title": "Saddle",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "snow",
+    "saddle"
+   ]
+  },
+  {
+   "id": "temaki:sailboat",
+   "title": "Sailboat",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "vehicles",
+    "water",
+    "sailboat"
+   ]
+  },
+  {
+   "id": "temaki:sailing",
+   "title": "Sailing",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "water",
+    "sailing"
+   ]
+  },
+  {
+   "id": "temaki:scuba_diving",
+   "title": "Scuba diving",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "water",
+    "scuba",
+    "diving"
+   ]
+  },
+  {
+   "id": "temaki:sculpture",
+   "title": "Sculpture",
+   "set": "temaki",
+   "category": "Arts",
+   "tags": [
+    "arts",
+    "sculpture"
+   ]
+  },
+  {
+   "id": "temaki:seesaw",
+   "title": "Seesaw",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "playground",
+    "sports",
+    "seesaw"
+   ]
+  },
+  {
+   "id": "temaki:shinto",
+   "title": "Shinto",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "religion",
+    "shinto"
+   ]
+  },
+  {
+   "id": "temaki:shrub",
+   "title": "Shrub",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "shrub"
+   ]
+  },
+  {
+   "id": "temaki:shrub_low",
+   "title": "Shrub low",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "shrub",
+    "low"
+   ]
+  },
+  {
+   "id": "temaki:shuffleboard",
+   "title": "Shuffleboard",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "shuffleboard"
+   ]
+  },
+  {
+   "id": "temaki:sikhism",
+   "title": "Sikhism",
+   "set": "temaki",
+   "category": "Religion",
+   "tags": [
+    "religion",
+    "sikhism"
+   ]
+  },
+  {
+   "id": "temaki:silo",
+   "title": "Silo",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "silo"
+   ]
+  },
+  {
+   "id": "temaki:skateboarding",
+   "title": "Skateboarding",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "skateboarding"
+   ]
+  },
+  {
+   "id": "temaki:ski_jumping",
+   "title": "Ski jumping",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "people",
+    "snow",
+    "sports",
+    "ski",
+    "jumping"
+   ]
+  },
+  {
+   "id": "temaki:skiing",
+   "title": "Skiing",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "people",
+    "snow",
+    "sports",
+    "skiing"
+   ]
+  },
+  {
+   "id": "temaki:sledding",
+   "title": "Sledding",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "people",
+    "snow",
+    "sports",
+    "sledding"
+   ]
+  },
+  {
+   "id": "temaki:sleep_shelter",
+   "title": "Sleep shelter",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "camping",
+    "people",
+    "sleep",
+    "shelter"
+   ]
+  },
+  {
+   "id": "temaki:slide",
+   "title": "Slide",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "playground",
+    "sports",
+    "slide"
+   ]
+  },
+  {
+   "id": "temaki:slide2",
+   "title": "Slide2",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "playground",
+    "sports",
+    "slide2"
+   ]
+  },
+  {
+   "id": "temaki:snow",
+   "title": "Snow",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "snow",
+    "snow"
+   ]
+  },
+  {
+   "id": "temaki:snow_shoeing",
+   "title": "Snow shoeing",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "people",
+    "snow",
+    "sports",
+    "snow",
+    "shoeing"
+   ]
+  },
+  {
+   "id": "temaki:snowboarding",
+   "title": "Snowboarding",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "people",
+    "snow",
+    "sports",
+    "snowboarding"
+   ]
+  },
+  {
+   "id": "temaki:snowmobile",
+   "title": "Snowmobile",
+   "set": "temaki",
+   "category": "Snow",
+   "tags": [
+    "people",
+    "snow",
+    "sports",
+    "vehicles",
+    "snowmobile"
+   ]
+  },
+  {
+   "id": "temaki:spring_rider",
+   "title": "Spring rider",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "playground",
+    "sports",
+    "spring",
+    "rider"
+   ]
+  },
+  {
+   "id": "temaki:statue",
+   "title": "Statue",
+   "set": "temaki",
+   "category": "Arts",
+   "tags": [
+    "arts",
+    "people",
+    "statue"
+   ]
+  },
+  {
+   "id": "temaki:subway",
+   "title": "Subway",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "subway"
+   ]
+  },
+  {
+   "id": "temaki:surfing",
+   "title": "Surfing",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "water",
+    "surfing"
+   ]
+  },
+  {
+   "id": "temaki:swamp",
+   "title": "Swamp",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "plants",
+    "water",
+    "swamp"
+   ]
+  },
+  {
+   "id": "temaki:t_bar_lift",
+   "title": "T bar lift",
+   "set": "temaki",
+   "category": "Aerialways",
+   "tags": [
+    "aerialways",
+    "t",
+    "bar",
+    "lift"
+   ]
+  },
+  {
+   "id": "temaki:table_soccer",
+   "title": "Table soccer",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "sports",
+    "table",
+    "soccer"
+   ]
+  },
+  {
+   "id": "temaki:taoism",
+   "title": "Taoism",
+   "set": "temaki",
+   "category": "Religion",
+   "tags": [
+    "religion",
+    "taoism"
+   ]
+  },
+  {
+   "id": "temaki:tennis",
+   "title": "Tennis",
+   "set": "temaki",
+   "category": "Sports",
+   "tags": [
+    "people",
+    "sports",
+    "tennis"
+   ]
+  },
+  {
+   "id": "temaki:tents",
+   "title": "Tents",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "camping",
+    "tents"
+   ]
+  },
+  {
+   "id": "temaki:tower",
+   "title": "Tower",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "tower"
+   ]
+  },
+  {
+   "id": "temaki:town_hall",
+   "title": "Town hall",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "town",
+    "hall"
+   ]
+  },
+  {
+   "id": "temaki:train",
+   "title": "Train",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "playground",
+    "railways",
+    "vehicles",
+    "train"
+   ]
+  },
+  {
+   "id": "temaki:train_bullet",
+   "title": "Train bullet",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "train",
+    "bullet"
+   ]
+  },
+  {
+   "id": "temaki:train_diesel",
+   "title": "Train diesel",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "train",
+    "diesel"
+   ]
+  },
+  {
+   "id": "temaki:train_kids",
+   "title": "Train kids",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "train",
+    "kids"
+   ]
+  },
+  {
+   "id": "temaki:train_steam",
+   "title": "Train steam",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "train",
+    "steam"
+   ]
+  },
+  {
+   "id": "temaki:train_wash",
+   "title": "Train wash",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "train",
+    "wash"
+   ]
+  },
+  {
+   "id": "temaki:tram",
+   "title": "Tram",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "tram"
+   ]
+  },
+  {
+   "id": "temaki:tram_side",
+   "title": "Tram side",
+   "set": "temaki",
+   "category": "Railways",
+   "tags": [
+    "railways",
+    "vehicles",
+    "tram",
+    "side"
+   ]
+  },
+  {
+   "id": "temaki:transit_shelter",
+   "title": "Transit shelter",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "seating",
+    "transit",
+    "shelter"
+   ]
+  },
+  {
+   "id": "temaki:tree_and_bench",
+   "title": "Tree and bench",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "seating",
+    "tree",
+    "and",
+    "bench"
+   ]
+  },
+  {
+   "id": "temaki:tree_broadleaved",
+   "title": "Tree broadleaved",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "tree",
+    "broadleaved"
+   ]
+  },
+  {
+   "id": "temaki:tree_cactus",
+   "title": "Tree cactus",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "tree",
+    "cactus"
+   ]
+  },
+  {
+   "id": "temaki:tree_leafless",
+   "title": "Tree leafless",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "tree",
+    "leafless"
+   ]
+  },
+  {
+   "id": "temaki:tree_needleleaved",
+   "title": "Tree needleleaved",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "tree",
+    "needleleaved"
+   ]
+  },
+  {
+   "id": "temaki:tree_palm",
+   "title": "Tree palm",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "tree",
+    "palm"
+   ]
+  },
+  {
+   "id": "temaki:tree_row",
+   "title": "Tree row",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "tree",
+    "row"
+   ]
+  },
+  {
+   "id": "temaki:tree_stump",
+   "title": "Tree stump",
+   "set": "temaki",
+   "category": "Plants",
+   "tags": [
+    "plants",
+    "tree",
+    "stump"
+   ]
+  },
+  {
+   "id": "temaki:valley",
+   "title": "Valley",
+   "set": "temaki",
+   "category": "Landforms",
+   "tags": [
+    "landforms",
+    "snow",
+    "valley"
+   ]
+  },
+  {
+   "id": "temaki:veterinary_care",
+   "title": "Veterinary care",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "healthcare",
+    "veterinary",
+    "care"
+   ]
+  },
+  {
+   "id": "temaki:water_bottle",
+   "title": "Water bottle",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "food",
+    "water",
+    "water",
+    "bottle"
+   ]
+  },
+  {
+   "id": "temaki:waterskiing",
+   "title": "Waterskiing",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "people",
+    "water",
+    "waterskiing"
+   ]
+  },
+  {
+   "id": "temaki:whale_watching",
+   "title": "Whale watching",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "water",
+    "whale",
+    "watching"
+   ]
+  },
+  {
+   "id": "temaki:wind_surfing",
+   "title": "Wind surfing",
+   "set": "temaki",
+   "category": "Water",
+   "tags": [
+    "water",
+    "wind",
+    "surfing"
+   ]
+  },
+  {
+   "id": "temaki:windmill",
+   "title": "Windmill",
+   "set": "temaki",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "windmill"
+   ]
+  },
+  {
+   "id": "temaki:zoo",
+   "title": "Zoo",
+   "set": "temaki",
+   "category": "Animals",
+   "tags": [
+    "animals",
+    "zoo"
+   ]
+  },
+  {
+   "id": "nps:aed",
+   "title": "Aed",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "aed"
+   ]
+  },
+  {
+   "id": "nps:airfield",
+   "title": "Airfield",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "airfield"
+   ]
+  },
+  {
+   "id": "nps:airport",
+   "title": "Airport",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "airport"
+   ]
+  },
+  {
+   "id": "nps:alcohol",
+   "title": "Alcohol",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "alcohol"
+   ]
+  },
+  {
+   "id": "nps:all-terrain-trail",
+   "title": "All terrain trail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "all",
+    "terrain",
+    "trail"
+   ]
+  },
+  {
+   "id": "nps:amphitheater",
+   "title": "Amphitheater",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "amphitheater"
+   ]
+  },
+  {
+   "id": "nps:aquatic-invasive-species-decontamination-station",
+   "title": "Aquatic invasive species decontamination station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "aquatic",
+    "invasive",
+    "species",
+    "decontamination",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:aquatic-invasive-species-inspection-sticker",
+   "title": "Aquatic invasive species inspection sticker",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "aquatic",
+    "invasive",
+    "species",
+    "inspection",
+    "sticker"
+   ]
+  },
+  {
+   "id": "nps:archery",
+   "title": "Archery",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "archery"
+   ]
+  },
+  {
+   "id": "nps:art",
+   "title": "Art",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "art"
+   ]
+  },
+  {
+   "id": "nps:ash-disposal",
+   "title": "Ash disposal",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ash",
+    "disposal"
+   ]
+  },
+  {
+   "id": "nps:assistive-listening-systems",
+   "title": "Assistive listening systems",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "assistive",
+    "listening",
+    "systems"
+   ]
+  },
+  {
+   "id": "nps:assistive-listening-systems-t-coil-compatible",
+   "title": "Assistive listening systems t coil compatible",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "assistive",
+    "listening",
+    "systems",
+    "t",
+    "coil",
+    "compatible"
+   ]
+  },
+  {
+   "id": "nps:atm",
+   "title": "Atm",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "atm"
+   ]
+  },
+  {
+   "id": "nps:audio-description",
+   "title": "Audio description",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "audio",
+    "description"
+   ]
+  },
+  {
+   "id": "nps:audio-tour",
+   "title": "Audio tour",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "audio",
+    "tour"
+   ]
+  },
+  {
+   "id": "nps:automated-entrance",
+   "title": "Automated entrance",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "automated",
+    "entrance"
+   ]
+  },
+  {
+   "id": "nps:automobiles",
+   "title": "Automobiles",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "automobiles"
+   ]
+  },
+  {
+   "id": "nps:baby-changing-station",
+   "title": "Baby changing station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "baby",
+    "changing",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:backcountry-camping-permit",
+   "title": "Backcountry camping permit",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "backcountry",
+    "camping",
+    "permit"
+   ]
+  },
+  {
+   "id": "nps:baseball",
+   "title": "Baseball",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "baseball"
+   ]
+  },
+  {
+   "id": "nps:beach-access",
+   "title": "Beach access",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "beach",
+    "access"
+   ]
+  },
+  {
+   "id": "nps:bear-box",
+   "title": "Bear box",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bear",
+    "box"
+   ]
+  },
+  {
+   "id": "nps:bear-cannister-rentals",
+   "title": "Bear cannister rentals",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bear",
+    "cannister",
+    "rentals"
+   ]
+  },
+  {
+   "id": "nps:bear-spray",
+   "title": "Bear spray",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bear",
+    "spray"
+   ]
+  },
+  {
+   "id": "nps:bear-spray-purchase",
+   "title": "Bear spray purchase",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bear",
+    "spray",
+    "purchase"
+   ]
+  },
+  {
+   "id": "nps:bear-spray-rental",
+   "title": "Bear spray rental",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bear",
+    "spray",
+    "rental"
+   ]
+  },
+  {
+   "id": "nps:bear-spray-return-recycling",
+   "title": "Bear spray return recycling",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bear",
+    "spray",
+    "return",
+    "recycling"
+   ]
+  },
+  {
+   "id": "nps:bear-viewing",
+   "title": "Bear viewing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bear",
+    "viewing"
+   ]
+  },
+  {
+   "id": "nps:benches-seating",
+   "title": "Benches seating",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "benches",
+    "seating"
+   ]
+  },
+  {
+   "id": "nps:bicycle-trail",
+   "title": "Bicycle trail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bicycle",
+    "trail"
+   ]
+  },
+  {
+   "id": "nps:bike-rack",
+   "title": "Bike rack",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bike",
+    "rack"
+   ]
+  },
+  {
+   "id": "nps:bike-rental",
+   "title": "Bike rental",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bike",
+    "rental"
+   ]
+  },
+  {
+   "id": "nps:bike-repairs",
+   "title": "Bike repairs",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bike",
+    "repairs"
+   ]
+  },
+  {
+   "id": "nps:birding-wildlife-viewing",
+   "title": "Birding wildlife viewing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "birding",
+    "wildlife",
+    "viewing"
+   ]
+  },
+  {
+   "id": "nps:boat-launch",
+   "title": "Boat launch",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "boat",
+    "launch"
+   ]
+  },
+  {
+   "id": "nps:boat-tour",
+   "title": "Boat tour",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "boat",
+    "tour"
+   ]
+  },
+  {
+   "id": "nps:boat-trailer-parking",
+   "title": "Boat trailer parking",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "boat",
+    "trailer",
+    "parking"
+   ]
+  },
+  {
+   "id": "nps:boating-permit",
+   "title": "Boating permit",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "boating",
+    "permit"
+   ]
+  },
+  {
+   "id": "nps:book-and-souvenir-shop",
+   "title": "Book and souvenir shop",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "book",
+    "and",
+    "souvenir",
+    "shop"
+   ]
+  },
+  {
+   "id": "nps:bookstore",
+   "title": "Bookstore",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bookstore"
+   ]
+  },
+  {
+   "id": "nps:bottle-filling-station",
+   "title": "Bottle filling station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bottle",
+    "filling",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:bottles",
+   "title": "Bottles",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bottles"
+   ]
+  },
+  {
+   "id": "nps:braille",
+   "title": "Braille",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "braille"
+   ]
+  },
+  {
+   "id": "nps:bridge",
+   "title": "Bridge",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "nps:brochure",
+   "title": "Brochure",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "brochure"
+   ]
+  },
+  {
+   "id": "nps:bus-stop",
+   "title": "Bus stop",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "bus",
+    "stop"
+   ]
+  },
+  {
+   "id": "nps:cabin",
+   "title": "Cabin",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "cabin"
+   ]
+  },
+  {
+   "id": "nps:calendar-events",
+   "title": "Calendar events",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "calendar",
+    "events"
+   ]
+  },
+  {
+   "id": "nps:campfire",
+   "title": "Campfire",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "campfire"
+   ]
+  },
+  {
+   "id": "nps:campground",
+   "title": "Campground",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "campground"
+   ]
+  },
+  {
+   "id": "nps:campsite",
+   "title": "Campsite",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "campsite"
+   ]
+  },
+  {
+   "id": "nps:cannon",
+   "title": "Cannon",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "cannon"
+   ]
+  },
+  {
+   "id": "nps:canoe-access",
+   "title": "Canoe access",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "canoe",
+    "access"
+   ]
+  },
+  {
+   "id": "nps:cans-or-bottles",
+   "title": "Cans or bottles",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "cans",
+    "or",
+    "bottles"
+   ]
+  },
+  {
+   "id": "nps:caving",
+   "title": "Caving",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "caving"
+   ]
+  },
+  {
+   "id": "nps:chair-lift-ski-lift",
+   "title": "Chair lift ski lift",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "chair",
+    "lift",
+    "ski",
+    "lift"
+   ]
+  },
+  {
+   "id": "nps:chapel",
+   "title": "Chapel",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "chapel"
+   ]
+  },
+  {
+   "id": "nps:climbing",
+   "title": "Climbing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "climbing"
+   ]
+  },
+  {
+   "id": "nps:closed-captioning",
+   "title": "Closed captioning",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "closed",
+    "captioning"
+   ]
+  },
+  {
+   "id": "nps:coffee",
+   "title": "Coffee",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "coffee"
+   ]
+  },
+  {
+   "id": "nps:community-garden",
+   "title": "Community garden",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "community",
+    "garden"
+   ]
+  },
+  {
+   "id": "nps:construction",
+   "title": "Construction",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "construction"
+   ]
+  },
+  {
+   "id": "nps:cross-country-ski-trail",
+   "title": "Cross country ski trail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "cross",
+    "country",
+    "ski",
+    "trail"
+   ]
+  },
+  {
+   "id": "nps:customs",
+   "title": "Customs",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "customs"
+   ]
+  },
+  {
+   "id": "nps:dam",
+   "title": "Dam",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "dam"
+   ]
+  },
+  {
+   "id": "nps:deer-viewing",
+   "title": "Deer viewing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "deer",
+    "viewing"
+   ]
+  },
+  {
+   "id": "nps:directions",
+   "title": "Directions",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "directions"
+   ]
+  },
+  {
+   "id": "nps:diving",
+   "title": "Diving",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "diving"
+   ]
+  },
+  {
+   "id": "nps:downhill-skiing",
+   "title": "Downhill skiing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "downhill",
+    "skiing"
+   ]
+  },
+  {
+   "id": "nps:drinking-water",
+   "title": "Drinking water",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "drinking",
+    "water"
+   ]
+  },
+  {
+   "id": "nps:driving-tour",
+   "title": "Driving tour",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "driving",
+    "tour"
+   ]
+  },
+  {
+   "id": "nps:electric-car-charging",
+   "title": "Electric car charging",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "electric",
+    "car",
+    "charging"
+   ]
+  },
+  {
+   "id": "nps:electrical-hookup",
+   "title": "Electrical hookup",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "electrical",
+    "hookup"
+   ]
+  },
+  {
+   "id": "nps:elevator",
+   "title": "Elevator",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "elevator"
+   ]
+  },
+  {
+   "id": "nps:emergencies",
+   "title": "Emergencies",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "emergencies"
+   ]
+  },
+  {
+   "id": "nps:emergency-telephone",
+   "title": "Emergency telephone",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "emergency",
+    "telephone"
+   ]
+  },
+  {
+   "id": "nps:entrance",
+   "title": "Entrance",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "entrance"
+   ]
+  },
+  {
+   "id": "nps:entrance-station",
+   "title": "Entrance station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "entrance",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:event-facility",
+   "title": "Event facility",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "event",
+    "facility"
+   ]
+  },
+  {
+   "id": "nps:exercise-fitness",
+   "title": "Exercise fitness",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "exercise",
+    "fitness"
+   ]
+  },
+  {
+   "id": "nps:falling-rocks",
+   "title": "Falling rocks",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "falling",
+    "rocks"
+   ]
+  },
+  {
+   "id": "nps:family-restroom",
+   "title": "Family restroom",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "family",
+    "restroom"
+   ]
+  },
+  {
+   "id": "nps:fire-extinguisher",
+   "title": "Fire extinguisher",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fire",
+    "extinguisher"
+   ]
+  },
+  {
+   "id": "nps:fire-grate",
+   "title": "Fire grate",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fire",
+    "grate"
+   ]
+  },
+  {
+   "id": "nps:firewood",
+   "title": "Firewood",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "firewood"
+   ]
+  },
+  {
+   "id": "nps:firewood-cutting",
+   "title": "Firewood cutting",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "firewood",
+    "cutting"
+   ]
+  },
+  {
+   "id": "nps:first-aid",
+   "title": "First aid",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "first",
+    "aid"
+   ]
+  },
+  {
+   "id": "nps:first-come-first-served",
+   "title": "First come first served",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "first",
+    "come",
+    "first",
+    "served"
+   ]
+  },
+  {
+   "id": "nps:fish-cleaning",
+   "title": "Fish cleaning",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fish",
+    "cleaning"
+   ]
+  },
+  {
+   "id": "nps:fish-hatchery",
+   "title": "Fish hatchery",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fish",
+    "hatchery"
+   ]
+  },
+  {
+   "id": "nps:fish-ladder",
+   "title": "Fish ladder",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fish",
+    "ladder"
+   ]
+  },
+  {
+   "id": "nps:fishing",
+   "title": "Fishing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fishing"
+   ]
+  },
+  {
+   "id": "nps:fishing-license",
+   "title": "Fishing license",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fishing",
+    "license"
+   ]
+  },
+  {
+   "id": "nps:fishing-pier",
+   "title": "Fishing pier",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "fishing",
+    "pier"
+   ]
+  },
+  {
+   "id": "nps:flagpole",
+   "title": "Flagpole",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "flagpole"
+   ]
+  },
+  {
+   "id": "nps:floating-dump-station",
+   "title": "Floating dump station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "floating",
+    "dump",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:flower-viewing",
+   "title": "Flower viewing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "flower",
+    "viewing"
+   ]
+  },
+  {
+   "id": "nps:flush-toilets",
+   "title": "Flush toilets",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "flush",
+    "toilets"
+   ]
+  },
+  {
+   "id": "nps:food-cache",
+   "title": "Food cache",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "food",
+    "cache"
+   ]
+  },
+  {
+   "id": "nps:food-service",
+   "title": "Food service",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "food",
+    "service"
+   ]
+  },
+  {
+   "id": "nps:four-wheel-drive-road",
+   "title": "Four wheel drive road",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "four",
+    "wheel",
+    "drive",
+    "road"
+   ]
+  },
+  {
+   "id": "nps:gas-station",
+   "title": "Gas station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "gas",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:gasoline-diesel",
+   "title": "Gasoline diesel",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "gasoline",
+    "diesel"
+   ]
+  },
+  {
+   "id": "nps:generators",
+   "title": "Generators",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "generators"
+   ]
+  },
+  {
+   "id": "nps:golfing",
+   "title": "Golfing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "golfing"
+   ]
+  },
+  {
+   "id": "nps:grill",
+   "title": "Grill",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "grill"
+   ]
+  },
+  {
+   "id": "nps:guided-tours",
+   "title": "Guided tours",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "guided",
+    "tours"
+   ]
+  },
+  {
+   "id": "nps:hand-launch-small-boat-launch",
+   "title": "Hand launch small boat launch",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "hand",
+    "launch",
+    "small",
+    "boat",
+    "launch"
+   ]
+  },
+  {
+   "id": "nps:hang-gliding",
+   "title": "Hang gliding",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "hang",
+    "gliding"
+   ]
+  },
+  {
+   "id": "nps:historic-feature",
+   "title": "Historic feature",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "historic",
+    "feature"
+   ]
+  },
+  {
+   "id": "nps:hold-hand-rail",
+   "title": "Hold hand rail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "hold",
+    "hand",
+    "rail"
+   ]
+  },
+  {
+   "id": "nps:horseback-riding",
+   "title": "Horseback riding",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "horseback",
+    "riding"
+   ]
+  },
+  {
+   "id": "nps:hospital",
+   "title": "Hospital",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "hospital"
+   ]
+  },
+  {
+   "id": "nps:ice",
+   "title": "Ice",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ice"
+   ]
+  },
+  {
+   "id": "nps:ice-cream",
+   "title": "Ice cream",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ice",
+    "cream"
+   ]
+  },
+  {
+   "id": "nps:ice-fishing",
+   "title": "Ice fishing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ice",
+    "fishing"
+   ]
+  },
+  {
+   "id": "nps:ice-skating",
+   "title": "Ice skating",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ice",
+    "skating"
+   ]
+  },
+  {
+   "id": "nps:in-line-skating",
+   "title": "In line skating",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "in",
+    "line",
+    "skating"
+   ]
+  },
+  {
+   "id": "nps:incident",
+   "title": "Incident",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "incident"
+   ]
+  },
+  {
+   "id": "nps:information",
+   "title": "Information",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "information"
+   ]
+  },
+  {
+   "id": "nps:interpretive-exhibit",
+   "title": "Interpretive exhibit",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "interpretive",
+    "exhibit"
+   ]
+  },
+  {
+   "id": "nps:junior-ranger-program",
+   "title": "Junior ranger program",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "junior",
+    "ranger",
+    "program"
+   ]
+  },
+  {
+   "id": "nps:kayaking",
+   "title": "Kayaking",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "kayaking"
+   ]
+  },
+  {
+   "id": "nps:kennel",
+   "title": "Kennel",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "kennel"
+   ]
+  },
+  {
+   "id": "nps:large-print",
+   "title": "Large print",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "large",
+    "print"
+   ]
+  },
+  {
+   "id": "nps:laundry",
+   "title": "Laundry",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "laundry"
+   ]
+  },
+  {
+   "id": "nps:library",
+   "title": "Library",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "library"
+   ]
+  },
+  {
+   "id": "nps:life-jackets",
+   "title": "Life jackets",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "life",
+    "jackets"
+   ]
+  },
+  {
+   "id": "nps:lifeguard",
+   "title": "Lifeguard",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "lifeguard"
+   ]
+  },
+  {
+   "id": "nps:lighthouse",
+   "title": "Lighthouse",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "lighthouse"
+   ]
+  },
+  {
+   "id": "nps:litter-receptacle",
+   "title": "Litter receptacle",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "litter",
+    "receptacle"
+   ]
+  },
+  {
+   "id": "nps:live-audio-description",
+   "title": "Live audio description",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "live",
+    "audio",
+    "description"
+   ]
+  },
+  {
+   "id": "nps:lock-bikes",
+   "title": "Lock bikes",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "lock",
+    "bikes"
+   ]
+  },
+  {
+   "id": "nps:lockers-storage",
+   "title": "Lockers storage",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "lockers",
+    "storage"
+   ]
+  },
+  {
+   "id": "nps:lodging",
+   "title": "Lodging",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "lodging"
+   ]
+  },
+  {
+   "id": "nps:lookout-tower",
+   "title": "Lookout tower",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "lookout",
+    "tower"
+   ]
+  },
+  {
+   "id": "nps:lounge",
+   "title": "Lounge",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "lounge"
+   ]
+  },
+  {
+   "id": "nps:low-vision-access",
+   "title": "Low vision access",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "low",
+    "vision",
+    "access"
+   ]
+  },
+  {
+   "id": "nps:maps",
+   "title": "Maps",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "maps"
+   ]
+  },
+  {
+   "id": "nps:marina",
+   "title": "Marina",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "marina"
+   ]
+  },
+  {
+   "id": "nps:mechanic",
+   "title": "Mechanic",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "mechanic"
+   ]
+  },
+  {
+   "id": "nps:mens-restroom",
+   "title": "Mens restroom",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "mens",
+    "restroom"
+   ]
+  },
+  {
+   "id": "nps:metal-detecting",
+   "title": "Metal detecting",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "metal",
+    "detecting"
+   ]
+  },
+  {
+   "id": "nps:metro-station",
+   "title": "Metro station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "metro",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:mobile-device-charging",
+   "title": "Mobile device charging",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "mobile",
+    "device",
+    "charging"
+   ]
+  },
+  {
+   "id": "nps:monument",
+   "title": "Monument",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "monument"
+   ]
+  },
+  {
+   "id": "nps:motor-bike-trail",
+   "title": "Motor bike trail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "motor",
+    "bike",
+    "trail"
+   ]
+  },
+  {
+   "id": "nps:motorboating",
+   "title": "Motorboating",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "motorboating"
+   ]
+  },
+  {
+   "id": "nps:museum",
+   "title": "Museum",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "museum"
+   ]
+  },
+  {
+   "id": "nps:newspaper",
+   "title": "Newspaper",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "newspaper"
+   ]
+  },
+  {
+   "id": "nps:no-mobile-devices",
+   "title": "No mobile devices",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "no",
+    "mobile",
+    "devices"
+   ]
+  },
+  {
+   "id": "nps:open-captioning",
+   "title": "Open captioning",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "open",
+    "captioning"
+   ]
+  },
+  {
+   "id": "nps:open-to-the-public",
+   "title": "Open to the public",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "open",
+    "to",
+    "the",
+    "public"
+   ]
+  },
+  {
+   "id": "nps:paddle-boating",
+   "title": "Paddle boating",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "paddle",
+    "boating"
+   ]
+  },
+  {
+   "id": "nps:park-film",
+   "title": "Park film",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "park",
+    "film"
+   ]
+  },
+  {
+   "id": "nps:parking",
+   "title": "Parking",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "parking"
+   ]
+  },
+  {
+   "id": "nps:passes-and-fees",
+   "title": "Passes and fees",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "passes",
+    "and",
+    "fees"
+   ]
+  },
+  {
+   "id": "nps:passport-stamps",
+   "title": "Passport stamps",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "passport",
+    "stamps"
+   ]
+  },
+  {
+   "id": "nps:pedestrian-crossing",
+   "title": "Pedestrian crossing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "pedestrian",
+    "crossing"
+   ]
+  },
+  {
+   "id": "nps:personal-watercraft",
+   "title": "Personal watercraft",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "personal",
+    "watercraft"
+   ]
+  },
+  {
+   "id": "nps:pets-off-leash",
+   "title": "Pets off leash",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "pets",
+    "off",
+    "leash"
+   ]
+  },
+  {
+   "id": "nps:pets-on-leash",
+   "title": "Pets on leash",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "pets",
+    "on",
+    "leash"
+   ]
+  },
+  {
+   "id": "nps:photography",
+   "title": "Photography",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "photography"
+   ]
+  },
+  {
+   "id": "nps:picnic-area",
+   "title": "Picnic area",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "picnic",
+    "area"
+   ]
+  },
+  {
+   "id": "nps:picnic-shelter",
+   "title": "Picnic shelter",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "picnic",
+    "shelter"
+   ]
+  },
+  {
+   "id": "nps:pit-toilet",
+   "title": "Pit toilet",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "pit",
+    "toilet"
+   ]
+  },
+  {
+   "id": "nps:playground",
+   "title": "Playground",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "playground"
+   ]
+  },
+  {
+   "id": "nps:point-of-interest",
+   "title": "Point of interest",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "point",
+    "of",
+    "interest"
+   ]
+  },
+  {
+   "id": "nps:post-office",
+   "title": "Post office",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "post",
+    "office"
+   ]
+  },
+  {
+   "id": "nps:propane",
+   "title": "Propane",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "propane"
+   ]
+  },
+  {
+   "id": "nps:propane-bottle-recycling",
+   "title": "Propane bottle recycling",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "propane",
+    "bottle",
+    "recycling"
+   ]
+  },
+  {
+   "id": "nps:quagga-mussel-decontamination-station",
+   "title": "Quagga mussel decontamination station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "quagga",
+    "mussel",
+    "decontamination",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:quiet",
+   "title": "Quiet",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "quiet"
+   ]
+  },
+  {
+   "id": "nps:radiator-water",
+   "title": "Radiator water",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "radiator",
+    "water"
+   ]
+  },
+  {
+   "id": "nps:radios",
+   "title": "Radios",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "radios"
+   ]
+  },
+  {
+   "id": "nps:rail-station",
+   "title": "Rail station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rail",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:ranger-led-events",
+   "title": "Ranger led events",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ranger",
+    "led",
+    "events"
+   ]
+  },
+  {
+   "id": "nps:ranger-station",
+   "title": "Ranger station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ranger",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:rattlesnakes",
+   "title": "Rattlesnakes",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rattlesnakes"
+   ]
+  },
+  {
+   "id": "nps:recycling",
+   "title": "Recycling",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "recycling"
+   ]
+  },
+  {
+   "id": "nps:rentals",
+   "title": "Rentals",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rentals"
+   ]
+  },
+  {
+   "id": "nps:reservations",
+   "title": "Reservations",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "reservations"
+   ]
+  },
+  {
+   "id": "nps:restrooms",
+   "title": "Restrooms",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "restrooms"
+   ]
+  },
+  {
+   "id": "nps:river-rafting",
+   "title": "River rafting",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "river",
+    "rafting"
+   ]
+  },
+  {
+   "id": "nps:rock-collecting",
+   "title": "Rock collecting",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rock",
+    "collecting"
+   ]
+  },
+  {
+   "id": "nps:rowboating",
+   "title": "Rowboating",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rowboating"
+   ]
+  },
+  {
+   "id": "nps:rr-xing",
+   "title": "Rr xing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rr",
+    "xing"
+   ]
+  },
+  {
+   "id": "nps:rv-campground",
+   "title": "Rv campground",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rv",
+    "campground"
+   ]
+  },
+  {
+   "id": "nps:rv-trailer-hookup",
+   "title": "Rv trailer hookup",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "rv",
+    "trailer",
+    "hookup"
+   ]
+  },
+  {
+   "id": "nps:safety-caution-alerts",
+   "title": "Safety caution alerts",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "safety",
+    "caution",
+    "alerts"
+   ]
+  },
+  {
+   "id": "nps:sailing",
+   "title": "Sailing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sailing"
+   ]
+  },
+  {
+   "id": "nps:sanitary-disposal-station",
+   "title": "Sanitary disposal station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sanitary",
+    "disposal",
+    "station"
+   ]
+  },
+  {
+   "id": "nps:scenic-viewpoint",
+   "title": "Scenic viewpoint",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "scenic",
+    "viewpoint"
+   ]
+  },
+  {
+   "id": "nps:scuba-diving",
+   "title": "Scuba diving",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "scuba",
+    "diving"
+   ]
+  },
+  {
+   "id": "nps:sea-lion-viewing",
+   "title": "Sea lion viewing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sea",
+    "lion",
+    "viewing"
+   ]
+  },
+  {
+   "id": "nps:sea-plane",
+   "title": "Sea plane",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sea",
+    "plane"
+   ]
+  },
+  {
+   "id": "nps:self-guiding-trail",
+   "title": "Self guiding trail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "self",
+    "guiding",
+    "trail"
+   ]
+  },
+  {
+   "id": "nps:sewer-hookup",
+   "title": "Sewer hookup",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sewer",
+    "hookup"
+   ]
+  },
+  {
+   "id": "nps:shelter",
+   "title": "Shelter",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "shelter"
+   ]
+  },
+  {
+   "id": "nps:shipwreck",
+   "title": "Shipwreck",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "shipwreck"
+   ]
+  },
+  {
+   "id": "nps:showers",
+   "title": "Showers",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "showers"
+   ]
+  },
+  {
+   "id": "nps:sign",
+   "title": "Sign",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sign"
+   ]
+  },
+  {
+   "id": "nps:sign-language-interpretation",
+   "title": "Sign language interpretation",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sign",
+    "language",
+    "interpretation"
+   ]
+  },
+  {
+   "id": "nps:silence-mobile-devices",
+   "title": "Silence mobile devices",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "silence",
+    "mobile",
+    "devices"
+   ]
+  },
+  {
+   "id": "nps:skateboarding",
+   "title": "Skateboarding",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "skateboarding"
+   ]
+  },
+  {
+   "id": "nps:ski-jumping",
+   "title": "Ski jumping",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ski",
+    "jumping"
+   ]
+  },
+  {
+   "id": "nps:sledding",
+   "title": "Sledding",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sledding"
+   ]
+  },
+  {
+   "id": "nps:sleeping-shelter",
+   "title": "Sleeping shelter",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sleeping",
+    "shelter"
+   ]
+  },
+  {
+   "id": "nps:slippery-ramp",
+   "title": "Slippery ramp",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "slippery",
+    "ramp"
+   ]
+  },
+  {
+   "id": "nps:slippery-steps",
+   "title": "Slippery steps",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "slippery",
+    "steps"
+   ]
+  },
+  {
+   "id": "nps:smoking-area",
+   "title": "Smoking area",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "smoking",
+    "area"
+   ]
+  },
+  {
+   "id": "nps:snack-bar",
+   "title": "Snack bar",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "snack",
+    "bar"
+   ]
+  },
+  {
+   "id": "nps:snorkeling",
+   "title": "Snorkeling",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "snorkeling"
+   ]
+  },
+  {
+   "id": "nps:snow-shoeing",
+   "title": "Snow shoeing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "snow",
+    "shoeing"
+   ]
+  },
+  {
+   "id": "nps:snowboarding",
+   "title": "Snowboarding",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "snowboarding"
+   ]
+  },
+  {
+   "id": "nps:snowmobile-trail",
+   "title": "Snowmobile trail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "snowmobile",
+    "trail"
+   ]
+  },
+  {
+   "id": "nps:souvenir-shop",
+   "title": "Souvenir shop",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "souvenir",
+    "shop"
+   ]
+  },
+  {
+   "id": "nps:spring",
+   "title": "Spring",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "spring"
+   ]
+  },
+  {
+   "id": "nps:stable",
+   "title": "Stable",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "stable"
+   ]
+  },
+  {
+   "id": "nps:stagecoach-rides",
+   "title": "Stagecoach rides",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "stagecoach",
+    "rides"
+   ]
+  },
+  {
+   "id": "nps:star-gazing",
+   "title": "Star gazing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "star",
+    "gazing"
+   ]
+  },
+  {
+   "id": "nps:statue",
+   "title": "Statue",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "statue"
+   ]
+  },
+  {
+   "id": "nps:stay-back-from-edge-cliff",
+   "title": "Stay back from edge cliff",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "stay",
+    "back",
+    "from",
+    "edge",
+    "cliff"
+   ]
+  },
+  {
+   "id": "nps:stay-back-from-edge-shore",
+   "title": "Stay back from edge shore",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "stay",
+    "back",
+    "from",
+    "edge",
+    "shore"
+   ]
+  },
+  {
+   "id": "nps:stay-on-trail",
+   "title": "Stay on trail",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "stay",
+    "on",
+    "trail"
+   ]
+  },
+  {
+   "id": "nps:store",
+   "title": "Store",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "store"
+   ]
+  },
+  {
+   "id": "nps:strollers",
+   "title": "Strollers",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "strollers"
+   ]
+  },
+  {
+   "id": "nps:sunny",
+   "title": "Sunny",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "sunny"
+   ]
+  },
+  {
+   "id": "nps:surfing",
+   "title": "Surfing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "surfing"
+   ]
+  },
+  {
+   "id": "nps:swimming",
+   "title": "Swimming",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "swimming"
+   ]
+  },
+  {
+   "id": "nps:tactile-exhibit",
+   "title": "Tactile exhibit",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "tactile",
+    "exhibit"
+   ]
+  },
+  {
+   "id": "nps:technical-rock-climb",
+   "title": "Technical rock climb",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "technical",
+    "rock",
+    "climb"
+   ]
+  },
+  {
+   "id": "nps:telephone",
+   "title": "Telephone",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "telephone"
+   ]
+  },
+  {
+   "id": "nps:tennis",
+   "title": "Tennis",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "tennis"
+   ]
+  },
+  {
+   "id": "nps:text-telephone-service",
+   "title": "Text telephone service",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "text",
+    "telephone",
+    "service"
+   ]
+  },
+  {
+   "id": "nps:theater",
+   "title": "Theater",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "theater"
+   ]
+  },
+  {
+   "id": "nps:things-to-do",
+   "title": "Things to do",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "things",
+    "to",
+    "do"
+   ]
+  },
+  {
+   "id": "nps:ticket-sales",
+   "title": "Ticket sales",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "ticket",
+    "sales"
+   ]
+  },
+  {
+   "id": "nps:tidepooling",
+   "title": "Tidepooling",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "tidepooling"
+   ]
+  },
+  {
+   "id": "nps:tornado-shelter",
+   "title": "Tornado shelter",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "tornado",
+    "shelter"
+   ]
+  },
+  {
+   "id": "nps:towing",
+   "title": "Towing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "towing"
+   ]
+  },
+  {
+   "id": "nps:trailer-site",
+   "title": "Trailer site",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "trailer",
+    "site"
+   ]
+  },
+  {
+   "id": "nps:trailhead",
+   "title": "Trailhead",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "trailhead"
+   ]
+  },
+  {
+   "id": "nps:trailhead-information",
+   "title": "Trailhead information",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "trailhead",
+    "information"
+   ]
+  },
+  {
+   "id": "nps:tramway",
+   "title": "Tramway",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "tramway"
+   ]
+  },
+  {
+   "id": "nps:trash-dumpster",
+   "title": "Trash dumpster",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "trash",
+    "dumpster"
+   ]
+  },
+  {
+   "id": "nps:trucks",
+   "title": "Trucks",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "trucks"
+   ]
+  },
+  {
+   "id": "nps:tunnel",
+   "title": "Tunnel",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "tunnel"
+   ]
+  },
+  {
+   "id": "nps:uneven-walkways",
+   "title": "Uneven walkways",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "uneven",
+    "walkways"
+   ]
+  },
+  {
+   "id": "nps:vehicle-ferry",
+   "title": "Vehicle ferry",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "vehicle",
+    "ferry"
+   ]
+  },
+  {
+   "id": "nps:vending-machine",
+   "title": "Vending machine",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "vending",
+    "machine"
+   ]
+  },
+  {
+   "id": "nps:viewing-area",
+   "title": "Viewing area",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "viewing",
+    "area"
+   ]
+  },
+  {
+   "id": "nps:visitor-center",
+   "title": "Visitor center",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "visitor",
+    "center"
+   ]
+  },
+  {
+   "id": "nps:volleyball",
+   "title": "Volleyball",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "volleyball"
+   ]
+  },
+  {
+   "id": "nps:volume-control-telephone",
+   "title": "Volume control telephone",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "volume",
+    "control",
+    "telephone"
+   ]
+  },
+  {
+   "id": "nps:wading",
+   "title": "Wading",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "wading"
+   ]
+  },
+  {
+   "id": "nps:walk-on-boardwalk",
+   "title": "Walk on boardwalk",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "walk",
+    "on",
+    "boardwalk"
+   ]
+  },
+  {
+   "id": "nps:walking",
+   "title": "Walking",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "walking"
+   ]
+  },
+  {
+   "id": "nps:watch-for-falling-ice",
+   "title": "Watch for falling ice",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "watch",
+    "for",
+    "falling",
+    "ice"
+   ]
+  },
+  {
+   "id": "nps:water-hookup",
+   "title": "Water hookup",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "water",
+    "hookup"
+   ]
+  },
+  {
+   "id": "nps:waterfall",
+   "title": "Waterfall",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "waterfall"
+   ]
+  },
+  {
+   "id": "nps:waterfowl",
+   "title": "Waterfowl",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "waterfowl"
+   ]
+  },
+  {
+   "id": "nps:waterskiing",
+   "title": "Waterskiing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "waterskiing"
+   ]
+  },
+  {
+   "id": "nps:webcam",
+   "title": "Webcam",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "webcam"
+   ]
+  },
+  {
+   "id": "nps:whale-viewing",
+   "title": "Whale viewing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "whale",
+    "viewing"
+   ]
+  },
+  {
+   "id": "nps:wheelchair-accessible",
+   "title": "Wheelchair accessible",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "wheelchair",
+    "accessible"
+   ]
+  },
+  {
+   "id": "nps:wi-fi",
+   "title": "Wi fi",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "wi",
+    "fi"
+   ]
+  },
+  {
+   "id": "nps:wilderness",
+   "title": "Wilderness",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "wilderness"
+   ]
+  },
+  {
+   "id": "nps:wind-surfing",
+   "title": "Wind surfing",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "wind",
+    "surfing"
+   ]
+  },
+  {
+   "id": "nps:wine",
+   "title": "Wine",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "wine"
+   ]
+  },
+  {
+   "id": "nps:winter-recreation-area",
+   "title": "Winter recreation area",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "winter",
+    "recreation",
+    "area"
+   ]
+  },
+  {
+   "id": "nps:womens-restroom",
+   "title": "Womens restroom",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "womens",
+    "restroom"
+   ]
+  },
+  {
+   "id": "nps:wood-gathering",
+   "title": "Wood gathering",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "wood",
+    "gathering"
+   ]
+  },
+  {
+   "id": "nps:young-scientist-program",
+   "title": "Young scientist program",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "young",
+    "scientist",
+    "program"
+   ]
+  },
+  {
+   "id": "nps:zebra-mussel-decontamination-station",
+   "title": "Zebra mussel decontamination station",
+   "set": "nps",
+   "category": "Park services",
+   "tags": [
+    "zebra",
+    "mussel",
+    "decontamination",
+    "station"
+   ]
+  },
+  {
+   "id": "landmarks:mount-timpanogos",
+   "title": "Mount Timpanogos",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "mount",
+    "timpanogos"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1446612",
+    "https://www.usgs.gov/3d-elevation-program"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:kings-peak",
+   "title": "Kings Peak",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "kings",
+    "peak"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1442332",
+    "https://www.wikidata.org/wiki/Q1642538",
+    "https://www.usgs.gov/3d-elevation-program"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:mount-nebo",
+   "title": "Mount Nebo",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "mount",
+    "nebo"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1443780",
+    "https://www.wikidata.org/wiki/Q8519552",
+    "https://www.usgs.gov/3d-elevation-program"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:lone-peak",
+   "title": "Lone Peak",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "lone",
+    "peak"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429865",
+    "https://www.wikidata.org/wiki/Q6671331",
+    "https://www.usgs.gov/3d-elevation-program"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:mount-olympus",
+   "title": "Mount Olympus",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "mount",
+    "olympus"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1444093",
+    "https://www.usgs.gov/3d-elevation-program"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:ben-lomond",
+   "title": "Ben Lomond",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "ben",
+    "lomond"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1438587",
+    "https://www.wikidata.org/wiki/Q4886073",
+    "https://www.usgs.gov/3d-elevation-program"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:navajo-mountain",
+   "title": "Navajo Mountain",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "navajo",
+    "mountain"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/8537",
+    "https://www.wikidata.org/wiki/Q767372",
+    "https://www.usgs.gov/3d-elevation-program"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:utah-state-capitol",
+   "title": "Utah State Capitol",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "utah",
+    "state",
+    "capitol"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "attribution": "© OpenStreetMap contributors",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1454257",
+    "https://www.wikidata.org/wiki/Q2627661",
+    "https://www.openstreetmap.org/way/32920861"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:salt-lake-temple",
+   "title": "Salt Lake Temple",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "salt",
+    "lake",
+    "temple"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "attribution": "© OpenStreetMap contributors",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1122206",
+    "https://www.openstreetmap.org/relation/15568838"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:salt-lake-tabernacle",
+   "title": "Salt Lake Tabernacle",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "salt",
+    "lake",
+    "tabernacle"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "attribution": "© OpenStreetMap contributors",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q2140759",
+    "https://www.openstreetmap.org/way/33162308"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:cathedral-of-the-madeleine",
+   "title": "Cathedral of the Madeleine",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "cathedral",
+    "of",
+    "the",
+    "madeleine"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "attribution": "© OpenStreetMap contributors",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q2942483",
+    "https://www.openstreetmap.org/way/466188203"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:delicate-arch",
+   "title": "Delicate Arch",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "delicate",
+    "arch"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1427330",
+    "https://www.wikidata.org/wiki/Q2300616"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:landscape-arch",
+   "title": "Landscape Arch",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "landscape",
+    "arch"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429470",
+    "https://www.wikidata.org/wiki/Q2256910"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:mesa-arch",
+   "title": "Mesa Arch",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "mesa",
+    "arch"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1434923",
+    "https://www.wikidata.org/wiki/Q6821049"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:rainbow-bridge",
+   "title": "Rainbow Bridge",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "rainbow",
+    "bridge"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1894724"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:thors-hammer",
+   "title": "Thor's Hammer",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "pillar",
+    "thors",
+    "hammer"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1449100"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:angels-landing",
+   "title": "Angels Landing",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "angels",
+    "landing"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425118",
+    "https://www.wikidata.org/wiki/Q2563959"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:fisher-towers",
+   "title": "Fisher Towers",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "pillar",
+    "fisher",
+    "towers"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441094",
+    "https://www.wikidata.org/wiki/Q5454847"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:goblin-valley",
+   "title": "Goblin Valley",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "park",
+    "goblin",
+    "valley"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1411137"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:golden-spike",
+   "title": "Golden Spike",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "historic",
+    "golden",
+    "spike"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1535051"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:great-salt-lake",
+   "title": "Great Salt Lake",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "lake",
+    "great",
+    "salt",
+    "lake"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441459",
+    "https://www.wikidata.org/wiki/Q178741"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:bonneville-salt-flats",
+   "title": "Bonneville Salt Flats",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "flat",
+    "bonneville",
+    "salt",
+    "flats"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425872",
+    "https://www.wikidata.org/wiki/Q1081023"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:flaming-gorge-dam",
+   "title": "Flaming Gorge Dam",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "dam",
+    "flaming",
+    "gorge",
+    "dam"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441112",
+    "https://www.wikidata.org/wiki/Q14711519"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:bingham-canyon-mine",
+   "title": "Bingham Canyon Mine",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "mine",
+    "bingham",
+    "canyon",
+    "mine"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1435143",
+    "https://www.wikidata.org/wiki/Q2450901"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:dead-horse-point",
+   "title": "Dead Horse Point",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "park",
+    "dead",
+    "horse",
+    "point"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q129470"
+   ],
+   "review": "pending"
+  },
+  {
+   "id": "landmarks:ogden-union-station",
+   "title": "Ogden Union Station",
+   "set": "landmarks",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "ogden",
+    "union",
+    "station"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q7886079"
+   ],
+   "review": "pending"
   }
  ]
 }

@@ -866,8 +866,8 @@ struct Crest {
     angle: f64,
 }
 
-/// Ray-marching geometry shared by crest finding and peak visibility.
-struct Sight<'a> {
+/// Ray-marching geometry shared by crest finding, peak visibility and ridgeline icons.
+pub(crate) struct Sight<'a> {
     dem: &'a Dem,
     col: f64,
     row: f64,
@@ -877,8 +877,38 @@ struct Sight<'a> {
     my: f64,
 }
 
-impl Sight<'_> {
-    fn angle_at(&self, bearing: f64, distance: f64) -> Option<f64> {
+impl<'a> Sight<'a> {
+    /// Sight lines from `view`, which must lie inside georeferenced `dem`.
+    pub(crate) fn new(dem: &'a Dem, view: &PanoramaView) -> Result<Self, String> {
+        let g = dem
+            .georef
+            .ok_or("A panorama needs a georeferenced elevation source")?;
+        if !(1. ..=360.).contains(&view.fov_deg)
+            || !view.max_distance_km.is_finite()
+            || view.max_distance_km <= 0.
+            || view.eye_height_m < 0.
+        {
+            return Err("Invalid field of view, distance or eye height".into());
+        }
+        let (col, row) = g
+            .latlon_to_sample(view.lat, view.lon)
+            .ok_or("Unsupported coordinate system")?;
+        if col < 0. || row < 0. || col > (dem.width - 1) as f64 || row > (dem.height - 1) as f64 {
+            return Err("The viewpoint is outside the elevation data".into());
+        }
+        let (mx, my) = g.sample_size_m(row);
+        Ok(Sight {
+            dem,
+            col,
+            row,
+            eye: sample(dem, col, row) + view.eye_height_m,
+            mx,
+            my,
+        })
+    }
+    /// Elevation angle of the ground `distance` meters away along `bearing` (radians),
+    /// allowing for earth curvature and refraction; None outside the data.
+    pub(crate) fn angle_at(&self, bearing: f64, distance: f64) -> Option<f64> {
         let (s, c) = bearing.sin_cos();
         let (x, y) = (
             self.col + s * distance / self.mx,
@@ -890,7 +920,8 @@ impl Sight<'_> {
         let drop = distance * distance / (2. * EARTH_R) * (1. - REFRACTION);
         Some(((sample(self.dem, x, y) - self.eye - drop) / distance).atan())
     }
-    fn step(&self, distance: f64) -> f64 {
+    /// Ray-marching step at `distance`: half a sample nearby, longer far away.
+    pub(crate) fn step(&self, distance: f64) -> f64 {
         (self.mx.min(self.my) * 0.5).max(distance * 0.002)
     }
     /// Visible crests along one bearing, nearest first.
@@ -939,31 +970,8 @@ pub fn panorama(
     view: &PanoramaView,
     o: &PanoramaOptions,
 ) -> Result<Drawing, String> {
-    let g = dem
-        .georef
-        .ok_or("A panorama needs a georeferenced elevation source")?;
-    if !(1. ..=360.).contains(&view.fov_deg)
-        || !view.max_distance_km.is_finite()
-        || view.max_distance_km <= 0.
-        || view.eye_height_m < 0.
-    {
-        return Err("Invalid field of view, distance or eye height".into());
-    }
-    let (col, row) = g
-        .latlon_to_sample(view.lat, view.lon)
-        .ok_or("Unsupported coordinate system")?;
-    if col < 0. || row < 0. || col > (dem.width - 1) as f64 || row > (dem.height - 1) as f64 {
-        return Err("The viewpoint is outside the elevation data".into());
-    }
-    let (mx, my) = g.sample_size_m(row);
-    let sight = Sight {
-        dem,
-        col,
-        row,
-        eye: sample(dem, col, row) + view.eye_height_m,
-        mx,
-        my,
-    };
+    let sight = Sight::new(dem, view)?;
+    let g = dem.georef.expect("checked by Sight::new");
     let max_d = view.max_distance_km * 1000.;
     let pano_w = o.sheet_w_mm - 2. * o.margin_mm;
     let columns = (pano_w * 4.).clamp(200., 4000.) as usize;
@@ -1120,7 +1128,7 @@ pub fn panorama(
             "From {} {}, {}, looking {:.0}°",
             hemi(view.lat, "N", "S"),
             hemi(view.lon, "E", "W"),
-            elevation_text(sample(dem, col, row), o.feet),
+            elevation_text(sample(dem, sight.col, sight.row), o.feet),
             view.bearing_deg.rem_euclid(360.)
         )
     } else {

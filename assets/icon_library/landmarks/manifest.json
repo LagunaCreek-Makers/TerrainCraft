@@ -1,0 +1,715 @@
+{
+ "set": {
+  "name": "landmarks",
+  "title": "TerrainCraft landmark icons",
+  "version": "0.1.0",
+  "license": "CC0-1.0",
+  "license_file": "landmarks/LICENSE.txt",
+  "source": "https://github.com/LagunaCreek-Makers/TerrainCraft",
+  "package": "assets/icon_library/landmarks"
+ },
+ "icons": [
+  {
+   "name": "mount-timpanogos",
+   "title": "Mount Timpanogos",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "mount",
+    "timpanogos"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.39084,
+    "lon": -111.64594,
+    "jurisdiction": "US-UT"
+   },
+   "viewpoint": {
+    "lat": 40.28957,
+    "lon": -111.72257,
+    "bearing_deg": 30,
+    "fov_deg": 30,
+    "near_km": 4,
+    "front_km": 9,
+    "description": "from Orem in Utah Valley, looking north-northeast"
+   },
+   "note": "Skyline traced from USGS 3DEP elevation data (public domain); heights exaggerated.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1446612",
+    "https://www.usgs.gov/3d-elevation-program"
+   ]
+  },
+  {
+   "name": "kings-peak",
+   "title": "Kings Peak",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "kings",
+    "peak"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.77638,
+    "lon": -110.37282,
+    "jurisdiction": "US-UT"
+   },
+   "viewpoint": {
+    "lat": 40.89317,
+    "lon": -110.28359,
+    "bearing_deg": 210,
+    "fov_deg": 22,
+    "near_km": 5,
+    "front_km": null,
+    "description": "from the north-northeast, looking south-southwest"
+   },
+   "note": "Skyline traced from USGS 3DEP elevation data (public domain); heights exaggerated.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1442332",
+    "https://www.wikidata.org/wiki/Q1642538",
+    "https://www.usgs.gov/3d-elevation-program"
+   ]
+  },
+  {
+   "name": "mount-nebo",
+   "title": "Mount Nebo",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "mount",
+    "nebo"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 39.82169,
+    "lon": -111.76027,
+    "jurisdiction": "US-UT"
+   },
+   "viewpoint": {
+    "lat": 39.83101,
+    "lon": -111.90027,
+    "bearing_deg": 95,
+    "fov_deg": 34,
+    "near_km": 4,
+    "front_km": 9,
+    "description": "from near Mona, looking east"
+   },
+   "note": "Skyline traced from USGS 3DEP elevation data (public domain); heights exaggerated.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1443780",
+    "https://www.wikidata.org/wiki/Q8519552",
+    "https://www.usgs.gov/3d-elevation-program"
+   ]
+  },
+  {
+   "name": "lone-peak",
+   "title": "Lone Peak",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "lone",
+    "peak"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.52634,
+    "lon": -111.75525,
+    "jurisdiction": "US-UT"
+   },
+   "viewpoint": {
+    "lat": 40.54345,
+    "lon": -111.88345,
+    "bearing_deg": 100,
+    "fov_deg": 30,
+    "near_km": 3,
+    "front_km": 8,
+    "description": "from Draper in the Salt Lake Valley, looking east"
+   },
+   "note": "Skyline traced from USGS 3DEP elevation data (public domain); heights exaggerated.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429865",
+    "https://www.wikidata.org/wiki/Q6671331",
+    "https://www.usgs.gov/3d-elevation-program"
+   ]
+  },
+  {
+   "name": "mount-olympus",
+   "title": "Mount Olympus",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "mount",
+    "olympus"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.65663,
+    "lon": -111.77091,
+    "jurisdiction": "US-UT"
+   },
+   "viewpoint": {
+    "lat": 40.66364,
+    "lon": -111.87721,
+    "bearing_deg": 95,
+    "fov_deg": 30,
+    "near_km": 3,
+    "front_km": 6.5,
+    "description": "from Holladay in the Salt Lake Valley, looking east"
+   },
+   "note": "Skyline traced from USGS 3DEP elevation data (public domain); heights exaggerated.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1444093",
+    "https://www.usgs.gov/3d-elevation-program"
+   ]
+  },
+  {
+   "name": "ben-lomond",
+   "title": "Ben Lomond",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "ben",
+    "lomond"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 41.36314,
+    "lon": -111.96073,
+    "jurisdiction": "US-UT"
+   },
+   "viewpoint": {
+    "lat": 41.2502,
+    "lon": -112.00098,
+    "bearing_deg": 15,
+    "fov_deg": 34,
+    "near_km": 4,
+    "front_km": 9,
+    "description": "from Ogden, looking north-northeast"
+   },
+   "note": "Skyline traced from USGS 3DEP elevation data (public domain); heights exaggerated.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1438587",
+    "https://www.wikidata.org/wiki/Q4886073",
+    "https://www.usgs.gov/3d-elevation-program"
+   ]
+  },
+  {
+   "name": "navajo-mountain",
+   "title": "Navajo Mountain",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "navajo",
+    "mountain"
+   ],
+   "method": "dem-ridgeline",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 37.03416,
+    "lon": -110.86959,
+    "jurisdiction": "US-UT"
+   },
+   "viewpoint": {
+    "lat": 37.28763,
+    "lon": -110.75361,
+    "bearing_deg": 200,
+    "fov_deg": 24,
+    "near_km": 12,
+    "front_km": null,
+    "description": "from Lake Powell, looking south-southwest"
+   },
+   "note": "Skyline traced from USGS 3DEP elevation data (public domain); heights exaggerated.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/8537",
+    "https://www.wikidata.org/wiki/Q767372",
+    "https://www.usgs.gov/3d-elevation-program"
+   ]
+  },
+  {
+   "name": "utah-state-capitol",
+   "title": "Utah State Capitol",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "utah",
+    "state",
+    "capitol"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.77722,
+    "lon": -111.88806,
+    "jurisdiction": "US-UT"
+   },
+   "attribution": "© OpenStreetMap contributors",
+   "note": "Plan view of the OpenStreetMap building outline and its building:part outlines, north up.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1454257",
+    "https://www.wikidata.org/wiki/Q2627661",
+    "https://www.openstreetmap.org/way/32920861"
+   ]
+  },
+  {
+   "name": "salt-lake-temple",
+   "title": "Salt Lake Temple",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "salt",
+    "lake",
+    "temple"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.77047,
+    "lon": -111.89196,
+    "jurisdiction": "US-UT"
+   },
+   "attribution": "© OpenStreetMap contributors",
+   "note": "Plan view of the OpenStreetMap building outline and its building:part outlines, north up.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1122206",
+    "https://www.openstreetmap.org/relation/15568838"
+   ]
+  },
+  {
+   "name": "salt-lake-tabernacle",
+   "title": "Salt Lake Tabernacle",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "salt",
+    "lake",
+    "tabernacle"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.7704,
+    "lon": -111.893,
+    "jurisdiction": "US-UT"
+   },
+   "attribution": "© OpenStreetMap contributors",
+   "note": "Plan view of the OpenStreetMap building outline and its building:part outlines, north up.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q2140759",
+    "https://www.openstreetmap.org/way/33162308"
+   ]
+  },
+  {
+   "name": "cathedral-of-the-madeleine",
+   "title": "Cathedral of the Madeleine",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "cathedral",
+    "of",
+    "the",
+    "madeleine"
+   ],
+   "method": "osm-footprint",
+   "license": "ODbL-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.76972,
+    "lon": -111.88167,
+    "jurisdiction": "US-UT"
+   },
+   "attribution": "© OpenStreetMap contributors",
+   "note": "Plan view of the OpenStreetMap building outline and its building:part outlines, north up.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q2942483",
+    "https://www.openstreetmap.org/way/466188203"
+   ]
+  },
+  {
+   "name": "delicate-arch",
+   "title": "Delicate Arch",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "delicate",
+    "arch"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 38.74276,
+    "lon": -109.49402,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1427330",
+    "https://www.wikidata.org/wiki/Q2300616"
+   ]
+  },
+  {
+   "name": "landscape-arch",
+   "title": "Landscape Arch",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "landscape",
+    "arch"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 38.79054,
+    "lon": -109.6068,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1429470",
+    "https://www.wikidata.org/wiki/Q2256910"
+   ]
+  },
+  {
+   "name": "mesa-arch",
+   "title": "Mesa Arch",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "mesa",
+    "arch"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 38.38787,
+    "lon": -109.86368,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1434923",
+    "https://www.wikidata.org/wiki/Q6821049"
+   ]
+  },
+  {
+   "name": "rainbow-bridge",
+   "title": "Rainbow Bridge",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "arch",
+    "rainbow",
+    "bridge"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 37.07722,
+    "lon": -110.96417,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1894724"
+   ]
+  },
+  {
+   "name": "thors-hammer",
+   "title": "Thor's Hammer",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "pillar",
+    "thors",
+    "hammer"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 37.62138,
+    "lon": -112.16382,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1449100"
+   ]
+  },
+  {
+   "name": "angels-landing",
+   "title": "Angels Landing",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "summit",
+    "angels",
+    "landing"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 37.26918,
+    "lon": -112.94794,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425118",
+    "https://www.wikidata.org/wiki/Q2563959"
+   ]
+  },
+  {
+   "name": "fisher-towers",
+   "title": "Fisher Towers",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "pillar",
+    "fisher",
+    "towers"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 38.72166,
+    "lon": -109.30429,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441094",
+    "https://www.wikidata.org/wiki/Q5454847"
+   ]
+  },
+  {
+   "name": "goblin-valley",
+   "title": "Goblin Valley",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "park",
+    "goblin",
+    "valley"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 38.5667,
+    "lon": -110.71,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1411137"
+   ]
+  },
+  {
+   "name": "golden-spike",
+   "title": "Golden Spike",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "historic",
+    "golden",
+    "spike"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 41.6205,
+    "lon": -112.547,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q1535051"
+   ]
+  },
+  {
+   "name": "great-salt-lake",
+   "title": "Great Salt Lake",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "lake",
+    "great",
+    "salt",
+    "lake"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 41.16667,
+    "lon": -112.58333,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441459",
+    "https://www.wikidata.org/wiki/Q178741"
+   ]
+  },
+  {
+   "name": "bonneville-salt-flats",
+   "title": "Bonneville Salt Flats",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "flat",
+    "bonneville",
+    "salt",
+    "flats"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.79966,
+    "lon": -113.80002,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1425872",
+    "https://www.wikidata.org/wiki/Q1081023"
+   ]
+  },
+  {
+   "name": "flaming-gorge-dam",
+   "title": "Flaming Gorge Dam",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "dam",
+    "flaming",
+    "gorge",
+    "dam"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.9144,
+    "lon": -109.421,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1441112",
+    "https://www.wikidata.org/wiki/Q14711519"
+   ]
+  },
+  {
+   "name": "bingham-canyon-mine",
+   "title": "Bingham Canyon Mine",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "mine",
+    "bingham",
+    "canyon",
+    "mine"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 40.52222,
+    "lon": -112.14944,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://edits.nationalmap.gov/apps/gaz-domestic/public/summary/1435143",
+    "https://www.wikidata.org/wiki/Q2450901"
+   ]
+  },
+  {
+   "name": "dead-horse-point",
+   "title": "Dead Horse Point",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "park",
+    "dead",
+    "horse",
+    "point"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 38.50582,
+    "lon": -109.73317,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q129470"
+   ]
+  },
+  {
+   "name": "ogden-union-station",
+   "title": "Ogden Union Station",
+   "category": "Utah landmarks",
+   "tags": [
+    "utah",
+    "building",
+    "ogden",
+    "union",
+    "station"
+   ],
+   "method": "hand-drawn",
+   "license": "CC0-1.0",
+   "review": "pending",
+   "site": {
+    "lat": 41.22083,
+    "lon": -111.97972,
+    "jurisdiction": "US-UT"
+   },
+   "note": "Drawn by hand as a simplified line icon; not traced from a photograph.",
+   "sources": [
+    "https://www.wikidata.org/wiki/Q7886079"
+   ]
+  }
+ ]
+}
