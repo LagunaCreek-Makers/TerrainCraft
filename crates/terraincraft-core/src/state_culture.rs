@@ -97,13 +97,9 @@ pub fn svg(id: &str) -> Option<String> {
     } {
         return Some(s.to_owned());
     }
-    let index = icon
-        .icon_id
-        .strip_prefix("generic-")?
-        .parse::<usize>()
-        .ok()?
-        .checked_sub(1)?;
-    Some(crate::icon_library::procedural_icon(index))
+    crate::icon_library::resolve(&icon.icon_id)
+        .and_then(crate::icon_library::svg)
+        .map(str::to_owned)
 }
 #[cfg(test)]
 mod tests {

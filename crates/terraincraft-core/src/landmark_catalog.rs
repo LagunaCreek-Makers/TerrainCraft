@@ -121,11 +121,10 @@ pub fn positions_in_extent(
         })
         .collect())
 }
-/// Catalog icon identifiers are explicitly mapped to the bundled generic artwork.
+/// The bundled library icon for a catalog `icon_id` (see `icon_library::resolve`).
 /// Unknown or externally sourced artwork is never silently treated as a bundled icon.
-pub fn bundled_icon_index(id: &str) -> Option<usize> {
-    let number = id.strip_prefix("generic-")?.parse::<usize>().ok()?;
-    (1..=240).contains(&number).then_some(number - 1)
+pub fn bundled_icon(id: &str) -> Option<&'static str> {
+    crate::icon_library::resolve(id)
 }
 #[cfg(test)]
 mod geographic_tests {
@@ -137,7 +136,8 @@ mod geographic_tests {
         let points = positions_in_extent(&entries, -122., 38., -121., 39.).unwrap();
         assert_eq!(points.len(), 1);
         assert!((points[0].1 - 0.5).abs() < 1e-9);
-        assert_eq!(bundled_icon_index("generic-001"), Some(0));
-        assert_eq!(bundled_icon_index("generic-999"), None);
+        assert_eq!(bundled_icon("generic-001"), Some("tabler:mountain"));
+        assert_eq!(bundled_icon("maki:volcano"), Some("maki:volcano"));
+        assert_eq!(bundled_icon("generic-999"), None);
     }
 }

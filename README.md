@@ -58,6 +58,7 @@ Example: `cargo run -p terraincraft-cli -- usgs:-122.6,37.7,-122.4,37.85 out 220
 - `--panorama LAT,LON,BEARING[,FOV]` writes `panorama.svg`: the landscape seen from that spot, with every visible ridgeline (heavier when nearer, with true terrain occlusion, earth curvature and refraction), named summits that are actually in sight, and a compass scale.
 - `--place-names` downloads named summits, passes and ridges for the area from the USGS Geographic Names Information System (public domain) and saves them as `place_names.csv`; `--names-file` uses your own CSV or GeoJSON instead. `--title` and `--feet` adjust the text.
 - `--map-style stylized` draws an illustrated map: named features as icons from the library (mountains, pinnacles, passes, ridges), fewer unlabeled contours, a double frame and a compass rose. `--font sans|sans-bold|serif|script` picks the typeface.
+- Icons come from a bundled library of 581 line icons, a curated subset of [Tabler Icons](https://tabler.io/icons) (MIT) and [Maki](https://labs.mapbox.com/maki-icons/) (CC0): landforms, buildings, landmarks, sports, vehicles, wildlife, weather and map points of interest. The desktop's **Icon library** panel searches them by name or tag, filters by category and shows thumbnails. A named feature with symbol `icon:ID` (e.g. `icon:maki:volcano`) is drawn with that icon. Every icon's set, version and license is recorded in `assets/icon_library/catalog.json`; license texts are in `assets/icon_library/` (see its `NOTICE`). `tools/build_icon_library.py` rebuilds the library from the upstream packages.
 - All text is single-stroke vector lines (Hershey fonts, see `assets/fonts/hershey/NOTICE`), so nothing needs fonts or text-to-path conversion. Layers use LightBurn palette colors (black contours, blue index contours, green labels, orange frame) so each can get its own power and speed.
 
 Example: `cargo run -p terraincraft-cli -- usgs:-121.85,46.8,-121.7,46.9 out 220 --engrave-map --place-names --title "Mount Rainier" --dem-only`
@@ -528,9 +529,9 @@ This path is an initial GPU integration and has **not been compiled or run** in 
 
 ## v4.4: Engraving icons and international map provider groundwork
 
-- `assets/icons/`: 240 **original monochrome vector pictograms**, with CC0 metadata in `assets/icon_manifest.json`. These are generic templates, **not** 240 verified landmark-specific images for each jurisdiction.
+- `assets/icons/`: 240 procedural pictograms. *Removed later; replaced by the Tabler/Maki icon library. Catalog `icon_id`s of the form `generic-NNN` still work and map to the nearest library icon.*
 - `assets/landmark_catalog_template.csv`: 50 unpopulated ranked slots each for six example jurisdictions. Empty rows are deliberately not represented as verified landmarks.
-- `terraincraft-core::icon_library`: procedural icons and an SVG overlay API, with desktop size and placement controls.
+- `terraincraft-core::icon_library`: icon lookup and an SVG overlay API, with desktop size and placement controls.
 - `terraincraft-core::map_providers`: configurable XYZ URL generation for international providers, plus desktop source selection and copy-URL controls. This is **not yet** an embedded raster tile map or WMS/WMTS client.
 - Attribution, caching, rate limits and API keys must be honored for any tile fetching implementation. OSMF prohibits bulk tile downloading on its public servers.
 
@@ -590,7 +591,7 @@ The new code has not been compiled or runtime tested in this environment.
 
 ## v5.1: US state cultural engraving icons
 
-`assets/state_cultural_icons.json` catalogs six broad cultural themes for each of the 50 US states (300 state-tagged entries). The six baseline motifs per state are generic placeholders, **not 300 distinct state-specific drawings**. Six additional Utah-specific original single-color SVGs depict a seagull, covered wagon, salt shaker, simplified Salt Lake Temple, and unofficial U- and B-letter academic motifs. The academic motifs are **not** reproductions of official University of Utah or BYU logos.
+`assets/state_cultural_icons.json` catalogs six broad cultural themes for each of the 50 US states (300 state-tagged entries). The six baseline motifs per state (wildlife, heritage transport, local food, historic architecture, landscape, education) use library icons and are the same for every state, **not 300 distinct state-specific drawings**. Six additional Utah-specific original single-color SVGs depict a seagull, covered wagon, salt shaker, simplified Salt Lake Temple, and unofficial U- and B-letter academic motifs. The academic motifs are **not** reproductions of official University of Utah or BYU logos.
 
 In Engraving Studio, set the jurisdiction (e.g. `US-UT`) and expand **US state cultural icons** to select an SVG. The selection is used in exported single-layer engraving. Icon positions and dimensions use the existing controls. Source/license metadata are in the JSON manifest. The icons are illustrative and do not assert that a theme is the official state symbol.
 
@@ -622,11 +623,7 @@ The Rust workspace has not been compiled in this environment; test locally with 
 
 ## v5.6 — Engraving styles and architectural view assets
 
-The `assets/icon_variants/` directory contains 801 algorithmically derived SVG files (simplified, fine-outline, bold) from the 267 base SVGs with a vector group, plus three original schematic Salt Lake Temple perspectives (front, side, corner). The original icon collection remains intact. The generated variants are *stylistic treatments*, not new viewpoints or verified building elevations. The simplified variants remove some secondary shapes; check legibility before engraving.
-
-Engraving Studio offers an icon-style selector that applies vector stroke variants during SVG export, and selects the three distinct Salt Lake Temple drawings when the Salt Lake Temple cultural icon is active. A manifest records the source icon, style, generated file and derivation. Official sports-team logos are not bundled.
-
-Compilation and UI testing remain unverified in this environment.
+Three original schematic Salt Lake Temple views (front, side, corner) are in `assets/cultural_icons/`. When the Salt Lake Temple cultural icon is selected, Engraving Studio offers a **Temple view** choice. The 801 algorithmically restyled copies of other icons (simplified, fine outline, bold) were removed: engravings are exported as strokes, so line-weight copies made no difference to the result.
 
 ## National Park Service National Historic Landmarks (NHL) synchronization (development)
 
@@ -675,71 +672,23 @@ The script rejects scripting, external references and other unsafe SVG construct
 in curated artwork. Curators must independently verify visual accuracy and rights.
 **No site-specific artwork is generated automatically by this phase.**
 
-## v6.0 regional cultural artwork expansion
+## v6.0–v6.2 — Regional artwork, coverage audit and placeholder previews (removed)
 
-The `assets/regional_icon_catalog.json` catalog includes **50 US states and 67 countries**,
-with four **original, monochrome SVG compositions** per jurisdiction (468 new SVGs):
-original, simplified, profile composition, and three-quarter composition. These are
-**thematic graphic variations**, not accurate architectural elevations or actual
-camera viewpoints. Regional associations are editorial suggestions, not official
-symbols, endorsements, or comprehensive national cultural inventories.
-
-In Engraving Studio, set the jurisdiction to `US-UT`, `JP`, `FR`, etc., then
-open **Regional cultural illustrations — states and countries**. Select the
-motif and composition. Artwork is read from `assets/regional_icons` relative
-to the current working directory. Keep that directory with the application.
-The original state cultural catalog, UNESCO and NPS importers remain available.
-
-A full jurisdiction-by-jurisdiction, landmark-specific perspective library
-requires accurate reference photography/architectural research and artwork
-verification; these new compositions do not substitute for that work.
-
-## v6.1 — Cross-release SVG and per-site coverage audit
-
-The complete archived source comparison (v4.6 through v6.0) found **no lost SVGs**:
-270 SVGs in v5.5, 1,074 in v5.6, and 1,542 in v6.0. The additional
-v5.6 files are mostly automated line-style variants; v6.0 adds thematic
-regional compositions, not verified views of individual sites.
-
-Run `python tools/audit_icon_coverage.py` to produce:
-
-- `assets/coverage_audit/coverage_summary.json`: counts by asset directory,
-  validity, catalog collection, missing artwork and simplified variants.
-- `assets/coverage_audit/site_coverage.csv`: every currently populated catalog
-  entry with its artwork status and presence checks.
-
-**Do not treat styles or rotations as architectural perspectives.** Only
-verified, site-specific drawings with documented viewpoint/provenance may be
-counted as front, side, corner or aerial views. The coverage report currently
-credits **zero verified multi-view site sets** because existing schematic
-illustrations lack verified provenance. It also reports missing institution
-logo assets, and does not claim UNESCO/NPS completeness until their official
-catalog sync jobs have actually populated the corresponding CSV files.
+The regional illustrations (468 files, but only 24 distinct drawings across 117 jurisdictions), the 120 unlicensed logo placeholder previews and the audit and metadata scripts that generated or counted them have been removed in favor of the icon library. Institution and team entries keep a blank `svg_file` until you add a logo you are licensed to use.
 
 To populate the public heritage catalogs on an internet-enabled workstation:
 
 ```sh
 python tools/sync_unesco_whc.py --output assets/unesco_whc
 python tools/sync_nps_nhl.py --output assets/nps_nhl
-python tools/audit_icon_coverage.py
 ```
 
-These importers initially produce **generic category placeholders**, not
-site-specific artwork. Artwork for each individual building must be drawn or
-licensed and reviewed against references for the requested perspectives.
-
-## v6.2 — Embedded SVG provenance and missing-artwork previews
-
-Run `python tools/enrich_svg_metadata.py` to embed a machine-readable TerrainCraft metadata element, SVG title, and description in **every** SVG. The `associated_sites` array records all catalog associations (including shared icons), jurisdiction, license/source when present, and whether the illustration is generic or thematic. The metadata explicitly sets `perspective_verified=false`; it does not claim an algorithmically generated variant is a real architectural view. Re-running the script replaces its own metadata rather than duplicating it.
-
-The script also creates generic monochrome fallback preview SVGs for the 120 institution/team entries that have no licensed logo. These appear under `assets/unlicensed_placeholders/` and are referenced through `preview_svg_file`, while `svg_file` intentionally stays blank: the generic preview is **not** an official team/university logo. Full live UNESCO and NPS inventories, accurate landmark-specific drawings, and licensed official logos are **not** included; their absence cannot be solved by renaming generic icons. The report `assets/svg_metadata_summary.json` distinguishes SVG coverage from those outstanding needs.
-
-Validate with `python -m unittest discover -s tools -p 'test_enrich_svg_metadata.py' -v` and `python tools/audit_icon_coverage.py`. Rust compilation remains unverified.
+These importers produce **generic category placeholders**, not site-specific artwork.
 
 ## v6.3 — Curated UNESCO landmark illustrations (initial batch)
 
 `assets/unesco_curated/` now includes **24 original, site-specific stylized SVGs** for six UNESCO properties: Taj Mahal (252), Great Wall (438), Acropolis (394), Petra (320), Machu Picchu (274), and Stonehenge (373). Each has independently drawn `front`, `side`, `three-quarter`, and `simplified` compositions. These are schematic interpretations, **not verified architectural elevations**, and the perspective flags are intentionally false. Source links and explicit site IDs are embedded in SVG metadata. `curated_catalog.json` provides the variant mapping.
 
-Run `python tools/build_curated_unesco.py --output assets/unesco_curated` to regenerate; `python tools/enrich_svg_metadata.py --assets assets` to refresh the complete library's searchable metadata; `python -m unittest discover -s tools -p 'test_*.py'` to validate. To use curated standard and simplified drawings in the UNESCO XML import, pass `--curated assets/unesco_curated` to `tools/sync_unesco_whc.py`. The side and three-quarter drawings are stored in the curated catalog for later desktop perspective-selection integration.
+Run `python tools/build_curated_unesco.py --output assets/unesco_curated` to regenerate; `python -m unittest discover -s tools -p 'test_*.py'` to validate. To use curated standard and simplified drawings in the UNESCO XML import, pass `--curated assets/unesco_curated` to `tools/sync_unesco_whc.py`. The side and three-quarter drawings are stored in the curated catalog for later desktop perspective-selection integration.
 
 **Coverage limitation:** Six curated sites are only a first batch. Full UNESCO/NPS syncs have not been performed, and the rest of those sites lack site-specific drawings. No official logos or site photographs are included.

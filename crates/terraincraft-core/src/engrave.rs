@@ -299,7 +299,8 @@ fn length(line: &[(f64, f64)]) -> f64 {
 
 /// Draw a topographic map of `dem` with `names` labeled. Exact style: summits and pillars
 /// get a triangle, gaps a pass mark, other classes just their name. Stylized style:
-/// features are drawn as library icons. A symbol `icon:N` always draws library icon N.
+/// features are drawn as library icons. A symbol `icon:ID` (a library icon id such as
+/// `icon:maki:volcano`) always draws that icon.
 pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing, String> {
     if !(o.sheet_w_mm > 4. * o.margin_mm && o.sheet_h_mm > 4. * o.margin_mm && o.margin_mm >= 0.) {
         return Err("Sheet is too small for its margins".into());
@@ -376,12 +377,13 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
         let w = name_w.max(if peak { d.width(&elev_s, small) } else { 0. });
         let h = if peak { size + small + 1.2 } else { size };
         // Stylized maps draw the feature as an icon with its name underneath; features
-        // with an explicit `icon:N` symbol always do.
+        // with an explicit `icon:ID` symbol always do.
         let library_icon = n
             .symbol
             .strip_prefix("icon:")
-            .and_then(|i| i.parse::<usize>().ok())
-            .and_then(|i| crate::svg_lines::parse(&crate::icon_library::procedural_icon(i)).ok());
+            .and_then(crate::icon_library::resolve)
+            .and_then(crate::icon_library::svg)
+            .and_then(|s| crate::svg_lines::parse(s).ok());
         let icon = library_icon
             .as_ref()
             .or_else(|| stylized.then(|| feature_icon(&n.symbol)).flatten());
@@ -625,15 +627,20 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
 fn feature_icon(symbol: &str) -> Option<&'static crate::svg_lines::Strokes> {
     use std::sync::OnceLock;
     static ICONS: OnceLock<Vec<crate::svg_lines::Strokes>> = OnceLock::new();
-    // Library kinds: mountain, narrow peak, arch (pass), range.
+    // Summit, rock pillar, pass, ridge.
     let icons = ICONS.get_or_init(|| {
-        [0, 14, 3, 7]
-            .iter()
-            .map(|&k| {
-                crate::svg_lines::parse(&crate::icon_library::procedural_icon(k))
-                    .expect("built-in icons parse")
-            })
-            .collect()
+        [
+            "maki:mountain",
+            "tabler:building-monument",
+            "tabler:route",
+            "tabler:mountain",
+        ]
+        .iter()
+        .map(|id| {
+            let svg = crate::icon_library::svg(id).expect("bundled icon");
+            crate::svg_lines::parse(svg).expect("built-in icons parse")
+        })
+        .collect()
     });
     match symbol {
         "summit" | "peak" => Some(&icons[0]),
@@ -1325,7 +1332,7 @@ mod tests {
         assert_eq!(map.font, Font::Serif);
         // An explicit library icon is drawn in the exact style too.
         let mut catalog = summit(&d, "Lookout", 60., 60.);
-        catalog.symbol = "icon:4".into();
+        catalog.symbol = "icon:maki:volcano".into();
         let exact = topo_map(&d, &[catalog], &MapOptions::default()).unwrap();
         assert!(exact
             .layers

@@ -14,6 +14,7 @@ pub mod georef;
 pub mod geotiff;
 pub mod geoview;
 pub mod gis;
+mod icon_library_data;
 pub mod icon_variants;
 pub mod intersections;
 pub mod label;
@@ -568,5 +569,3 @@ pub mod landmark_catalog;
 pub mod state_culture;
 
 pub mod institution_logos;
-
-pub mod regional_icons;
