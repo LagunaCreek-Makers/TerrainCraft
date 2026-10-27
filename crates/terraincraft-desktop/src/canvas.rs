@@ -185,7 +185,22 @@ impl Studio {
             if self.uses_drawing(&dem) {
                 match self.engraving_drawing(&dem) {
                     Ok(drawing) => {
-                        for layer in &drawing.layers {
+                        // The selected icon is added here rather than cached with the map,
+                        // so dragging its sliders stays fast.
+                        let mut layers = drawing.layers.clone();
+                        if let Some(icon) = self.selected_icon_strokes() {
+                            layers.push(terraincraft_core::engrave::Layer {
+                                name: "icons".into(),
+                                color: [0, 224, 0],
+                                width_mm: 0.2,
+                                lines: icon.placed(
+                                    self.icon_x * self.width,
+                                    self.icon_y * self.height,
+                                    self.icon_size,
+                                ),
+                            });
+                        }
+                        for layer in &layers {
                             let [cr, cg, cb] = layer.color;
                             let stroke = Stroke::new(
                                 (layer.width_mm as f32 * 3.).max(0.6),

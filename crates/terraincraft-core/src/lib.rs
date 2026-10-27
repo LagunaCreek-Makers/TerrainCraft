@@ -34,6 +34,7 @@ pub mod simplify;
 pub mod socket_mesh;
 pub mod stack;
 pub mod stroke_font;
+pub mod svg_lines;
 pub mod terrain_ops;
 pub mod threemf;
 use std::{

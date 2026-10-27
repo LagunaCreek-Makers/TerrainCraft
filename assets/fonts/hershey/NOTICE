@@ -1,6 +1,10 @@
-futural.jhf: Hershey Roman Simplex, a single-stroke font used for engraved text.
+Single-stroke fonts used for engraved text:
+  futural.jhf  Hershey Roman Simplex (sans)
+  futuram.jhf  Hershey Roman Duplex (sans, heavier)
+  timesr.jhf   Hershey Times Roman (serif)
+  scripts.jhf  Hershey Script Simplex (script)
 
-Copied from https://github.com/kamalmostafa/hershey-fonts (hershey-fonts/futural.jhf),
+Copied from https://github.com/kamalmostafa/hershey-fonts (hershey-fonts/*.jhf),
 distributed under the Hershey fonts license:
 
   This distribution of the Hershey Fonts may be used by anyone for any purpose,

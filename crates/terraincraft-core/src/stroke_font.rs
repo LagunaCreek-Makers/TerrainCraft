@@ -1,6 +1,6 @@
-//! Single-stroke vector text for engraving, using the Hershey Roman Simplex font
-//! (assets/fonts/hershey; see its NOTICE). Lasers and CNC routers engrave these strokes
-//! directly, so outputs need no installed fonts and no text-to-path conversion.
+//! Single-stroke vector text for engraving, using Hershey fonts (assets/fonts/hershey;
+//! see its NOTICE). Lasers and CNC routers engrave these strokes directly, so outputs
+//! need no installed fonts and no text-to-path conversion.
 use std::sync::OnceLock;
 
 /// Strokes per printable ASCII character (32..=127), in font units with y down, already
@@ -14,11 +14,47 @@ struct Glyph {
 const CAP: f64 = 21.;
 const BASELINE: f64 = 9.;
 
-fn glyphs() -> &'static Vec<Glyph> {
-    static GLYPHS: OnceLock<Vec<Glyph>> = OnceLock::new();
-    GLYPHS.get_or_init(|| {
-        include_str!("../../../assets/fonts/hershey/futural.jhf")
-            .lines()
+/// Engraving typefaces.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum Font {
+    /// Hershey Roman Simplex: clean single-line sans.
+    #[default]
+    Sans,
+    /// Hershey Roman Duplex: sans with doubled strokes, reads heavier.
+    SansBold,
+    /// Hershey Times Roman: serif, for a survey or vintage look.
+    Serif,
+    /// Hershey Script Simplex: handwritten.
+    Script,
+}
+
+impl Font {
+    pub const ALL: [Font; 4] = [Font::Sans, Font::SansBold, Font::Serif, Font::Script];
+    pub fn name(self) -> &'static str {
+        match self {
+            Font::Sans => "Sans",
+            Font::SansBold => "Sans bold",
+            Font::Serif => "Serif",
+            Font::Script => "Script",
+        }
+    }
+}
+
+fn glyphs(font: Font) -> &'static Vec<Glyph> {
+    static FONTS: [OnceLock<Vec<Glyph>>; 4] = [
+        OnceLock::new(),
+        OnceLock::new(),
+        OnceLock::new(),
+        OnceLock::new(),
+    ];
+    let (slot, data) = match font {
+        Font::Sans => (0, include_str!("../../../assets/fonts/hershey/futural.jhf")),
+        Font::SansBold => (1, include_str!("../../../assets/fonts/hershey/futuram.jhf")),
+        Font::Serif => (2, include_str!("../../../assets/fonts/hershey/timesr.jhf")),
+        Font::Script => (3, include_str!("../../../assets/fonts/hershey/scripts.jhf")),
+    };
+    FONTS[slot].get_or_init(|| {
+        data.lines()
             .filter(|l| l.len() >= 10)
             .map(|line| {
                 let b = line.as_bytes();
@@ -59,11 +95,11 @@ fn degree() -> &'static Glyph {
     })
 }
 
-fn glyph(c: char) -> &'static Glyph {
+fn glyph(font: Font, c: char) -> &'static Glyph {
     if c == '°' {
         return degree();
     }
-    let g = glyphs();
+    let g = glyphs(font);
     let i = (c as u32).wrapping_sub(32) as usize;
     // Unsupported characters render as '?'.
     g.get(i).unwrap_or(&g[('?' as usize) - 32])
@@ -77,9 +113,14 @@ pub enum Align {
     Right,
 }
 
-/// Width of `text` in millimeters at cap height `size_mm`.
+/// Width of `text` in millimeters at cap height `size_mm`, in the default font.
 pub fn width(text: &str, size_mm: f64) -> f64 {
-    text.chars().map(|c| glyph(c).advance).sum::<f64>() * size_mm / CAP
+    width_in(Font::Sans, text, size_mm)
+}
+
+/// Width of `text` in `font` at cap height `size_mm`.
+pub fn width_in(font: Font, text: &str, size_mm: f64) -> f64 {
+    text.chars().map(|c| glyph(font, c).advance).sum::<f64>() * size_mm / CAP
 }
 
 /// Strokes for `text` with its baseline through (x, y), y down, rotated `angle_deg`
@@ -92,8 +133,21 @@ pub fn text(
     align: Align,
     angle_deg: f64,
 ) -> Vec<Vec<(f64, f64)>> {
+    text_in(Font::Sans, text, x, y, size_mm, align, angle_deg)
+}
+
+/// `text` in a chosen font.
+pub fn text_in(
+    font: Font,
+    text: &str,
+    x: f64,
+    y: f64,
+    size_mm: f64,
+    align: Align,
+    angle_deg: f64,
+) -> Vec<Vec<(f64, f64)>> {
     let k = size_mm / CAP;
-    let w = width(text, size_mm);
+    let w = width_in(font, text, size_mm);
     let start = match align {
         Align::Left => 0.,
         Align::Center => -w * 0.5,
@@ -103,7 +157,7 @@ pub fn text(
     let mut out = Vec::new();
     let mut pen = start;
     for c in text.chars() {
-        let g = glyph(c);
+        let g = glyph(font, c);
         for s in &g.strokes {
             out.push(
                 s.iter()
@@ -150,6 +204,16 @@ mod tests {
         assert_eq!(s.len(), 3);
     }
 
+    #[test]
+    fn every_font_has_capitals_on_the_same_baseline() {
+        for font in Font::ALL {
+            let s = text_in(font, "HMW", 0., 40., 10., Align::Left, 0.);
+            let ys: Vec<f64> = s.iter().flatten().map(|p| p.1).collect();
+            let bottom = ys.iter().cloned().fold(f64::NEG_INFINITY, f64::max);
+            assert!((bottom - 40.).abs() < 0.6, "{font:?} baseline {bottom}");
+            assert!(width_in(font, "HMW", 10.) > 15., "{font:?}");
+        }
+    }
     #[test]
     fn alignment_rotation_and_fallback() {
         let w = width("Rainier", 5.);

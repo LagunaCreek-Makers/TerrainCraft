@@ -115,6 +115,16 @@ pub(crate) struct Studio {
         Option<mpsc::Receiver<Result<Vec<terraincraft_core::geocode::Place>, String>>>,
     /// Show engraving elevations and contours in feet.
     pub(crate) engraving_feet: bool,
+    /// Exact (survey) or stylized (illustrated) top-down map.
+    pub(crate) map_style: terraincraft_core::engrave::MapStyle,
+    /// Typeface for every engraved text, annotations included.
+    pub(crate) stroke_font: terraincraft_core::stroke_font::Font,
+    /// Draw the selected library icon on the engraving.
+    pub(crate) place_icon: bool,
+    /// The selected icon's SVG and its strokes, so the preview converts it only once.
+    #[serde(skip)]
+    pub(crate) icon_cache:
+        std::cell::RefCell<Option<(String, Option<terraincraft_core::svg_lines::Strokes>)>>,
     /// Named features downloaded from USGS for the current area.
     pub(crate) place_names: Vec<terraincraft_core::landmarks::Landmark>,
     #[serde(skip)]
@@ -249,6 +259,10 @@ impl Default for Studio {
             search_results: Vec::new(),
             search_rx: None,
             engraving_feet: false,
+            map_style: Default::default(),
+            stroke_font: Default::default(),
+            place_icon: true,
+            icon_cache: Default::default(),
             place_names: Vec::new(),
             names_rx: None,
             engraving_cache: Default::default(),
