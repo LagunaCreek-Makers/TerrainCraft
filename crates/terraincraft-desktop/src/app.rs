@@ -267,6 +267,20 @@ impl eframe::App for Studio {
       }
      }},
     View::Engraving=>{ui.heading("Single-sheet engraving");ui.horizontal(|ui|{ui.label("Map preset");ui.selectable_value(&mut self.engraving_preset,0,"Survey");ui.selectable_value(&mut self.engraving_preset,1,"Minimal");ui.selectable_value(&mut self.engraving_preset,2,"Vintage");ui.selectable_value(&mut self.engraving_preset,3,"Cartoon");});
+    ui.horizontal(|ui|{
+     ui.label("Typeface");
+     egui::ComboBox::from_id_salt("stroke_font").selected_text(self.stroke_font.name()).show_ui(ui,|ui|{
+      for f in terraincraft_core::stroke_font::Font::ALL{ui.selectable_value(&mut self.stroke_font,f,f.name());}
+     });
+    });
+    if !self.engraving_perspective{
+     ui.horizontal(|ui|{
+      ui.label("Map style");
+      ui.selectable_value(&mut self.map_style,terraincraft_core::engrave::MapStyle::Exact,"Exact").on_hover_text("Every contour, labeled index contours, coordinate frame");
+      ui.selectable_value(&mut self.map_style,terraincraft_core::engrave::MapStyle::Stylized,"Stylized").on_hover_text("Features as icons, fewer contours, decorative frame and compass rose");
+     });
+    }
+    ui.checkbox(&mut self.place_icon,"Place the selected icon on the engraving");
     ui.collapsing("B&W engraving icon library (240 procedural SVGs)",|ui|{
       ui.add(egui::Slider::new(&mut self.icon_id,0..=239).text("Icon index"));
       ui.add(egui::Slider::new(&mut self.icon_x,0.0..=1.0).text("X position"));

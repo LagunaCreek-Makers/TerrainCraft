@@ -3,12 +3,13 @@ use std::{
     fs,
     path::{Path, PathBuf},
 };
-use terraincraft_core::engrave::{self, MapOptions, PanoramaOptions, PanoramaView};
+use terraincraft_core::engrave::{self, MapOptions, MapStyle, PanoramaOptions, PanoramaView};
 use terraincraft_core::export_settings::{ConnectorMode, PrintExportSettings};
 use terraincraft_core::georef::CrsUnits;
 use terraincraft_core::gis::read_asc;
 use terraincraft_core::landmarks::{read_landmarks, to_csv, Landmark};
 use terraincraft_core::stack::{self, StackSettings};
+use terraincraft_core::stroke_font::Font;
 use terraincraft_core::terrain_ops::{prepare, TerrainPrep};
 use terraincraft_core::usgs::Bounds;
 use terraincraft_core::usgs::LANDFORM_CLASSES;
@@ -119,6 +120,12 @@ struct Args {
     /// Show elevations and contours on engravings in feet
     #[arg(long)]
     feet: bool,
+    /// Map engraving style: exact (survey) or stylized (illustrated, with icons)
+    #[arg(long, default_value = "exact", value_parser = ["exact", "stylized"])]
+    map_style: String,
+    /// Engraving typeface
+    #[arg(long, default_value = "sans", value_parser = ["sans", "sans-bold", "serif", "script"])]
+    font: String,
     /// Only write the processed elevation grid (terrain.tif) and skip manufacturing files
     #[arg(long)]
     dem_only: bool,
@@ -265,6 +272,15 @@ fn place_names(
     Ok(names)
 }
 
+fn font(name: &str) -> Font {
+    match name {
+        "sans-bold" => Font::SansBold,
+        "serif" => Font::Serif,
+        "script" => Font::Script,
+        _ => Font::Sans,
+    }
+}
+
 /// Write the requested map and panorama engravings.
 fn write_engravings(
     args: &Args,
@@ -277,6 +293,12 @@ fn write_engravings(
         let o = MapOptions {
             title: args.title.clone(),
             feet: args.feet,
+            font: font(&args.font),
+            style: if args.map_style == "stylized" {
+                MapStyle::Stylized
+            } else {
+                MapStyle::Exact
+            },
             ..MapOptions::default()
         };
         let map = engrave::topo_map(dem, &names, &o)?;
@@ -308,6 +330,7 @@ fn write_engravings(
         let o = PanoramaOptions {
             title: args.title.clone(),
             feet: args.feet,
+            font: font(&args.font),
             ..PanoramaOptions::default()
         };
         let pano = engrave::panorama(dem, &names, &view, &o)?;

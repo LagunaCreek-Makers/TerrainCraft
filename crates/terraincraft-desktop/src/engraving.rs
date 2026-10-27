@@ -7,6 +7,7 @@ use terraincraft_core::engrave::{self, Drawing, MapOptions, PanoramaOptions, Pan
 use terraincraft_core::engraving_editor::Preset;
 use terraincraft_core::geoview::GeographicExtent;
 use terraincraft_core::landmarks::{read_landmarks, Landmark};
+use terraincraft_core::svg_lines::{self, Strokes};
 use terraincraft_core::Dem;
 
 /// The engraving's base artwork, shared by the preview and export.
@@ -21,7 +22,73 @@ impl Studio {
                 &fs::read_to_string(&self.landmark_csv).map_err(|e| e.to_string())?,
             )?);
         }
+        // Verified catalog landmarks become named features drawn with their bundled icon,
+        // placed by their coordinates like any other feature.
+        if !self.engraving_perspective && self.catalog_auto_icons {
+            let entries = terraincraft_core::landmark_catalog::parse_catalog(
+                &fs::read_to_string(&self.catalog_path).map_err(|e| format!("Catalog: {e}"))?,
+            )?;
+            for e in terraincraft_core::landmark_catalog::filter_jurisdiction(
+                &entries,
+                &self.catalog_jurisdiction,
+                true,
+            ) {
+                if let Some(i) = terraincraft_core::landmark_catalog::bundled_icon_index(&e.icon_id)
+                {
+                    names.push(Landmark {
+                        name: e.name.clone(),
+                        lat: e.latitude,
+                        lon: e.longitude,
+                        elevation_m: None,
+                        symbol: format!("icon:{i}"),
+                    });
+                }
+            }
+        }
         Ok(names)
+    }
+
+    /// The selected library icon as strokes, if one should be drawn.
+    pub(crate) fn selected_icon_strokes(&self) -> Option<Strokes> {
+        if !self.place_icon {
+            return None;
+        }
+        let svg = self.selected_icon_svg();
+        if let Some((k, v)) = &*self.icon_cache.borrow() {
+            if *k == svg {
+                return v.clone();
+            }
+        }
+        let strokes = svg_lines::parse(&svg).ok();
+        *self.icon_cache.borrow_mut() = Some((svg, strokes.clone()));
+        strokes
+    }
+
+    /// The engraving as exported: the map or panorama, the selected icon, and annotations,
+    /// all as engravable strokes.
+    pub(crate) fn final_drawing(&self, dem: &Dem) -> Result<Drawing, String> {
+        let mut d = (*self.engraving_drawing(dem)?).clone();
+        if let Some(icon) = self.selected_icon_strokes() {
+            d.add_icon(
+                &icon,
+                self.icon_x * self.width,
+                self.icon_y * self.height,
+                self.icon_size,
+            );
+        }
+        for a in &self.annotations {
+            let strokes = terraincraft_core::stroke_font::text_in(
+                self.stroke_font,
+                &a.text,
+                a.x * self.width,
+                a.y * self.height + a.size_mm * 0.5,
+                a.size_mm,
+                terraincraft_core::stroke_font::Align::Center,
+                a.rotation_deg,
+            );
+            d.add_lines("annotations", strokes);
+        }
+        Ok(d)
     }
 
     /// Whether the new map or panorama renderer applies: maps always, panoramas only for
@@ -33,7 +100,7 @@ impl Studio {
     /// Map or panorama for `dem`, rebuilt only when the inputs change.
     pub(crate) fn engraving_drawing(&self, dem: &Dem) -> DrawingResult {
         let key = format!(
-            "{}|{}x{}|{:?}|{:?}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}",
+            "{}|{}x{}|{:?}|{:?}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{}|{:?}|{:?}|{}|{}|{}",
             self.path,
             dem.width,
             dem.height,
@@ -52,6 +119,11 @@ impl Studio {
             self.fov,
             self.eye_height,
             self.max_distance,
+            self.map_style,
+            self.stroke_font,
+            self.catalog_auto_icons,
+            self.catalog_path,
+            self.catalog_jurisdiction,
         ) + &format!(
             "|{}|{}|{}",
             self.place_names.len(),
@@ -80,6 +152,7 @@ impl Studio {
                     title: self.engraving_title.clone(),
                     subtitle: self.engraving_subtitle.clone(),
                     feet: self.engraving_feet,
+                    font: self.stroke_font,
                     ..PanoramaOptions::default()
                 };
                 engrave::panorama(dem, &names, &view, &o)?
@@ -91,6 +164,8 @@ impl Studio {
                     title: self.engraving_title.clone(),
                     subtitle: self.engraving_subtitle.clone(),
                     feet: self.engraving_feet,
+                    font: self.stroke_font,
+                    style: self.map_style,
                     ..MapOptions::default()
                 };
                 engrave::topo_map(dem, &names, &o)?
@@ -103,26 +178,7 @@ impl Studio {
 
     pub(crate) fn engraving_svg(&self, dem: &Dem) -> Result<String, String> {
         if self.uses_drawing(dem) {
-            // Named features are drawn by the map or panorama itself; user annotations,
-            // catalog icons and the selected icon still go on top.
-            let mut svg = self.engraving_drawing(dem)?.to_svg();
-            if !self.engraving_perspective && self.catalog_auto_icons {
-                svg = self.catalog_icons(svg)?;
-            }
-            let svg = terraincraft_core::engraving_editor::overlay(
-                svg,
-                &self.annotations,
-                self.width,
-                self.height,
-                self.preset(),
-            )?;
-            return terraincraft_core::icon_library::overlay_icon(
-                svg,
-                self.selected_icon_svg().as_str(),
-                self.icon_x * self.width,
-                self.icon_y * self.height,
-                self.icon_size,
-            );
+            return Ok(self.final_drawing(dem)?.to_svg());
         }
         let style = match self.engraving_style {
             1 => EngravingStyle::Contour,
@@ -229,34 +285,6 @@ impl Studio {
             )
         }
     }
-    /// Bundled icons for verified catalog landmarks inside the selection.
-    fn catalog_icons(&self, mut svg: String) -> Result<String, String> {
-        let entries = terraincraft_core::landmark_catalog::parse_catalog(
-            &fs::read_to_string(&self.catalog_path).map_err(|e| format!("Catalog: {e}"))?,
-        )?;
-        let selected = terraincraft_core::landmark_catalog::filter_jurisdiction(
-            &entries,
-            &self.catalog_jurisdiction,
-            true,
-        );
-        let selected: Vec<_> = selected.into_iter().cloned().collect();
-        for (entry, x, y) in terraincraft_core::landmark_catalog::positions_in_extent(
-            &selected, self.west, self.south, self.east, self.north,
-        )? {
-            if let Some(index) =
-                terraincraft_core::landmark_catalog::bundled_icon_index(&entry.icon_id)
-            {
-                svg = terraincraft_core::icon_library::overlay_icon(
-                    svg,
-                    &terraincraft_core::icon_library::procedural_icon(index),
-                    x * self.width,
-                    y * self.height,
-                    self.icon_size,
-                )?;
-            }
-        }
-        Ok(svg)
-    }
     pub(crate) fn selected_icon_svg(&self) -> String {
         if !self.selected_unesco_svg.is_empty() {
             let base = std::path::Path::new(&self.unesco_catalog_path)
@@ -313,5 +341,56 @@ impl Studio {
             3 => Preset::Cartoon,
             _ => Preset::Survey,
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::studio::Studio;
+    use terraincraft_core::engraving_editor::Annotation;
+    use terraincraft_core::Dem;
+
+    #[test]
+    fn exported_engraving_is_all_strokes() {
+        let dem = Dem::new(
+            40,
+            30,
+            (0..1200).map(|i| ((i % 40) * (i / 40)) as f64).collect(),
+        )
+        .unwrap();
+        let s = Studio {
+            engraving_perspective: false,
+            place_icon: true,
+            annotations: vec![Annotation {
+                text: "Hello".into(),
+                x: 0.5,
+                y: 0.9,
+                size_mm: 5.,
+                rotation_deg: 0.,
+            }],
+            ..Studio::default()
+        };
+        let d = s.final_drawing(&dem).unwrap();
+        for name in ["icons", "annotations", "contours"] {
+            assert!(
+                d.layers
+                    .iter()
+                    .any(|l| l.name == name && !l.lines.is_empty()),
+                "missing {name}"
+            );
+        }
+        let svg = s.engraving_svg(&dem).unwrap();
+        assert!(!svg.contains("<text"), "export must not depend on fonts");
+        // Without the icon, its layer disappears.
+        let plain = Studio {
+            place_icon: false,
+            ..s
+        };
+        assert!(!plain
+            .final_drawing(&dem)
+            .unwrap()
+            .layers
+            .iter()
+            .any(|l| l.name == "icons"));
     }
 }

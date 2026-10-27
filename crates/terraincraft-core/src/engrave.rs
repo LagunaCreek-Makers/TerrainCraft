@@ -6,7 +6,7 @@
 //! with its own color so laser software can give it its own power and speed. The desktop
 //! preview draws the same layers that `Drawing::to_svg` writes.
 use crate::landmarks::Landmark;
-use crate::stroke_font::{self, Align};
+use crate::stroke_font::{self, Align, Font};
 use crate::{contours, Dem};
 use std::fmt::Write as _;
 
@@ -25,6 +25,8 @@ pub struct Drawing {
     pub width_mm: f64,
     pub height_mm: f64,
     pub layers: Vec<Layer>,
+    /// Typeface for all text in the drawing.
+    pub font: Font,
 }
 
 // Layer colors follow LightBurn's palette so each imports as its own layer.
@@ -40,7 +42,20 @@ impl Drawing {
             width_mm,
             height_mm,
             layers: Vec::new(),
+            font: Font::Sans,
         }
+    }
+    fn width(&self, s: &str, size: f64) -> f64 {
+        stroke_font::width_in(self.font, s, size)
+    }
+    /// Add engraved lines (such as stroke text) to a green layer named `layer`.
+    pub fn add_lines(&mut self, layer: &str, lines: Vec<Line>) {
+        self.layer(layer, GREEN, 0.2).extend(lines);
+    }
+    /// Add icon artwork (see `svg_lines`) scaled into a `size` mm square centered at (x, y).
+    pub fn add_icon(&mut self, icon: &crate::svg_lines::Strokes, x: f64, y: f64, size: f64) {
+        let lines = icon.placed(x, y, size);
+        self.layer("icons", GREEN, 0.2).extend(lines);
     }
     fn layer(&mut self, name: &str, color: [u8; 3], width_mm: f64) -> &mut Vec<Line> {
         if let Some(i) = self.layers.iter().position(|l| l.name == name) {
@@ -55,7 +70,7 @@ impl Drawing {
         &mut self.layers.last_mut().expect("just pushed").lines
     }
     fn text(&mut self, layer: &str, s: &str, x: f64, y: f64, size: f64, align: Align) {
-        let strokes = stroke_font::text(s, x, y, size, align, 0.);
+        let strokes = stroke_font::text_in(self.font, s, x, y, size, align, 0.);
         self.layer(layer, GREEN, 0.2).extend(strokes);
     }
     fn rect(&mut self, layer: &str, color: [u8; 3], width: f64, r: [f64; 4]) {
@@ -174,9 +189,23 @@ impl Occupied {
     }
 }
 
+/// How a map is drawn.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum MapStyle {
+    /// Survey style: every contour, labeled index contours, coordinate frame, triangles
+    /// for summits.
+    #[default]
+    Exact,
+    /// Illustrated: features drawn as icons, fewer and unlabeled contours, a decorative
+    /// double frame and a compass rose.
+    Stylized,
+}
+
 /// Top-down topographic map settings.
 #[derive(Clone, Debug, PartialEq)]
 pub struct MapOptions {
+    pub style: MapStyle,
+    pub font: Font,
     pub sheet_w_mm: f64,
     pub sheet_h_mm: f64,
     pub margin_mm: f64,
@@ -201,6 +230,8 @@ pub struct MapOptions {
 impl Default for MapOptions {
     fn default() -> Self {
         Self {
+            style: MapStyle::Exact,
+            font: Font::Sans,
             sheet_w_mm: 400.,
             sheet_h_mm: 300.,
             margin_mm: 10.,
@@ -266,25 +297,32 @@ fn length(line: &[(f64, f64)]) -> f64 {
         .sum()
 }
 
-/// Draw a topographic map of `dem` with `names` labeled (summits and pillars get a
-/// triangle, gaps a pass mark, other classes just their name).
+/// Draw a topographic map of `dem` with `names` labeled. Exact style: summits and pillars
+/// get a triangle, gaps a pass mark, other classes just their name. Stylized style:
+/// features are drawn as library icons. A symbol `icon:N` always draws library icon N.
 pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing, String> {
     if !(o.sheet_w_mm > 4. * o.margin_mm && o.sheet_h_mm > 4. * o.margin_mm && o.margin_mm >= 0.) {
         return Err("Sheet is too small for its margins".into());
     }
     let mut d = Drawing::new(o.sheet_w_mm, o.sheet_h_mm);
+    d.font = o.font;
+    let stylized = o.style == MapStyle::Stylized;
     let unit = if o.feet { 0.3048 } else { 1. };
     let (lo, hi) = dem.min_max();
     let interval = if o.contour_interval > 0. {
         o.contour_interval
+    } else if stylized {
+        // Fewer lines leave room for the illustrations.
+        auto_interval((hi - lo) / unit) * 2.
     } else {
         auto_interval((hi - lo) / unit)
     };
+    let coordinates = o.coordinates && !stylized;
     if (hi - lo) / unit / interval > 2000. {
         return Err("Too many contours; increase the contour interval".into());
     }
     // Layout: title band, map, then a band for the scale bar and notes.
-    let label_band = if o.coordinates && dem.georef.is_some() {
+    let label_band = if coordinates && dem.georef.is_some() {
         6.
     } else {
         0.
@@ -333,14 +371,49 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
     for (x, y, elev, n) in features {
         let peak = matches!(n.symbol.as_str(), "summit" | "pillar" | "peak");
         let (size, small) = (2.8, 2.2);
-        let name_w = stroke_font::width(&n.name, size);
+        let name_w = d.width(&n.name, size);
         let elev_s = elevation_text(elev, o.feet);
-        let w = name_w.max(if peak {
-            stroke_font::width(&elev_s, small)
-        } else {
-            0.
-        });
+        let w = name_w.max(if peak { d.width(&elev_s, small) } else { 0. });
         let h = if peak { size + small + 1.2 } else { size };
+        // Stylized maps draw the feature as an icon with its name underneath; features
+        // with an explicit `icon:N` symbol always do.
+        let library_icon = n
+            .symbol
+            .strip_prefix("icon:")
+            .and_then(|i| i.parse::<usize>().ok())
+            .and_then(|i| crate::svg_lines::parse(&crate::icon_library::procedural_icon(i)).ok());
+        let icon = library_icon
+            .as_ref()
+            .or_else(|| stylized.then(|| feature_icon(&n.symbol)).flatten());
+        if let Some(icon) = icon {
+            let s = 6.;
+            let (ty, label_w) = (y + s * 0.55, w);
+            let r = [x - s * 0.5, y - s * 0.5, x + s * 0.5, y + s * 0.5];
+            let label = [
+                x - label_w * 0.5 - 0.5,
+                ty,
+                x + label_w * 0.5 + 0.5,
+                ty + h + 0.5,
+            ];
+            let inside = |b: [f64; 4]| b[0] > ox && b[2] < ox + mw && b[1] > oy && b[3] < oy + mh;
+            if inside(r) && inside(label) && taken.free(r) && taken.free(label) {
+                taken.0.push(r);
+                taken.0.push(label);
+                d.add_icon(icon, x, y, s);
+                d.text("labels", &n.name, x, ty + size, size, Align::Center);
+                if peak {
+                    d.text(
+                        "labels",
+                        &elev_s,
+                        x,
+                        ty + size + 1.2 + small,
+                        small,
+                        Align::Center,
+                    );
+                }
+            }
+            continue;
+        }
         // Peaks: right, left, above or below the marker. Ridges and other unmarked
         // features: centered on the point first.
         let mut spots = vec![
@@ -404,10 +477,10 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
                 continue;
             }
             let mut pieces = vec![line.clone()];
-            if index && o.label_contours && length(&line) > 60. {
+            if index && o.label_contours && !stylized && length(&line) > 60. {
                 let label = thousands(value);
                 let size = 2.2;
-                let w = stroke_font::width(&label, size);
+                let w = d.width(&label, size);
                 // Walk to the middle of the line and read its direction there.
                 let half = length(&line) * 0.5;
                 let mut acc = 0.;
@@ -442,7 +515,15 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
                         let (sin, cos) = angle.to_radians().sin_cos();
                         // Baseline offset so the text is centered on the line.
                         let (bx, by) = (c.0 - sin * size * 0.5, c.1 + cos * size * 0.5);
-                        let strokes = stroke_font::text(&label, bx, by, size, Align::Center, angle);
+                        let strokes = stroke_font::text_in(
+                            d.font,
+                            &label,
+                            bx,
+                            by,
+                            size,
+                            Align::Center,
+                            angle,
+                        );
                         d.layer("labels", GREEN, 0.2).extend(strokes);
                         pieces = cut_around(&line, c, r);
                     }
@@ -478,8 +559,17 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
 
     if o.frame {
         d.rect("frame", ORANGE, 0.3, [ox, oy, ox + mw, oy + mh]);
+        if stylized {
+            let g = 2.5;
+            d.rect(
+                "frame",
+                ORANGE,
+                0.5,
+                [ox - g, oy - g, ox + mw + g, oy + mh + g],
+            );
+        }
     }
-    if let (true, Some(g)) = (o.coordinates, dem.georef) {
+    if let (true, Some(g)) = (coordinates, dem.georef) {
         coordinate_ticks(&mut d, dem, &g, (ox, oy, mw, mh));
     }
     if !o.title.is_empty() {
@@ -512,7 +602,9 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
     if let (true, Some(_)) = (o.scale_bar, dem.georef) {
         scale_bar(&mut d, mw / gx, ox + mw * 0.5, base_y, mw * 0.3, o.feet);
     }
-    if o.north_arrow {
+    if o.north_arrow && stylized {
+        compass_rose(&mut d, ox + mw - 8., base_y + 4., 7.);
+    } else if o.north_arrow {
         let (x, y) = (ox + mw - 4., base_y - 2.);
         d.layer("labels", GREEN, 0.2).push(vec![
             (x, y),
@@ -527,6 +619,51 @@ pub fn topo_map(dem: &Dem, names: &[Landmark], o: &MapOptions) -> Result<Drawing
         d.rect("cut", CUT_RED, 0.1, [0., 0., o.sheet_w_mm, o.sheet_h_mm]);
     }
     Ok(d)
+}
+
+/// Icon for a named feature class on stylized maps, from the built-in icon library.
+fn feature_icon(symbol: &str) -> Option<&'static crate::svg_lines::Strokes> {
+    use std::sync::OnceLock;
+    static ICONS: OnceLock<Vec<crate::svg_lines::Strokes>> = OnceLock::new();
+    // Library kinds: mountain, narrow peak, arch (pass), range.
+    let icons = ICONS.get_or_init(|| {
+        [0, 14, 3, 7]
+            .iter()
+            .map(|&k| {
+                crate::svg_lines::parse(&crate::icon_library::procedural_icon(k))
+                    .expect("built-in icons parse")
+            })
+            .collect()
+    });
+    match symbol {
+        "summit" | "peak" => Some(&icons[0]),
+        "pillar" => Some(&icons[1]),
+        "gap" => Some(&icons[2]),
+        "ridge" => Some(&icons[3]),
+        _ => None,
+    }
+}
+
+/// An eight-point compass rose of radius `r` centered at (x, y), with N above.
+fn compass_rose(d: &mut Drawing, x: f64, y: f64, r: f64) {
+    let star: Line = (0..=16)
+        .map(|i| {
+            let a = (i as f64 * 22.5).to_radians();
+            let rr = if i % 4 == 0 {
+                r
+            } else if i % 2 == 0 {
+                r * 0.55
+            } else {
+                r * 0.22
+            };
+            (x + rr * a.sin(), y - rr * a.cos())
+        })
+        .collect();
+    let lines = d.layer("labels", GREEN, 0.2);
+    lines.push(star);
+    lines.push(vec![(x, y - r), (x, y + r)]);
+    lines.push(vec![(x - r, y), (x + r, y)]);
+    d.text("labels", "N", x, y - r - 1., 3., Align::Center);
 }
 
 /// Tick marks and coordinate labels around the map frame: degrees and minutes for
@@ -678,6 +815,7 @@ pub struct PanoramaView {
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct PanoramaOptions {
+    pub font: Font,
     pub sheet_w_mm: f64,
     pub sheet_h_mm: f64,
     pub margin_mm: f64,
@@ -695,6 +833,7 @@ pub struct PanoramaOptions {
 impl Default for PanoramaOptions {
     fn default() -> Self {
         Self {
+            font: Font::Sans,
             sheet_w_mm: 500.,
             sheet_h_mm: 200.,
             margin_mm: 10.,
@@ -887,6 +1026,7 @@ pub fn panorama(
     let x_of = |i: f64| o.margin_mm + i / (columns - 1) as f64 * pano_w;
     let y_of = |a: f64| y_top + (top_angle - a) * ppr;
     let mut d = Drawing::new(o.sheet_w_mm, o.sheet_h_mm);
+    d.font = o.font;
     for chain in &chains {
         let mean = chain.iter().map(|(_, c)| c.distance).sum::<f64>() / chain.len() as f64;
         let (name, color, w) = if mean < 5_000. {
@@ -1060,7 +1200,7 @@ fn label_visible_summits(
     let mut taken: Vec<Vec<(f64, f64)>> = vec![Vec::new(); rows];
     for (x, y, elev, name) in peaks {
         let elev_s = elevation_text(elev, o.feet);
-        let w = stroke_font::width(name, size).max(stroke_font::width(&elev_s, small)) + 2.;
+        let w = d.width(name, size).max(d.width(&elev_s, small)) + 2.;
         // Lowest free row (nearest the peak), so leaders stay short.
         let Some(row) = (0..rows).rev().find(|&r| {
             taken[r]
@@ -1157,6 +1297,44 @@ mod tests {
         .is_err());
     }
 
+    #[test]
+    fn stylized_map_uses_icons_rose_and_fonts() {
+        let d = mountain();
+        let names = [summit(&d, "Test Peak", 100., 100.)];
+        let o = MapOptions {
+            style: MapStyle::Stylized,
+            font: Font::Serif,
+            title: "Test Map".into(),
+            ..MapOptions::default()
+        };
+        let map = topo_map(&d, &names, &o).unwrap();
+        let layer = |n: &str| map.layers.iter().find(|l| l.name == n);
+        assert!(layer("icons").is_some_and(|l| !l.lines.is_empty()));
+        // Double frame, and no coordinate ticks.
+        assert_eq!(layer("frame").unwrap().lines.len(), 2);
+        // Fewer contours than the exact style (interval doubled).
+        let exact = topo_map(&d, &names, &MapOptions::default()).unwrap();
+        let count = |m: &Drawing| {
+            m.layers
+                .iter()
+                .filter(|l| l.name.ends_with("contours"))
+                .map(|l| l.lines.len())
+                .sum::<usize>()
+        };
+        assert!(count(&map) < count(&exact));
+        assert_eq!(map.font, Font::Serif);
+        // An explicit library icon is drawn in the exact style too.
+        let mut catalog = summit(&d, "Lookout", 60., 60.);
+        catalog.symbol = "icon:4".into();
+        let exact = topo_map(&d, &[catalog], &MapOptions::default()).unwrap();
+        assert!(exact
+            .layers
+            .iter()
+            .any(|l| l.name == "icons" && !l.lines.is_empty()));
+        for p in map.layers.iter().flat_map(|l| l.lines.iter().flatten()) {
+            assert!(p.0 >= 0. && p.1 >= 0. && p.0 <= o.sheet_w_mm && p.1 <= o.sheet_h_mm);
+        }
+    }
     #[test]
     fn panorama_sees_the_mountain_and_labels_its_summit() {
         let d = mountain();
