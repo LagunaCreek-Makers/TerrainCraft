@@ -297,7 +297,7 @@ impl Default for Studio {
             icon_size: 12.,
             map_provider: 0,
             map_url: String::new(),
-            catalog_path: "assets/landmark_catalog_template.csv".into(),
+            catalog_path: "assets/landmark_catalog_utah.csv".into(),
             catalog_jurisdiction: "US-CA".into(),
             catalog_verified_only: true,
             catalog_auto_icons: false,

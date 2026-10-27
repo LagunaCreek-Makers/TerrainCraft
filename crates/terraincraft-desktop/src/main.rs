@@ -14,7 +14,23 @@ mod studio;
 use eframe::egui;
 use studio::Studio;
 
+/// Catalogs and other data are read from `assets/` relative to the working directory.
+/// When the app is started from a file manager (macOS Finder starts it in `/`), use the
+/// `assets/` folder shipped next to the executable instead.
+fn find_assets() {
+    if std::path::Path::new("assets").is_dir() {
+        return;
+    }
+    let exe_dir = std::env::current_exe()
+        .ok()
+        .and_then(|p| p.parent().map(|d| d.to_path_buf()));
+    if let Some(dir) = exe_dir.filter(|d| d.join("assets").is_dir()) {
+        let _ = std::env::set_current_dir(dir);
+    }
+}
+
 fn main() -> eframe::Result<()> {
+    find_assets();
     let opts = eframe::NativeOptions {
         viewport: egui::ViewportBuilder::default()
             .with_inner_size([1200., 800.])

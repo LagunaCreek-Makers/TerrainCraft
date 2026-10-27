@@ -313,7 +313,7 @@ impl eframe::App for Studio {
       ui.add(egui::Slider::new(&mut self.icon_x,0.0..=1.0).text("X position"));
       ui.add(egui::Slider::new(&mut self.icon_y,0.0..=1.0).text("Y position"));
       ui.add(egui::Slider::new(&mut self.icon_size,2.0..=60.0).text("Size mm"));
-      ui.small("Tabler Icons (MIT) and Maki (CC0). License texts are in assets/icon_library.");
+      ui.small("Tabler Icons (MIT), Maki and Temaki (CC0), and NPS map symbols (BSD). License texts are in assets/icon_library.");
     });
     if self.cultural_icon_id=="us-ut-salt-lake-temple"{
      ui.horizontal(|ui|{
