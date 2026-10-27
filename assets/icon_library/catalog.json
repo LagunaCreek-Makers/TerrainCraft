@@ -1,0 +1,8270 @@
+{
+ "sets": [
+  {
+   "name": "tabler",
+   "title": "Tabler Icons",
+   "version": "3.49.0",
+   "license": "MIT",
+   "license_file": "tabler/LICENSE",
+   "source": "https://tabler.io/icons",
+   "package": "@tabler/icons@3.49.0"
+  },
+  {
+   "name": "maki",
+   "title": "Maki",
+   "version": "8.2.0",
+   "license": "CC0-1.0",
+   "license_file": "maki/LICENSE.txt",
+   "source": "https://labs.mapbox.com/maki-icons/",
+   "package": "@mapbox/maki@8.2.0"
+  }
+ ],
+ "icons": [
+  {
+   "id": "tabler:acorn",
+   "title": "Acorn",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "oak",
+    "nut",
+    "seed",
+    "tree",
+    "autumn",
+    "fall",
+    "forest",
+    "nature",
+    "squirrel",
+    "acorn"
+   ]
+  },
+  {
+   "id": "tabler:acrobatic",
+   "title": "Acrobatic",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "acrobatics",
+    "gymnastics",
+    "gymnast",
+    "circus",
+    "flexible",
+    "balance",
+    "athlete",
+    "fitness",
+    "stunt",
+    "acrobatic"
+   ]
+  },
+  {
+   "id": "tabler:aerial-lift",
+   "title": "Aerial lift",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "cable-car",
+    "gondola",
+    "ski-lift",
+    "chairlift",
+    "cableway",
+    "tramway",
+    "mountain",
+    "ski",
+    "transport",
+    "aerial",
+    "lift"
+   ]
+  },
+  {
+   "id": "tabler:air-balloon",
+   "title": "Air balloon",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "hot-air-balloon",
+    "travel",
+    "flight",
+    "fly",
+    "adventure",
+    "sky",
+    "trip",
+    "tourism",
+    "air",
+    "balloon"
+   ]
+  },
+  {
+   "id": "tabler:air-traffic-control",
+   "title": "Air traffic control",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "atc",
+    "control-tower",
+    "airport",
+    "aviation",
+    "flight",
+    "radar",
+    "tower",
+    "navigation"
+   ]
+  },
+  {
+   "id": "tabler:ambulance",
+   "title": "Ambulance",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "emergency",
+    "hospital",
+    "medical",
+    "paramedic",
+    "rescue",
+    "vehicle",
+    "911",
+    "health",
+    "ems",
+    "ambulance"
+   ]
+  },
+  {
+   "id": "tabler:anchor",
+   "title": "Anchor",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "ship",
+    "boat",
+    "marine",
+    "nautical",
+    "sea",
+    "harbor",
+    "port",
+    "sailor",
+    "navy",
+    "dock",
+    "anchor"
+   ]
+  },
+  {
+   "id": "tabler:ankh",
+   "title": "Ankh",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "egypt",
+    "egyptian",
+    "symbol",
+    "cross",
+    "religion",
+    "ancient",
+    "life",
+    "hieroglyph",
+    "ankh"
+   ]
+  },
+  {
+   "id": "tabler:apple",
+   "title": "Apple",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "fruit",
+    "food",
+    "healthy",
+    "fresh",
+    "diet",
+    "vegetarian",
+    "nutrition",
+    "snack",
+    "apple"
+   ]
+  },
+  {
+   "id": "tabler:armchair",
+   "title": "Armchair",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "chair",
+    "furniture",
+    "seat",
+    "sofa",
+    "couch",
+    "living-room",
+    "interior",
+    "home",
+    "armchair"
+   ]
+  },
+  {
+   "id": "tabler:atom",
+   "title": "Atom",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "science",
+    "physics",
+    "chemistry",
+    "nuclear",
+    "molecule",
+    "electron",
+    "react",
+    "laboratory",
+    "atom"
+   ]
+  },
+  {
+   "id": "tabler:avocado",
+   "title": "Avocado",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "fruit",
+    "food",
+    "vegetable",
+    "guacamole",
+    "healthy",
+    "diet",
+    "vegan"
+   ]
+  },
+  {
+   "id": "tabler:backhoe",
+   "title": "Backhoe",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "excavator",
+    "digger",
+    "construction",
+    "tractor",
+    "bulldozer",
+    "machinery",
+    "vehicle",
+    "backhoe"
+   ]
+  },
+  {
+   "id": "tabler:baguette",
+   "title": "Baguette",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "bread",
+    "bakery",
+    "french",
+    "food",
+    "loaf",
+    "breakfast",
+    "french-bread",
+    "bakery-product",
+    "baguette"
+   ]
+  },
+  {
+   "id": "tabler:ball-american-football",
+   "title": "Ball american football",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "american-football",
+    "rugby",
+    "nfl",
+    "sport",
+    "game",
+    "sports",
+    "team-sport",
+    "play",
+    "match",
+    "athletics",
+    "ball",
+    "american",
+    "football"
+   ]
+  },
+  {
+   "id": "tabler:ball-baseball",
+   "title": "Ball baseball",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "softball",
+    "mlb",
+    "sport",
+    "game",
+    "sports",
+    "team-sport",
+    "play",
+    "match",
+    "athletics",
+    "ball",
+    "baseball"
+   ]
+  },
+  {
+   "id": "tabler:ball-basketball",
+   "title": "Ball basketball",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "nba",
+    "hoop",
+    "sport",
+    "game",
+    "sports",
+    "team-sport",
+    "play",
+    "match",
+    "athletics",
+    "ball",
+    "basketball"
+   ]
+  },
+  {
+   "id": "tabler:ball-bowling",
+   "title": "Ball bowling",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "ten-pin",
+    "sport",
+    "game",
+    "strike",
+    "sports",
+    "team-sport",
+    "play",
+    "match",
+    "athletics",
+    "ball",
+    "bowling"
+   ]
+  },
+  {
+   "id": "tabler:ball-football",
+   "title": "Ball football",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "soccer",
+    "fifa",
+    "sport",
+    "game",
+    "sports",
+    "team-sport",
+    "play",
+    "match",
+    "athletics",
+    "ball",
+    "football"
+   ]
+  },
+  {
+   "id": "tabler:ball-tennis",
+   "title": "Ball tennis",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "padel",
+    "sport",
+    "game",
+    "racket",
+    "sports",
+    "team-sport",
+    "play",
+    "match",
+    "athletics",
+    "ball",
+    "tennis"
+   ]
+  },
+  {
+   "id": "tabler:ball-volleyball",
+   "title": "Ball volleyball",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "beach-volleyball",
+    "sport",
+    "game",
+    "sports",
+    "team-sport",
+    "play",
+    "match",
+    "athletics",
+    "ball",
+    "volleyball"
+   ]
+  },
+  {
+   "id": "tabler:balloon",
+   "title": "Balloon",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "party",
+    "birthday",
+    "celebration",
+    "festival",
+    "helium",
+    "decoration",
+    "balloons",
+    "party-decoration",
+    "balloon"
+   ]
+  },
+  {
+   "id": "tabler:banana",
+   "title": "Banana",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "fruit",
+    "food",
+    "healthy",
+    "tropical",
+    "snack",
+    "yellow",
+    "potassium",
+    "vegan",
+    "banana"
+   ]
+  },
+  {
+   "id": "tabler:barbell",
+   "title": "Barbell",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "dumbbell",
+    "weights",
+    "gym",
+    "fitness",
+    "workout",
+    "exercise",
+    "weightlifting",
+    "training",
+    "barbell"
+   ]
+  },
+  {
+   "id": "tabler:bat",
+   "title": "Bat",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "animal",
+    "halloween",
+    "vampire",
+    "night",
+    "spooky",
+    "nocturnal",
+    "animal-bat",
+    "vampire-bat",
+    "batman",
+    "bat"
+   ]
+  },
+  {
+   "id": "tabler:bath",
+   "title": "Bath",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "bathtub",
+    "bathroom",
+    "shower",
+    "spa",
+    "hotel",
+    "wash",
+    "tub",
+    "bathing",
+    "relax",
+    "bath"
+   ]
+  },
+  {
+   "id": "tabler:battery-automotive",
+   "title": "Battery automotive",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "car-battery",
+    "vehicle",
+    "accumulator",
+    "power",
+    "12v",
+    "electric",
+    "car-maintenance",
+    "battery",
+    "automotive"
+   ]
+  },
+  {
+   "id": "tabler:beach",
+   "title": "Beach",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "umbrella",
+    "parasol",
+    "summer",
+    "vacation",
+    "holiday",
+    "sea",
+    "sun",
+    "travel",
+    "beach"
+   ]
+  },
+  {
+   "id": "tabler:bed",
+   "title": "Bed",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "sleep",
+    "bedroom",
+    "hotel",
+    "rest",
+    "night",
+    "furniture",
+    "accommodation"
+   ]
+  },
+  {
+   "id": "tabler:bed-flat",
+   "title": "Bed flat",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "sleep",
+    "bedroom",
+    "hotel",
+    "rest",
+    "night",
+    "furniture",
+    "accommodation",
+    "lie-down"
+   ]
+  },
+  {
+   "id": "tabler:beer",
+   "title": "Beer",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "drink",
+    "alcohol",
+    "pub",
+    "bar",
+    "mug",
+    "pint",
+    "brewery",
+    "beer"
+   ]
+  },
+  {
+   "id": "tabler:bell-school",
+   "title": "Bell school",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "school-bell",
+    "ring",
+    "education",
+    "class",
+    "break",
+    "timer",
+    "class-bell",
+    "lesson",
+    "recess",
+    "bell",
+    "school"
+   ]
+  },
+  {
+   "id": "tabler:bike",
+   "title": "Bike",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "bicycle",
+    "cycling",
+    "cycle",
+    "ride",
+    "transport",
+    "vehicle",
+    "bike-lane",
+    "mountain-bike",
+    "bike"
+   ]
+  },
+  {
+   "id": "tabler:biohazard",
+   "title": "Biohazard",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "hazard",
+    "toxic",
+    "danger",
+    "biological",
+    "virus",
+    "warning",
+    "contamination",
+    "biohazard"
+   ]
+  },
+  {
+   "id": "tabler:bone",
+   "title": "Bone",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "skeleton",
+    "dog",
+    "medical",
+    "anatomy",
+    "fracture",
+    "dog-bone",
+    "pet",
+    "orthopedic",
+    "broken-bone",
+    "bone"
+   ]
+  },
+  {
+   "id": "tabler:bottle",
+   "title": "Bottle",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "water",
+    "drink",
+    "plastic",
+    "beverage",
+    "flask",
+    "water-bottle",
+    "plastic-bottle",
+    "bottle"
+   ]
+  },
+  {
+   "id": "tabler:bow",
+   "title": "Bow",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "archery",
+    "archer",
+    "arrow",
+    "hunting",
+    "weapon",
+    "target",
+    "bow-and-arrow",
+    "longbow",
+    "bow"
+   ]
+  },
+  {
+   "id": "tabler:bowl",
+   "title": "Bowl",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "dish",
+    "food",
+    "soup",
+    "kitchen",
+    "meal",
+    "cereal",
+    "salad-bowl",
+    "dinner",
+    "bowl"
+   ]
+  },
+  {
+   "id": "tabler:bowl-chopsticks",
+   "title": "Bowl chopsticks",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "asian",
+    "ramen",
+    "noodles",
+    "rice",
+    "food",
+    "meal",
+    "restaurant"
+   ]
+  },
+  {
+   "id": "tabler:bowl-spoon",
+   "title": "Bowl spoon",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "soup",
+    "cereal",
+    "food",
+    "meal",
+    "breakfast",
+    "soup-bowl",
+    "porridge",
+    "cereal-bowl"
+   ]
+  },
+  {
+   "id": "tabler:bowling",
+   "title": "Bowling",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "bowling-pins",
+    "pins",
+    "strike",
+    "sport",
+    "game",
+    "ten-pin",
+    "bowling-alley",
+    "skittles"
+   ]
+  },
+  {
+   "id": "tabler:bread",
+   "title": "Bread",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "bread",
+    "loaf",
+    "toast",
+    "bakery",
+    "food",
+    "breakfast",
+    "sandwich",
+    "baguette"
+   ]
+  },
+  {
+   "id": "tabler:bubble-tea",
+   "title": "Bubble tea",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "bubble-tea",
+    "boba",
+    "milk-tea",
+    "tapioca",
+    "drink",
+    "beverage",
+    "tea",
+    "cup"
+   ]
+  },
+  {
+   "id": "tabler:building",
+   "title": "Building",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "building",
+    "office",
+    "city",
+    "architecture",
+    "skyscraper",
+    "real-estate",
+    "company",
+    "apartment",
+    "tower"
+   ]
+  },
+  {
+   "id": "tabler:building-airport",
+   "title": "Building airport",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "airport",
+    "terminal",
+    "flight",
+    "travel",
+    "aviation",
+    "airplane",
+    "departure",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-arch",
+   "title": "Building arch",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "arch",
+    "triumphal-arch",
+    "monument",
+    "landmark",
+    "gate",
+    "architecture",
+    "history",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-bank",
+   "title": "Building bank",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "bank",
+    "finance",
+    "money",
+    "institution",
+    "government",
+    "courthouse",
+    "museum",
+    "columns",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-bridge",
+   "title": "Building bridge",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "bridge",
+    "river",
+    "crossing",
+    "overpass",
+    "architecture",
+    "construction",
+    "road",
+    "infrastructure",
+    "landmark",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-broadcast-tower",
+   "title": "Building broadcast tower",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "broadcast-tower",
+    "radio-tower",
+    "antenna",
+    "tower",
+    "transmitter",
+    "signal",
+    "broadcast",
+    "communication",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-burj-al-arab",
+   "title": "Building burj al arab",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "burj-al-arab",
+    "dubai",
+    "hotel",
+    "landmark",
+    "luxury",
+    "architecture",
+    "tourism",
+    "uae"
+   ]
+  },
+  {
+   "id": "tabler:building-carousel",
+   "title": "Building carousel",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "carousel",
+    "merry-go-round",
+    "amusement-park",
+    "fair",
+    "fun",
+    "funfair",
+    "ride",
+    "entertainment",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-castle",
+   "title": "Building castle",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "castle",
+    "fortress",
+    "palace",
+    "medieval",
+    "kingdom",
+    "royal",
+    "tower",
+    "fort",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-church",
+   "title": "Building church",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "church",
+    "chapel",
+    "religion",
+    "christian",
+    "cathedral",
+    "prayer",
+    "worship",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-circus",
+   "title": "Building circus",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "circus",
+    "tent",
+    "carnival",
+    "show",
+    "entertainment",
+    "fair",
+    "building",
+    "big-top",
+    "clown"
+   ]
+  },
+  {
+   "id": "tabler:building-community",
+   "title": "Building community",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "community",
+    "neighborhood",
+    "district",
+    "town",
+    "city",
+    "buildings",
+    "houses",
+    "residential",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-cottage",
+   "title": "Building cottage",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "cottage",
+    "house",
+    "home",
+    "cabin",
+    "rural",
+    "countryside",
+    "farm",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-eiffel-tower",
+   "title": "Building eiffel tower",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "eiffel-tower",
+    "paris",
+    "france",
+    "landmark",
+    "monument",
+    "tower",
+    "tourism",
+    "travel",
+    "building",
+    "eiffel"
+   ]
+  },
+  {
+   "id": "tabler:building-estate",
+   "title": "Building estate",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "estate",
+    "real-estate",
+    "property",
+    "office",
+    "company",
+    "headquarters",
+    "building",
+    "apartment"
+   ]
+  },
+  {
+   "id": "tabler:building-factory",
+   "title": "Building factory",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "factory",
+    "industry",
+    "industrial",
+    "manufacturing",
+    "plant",
+    "production",
+    "warehouse",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-fortress",
+   "title": "Building fortress",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "fortress",
+    "castle",
+    "fort",
+    "stronghold",
+    "medieval",
+    "military",
+    "defense",
+    "tower",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-hospital",
+   "title": "Building hospital",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "hospital",
+    "clinic",
+    "medical",
+    "health",
+    "healthcare",
+    "emergency",
+    "doctor",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-lighthouse",
+   "title": "Building lighthouse",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "lighthouse",
+    "beacon",
+    "sea",
+    "coast",
+    "tower",
+    "navigation",
+    "light",
+    "ship",
+    "maritime"
+   ]
+  },
+  {
+   "id": "tabler:building-monument",
+   "title": "Building monument",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "monument",
+    "memorial",
+    "obelisk",
+    "landmark",
+    "history",
+    "building",
+    "tower"
+   ]
+  },
+  {
+   "id": "tabler:building-mosque",
+   "title": "Building mosque",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "mosque",
+    "islam",
+    "muslim",
+    "religion",
+    "prayer",
+    "worship",
+    "minaret",
+    "dome",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-pavilion",
+   "title": "Building pavilion",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "pavilion",
+    "pagoda",
+    "temple",
+    "gazebo",
+    "asian",
+    "chinese",
+    "architecture",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-skyscraper",
+   "title": "Building skyscraper",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "skyscraper",
+    "tower",
+    "high-rise",
+    "city",
+    "office",
+    "downtown",
+    "building",
+    "architecture"
+   ]
+  },
+  {
+   "id": "tabler:building-stadium",
+   "title": "Building stadium",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "stadium",
+    "arena",
+    "sports",
+    "football",
+    "soccer",
+    "venue",
+    "building",
+    "event",
+    "concert"
+   ]
+  },
+  {
+   "id": "tabler:building-store",
+   "title": "Building store",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "store",
+    "shop",
+    "retail",
+    "market",
+    "storefront",
+    "supermarket",
+    "commerce",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-tunnel",
+   "title": "Building tunnel",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "tunnel",
+    "underground",
+    "road",
+    "railway",
+    "subway",
+    "passage",
+    "transit",
+    "infrastructure",
+    "building"
+   ]
+  },
+  {
+   "id": "tabler:building-warehouse",
+   "title": "Building warehouse",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "warehouse",
+    "storage",
+    "inventory",
+    "logistics",
+    "depot",
+    "stock",
+    "building",
+    "distribution",
+    "storehouse"
+   ]
+  },
+  {
+   "id": "tabler:building-wind-turbine",
+   "title": "Building wind turbine",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "wind-turbine",
+    "windmill",
+    "wind",
+    "energy",
+    "renewable",
+    "power",
+    "electricity",
+    "eco",
+    "green",
+    "building",
+    "turbine"
+   ]
+  },
+  {
+   "id": "tabler:buildings",
+   "title": "Buildings",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "buildings",
+    "city",
+    "town",
+    "urban",
+    "office",
+    "architecture",
+    "real-estate",
+    "skyline"
+   ]
+  },
+  {
+   "id": "tabler:bulldozer",
+   "title": "Bulldozer",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "bulldozer",
+    "construction",
+    "excavator",
+    "machinery",
+    "heavy-equipment",
+    "building",
+    "site",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:burger",
+   "title": "Burger",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "burger",
+    "hamburger",
+    "cheeseburger",
+    "fast-food",
+    "food",
+    "sandwich",
+    "meal",
+    "junk-food"
+   ]
+  },
+  {
+   "id": "tabler:bus",
+   "title": "Bus",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "bus",
+    "public-transport",
+    "transit",
+    "transportation",
+    "vehicle",
+    "travel",
+    "coach",
+    "school-bus"
+   ]
+  },
+  {
+   "id": "tabler:bus-stop",
+   "title": "Bus stop",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "bus-stop",
+    "bus",
+    "station",
+    "stop",
+    "public-transport",
+    "transit",
+    "transportation",
+    "bus-station",
+    "shelter"
+   ]
+  },
+  {
+   "id": "tabler:butterfly",
+   "title": "Butterfly",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "butterfly",
+    "insect",
+    "nature",
+    "moth",
+    "wings",
+    "spring",
+    "animal",
+    "bug",
+    "garden"
+   ]
+  },
+  {
+   "id": "tabler:cactus",
+   "title": "Cactus",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "cactus",
+    "plant",
+    "desert",
+    "succulent",
+    "nature",
+    "houseplant",
+    "cacti"
+   ]
+  },
+  {
+   "id": "tabler:cake",
+   "title": "Cake",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cake",
+    "birthday",
+    "party",
+    "celebration",
+    "dessert",
+    "sweet",
+    "bakery",
+    "anniversary"
+   ]
+  },
+  {
+   "id": "tabler:cake-roll",
+   "title": "Cake roll",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cake-roll",
+    "swiss-roll",
+    "roll",
+    "cake",
+    "dessert",
+    "pastry",
+    "sweet",
+    "bakery"
+   ]
+  },
+  {
+   "id": "tabler:camper",
+   "title": "Camper",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "camper",
+    "rv",
+    "motorhome",
+    "campervan",
+    "van",
+    "camping",
+    "travel",
+    "vacation",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:campfire",
+   "title": "Campfire",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "campfire",
+    "bonfire",
+    "fire",
+    "camping",
+    "camp",
+    "flame",
+    "outdoor",
+    "wood"
+   ]
+  },
+  {
+   "id": "tabler:candy",
+   "title": "Candy",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "candy",
+    "sweet",
+    "sugar",
+    "confectionery",
+    "treat",
+    "halloween",
+    "bonbon",
+    "dessert"
+   ]
+  },
+  {
+   "id": "tabler:cannabis",
+   "title": "Cannabis",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "cannabis",
+    "marijuana",
+    "weed",
+    "hemp",
+    "cbd",
+    "leaf",
+    "drug",
+    "medical"
+   ]
+  },
+  {
+   "id": "tabler:car",
+   "title": "Car",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "car",
+    "vehicle",
+    "automobile",
+    "auto",
+    "drive",
+    "transport",
+    "travel",
+    "sedan"
+   ]
+  },
+  {
+   "id": "tabler:car-4wd",
+   "title": "Car 4wd",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "4wd",
+    "4x4",
+    "four-wheel-drive",
+    "car",
+    "offroad",
+    "suv",
+    "jeep",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:car-crane",
+   "title": "Car crane",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "crane",
+    "tow-truck",
+    "truck",
+    "crane-truck",
+    "construction",
+    "lift",
+    "vehicle",
+    "tow",
+    "towing",
+    "car"
+   ]
+  },
+  {
+   "id": "tabler:car-crash",
+   "title": "Car crash",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "car-crash",
+    "accident",
+    "collision",
+    "crash",
+    "damage",
+    "insurance",
+    "car",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:car-garage",
+   "title": "Car garage",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "garage",
+    "car",
+    "parking",
+    "car-park",
+    "carport",
+    "auto-repair",
+    "car-service",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:car-off-road",
+   "title": "Car off road",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "off-road",
+    "offroad",
+    "4x4",
+    "suv",
+    "jeep",
+    "terrain",
+    "adventure",
+    "car",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:car-suv",
+   "title": "Car suv",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "suv",
+    "car",
+    "sport-utility",
+    "crossover",
+    "jeep",
+    "4x4",
+    "automobile",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:carambola",
+   "title": "Carambola",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "carambola",
+    "starfruit",
+    "star-fruit",
+    "fruit",
+    "tropical",
+    "food",
+    "healthy",
+    "exotic",
+    "vitamin"
+   ]
+  },
+  {
+   "id": "tabler:caravan",
+   "title": "Caravan",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "caravan",
+    "trailer",
+    "camper",
+    "rv",
+    "camping",
+    "travel",
+    "vacation",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:carrot",
+   "title": "Carrot",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "carrot",
+    "vegetable",
+    "veggie",
+    "food",
+    "healthy",
+    "vegan",
+    "rabbit",
+    "orange",
+    "root"
+   ]
+  },
+  {
+   "id": "tabler:cat",
+   "title": "Cat",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "cat",
+    "kitten",
+    "kitty",
+    "pet",
+    "animal",
+    "feline",
+    "meow",
+    "kitty-cat",
+    "animals"
+   ]
+  },
+  {
+   "id": "tabler:chalkboard-teacher",
+   "title": "Chalkboard teacher",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "chalkboard",
+    "blackboard",
+    "board",
+    "classroom",
+    "school",
+    "education",
+    "teaching",
+    "teacher",
+    "lecture",
+    "lesson",
+    "tutor",
+    "presentation"
+   ]
+  },
+  {
+   "id": "tabler:charging-pile",
+   "title": "Charging pile",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "charging-station",
+    "ev-charger",
+    "electric-car",
+    "charger",
+    "ev",
+    "charging",
+    "plug",
+    "electricity",
+    "pile"
+   ]
+  },
+  {
+   "id": "tabler:cheese",
+   "title": "Cheese",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cheese",
+    "food",
+    "dairy",
+    "cheddar",
+    "slice",
+    "snack",
+    "mouse",
+    "swiss-cheese",
+    "emmental"
+   ]
+  },
+  {
+   "id": "tabler:chef-hat",
+   "title": "Chef hat",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "chef",
+    "cook",
+    "cooking",
+    "kitchen",
+    "restaurant",
+    "toque",
+    "culinary",
+    "food",
+    "recipe",
+    "cuisine",
+    "hat"
+   ]
+  },
+  {
+   "id": "tabler:cherry",
+   "title": "Cherry",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "cherries",
+    "fruit",
+    "food",
+    "berry",
+    "sweet",
+    "healthy",
+    "summer",
+    "dessert",
+    "cherry"
+   ]
+  },
+  {
+   "id": "tabler:chess",
+   "title": "Chess",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "chess-pawn",
+    "pawn",
+    "board-game",
+    "game",
+    "strategy",
+    "piece",
+    "chessboard",
+    "checkmate",
+    "play",
+    "chess"
+   ]
+  },
+  {
+   "id": "tabler:chess-bishop",
+   "title": "Chess bishop",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "bishop",
+    "chess",
+    "chess-piece",
+    "piece",
+    "board-game",
+    "game",
+    "strategy",
+    "play"
+   ]
+  },
+  {
+   "id": "tabler:chess-king",
+   "title": "Chess king",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "king",
+    "checkmate",
+    "crown",
+    "chess",
+    "chess-piece",
+    "piece",
+    "board-game",
+    "game",
+    "strategy",
+    "play"
+   ]
+  },
+  {
+   "id": "tabler:chess-knight",
+   "title": "Chess knight",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "knight",
+    "horse",
+    "chess",
+    "chess-piece",
+    "piece",
+    "board-game",
+    "game",
+    "strategy",
+    "play"
+   ]
+  },
+  {
+   "id": "tabler:chess-queen",
+   "title": "Chess queen",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "queen",
+    "chess",
+    "chess-piece",
+    "piece",
+    "board-game",
+    "game",
+    "strategy",
+    "play"
+   ]
+  },
+  {
+   "id": "tabler:chess-rook",
+   "title": "Chess rook",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "rook",
+    "castle",
+    "tower",
+    "chess",
+    "chess-piece",
+    "piece",
+    "board-game",
+    "game",
+    "strategy",
+    "play"
+   ]
+  },
+  {
+   "id": "tabler:chocolate",
+   "title": "Chocolate",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "chocolate-bar",
+    "candy",
+    "sweet",
+    "dessert",
+    "cocoa",
+    "snack",
+    "treat",
+    "sugar",
+    "food",
+    "chocolate"
+   ]
+  },
+  {
+   "id": "tabler:christmas-tree",
+   "title": "Christmas tree",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "xmas",
+    "christmas",
+    "holiday",
+    "pine",
+    "spruce",
+    "fir",
+    "evergreen",
+    "decoration",
+    "winter",
+    "festive",
+    "new-year"
+   ]
+  },
+  {
+   "id": "tabler:cliff-jumping",
+   "title": "Cliff jumping",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "cliff-jumping",
+    "diving",
+    "jump",
+    "extreme-sport",
+    "water",
+    "adventure",
+    "sport",
+    "height",
+    "cliff",
+    "jumping"
+   ]
+  },
+  {
+   "id": "tabler:cloud",
+   "title": "Cloud",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "weather",
+    "cloudy",
+    "cloud-storage",
+    "online",
+    "server",
+    "sync",
+    "internet",
+    "overcast",
+    "forecast",
+    "icloud",
+    "cloud"
+   ]
+  },
+  {
+   "id": "tabler:cloud-fog",
+   "title": "Cloud fog",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "fog",
+    "foggy",
+    "mist",
+    "haze",
+    "weather",
+    "cloudy",
+    "forecast",
+    "cloud"
+   ]
+  },
+  {
+   "id": "tabler:cloud-rain",
+   "title": "Cloud rain",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "rain",
+    "rainy",
+    "showers",
+    "drizzle",
+    "weather",
+    "forecast",
+    "precipitation",
+    "cloud"
+   ]
+  },
+  {
+   "id": "tabler:cloud-snow",
+   "title": "Cloud snow",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "snow",
+    "snowy",
+    "snowfall",
+    "winter",
+    "blizzard",
+    "weather",
+    "forecast",
+    "cloud"
+   ]
+  },
+  {
+   "id": "tabler:cloud-storm",
+   "title": "Cloud storm",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "storm",
+    "thunderstorm",
+    "lightning",
+    "thunder",
+    "weather",
+    "forecast",
+    "rain",
+    "cloud"
+   ]
+  },
+  {
+   "id": "tabler:clover",
+   "title": "Clover",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "clover",
+    "shamrock",
+    "luck",
+    "lucky",
+    "four-leaf",
+    "st-patricks",
+    "irish",
+    "ireland",
+    "leaf",
+    "plant"
+   ]
+  },
+  {
+   "id": "tabler:coffee",
+   "title": "Coffee",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "coffee",
+    "cup",
+    "mug",
+    "cafe",
+    "espresso",
+    "latte",
+    "hot-drink",
+    "tea",
+    "break",
+    "beverage"
+   ]
+  },
+  {
+   "id": "tabler:comet",
+   "title": "Comet",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "comet",
+    "meteor",
+    "shooting-star",
+    "space",
+    "astronomy",
+    "asteroid",
+    "falling-star",
+    "sky",
+    "night"
+   ]
+  },
+  {
+   "id": "tabler:compass",
+   "title": "Compass",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "compass",
+    "navigation",
+    "direction",
+    "explore",
+    "discover",
+    "north",
+    "travel",
+    "orientation",
+    "safari"
+   ]
+  },
+  {
+   "id": "tabler:confucius",
+   "title": "Confucius",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "confucius",
+    "confucianism",
+    "chinese",
+    "religion",
+    "philosophy",
+    "symbol",
+    "tradition",
+    "culture"
+   ]
+  },
+  {
+   "id": "tabler:cooker",
+   "title": "Cooker",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cooker",
+    "pot",
+    "rice-cooker",
+    "pressure-cooker",
+    "kitchen",
+    "cooking",
+    "stove",
+    "appliance",
+    "chef"
+   ]
+  },
+  {
+   "id": "tabler:cookie",
+   "title": "Cookie",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cookie",
+    "biscuit",
+    "dessert",
+    "snack",
+    "sweet",
+    "bakery",
+    "cookies",
+    "browser-cookies",
+    "consent",
+    "privacy"
+   ]
+  },
+  {
+   "id": "tabler:crane",
+   "title": "Crane",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "crane",
+    "construction",
+    "building",
+    "lifting",
+    "tower-crane",
+    "heavy",
+    "machinery",
+    "site",
+    "industry"
+   ]
+  },
+  {
+   "id": "tabler:cricket",
+   "title": "Cricket",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "cricket",
+    "bat",
+    "ball",
+    "sport",
+    "game",
+    "wicket",
+    "match",
+    "team-sport"
+   ]
+  },
+  {
+   "id": "tabler:cross",
+   "title": "Cross",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "cross",
+    "christian",
+    "christianity",
+    "church",
+    "religion",
+    "jesus",
+    "faith",
+    "crucifix",
+    "prayer"
+   ]
+  },
+  {
+   "id": "tabler:crystal-ball",
+   "title": "Crystal ball",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "crystal-ball",
+    "fortune",
+    "fortune-telling",
+    "magic",
+    "future",
+    "prediction",
+    "psychic",
+    "forecast",
+    "mystic",
+    "crystal",
+    "ball"
+   ]
+  },
+  {
+   "id": "tabler:cup",
+   "title": "Cup",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cup",
+    "mug",
+    "drink",
+    "tea",
+    "coffee",
+    "beverage",
+    "glass",
+    "water"
+   ]
+  },
+  {
+   "id": "tabler:curling",
+   "title": "Curling",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "curling",
+    "stone",
+    "curling-stone",
+    "winter-sport",
+    "olympics",
+    "ice",
+    "sport",
+    "game"
+   ]
+  },
+  {
+   "id": "tabler:current-location",
+   "title": "Current location",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "current-location",
+    "my-location",
+    "gps",
+    "locate-me",
+    "crosshair",
+    "position",
+    "navigation",
+    "map",
+    "target",
+    "current",
+    "location"
+   ]
+  },
+  {
+   "id": "tabler:deer",
+   "title": "Deer",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "deer",
+    "reindeer",
+    "animal",
+    "antlers",
+    "christmas",
+    "forest",
+    "wildlife",
+    "elk",
+    "hunting"
+   ]
+  },
+  {
+   "id": "tabler:directions",
+   "title": "Directions",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "directions",
+    "signpost",
+    "navigation",
+    "route",
+    "way",
+    "travel",
+    "map",
+    "guide",
+    "crossroads"
+   ]
+  },
+  {
+   "id": "tabler:disc-golf",
+   "title": "Disc golf",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "disc-golf",
+    "frisbee",
+    "ultimate",
+    "disc",
+    "throw",
+    "sport",
+    "outdoor",
+    "game",
+    "basket",
+    "golf"
+   ]
+  },
+  {
+   "id": "tabler:dog",
+   "title": "Dog",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "dog",
+    "puppy",
+    "pet",
+    "animal",
+    "canine",
+    "doggy",
+    "veterinary",
+    "paw",
+    "pet-friendly"
+   ]
+  },
+  {
+   "id": "tabler:dog-bowl",
+   "title": "Dog bowl",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "dog-bowl",
+    "pet-food",
+    "bowl",
+    "feeding",
+    "pet",
+    "dog",
+    "animal",
+    "food",
+    "bone"
+   ]
+  },
+  {
+   "id": "tabler:dragon",
+   "title": "Dragon",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "dragon",
+    "fantasy",
+    "mythology",
+    "monster",
+    "creature",
+    "legend",
+    "game",
+    "dnd",
+    "fire"
+   ]
+  },
+  {
+   "id": "tabler:drone",
+   "title": "Drone",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "drone",
+    "quadcopter",
+    "uav",
+    "aerial",
+    "camera-drone",
+    "fly",
+    "flying",
+    "remote-control",
+    "aircraft",
+    "surveillance"
+   ]
+  },
+  {
+   "id": "tabler:droplets",
+   "title": "Droplets",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "droplets",
+    "drops",
+    "water",
+    "rain",
+    "liquid",
+    "humidity",
+    "moisture",
+    "splash",
+    "wet",
+    "drip"
+   ]
+  },
+  {
+   "id": "tabler:dumbbell",
+   "title": "Dumbbell",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "dumbbell",
+    "gym",
+    "fitness",
+    "workout",
+    "weight",
+    "weightlifting",
+    "strength",
+    "exercise",
+    "training",
+    "bodybuilding"
+   ]
+  },
+  {
+   "id": "tabler:dumpling",
+   "title": "Dumpling",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "dumpling",
+    "dim-sum",
+    "gyoza",
+    "chinese-food",
+    "asian-food",
+    "food",
+    "dish",
+    "pierogi",
+    "momo",
+    "steamed"
+   ]
+  },
+  {
+   "id": "tabler:egg",
+   "title": "Egg",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "egg",
+    "food",
+    "breakfast",
+    "easter",
+    "chicken",
+    "protein",
+    "cooking",
+    "oval"
+   ]
+  },
+  {
+   "id": "tabler:egg-cracked",
+   "title": "Egg cracked",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "egg",
+    "cracked",
+    "broken",
+    "hatch",
+    "easter",
+    "breakfast",
+    "food",
+    "shell"
+   ]
+  },
+  {
+   "id": "tabler:egg-fried",
+   "title": "Egg fried",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "fried-egg",
+    "egg",
+    "breakfast",
+    "sunny-side-up",
+    "cooking",
+    "frying-pan",
+    "food",
+    "brunch",
+    "fried"
+   ]
+  },
+  {
+   "id": "tabler:eggs",
+   "title": "Eggs",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "eggs",
+    "egg",
+    "food",
+    "breakfast",
+    "easter",
+    "chicken",
+    "protein",
+    "dairy",
+    "groceries"
+   ]
+  },
+  {
+   "id": "tabler:engine",
+   "title": "Engine",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "engine",
+    "motor",
+    "car",
+    "automotive",
+    "check-engine",
+    "vehicle",
+    "mechanic",
+    "repair",
+    "warning-light"
+   ]
+  },
+  {
+   "id": "tabler:escalator",
+   "title": "Escalator",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "escalator",
+    "moving-stairs",
+    "stairs",
+    "mall",
+    "airport",
+    "metro",
+    "subway",
+    "public-transport",
+    "station"
+   ]
+  },
+  {
+   "id": "tabler:exercise-ball",
+   "title": "Exercise ball",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "exercise-ball",
+    "yoga-ball",
+    "swiss-ball",
+    "pilates",
+    "fitness",
+    "gym",
+    "balance",
+    "stability",
+    "workout",
+    "exercise",
+    "ball"
+   ]
+  },
+  {
+   "id": "tabler:feather",
+   "title": "Feather",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "feather",
+    "quill",
+    "light",
+    "lightweight",
+    "bird",
+    "write",
+    "plume",
+    "writing"
+   ]
+  },
+  {
+   "id": "tabler:fence",
+   "title": "Fence",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "fence",
+    "barrier",
+    "garden",
+    "yard",
+    "boundary",
+    "farm",
+    "wooden-fence",
+    "enclosure",
+    "property"
+   ]
+  },
+  {
+   "id": "tabler:ferry",
+   "title": "Ferry",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "ferry",
+    "boat",
+    "ship",
+    "cruise",
+    "sea",
+    "ocean",
+    "travel",
+    "transport",
+    "port",
+    "sailing"
+   ]
+  },
+  {
+   "id": "tabler:fire-hydrant",
+   "title": "Fire hydrant",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "fire-hydrant",
+    "hydrant",
+    "fire",
+    "firefighter",
+    "water",
+    "emergency",
+    "street",
+    "safety",
+    "urban"
+   ]
+  },
+  {
+   "id": "tabler:firetruck",
+   "title": "Firetruck",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "firetruck",
+    "fire-truck",
+    "fire-engine",
+    "firefighter",
+    "fire-department",
+    "emergency",
+    "rescue",
+    "vehicle",
+    "ambulance"
+   ]
+  },
+  {
+   "id": "tabler:fish",
+   "title": "Fish",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "fish",
+    "seafood",
+    "sea",
+    "ocean",
+    "aquarium",
+    "fishing",
+    "food",
+    "animal",
+    "marine"
+   ]
+  },
+  {
+   "id": "tabler:fish-bone",
+   "title": "Fish bone",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "fish-bone",
+    "skeleton",
+    "bones",
+    "leftovers",
+    "cat-food",
+    "fish",
+    "seafood",
+    "dead",
+    "ishikawa",
+    "bone"
+   ]
+  },
+  {
+   "id": "tabler:fish-christianity",
+   "title": "Fish christianity",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "ichthys",
+    "jesus-fish",
+    "christian",
+    "christianity",
+    "religion",
+    "faith",
+    "church",
+    "symbol",
+    "jesus",
+    "fish"
+   ]
+  },
+  {
+   "id": "tabler:fish-hook",
+   "title": "Fish hook",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "fish-hook",
+    "fishing",
+    "hook",
+    "bait",
+    "catch",
+    "lure",
+    "angling",
+    "tackle",
+    "webhook",
+    "fish"
+   ]
+  },
+  {
+   "id": "tabler:flag",
+   "title": "Flag",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "flag",
+    "report",
+    "banner",
+    "milestone",
+    "mark",
+    "country",
+    "goal",
+    "nation",
+    "finish"
+   ]
+  },
+  {
+   "id": "tabler:flame",
+   "title": "Flame",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "flame",
+    "fire",
+    "hot",
+    "burn",
+    "trending",
+    "popular",
+    "heat",
+    "lit",
+    "streak",
+    "campfire"
+   ]
+  },
+  {
+   "id": "tabler:flare",
+   "title": "Flare",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "flare",
+    "lens-flare",
+    "sun",
+    "sunlight",
+    "shine",
+    "bright",
+    "glare",
+    "light",
+    "photo",
+    "solar-flare"
+   ]
+  },
+  {
+   "id": "tabler:flood",
+   "title": "Flood",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "flood",
+    "flooding",
+    "water",
+    "disaster",
+    "storm",
+    "rain",
+    "natural-disaster",
+    "weather",
+    "emergency",
+    "insurance"
+   ]
+  },
+  {
+   "id": "tabler:flower",
+   "title": "Flower",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "flower",
+    "blossom",
+    "bloom",
+    "plant",
+    "garden",
+    "rose",
+    "spring",
+    "nature",
+    "floral",
+    "daisy"
+   ]
+  },
+  {
+   "id": "tabler:forklift",
+   "title": "Forklift",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "forklift",
+    "warehouse",
+    "logistics",
+    "lift",
+    "pallet",
+    "cargo",
+    "inventory",
+    "shipping",
+    "industrial",
+    "vehicle"
+   ]
+  },
+  {
+   "id": "tabler:fountain",
+   "title": "Fountain",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "fountain",
+    "park",
+    "water",
+    "city",
+    "plaza",
+    "public",
+    "decoration",
+    "spring",
+    "garden"
+   ]
+  },
+  {
+   "id": "tabler:garden-cart",
+   "title": "Garden cart",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "wheelbarrow",
+    "garden-cart",
+    "garden",
+    "gardening",
+    "construction",
+    "cart",
+    "yard",
+    "barrow",
+    "dirt"
+   ]
+  },
+  {
+   "id": "tabler:gas-station",
+   "title": "Gas station",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "gas-station",
+    "petrol-station",
+    "fuel",
+    "gas",
+    "petrol",
+    "refuel",
+    "pump",
+    "diesel",
+    "car",
+    "filling-station",
+    "station"
+   ]
+  },
+  {
+   "id": "tabler:geometry",
+   "title": "Geometry",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "geometry",
+    "compass",
+    "drafting",
+    "math",
+    "architecture",
+    "construction",
+    "drawing",
+    "protractor",
+    "measure"
+   ]
+  },
+  {
+   "id": "tabler:glass",
+   "title": "Glass",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "glass",
+    "wine-glass",
+    "wine",
+    "drink",
+    "goblet",
+    "bar",
+    "alcohol",
+    "party",
+    "cheers"
+   ]
+  },
+  {
+   "id": "tabler:glass-champagne",
+   "title": "Glass champagne",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "champagne",
+    "glass",
+    "toast",
+    "cheers",
+    "celebration",
+    "party",
+    "new-year",
+    "prosecco",
+    "wine",
+    "drink"
+   ]
+  },
+  {
+   "id": "tabler:glass-cocktail",
+   "title": "Glass cocktail",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cocktail",
+    "martini",
+    "glass",
+    "drink",
+    "bar",
+    "alcohol",
+    "party",
+    "beverage",
+    "happy-hour"
+   ]
+  },
+  {
+   "id": "tabler:glass-full",
+   "title": "Glass full",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "wine-glass",
+    "glass",
+    "wine",
+    "red-wine",
+    "drink",
+    "bar",
+    "alcohol",
+    "party",
+    "cheers",
+    "full"
+   ]
+  },
+  {
+   "id": "tabler:glass-gin",
+   "title": "Glass gin",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "gin",
+    "gin-tonic",
+    "glass",
+    "drink",
+    "bar",
+    "alcohol",
+    "cocktail",
+    "liquor",
+    "beverage"
+   ]
+  },
+  {
+   "id": "tabler:globe",
+   "title": "Globe",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "globe",
+    "world",
+    "earth",
+    "planet",
+    "international",
+    "global",
+    "language",
+    "geography",
+    "travel",
+    "map"
+   ]
+  },
+  {
+   "id": "tabler:golf",
+   "title": "Golf",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "golf",
+    "golf-course",
+    "flag",
+    "hole",
+    "putt",
+    "sport",
+    "club",
+    "green"
+   ]
+  },
+  {
+   "id": "tabler:gps",
+   "title": "Gps",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "gps",
+    "navigation",
+    "location",
+    "satellite",
+    "satnav",
+    "compass",
+    "direction",
+    "positioning",
+    "map",
+    "tracking"
+   ]
+  },
+  {
+   "id": "tabler:grape",
+   "title": "Grape",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "grapes",
+    "fruit",
+    "vine",
+    "wine",
+    "berry",
+    "food",
+    "vineyard",
+    "healthy",
+    "organic",
+    "grape"
+   ]
+  },
+  {
+   "id": "tabler:grave",
+   "title": "Grave",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "tombstone",
+    "gravestone",
+    "cemetery",
+    "headstone",
+    "death",
+    "rip",
+    "halloween",
+    "tomb",
+    "memorial",
+    "funeral",
+    "grave"
+   ]
+  },
+  {
+   "id": "tabler:grill",
+   "title": "Grill",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "grill",
+    "bbq",
+    "barbecue",
+    "cooking",
+    "food",
+    "meat",
+    "steak",
+    "sausage",
+    "outdoor-cooking"
+   ]
+  },
+  {
+   "id": "tabler:grill-fork",
+   "title": "Grill fork",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "fork",
+    "grill",
+    "bbq",
+    "barbecue",
+    "cooking",
+    "meat",
+    "utensil",
+    "tool",
+    "kitchen"
+   ]
+  },
+  {
+   "id": "tabler:grill-spatula",
+   "title": "Grill spatula",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "spatula",
+    "turner",
+    "grill",
+    "bbq",
+    "barbecue",
+    "cooking",
+    "utensil",
+    "tool",
+    "kitchen",
+    "flipper"
+   ]
+  },
+  {
+   "id": "tabler:growth",
+   "title": "Growth",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "growth",
+    "sprout",
+    "seedling",
+    "plant",
+    "grow",
+    "seed",
+    "garden",
+    "nature",
+    "eco",
+    "development"
+   ]
+  },
+  {
+   "id": "tabler:haze",
+   "title": "Haze",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "haze",
+    "fog",
+    "mist",
+    "smog",
+    "weather",
+    "forecast",
+    "sun",
+    "morning",
+    "hazy"
+   ]
+  },
+  {
+   "id": "tabler:helicopter",
+   "title": "Helicopter",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "helicopter",
+    "chopper",
+    "aircraft",
+    "rotorcraft",
+    "fly",
+    "aviation",
+    "transport",
+    "travel"
+   ]
+  },
+  {
+   "id": "tabler:helicopter-landing",
+   "title": "Helicopter landing",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "helipad",
+    "helicopter",
+    "landing",
+    "heliport",
+    "h",
+    "aviation",
+    "aircraft",
+    "chopper",
+    "pad"
+   ]
+  },
+  {
+   "id": "tabler:helmet",
+   "title": "Helmet",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "helmet",
+    "safety",
+    "protection",
+    "motorcycle",
+    "bike",
+    "racing",
+    "hard-hat",
+    "construction",
+    "sport"
+   ]
+  },
+  {
+   "id": "tabler:home",
+   "title": "Home",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "home",
+    "house",
+    "homepage",
+    "main",
+    "start",
+    "dashboard",
+    "building",
+    "residence",
+    "real-estate"
+   ]
+  },
+  {
+   "id": "tabler:horse",
+   "title": "Horse",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "horse",
+    "equine",
+    "equestrian",
+    "riding",
+    "pony",
+    "stallion",
+    "animal",
+    "farm",
+    "racing"
+   ]
+  },
+  {
+   "id": "tabler:horseshoe",
+   "title": "Horseshoe",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "horseshoe",
+    "luck",
+    "lucky",
+    "horse",
+    "good-luck",
+    "charm",
+    "fortune"
+   ]
+  },
+  {
+   "id": "tabler:hotel-service",
+   "title": "Hotel service",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "bell",
+    "service-bell",
+    "hotel",
+    "reception",
+    "concierge",
+    "front-desk",
+    "hospitality",
+    "call",
+    "service"
+   ]
+  },
+  {
+   "id": "tabler:hula-hoop",
+   "title": "Hula hoop",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "hula-hoop",
+    "hoop",
+    "fitness",
+    "exercise",
+    "toy",
+    "workout",
+    "spin",
+    "hula"
+   ]
+  },
+  {
+   "id": "tabler:ice-cream",
+   "title": "Ice cream",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "ice-cream",
+    "gelato",
+    "dessert",
+    "cone",
+    "frozen",
+    "sweet",
+    "popsicle",
+    "summer",
+    "ice",
+    "cream"
+   ]
+  },
+  {
+   "id": "tabler:ice-skating",
+   "title": "Ice skating",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "ice-skating",
+    "skate",
+    "skates",
+    "figure-skating",
+    "winter",
+    "sport",
+    "hockey",
+    "rink",
+    "ice",
+    "skating"
+   ]
+  },
+  {
+   "id": "tabler:iceberg",
+   "title": "Iceberg",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "iceberg",
+    "ice",
+    "glacier",
+    "arctic",
+    "polar",
+    "cold",
+    "ocean",
+    "climate",
+    "tip-of-the-iceberg"
+   ]
+  },
+  {
+   "id": "tabler:jetski",
+   "title": "Jetski",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "jet-ski",
+    "jetski",
+    "personal-watercraft",
+    "pwc",
+    "watercraft",
+    "water",
+    "sea",
+    "summer",
+    "boat"
+   ]
+  },
+  {
+   "id": "tabler:jump-rope",
+   "title": "Jump rope",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "jump-rope",
+    "skipping-rope",
+    "skipping",
+    "fitness",
+    "workout",
+    "cardio",
+    "exercise",
+    "gym",
+    "jump",
+    "rope"
+   ]
+  },
+  {
+   "id": "tabler:karate",
+   "title": "Karate",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "karate",
+    "martial-arts",
+    "self-defense",
+    "fight",
+    "kick",
+    "dojo",
+    "judo",
+    "taekwondo",
+    "sport"
+   ]
+  },
+  {
+   "id": "tabler:kayak",
+   "title": "Kayak",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "kayak",
+    "canoe",
+    "paddle",
+    "boat",
+    "water",
+    "sport",
+    "river",
+    "rowing",
+    "outdoor"
+   ]
+  },
+  {
+   "id": "tabler:leaf",
+   "title": "Leaf",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "leaf",
+    "nature",
+    "plant",
+    "eco",
+    "green",
+    "ecology",
+    "environment",
+    "organic",
+    "vegan"
+   ]
+  },
+  {
+   "id": "tabler:leaf-maple",
+   "title": "Leaf maple",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "maple-leaf",
+    "maple",
+    "leaf",
+    "canada",
+    "autumn",
+    "fall",
+    "nature",
+    "tree"
+   ]
+  },
+  {
+   "id": "tabler:lemon",
+   "title": "Lemon",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "lemon",
+    "lime",
+    "citrus",
+    "fruit",
+    "food",
+    "vitamin",
+    "sour",
+    "slice"
+   ]
+  },
+  {
+   "id": "tabler:location",
+   "title": "Location",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "location",
+    "navigation",
+    "gps",
+    "arrow",
+    "pointer",
+    "direction",
+    "map",
+    "compass",
+    "position"
+   ]
+  },
+  {
+   "id": "tabler:lollipop",
+   "title": "Lollipop",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "lollipop",
+    "candy",
+    "sweet",
+    "sugar",
+    "dessert",
+    "confectionery",
+    "halloween"
+   ]
+  },
+  {
+   "id": "tabler:map",
+   "title": "Map",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "map",
+    "navigation",
+    "location",
+    "travel",
+    "geography",
+    "directions",
+    "atlas"
+   ]
+  },
+  {
+   "id": "tabler:map-east",
+   "title": "Map east",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "map",
+    "east",
+    "compass",
+    "direction",
+    "east-arrow",
+    "navigation",
+    "cardinal"
+   ]
+  },
+  {
+   "id": "tabler:map-north",
+   "title": "Map north",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "map",
+    "north",
+    "compass",
+    "direction",
+    "north-arrow",
+    "navigation",
+    "cardinal"
+   ]
+  },
+  {
+   "id": "tabler:map-pinned",
+   "title": "Map pinned",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "map",
+    "pin",
+    "pinned",
+    "location",
+    "marker",
+    "place",
+    "navigation",
+    "saved",
+    "destination"
+   ]
+  },
+  {
+   "id": "tabler:map-pins",
+   "title": "Map pins",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "pins",
+    "markers",
+    "locations",
+    "places",
+    "multiple",
+    "map",
+    "navigation",
+    "destinations"
+   ]
+  },
+  {
+   "id": "tabler:map-route",
+   "title": "Map route",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "route",
+    "path",
+    "directions",
+    "trip",
+    "itinerary",
+    "navigation",
+    "map",
+    "journey"
+   ]
+  },
+  {
+   "id": "tabler:map-shield",
+   "title": "Map shield",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "map",
+    "shield",
+    "safe",
+    "secure",
+    "protection",
+    "location",
+    "safety"
+   ]
+  },
+  {
+   "id": "tabler:map-south",
+   "title": "Map south",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "map",
+    "south",
+    "compass",
+    "direction",
+    "south-arrow",
+    "navigation",
+    "cardinal"
+   ]
+  },
+  {
+   "id": "tabler:map-west",
+   "title": "Map west",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "map",
+    "west",
+    "compass",
+    "direction",
+    "west-arrow",
+    "navigation",
+    "cardinal"
+   ]
+  },
+  {
+   "id": "tabler:mars",
+   "title": "Mars",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "male",
+    "man",
+    "gender",
+    "masculine",
+    "symbol",
+    "sex",
+    "boy",
+    "planet",
+    "astrology",
+    "mars"
+   ]
+  },
+  {
+   "id": "tabler:masks-theater",
+   "title": "Masks theater",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "theater",
+    "theatre",
+    "drama",
+    "comedy",
+    "tragedy",
+    "acting",
+    "performance",
+    "stage",
+    "arts",
+    "show",
+    "masks"
+   ]
+  },
+  {
+   "id": "tabler:meat",
+   "title": "Meat",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "beef",
+    "steak",
+    "ham",
+    "meat-on-bone",
+    "protein",
+    "dinner",
+    "food",
+    "bbq",
+    "butcher",
+    "meat"
+   ]
+  },
+  {
+   "id": "tabler:medal",
+   "title": "Medal",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "award",
+    "prize",
+    "badge",
+    "achievement",
+    "winner",
+    "honor",
+    "ribbon",
+    "reward",
+    "medal"
+   ]
+  },
+  {
+   "id": "tabler:medical-cross",
+   "title": "Medical cross",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "health",
+    "hospital",
+    "first-aid",
+    "medicine",
+    "healthcare",
+    "doctor",
+    "emergency",
+    "pharmacy",
+    "plus",
+    "medical",
+    "cross"
+   ]
+  },
+  {
+   "id": "tabler:melon",
+   "title": "Melon",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "watermelon",
+    "fruit",
+    "summer",
+    "slice",
+    "sweet",
+    "juicy",
+    "food",
+    "healthy"
+   ]
+  },
+  {
+   "id": "tabler:menorah",
+   "title": "Menorah",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "judaism",
+    "jewish",
+    "hanukkah",
+    "chanukah",
+    "candles",
+    "religion",
+    "holiday",
+    "candelabra",
+    "menorah"
+   ]
+  },
+  {
+   "id": "tabler:meteor",
+   "title": "Meteor",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "shooting-star",
+    "comet",
+    "asteroid",
+    "space",
+    "astronomy",
+    "falling-star",
+    "cosmos",
+    "meteor"
+   ]
+  },
+  {
+   "id": "tabler:microwave",
+   "title": "Microwave",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "oven",
+    "kitchen",
+    "appliance",
+    "cooking",
+    "heat",
+    "reheat",
+    "food",
+    "microwave"
+   ]
+  },
+  {
+   "id": "tabler:milk",
+   "title": "Milk",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "dairy",
+    "drink",
+    "bottle",
+    "carton",
+    "breakfast",
+    "beverage",
+    "cow",
+    "food",
+    "milk"
+   ]
+  },
+  {
+   "id": "tabler:milkshake",
+   "title": "Milkshake",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "shake",
+    "smoothie",
+    "drink",
+    "dessert",
+    "ice-cream",
+    "sweet",
+    "straw",
+    "beverage",
+    "milkshake"
+   ]
+  },
+  {
+   "id": "tabler:mist",
+   "title": "Mist",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "fog",
+    "haze",
+    "foggy",
+    "weather",
+    "visibility",
+    "cloudy",
+    "smog",
+    "mist"
+   ]
+  },
+  {
+   "id": "tabler:monkeybar",
+   "title": "Monkeybar",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "playground",
+    "jungle-gym",
+    "monkey-bars",
+    "park",
+    "climbing",
+    "children",
+    "kids",
+    "outdoor"
+   ]
+  },
+  {
+   "id": "tabler:moon",
+   "title": "Moon",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "night",
+    "dark-mode",
+    "dark",
+    "theme",
+    "crescent",
+    "sleep",
+    "lunar",
+    "evening",
+    "moon"
+   ]
+  },
+  {
+   "id": "tabler:moon-stars",
+   "title": "Moon stars",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "night",
+    "dark-mode",
+    "starry-night",
+    "sleep",
+    "crescent",
+    "stars",
+    "sky",
+    "evening",
+    "bedtime",
+    "moon"
+   ]
+  },
+  {
+   "id": "tabler:moped",
+   "title": "Moped",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "scooter",
+    "vespa",
+    "motorbike",
+    "delivery",
+    "vehicle",
+    "ride",
+    "transport",
+    "moped"
+   ]
+  },
+  {
+   "id": "tabler:mosque",
+   "title": "Mosque",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "islam",
+    "muslim",
+    "religion",
+    "worship",
+    "prayer",
+    "temple",
+    "masjid",
+    "building",
+    "mosque"
+   ]
+  },
+  {
+   "id": "tabler:motorbike",
+   "title": "Motorbike",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "motorcycle",
+    "bike",
+    "scooter",
+    "ride",
+    "vehicle",
+    "transport",
+    "biker",
+    "motorbike"
+   ]
+  },
+  {
+   "id": "tabler:mountain",
+   "title": "Mountain",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "mountains",
+    "peak",
+    "hill",
+    "landscape",
+    "hiking",
+    "climbing",
+    "nature",
+    "outdoor",
+    "terrain",
+    "mountain"
+   ]
+  },
+  {
+   "id": "tabler:mug",
+   "title": "Mug",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "coffee",
+    "cup",
+    "tea",
+    "drink",
+    "hot-drink",
+    "beverage",
+    "cafe",
+    "mug-hot",
+    "mug"
+   ]
+  },
+  {
+   "id": "tabler:mushroom",
+   "title": "Mushroom",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "fungus",
+    "fungi",
+    "champignon",
+    "vegetable",
+    "food",
+    "forest",
+    "toadstool",
+    "mushroom"
+   ]
+  },
+  {
+   "id": "tabler:navigation",
+   "title": "Navigation",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "gps",
+    "arrow",
+    "direction",
+    "location",
+    "cursor",
+    "compass",
+    "route",
+    "map",
+    "pointer",
+    "send",
+    "current-location",
+    "near-me",
+    "travel",
+    "navigation"
+   ]
+  },
+  {
+   "id": "tabler:navigation-east",
+   "title": "Navigation east",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "east",
+    "right",
+    "arrow",
+    "direction",
+    "compass",
+    "gps",
+    "heading",
+    "cardinal",
+    "orientation"
+   ]
+  },
+  {
+   "id": "tabler:navigation-north",
+   "title": "Navigation north",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "north",
+    "up",
+    "arrow",
+    "direction",
+    "compass",
+    "gps",
+    "heading",
+    "cardinal",
+    "orientation",
+    "top"
+   ]
+  },
+  {
+   "id": "tabler:navigation-south",
+   "title": "Navigation south",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "south",
+    "down",
+    "arrow",
+    "direction",
+    "compass",
+    "gps",
+    "heading",
+    "cardinal",
+    "orientation",
+    "bottom"
+   ]
+  },
+  {
+   "id": "tabler:navigation-top",
+   "title": "Navigation top",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "top",
+    "up",
+    "north",
+    "arrow",
+    "direction",
+    "compass",
+    "gps",
+    "heading",
+    "orientation"
+   ]
+  },
+  {
+   "id": "tabler:navigation-west",
+   "title": "Navigation west",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "west",
+    "left",
+    "arrow",
+    "direction",
+    "compass",
+    "gps",
+    "heading",
+    "cardinal",
+    "orientation"
+   ]
+  },
+  {
+   "id": "tabler:nut",
+   "title": "Nut",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "hex-nut",
+    "bolt",
+    "screw",
+    "hardware",
+    "fastener",
+    "mechanic",
+    "hexagon",
+    "tool"
+   ]
+  },
+  {
+   "id": "tabler:olympic-torch",
+   "title": "Olympic torch",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "torch",
+    "flame",
+    "fire",
+    "olympics",
+    "olympic-games",
+    "sport",
+    "champion",
+    "relay"
+   ]
+  },
+  {
+   "id": "tabler:om",
+   "title": "Om",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "aum",
+    "hinduism",
+    "buddhism",
+    "yoga",
+    "meditation",
+    "spiritual",
+    "religion",
+    "symbol",
+    "om"
+   ]
+  },
+  {
+   "id": "tabler:orbit",
+   "title": "Orbit",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "satellite",
+    "planet",
+    "space",
+    "astronomy",
+    "orbital",
+    "rotation",
+    "cosmos",
+    "orbit"
+   ]
+  },
+  {
+   "id": "tabler:orbit-vertical",
+   "title": "Orbit vertical",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "satellite",
+    "planet",
+    "space",
+    "astronomy",
+    "orbital",
+    "rotation",
+    "cosmos",
+    "orbit",
+    "vertical"
+   ]
+  },
+  {
+   "id": "tabler:orbits",
+   "title": "Orbits",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "atom",
+    "science",
+    "physics",
+    "space",
+    "astronomy",
+    "electron",
+    "react",
+    "orbits"
+   ]
+  },
+  {
+   "id": "tabler:paper-bag",
+   "title": "Paper bag",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "bag",
+    "shopping-bag",
+    "grocery",
+    "lunch",
+    "takeaway",
+    "paperbag",
+    "eco",
+    "paper"
+   ]
+  },
+  {
+   "id": "tabler:parachute",
+   "title": "Parachute",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "skydiving",
+    "paraglide",
+    "jump",
+    "airdrop",
+    "delivery",
+    "sky",
+    "fall",
+    "parachute"
+   ]
+  },
+  {
+   "id": "tabler:parking",
+   "title": "Parking",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "parking-lot",
+    "car",
+    "park",
+    "sign",
+    "p",
+    "vehicle",
+    "garage",
+    "parking"
+   ]
+  },
+  {
+   "id": "tabler:parking-meter",
+   "title": "Parking meter",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "parking",
+    "pay-and-display",
+    "meter",
+    "car",
+    "park",
+    "coin",
+    "fee"
+   ]
+  },
+  {
+   "id": "tabler:paw",
+   "title": "Paw",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "pet",
+    "animal",
+    "dog",
+    "cat",
+    "footprint",
+    "paw-print",
+    "vet",
+    "paw"
+   ]
+  },
+  {
+   "id": "tabler:peace",
+   "title": "Peace",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "peace-sign",
+    "pacifism",
+    "no-war",
+    "love",
+    "hippie",
+    "symbol",
+    "harmony",
+    "peace"
+   ]
+  },
+  {
+   "id": "tabler:pennant",
+   "title": "Pennant",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "flag",
+    "banner",
+    "pennon",
+    "sport",
+    "triangle-flag",
+    "marker",
+    "pennants",
+    "bunting",
+    "flagpole",
+    "pennant"
+   ]
+  },
+  {
+   "id": "tabler:pepper",
+   "title": "Pepper",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "chili",
+    "chilli",
+    "hot",
+    "spicy",
+    "vegetable",
+    "food",
+    "paprika",
+    "pepper"
+   ]
+  },
+  {
+   "id": "tabler:picnic-table",
+   "title": "Picnic table",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "picnic",
+    "bench",
+    "table",
+    "outdoor",
+    "park",
+    "camping",
+    "lunch"
+   ]
+  },
+  {
+   "id": "tabler:pig",
+   "title": "Pig",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "animal",
+    "farm",
+    "pork",
+    "piggy",
+    "swine",
+    "hog",
+    "piglet",
+    "pigs",
+    "livestock",
+    "farm-animal",
+    "pig"
+   ]
+  },
+  {
+   "id": "tabler:pig-money",
+   "title": "Pig money",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "piggy-bank",
+    "savings",
+    "save",
+    "money",
+    "bank",
+    "deposit",
+    "finance",
+    "budget",
+    "pig"
+   ]
+  },
+  {
+   "id": "tabler:pin",
+   "title": "Pin",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "pushpin",
+    "thumbtack",
+    "tack",
+    "pinned",
+    "attach",
+    "sticky",
+    "keep",
+    "bookmark",
+    "noticeboard",
+    "pin"
+   ]
+  },
+  {
+   "id": "tabler:ping-pong",
+   "title": "Ping pong",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "table-tennis",
+    "paddle",
+    "racket",
+    "ball",
+    "sport",
+    "game",
+    "ping",
+    "pong"
+   ]
+  },
+  {
+   "id": "tabler:pinned",
+   "title": "Pinned",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "pin",
+    "pushpin",
+    "thumbtack",
+    "tack",
+    "sticky",
+    "attach",
+    "keep",
+    "fixed",
+    "noticeboard",
+    "corkboard",
+    "pinned"
+   ]
+  },
+  {
+   "id": "tabler:pizza",
+   "title": "Pizza",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "pizza-slice",
+    "slice",
+    "food",
+    "fast-food",
+    "italian",
+    "cheese",
+    "pepperoni",
+    "restaurant",
+    "meal",
+    "delivery",
+    "pizza"
+   ]
+  },
+  {
+   "id": "tabler:plane",
+   "title": "Plane",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "airplane",
+    "aeroplane",
+    "flight",
+    "aircraft",
+    "travel",
+    "airport",
+    "trip",
+    "fly",
+    "jet",
+    "airplane-mode",
+    "plane"
+   ]
+  },
+  {
+   "id": "tabler:plane-arrival",
+   "title": "Plane arrival",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "landing",
+    "arrivals",
+    "arrival",
+    "airplane",
+    "flight",
+    "airport",
+    "land",
+    "travel",
+    "aircraft",
+    "plane"
+   ]
+  },
+  {
+   "id": "tabler:plane-departure",
+   "title": "Plane departure",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "takeoff",
+    "take-off",
+    "departures",
+    "departure",
+    "airplane",
+    "flight",
+    "airport",
+    "travel",
+    "aircraft",
+    "plane"
+   ]
+  },
+  {
+   "id": "tabler:plane-inflight",
+   "title": "Plane inflight",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "in-flight",
+    "flying",
+    "airplane",
+    "flight",
+    "travel",
+    "trip",
+    "aircraft",
+    "sky",
+    "clouds",
+    "plane",
+    "inflight"
+   ]
+  },
+  {
+   "id": "tabler:plane-tilt",
+   "title": "Plane tilt",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "airplane",
+    "flight",
+    "takeoff",
+    "aircraft",
+    "travel",
+    "fly",
+    "jet",
+    "airport",
+    "plane",
+    "tilt"
+   ]
+  },
+  {
+   "id": "tabler:planet",
+   "title": "Planet",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "saturn",
+    "space",
+    "astronomy",
+    "orbit",
+    "universe",
+    "galaxy",
+    "cosmos",
+    "rings",
+    "world",
+    "planet"
+   ]
+  },
+  {
+   "id": "tabler:plant",
+   "title": "Plant",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "potted-plant",
+    "houseplant",
+    "pot",
+    "leaf",
+    "green",
+    "nature",
+    "garden",
+    "growth",
+    "eco",
+    "sprout"
+   ]
+  },
+  {
+   "id": "tabler:play-basketball",
+   "title": "Play basketball",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "basketball",
+    "player",
+    "nba",
+    "hoops",
+    "dribble",
+    "ball",
+    "sport",
+    "athlete",
+    "team",
+    "game"
+   ]
+  },
+  {
+   "id": "tabler:play-football",
+   "title": "Play football",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "soccer",
+    "football",
+    "player",
+    "kick",
+    "ball",
+    "goal",
+    "sport",
+    "team",
+    "match"
+   ]
+  },
+  {
+   "id": "tabler:play-handball",
+   "title": "Play handball",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "handball",
+    "player",
+    "throw",
+    "ball",
+    "goal",
+    "sport",
+    "team",
+    "athlete"
+   ]
+  },
+  {
+   "id": "tabler:play-volleyball",
+   "title": "Play volleyball",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "volleyball",
+    "player",
+    "spike",
+    "serve",
+    "net",
+    "ball",
+    "beach",
+    "sport",
+    "team"
+   ]
+  },
+  {
+   "id": "tabler:podium",
+   "title": "Podium",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "lectern",
+    "speech",
+    "speaker",
+    "presentation",
+    "conference",
+    "stage",
+    "public-speaking",
+    "microphone",
+    "politics",
+    "podium"
+   ]
+  },
+  {
+   "id": "tabler:pool",
+   "title": "Pool",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "swimming-pool",
+    "swimming",
+    "swim",
+    "water",
+    "ladder",
+    "holiday",
+    "vacation",
+    "hotel",
+    "amenities",
+    "spa",
+    "pool"
+   ]
+  },
+  {
+   "id": "tabler:prison",
+   "title": "Prison",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "jail",
+    "prisoner",
+    "bars",
+    "arrest",
+    "criminal",
+    "crime",
+    "police",
+    "cell",
+    "inmate",
+    "locked",
+    "prison"
+   ]
+  },
+  {
+   "id": "tabler:radar",
+   "title": "Radar",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "scan",
+    "sonar",
+    "detection",
+    "tracking",
+    "signal",
+    "gps",
+    "locate",
+    "search",
+    "radar"
+   ]
+  },
+  {
+   "id": "tabler:radioactive",
+   "title": "Radioactive",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "radiation",
+    "nuclear",
+    "hazard",
+    "danger",
+    "warning",
+    "toxic",
+    "atomic",
+    "reactor",
+    "biohazard"
+   ]
+  },
+  {
+   "id": "tabler:rainbow",
+   "title": "Rainbow",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "colorful",
+    "colors",
+    "colour",
+    "weather",
+    "rain",
+    "nature",
+    "pride",
+    "lgbt",
+    "rainbow"
+   ]
+  },
+  {
+   "id": "tabler:recycle",
+   "title": "Recycle",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "recycling",
+    "reuse",
+    "eco",
+    "environment",
+    "green",
+    "sustainability",
+    "waste",
+    "trash",
+    "recycle"
+   ]
+  },
+  {
+   "id": "tabler:ribbon-health",
+   "title": "Ribbon health",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "awareness-ribbon",
+    "ribbon",
+    "cancer",
+    "charity",
+    "health",
+    "medical",
+    "support",
+    "aids"
+   ]
+  },
+  {
+   "id": "tabler:rings",
+   "title": "Rings",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "olympics",
+    "olympic-rings",
+    "circles",
+    "loop",
+    "wedding",
+    "sport"
+   ]
+  },
+  {
+   "id": "tabler:ripple",
+   "title": "Ripple",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "wave",
+    "water",
+    "waves",
+    "ocean",
+    "sea",
+    "ripples",
+    "ripple"
+   ]
+  },
+  {
+   "id": "tabler:road",
+   "title": "Road",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "street",
+    "highway",
+    "route",
+    "lane",
+    "travel",
+    "traffic",
+    "way",
+    "road"
+   ]
+  },
+  {
+   "id": "tabler:road-sign",
+   "title": "Road sign",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "traffic-sign",
+    "signpost",
+    "street-sign",
+    "direction",
+    "sign",
+    "warning",
+    "road"
+   ]
+  },
+  {
+   "id": "tabler:rocket",
+   "title": "Rocket",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "launch",
+    "startup",
+    "space",
+    "spaceship",
+    "deploy",
+    "boost",
+    "fast",
+    "release",
+    "rocket"
+   ]
+  },
+  {
+   "id": "tabler:rocking-chair",
+   "title": "Rocking chair",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "chair",
+    "rocking",
+    "seat",
+    "furniture",
+    "home",
+    "relax",
+    "nursery"
+   ]
+  },
+  {
+   "id": "tabler:roller-skating",
+   "title": "Roller skating",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "roller-skates",
+    "skates",
+    "skating",
+    "rollerblade",
+    "sport",
+    "hobby",
+    "roller"
+   ]
+  },
+  {
+   "id": "tabler:rollercoaster",
+   "title": "Rollercoaster",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "roller-coaster",
+    "amusement-park",
+    "theme-park",
+    "funfair",
+    "ride",
+    "attraction",
+    "fun",
+    "rollercoaster"
+   ]
+  },
+  {
+   "id": "tabler:route",
+   "title": "Route",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "path",
+    "directions",
+    "journey",
+    "navigation",
+    "map",
+    "trip",
+    "way",
+    "gps"
+   ]
+  },
+  {
+   "id": "tabler:rugby",
+   "title": "Rugby",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "rugby-ball",
+    "ball",
+    "sport",
+    "american-football",
+    "team",
+    "match",
+    "rugby"
+   ]
+  },
+  {
+   "id": "tabler:run",
+   "title": "Run",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "running",
+    "runner",
+    "jog",
+    "sprint",
+    "exercise",
+    "fitness",
+    "sport",
+    "walk",
+    "run"
+   ]
+  },
+  {
+   "id": "tabler:run-sprint",
+   "title": "Run sprint",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "running",
+    "runner",
+    "sprint",
+    "jog",
+    "race",
+    "speed",
+    "exercise",
+    "fitness",
+    "sport",
+    "run"
+   ]
+  },
+  {
+   "id": "tabler:sailboat",
+   "title": "Sailboat",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "boat",
+    "sail",
+    "sailing",
+    "yacht",
+    "ship",
+    "sea",
+    "ocean",
+    "sailboat"
+   ]
+  },
+  {
+   "id": "tabler:salad",
+   "title": "Salad",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "food",
+    "vegetables",
+    "healthy",
+    "vegan",
+    "vegetarian",
+    "bowl",
+    "meal",
+    "diet",
+    "salad"
+   ]
+  },
+  {
+   "id": "tabler:salt",
+   "title": "Salt",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "salt-shaker",
+    "shaker",
+    "seasoning",
+    "spice",
+    "kitchen",
+    "cooking",
+    "food",
+    "salt"
+   ]
+  },
+  {
+   "id": "tabler:satellite",
+   "title": "Satellite",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "space",
+    "orbit",
+    "communication",
+    "satellite-dish",
+    "gps",
+    "signal",
+    "satellite"
+   ]
+  },
+  {
+   "id": "tabler:sausage",
+   "title": "Sausage",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "hot-dog",
+    "food",
+    "grill",
+    "bbq",
+    "meat",
+    "sausage"
+   ]
+  },
+  {
+   "id": "tabler:school",
+   "title": "School",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "graduation",
+    "education",
+    "student",
+    "mortarboard",
+    "university",
+    "college",
+    "academic",
+    "hat",
+    "learning"
+   ]
+  },
+  {
+   "id": "tabler:school-bell",
+   "title": "School bell",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "bell",
+    "school",
+    "education",
+    "alarm",
+    "ring",
+    "lesson",
+    "break"
+   ]
+  },
+  {
+   "id": "tabler:scooter",
+   "title": "Scooter",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "vespa",
+    "moped",
+    "motorbike",
+    "vehicle",
+    "transport",
+    "ride",
+    "scooter"
+   ]
+  },
+  {
+   "id": "tabler:scooter-electric",
+   "title": "Scooter electric",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "e-scooter",
+    "electric-scooter",
+    "scooter",
+    "vehicle",
+    "transport",
+    "ride",
+    "electric"
+   ]
+  },
+  {
+   "id": "tabler:scoreboard",
+   "title": "Scoreboard",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "score",
+    "points",
+    "results",
+    "game",
+    "match",
+    "sports",
+    "display",
+    "scoreboard"
+   ]
+  },
+  {
+   "id": "tabler:scuba-diving",
+   "title": "Scuba diving",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "diving",
+    "diver",
+    "underwater",
+    "scuba",
+    "sea",
+    "swimming",
+    "snorkeling"
+   ]
+  },
+  {
+   "id": "tabler:scuba-diving-tank",
+   "title": "Scuba diving tank",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "diving",
+    "oxygen-tank",
+    "air-tank",
+    "scuba",
+    "underwater",
+    "diver",
+    "tank"
+   ]
+  },
+  {
+   "id": "tabler:scuba-mask",
+   "title": "Scuba mask",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "diving-mask",
+    "snorkel",
+    "snorkeling",
+    "goggles",
+    "diving",
+    "underwater",
+    "scuba",
+    "mask"
+   ]
+  },
+  {
+   "id": "tabler:seedling",
+   "title": "Seedling",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "sprout",
+    "plant",
+    "growth",
+    "seed",
+    "grow",
+    "garden",
+    "eco",
+    "nature",
+    "seedling"
+   ]
+  },
+  {
+   "id": "tabler:segway",
+   "title": "Segway",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "personal-transporter",
+    "self-balancing",
+    "electric",
+    "scooter",
+    "vehicle",
+    "ride",
+    "segway"
+   ]
+  },
+  {
+   "id": "tabler:ship",
+   "title": "Ship",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "boat",
+    "cruise",
+    "ship",
+    "ferry",
+    "vessel",
+    "sea",
+    "ocean",
+    "shipping",
+    "freight"
+   ]
+  },
+  {
+   "id": "tabler:skateboard",
+   "title": "Skateboard",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "skate",
+    "skateboarding",
+    "board",
+    "deck",
+    "wheels",
+    "sport",
+    "skateboard"
+   ]
+  },
+  {
+   "id": "tabler:skateboarding",
+   "title": "Skateboarding",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "skater",
+    "skateboard",
+    "skate",
+    "trick",
+    "sport",
+    "extreme",
+    "street"
+   ]
+  },
+  {
+   "id": "tabler:ski-jumping",
+   "title": "Ski jumping",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "ski",
+    "skiing",
+    "jump",
+    "winter",
+    "snow",
+    "sport",
+    "olympics"
+   ]
+  },
+  {
+   "id": "tabler:sleigh",
+   "title": "Sleigh",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "sled",
+    "sledge",
+    "christmas",
+    "santa",
+    "winter",
+    "snow",
+    "sleigh"
+   ]
+  },
+  {
+   "id": "tabler:smart-home",
+   "title": "Smart home",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "home-automation",
+    "smart-house",
+    "iot",
+    "connected-home",
+    "house",
+    "home",
+    "wifi",
+    "smart"
+   ]
+  },
+  {
+   "id": "tabler:snowflake",
+   "title": "Snowflake",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "snow",
+    "winter",
+    "cold",
+    "frost",
+    "freeze",
+    "ice",
+    "christmas",
+    "snowflake"
+   ]
+  },
+  {
+   "id": "tabler:snowman",
+   "title": "Snowman",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "snow",
+    "winter",
+    "christmas",
+    "holiday",
+    "cold",
+    "snowman"
+   ]
+  },
+  {
+   "id": "tabler:soccer-field",
+   "title": "Soccer field",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "football-field",
+    "pitch",
+    "soccer",
+    "football",
+    "stadium",
+    "sport"
+   ]
+  },
+  {
+   "id": "tabler:soup",
+   "title": "Soup",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "bowl",
+    "soup",
+    "food",
+    "meal",
+    "hot",
+    "ramen"
+   ]
+  },
+  {
+   "id": "tabler:speedboat",
+   "title": "Speedboat",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "motorboat",
+    "boat",
+    "speed",
+    "water",
+    "ship",
+    "speedboat"
+   ]
+  },
+  {
+   "id": "tabler:spider",
+   "title": "Spider",
+   "set": "tabler",
+   "category": "Animals",
+   "tags": [
+    "halloween",
+    "insect",
+    "bug",
+    "cobweb",
+    "arachnid",
+    "spider"
+   ]
+  },
+  {
+   "id": "tabler:sport-billiard",
+   "title": "Sport billiard",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "billiards",
+    "pool",
+    "snooker",
+    "8-ball",
+    "eight-ball",
+    "game",
+    "ball",
+    "sport",
+    "billiard"
+   ]
+  },
+  {
+   "id": "tabler:stairs",
+   "title": "Stairs",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "staircase",
+    "stairway",
+    "steps",
+    "floor",
+    "building",
+    "stair",
+    "climb",
+    "level",
+    "stairs"
+   ]
+  },
+  {
+   "id": "tabler:steering-wheel",
+   "title": "Steering wheel",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "car",
+    "drive",
+    "driving",
+    "vehicle",
+    "steer",
+    "wheel",
+    "automotive",
+    "racing",
+    "steering"
+   ]
+  },
+  {
+   "id": "tabler:storm",
+   "title": "Storm",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "weather",
+    "thunderstorm",
+    "hurricane",
+    "cyclone",
+    "wind",
+    "rain",
+    "climate",
+    "lightning",
+    "thunder",
+    "storm"
+   ]
+  },
+  {
+   "id": "tabler:stretching",
+   "title": "Stretching",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "exercise",
+    "yoga",
+    "workout",
+    "fitness",
+    "gym",
+    "stretch",
+    "warmup",
+    "flexibility",
+    "stretching"
+   ]
+  },
+  {
+   "id": "tabler:submarine",
+   "title": "Submarine",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "sea",
+    "ocean",
+    "underwater",
+    "navy",
+    "vessel",
+    "boat",
+    "ship",
+    "transport",
+    "submarine"
+   ]
+  },
+  {
+   "id": "tabler:sun",
+   "title": "Sun",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "light-mode",
+    "light",
+    "theme",
+    "day",
+    "brightness",
+    "weather",
+    "sunny",
+    "bright",
+    "sun"
+   ]
+  },
+  {
+   "id": "tabler:sun-electricity",
+   "title": "Sun electricity",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "solar",
+    "solar-energy",
+    "solar-power",
+    "renewable",
+    "energy",
+    "electricity",
+    "green",
+    "sun"
+   ]
+  },
+  {
+   "id": "tabler:sun-high",
+   "title": "Sun high",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "sun",
+    "high-temperature",
+    "heat",
+    "hot",
+    "weather",
+    "forecast",
+    "summer",
+    "sunny",
+    "daylight",
+    "high"
+   ]
+  },
+  {
+   "id": "tabler:sun-low",
+   "title": "Sun low",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "sun",
+    "low-temperature",
+    "cool",
+    "weather",
+    "forecast",
+    "winter",
+    "sunny",
+    "daylight",
+    "low"
+   ]
+  },
+  {
+   "id": "tabler:sun-moon",
+   "title": "Sun moon",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "theme",
+    "dark-mode",
+    "light-mode",
+    "toggle",
+    "day",
+    "night",
+    "appearance",
+    "weather",
+    "sun",
+    "moon"
+   ]
+  },
+  {
+   "id": "tabler:sun-wind",
+   "title": "Sun wind",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "sun",
+    "wind",
+    "windy",
+    "weather",
+    "forecast",
+    "breeze",
+    "sunny",
+    "daylight"
+   ]
+  },
+  {
+   "id": "tabler:sunrise",
+   "title": "Sunrise",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "sun",
+    "morning",
+    "dawn",
+    "day",
+    "horizon",
+    "weather",
+    "sunny",
+    "daylight",
+    "sunrise"
+   ]
+  },
+  {
+   "id": "tabler:sunset",
+   "title": "Sunset",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "sun",
+    "evening",
+    "dusk",
+    "night",
+    "horizon",
+    "weather",
+    "sunny",
+    "daylight",
+    "sunset"
+   ]
+  },
+  {
+   "id": "tabler:swimming",
+   "title": "Swimming",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "swim",
+    "swimmer",
+    "pool",
+    "water",
+    "sport",
+    "summer",
+    "athlete",
+    "olympics",
+    "swimming"
+   ]
+  },
+  {
+   "id": "tabler:tank",
+   "title": "Tank",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "military",
+    "army",
+    "war",
+    "armored",
+    "vehicle",
+    "weapon",
+    "battle",
+    "tanks",
+    "tank"
+   ]
+  },
+  {
+   "id": "tabler:target",
+   "title": "Target",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "bullseye",
+    "aim",
+    "goal",
+    "focus",
+    "objective",
+    "crosshair",
+    "target",
+    "goals"
+   ]
+  },
+  {
+   "id": "tabler:target-arrow",
+   "title": "Target arrow",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "bullseye",
+    "aim",
+    "goal",
+    "objective",
+    "archery",
+    "hit",
+    "success",
+    "dart",
+    "target",
+    "arrow"
+   ]
+  },
+  {
+   "id": "tabler:teapot",
+   "title": "Teapot",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "tea",
+    "kettle",
+    "pot",
+    "drink",
+    "beverage",
+    "kitchen",
+    "hot",
+    "teakettle",
+    "teapot"
+   ]
+  },
+  {
+   "id": "tabler:temperature",
+   "title": "Temperature",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "temperature",
+    "thermometer",
+    "weather",
+    "celsius",
+    "fahrenheit",
+    "degrees",
+    "heat",
+    "cold",
+    "forecast"
+   ]
+  },
+  {
+   "id": "tabler:temperature-celsius",
+   "title": "Temperature celsius",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "celsius",
+    "centigrade",
+    "degrees",
+    "temperature",
+    "thermometer",
+    "weather",
+    "metric",
+    "forecast",
+    "unit"
+   ]
+  },
+  {
+   "id": "tabler:temperature-fahrenheit",
+   "title": "Temperature fahrenheit",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "fahrenheit",
+    "degrees",
+    "temperature",
+    "thermometer",
+    "weather",
+    "imperial",
+    "forecast",
+    "unit"
+   ]
+  },
+  {
+   "id": "tabler:tent",
+   "title": "Tent",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "camping",
+    "camp",
+    "outdoor",
+    "hiking",
+    "travel",
+    "vacation",
+    "adventure",
+    "campsite",
+    "tent"
+   ]
+  },
+  {
+   "id": "tabler:theater",
+   "title": "Theater",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "theatre",
+    "drama",
+    "masks",
+    "comedy",
+    "tragedy",
+    "performance",
+    "stage",
+    "show",
+    "acting",
+    "theater"
+   ]
+  },
+  {
+   "id": "tabler:tools-kitchen",
+   "title": "Tools kitchen",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "cutlery",
+    "utensils",
+    "fork",
+    "knife",
+    "spoon",
+    "restaurant",
+    "food",
+    "dining"
+   ]
+  },
+  {
+   "id": "tabler:torii",
+   "title": "Torii",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "torii",
+    "gate",
+    "japan",
+    "japanese",
+    "shinto",
+    "shrine",
+    "temple",
+    "landmark"
+   ]
+  },
+  {
+   "id": "tabler:tornado",
+   "title": "Tornado",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "tornado",
+    "twister",
+    "cyclone",
+    "hurricane",
+    "storm",
+    "wind",
+    "weather",
+    "vortex"
+   ]
+  },
+  {
+   "id": "tabler:tournament",
+   "title": "Tournament",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "tournament",
+    "bracket",
+    "competition",
+    "championship",
+    "league",
+    "playoff",
+    "sport",
+    "tree"
+   ]
+  },
+  {
+   "id": "tabler:tower",
+   "title": "Tower",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "tower",
+    "castle",
+    "fortress",
+    "rook",
+    "chess",
+    "building",
+    "turret",
+    "fort"
+   ]
+  },
+  {
+   "id": "tabler:track",
+   "title": "Track",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "railway",
+    "railroad",
+    "rails",
+    "train",
+    "track",
+    "tracks",
+    "trail",
+    "railway-track"
+   ]
+  },
+  {
+   "id": "tabler:tractor",
+   "title": "Tractor",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "tractor",
+    "farm",
+    "farming",
+    "agriculture",
+    "vehicle",
+    "harvest",
+    "farmer",
+    "tractors"
+   ]
+  },
+  {
+   "id": "tabler:traffic-cone",
+   "title": "Traffic cone",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "traffic-cone",
+    "cone",
+    "construction",
+    "roadwork",
+    "maintenance",
+    "under-construction",
+    "warning",
+    "road",
+    "traffic"
+   ]
+  },
+  {
+   "id": "tabler:traffic-lights",
+   "title": "Traffic lights",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "traffic-light",
+    "stoplight",
+    "signal",
+    "semaphore",
+    "road",
+    "red",
+    "yellow",
+    "green"
+   ]
+  },
+  {
+   "id": "tabler:train",
+   "title": "Train",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "train",
+    "railway",
+    "rail",
+    "locomotive",
+    "metro",
+    "transport",
+    "travel",
+    "railroad"
+   ]
+  },
+  {
+   "id": "tabler:treadmill",
+   "title": "Treadmill",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "treadmill",
+    "running",
+    "cardio",
+    "gym",
+    "fitness",
+    "exercise",
+    "machine",
+    "run"
+   ]
+  },
+  {
+   "id": "tabler:tree",
+   "title": "Tree",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "tree",
+    "nature",
+    "forest",
+    "park",
+    "plant",
+    "wood",
+    "woods",
+    "oak"
+   ]
+  },
+  {
+   "id": "tabler:trees",
+   "title": "Trees",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "trees",
+    "forest",
+    "woods",
+    "nature",
+    "park",
+    "plants",
+    "tree",
+    "forestry"
+   ]
+  },
+  {
+   "id": "tabler:trekking",
+   "title": "Trekking",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "hiking",
+    "trekking",
+    "hiker",
+    "walking",
+    "backpack",
+    "outdoor",
+    "adventure",
+    "hike"
+   ]
+  },
+  {
+   "id": "tabler:trolley",
+   "title": "Trolley",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "trolley",
+    "hand-truck",
+    "dolly",
+    "cart",
+    "luggage",
+    "moving",
+    "delivery",
+    "handcart"
+   ]
+  },
+  {
+   "id": "tabler:trophy",
+   "title": "Trophy",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "trophy",
+    "award",
+    "winner",
+    "prize",
+    "cup",
+    "achievement",
+    "champion",
+    "success"
+   ]
+  },
+  {
+   "id": "tabler:truck",
+   "title": "Truck",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "truck",
+    "lorry",
+    "van",
+    "delivery",
+    "shipping",
+    "transport",
+    "vehicle",
+    "freight"
+   ]
+  },
+  {
+   "id": "tabler:twig",
+   "title": "Twig",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "twig",
+    "branch",
+    "stick",
+    "wood",
+    "tree",
+    "nature",
+    "sprig",
+    "forest"
+   ]
+  },
+  {
+   "id": "tabler:unicycle",
+   "title": "Unicycle",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "unicycle",
+    "cycle",
+    "circus",
+    "balance",
+    "wheel",
+    "ride",
+    "one-wheel",
+    "bike"
+   ]
+  },
+  {
+   "id": "tabler:uv-index",
+   "title": "Uv index",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "uv",
+    "ultraviolet",
+    "sun",
+    "radiation",
+    "index",
+    "weather",
+    "sunscreen",
+    "sun-protection"
+   ]
+  },
+  {
+   "id": "tabler:venus",
+   "title": "Venus",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "venus",
+    "female",
+    "woman",
+    "gender",
+    "feminine",
+    "symbol",
+    "woman-symbol",
+    "femininity"
+   ]
+  },
+  {
+   "id": "tabler:viewfinder",
+   "title": "Viewfinder",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "viewfinder",
+    "crosshair",
+    "target",
+    "aim",
+    "focus",
+    "camera",
+    "focus-frame",
+    "frame"
+   ]
+  },
+  {
+   "id": "tabler:volcano",
+   "title": "Volcano",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "volcano",
+    "eruption",
+    "lava",
+    "mountain",
+    "nature",
+    "disaster",
+    "mountain-fire",
+    "geology"
+   ]
+  },
+  {
+   "id": "tabler:walk",
+   "title": "Walk",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "walk",
+    "walking",
+    "pedestrian",
+    "person",
+    "steps",
+    "hiking",
+    "walker",
+    "stroll"
+   ]
+  },
+  {
+   "id": "tabler:wall",
+   "title": "Wall",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "wall",
+    "brick",
+    "firewall",
+    "construction",
+    "building",
+    "bricks",
+    "brickwall",
+    "barrier"
+   ]
+  },
+  {
+   "id": "tabler:waterpolo",
+   "title": "Waterpolo",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "water-polo",
+    "swimming",
+    "pool",
+    "ball",
+    "sport",
+    "team",
+    "water",
+    "aquatic"
+   ]
+  },
+  {
+   "id": "tabler:wheat",
+   "title": "Wheat",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "wheat",
+    "grain",
+    "gluten",
+    "cereal",
+    "crop",
+    "farm",
+    "agriculture",
+    "bread"
+   ]
+  },
+  {
+   "id": "tabler:wheelchair",
+   "title": "Wheelchair",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "wheelchair",
+    "accessibility",
+    "accessible",
+    "disabled",
+    "handicap",
+    "a11y",
+    "wheels",
+    "mobility"
+   ]
+  },
+  {
+   "id": "tabler:whirl",
+   "title": "Whirl",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "spiral",
+    "swirl",
+    "vortex",
+    "whirlpool",
+    "spin",
+    "hypnosis",
+    "twirl",
+    "whirlwind",
+    "whirl"
+   ]
+  },
+  {
+   "id": "tabler:whisk",
+   "title": "Whisk",
+   "set": "tabler",
+   "category": "Food",
+   "tags": [
+    "whisk",
+    "kitchen",
+    "baking",
+    "cooking",
+    "utensil",
+    "mix",
+    "eggbeater",
+    "whisker"
+   ]
+  },
+  {
+   "id": "tabler:wind",
+   "title": "Wind",
+   "set": "tabler",
+   "category": "Weather",
+   "tags": [
+    "wind",
+    "windy",
+    "breeze",
+    "air",
+    "weather",
+    "gust",
+    "windy-weather",
+    "airflow"
+   ]
+  },
+  {
+   "id": "tabler:wind-electricity",
+   "title": "Wind electricity",
+   "set": "tabler",
+   "category": "Nature",
+   "tags": [
+    "wind-turbine",
+    "wind-power",
+    "renewable",
+    "energy",
+    "electricity",
+    "green",
+    "gust",
+    "wind-energy"
+   ]
+  },
+  {
+   "id": "tabler:windmill",
+   "title": "Windmill",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "windmill",
+    "wind-turbine",
+    "mill",
+    "energy",
+    "renewable",
+    "farm",
+    "gust",
+    "wind-power"
+   ]
+  },
+  {
+   "id": "tabler:window",
+   "title": "Window",
+   "set": "tabler",
+   "category": "Buildings",
+   "tags": [
+    "window",
+    "house",
+    "home",
+    "glass",
+    "frame",
+    "building",
+    "gust",
+    "windows"
+   ]
+  },
+  {
+   "id": "tabler:windsock",
+   "title": "Windsock",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "windsock",
+    "wind",
+    "direction",
+    "airport",
+    "weather",
+    "gust",
+    "wind-indicator",
+    "airfield"
+   ]
+  },
+  {
+   "id": "tabler:world",
+   "title": "World",
+   "set": "tabler",
+   "category": "Map",
+   "tags": [
+    "globe",
+    "earth",
+    "world",
+    "internet",
+    "global",
+    "web",
+    "international",
+    "language",
+    "planet"
+   ]
+  },
+  {
+   "id": "tabler:wrecking-ball",
+   "title": "Wrecking ball",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "wrecking-ball",
+    "demolition",
+    "destroy",
+    "construction",
+    "crane",
+    "wrecking",
+    "demolish",
+    "crane-ball",
+    "ball"
+   ]
+  },
+  {
+   "id": "tabler:yin-yang",
+   "title": "Yin yang",
+   "set": "tabler",
+   "category": "Symbols",
+   "tags": [
+    "yin-yang",
+    "balance",
+    "harmony",
+    "taoism",
+    "peace",
+    "symbol",
+    "yinyang",
+    "tao",
+    "yin",
+    "yang"
+   ]
+  },
+  {
+   "id": "tabler:yoga",
+   "title": "Yoga",
+   "set": "tabler",
+   "category": "Sport",
+   "tags": [
+    "yoga",
+    "meditation",
+    "pose",
+    "exercise",
+    "fitness",
+    "relax",
+    "wellness",
+    "stretch"
+   ]
+  },
+  {
+   "id": "tabler:zeppelin",
+   "title": "Zeppelin",
+   "set": "tabler",
+   "category": "Vehicles",
+   "tags": [
+    "zeppelin",
+    "airship",
+    "blimp",
+    "dirigible",
+    "balloon",
+    "aircraft",
+    "zeppelins",
+    "aviation"
+   ]
+  },
+  {
+   "id": "maki:aerialway",
+   "title": "Aerialway",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "aerialway"
+   ]
+  },
+  {
+   "id": "maki:airfield",
+   "title": "Airfield",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "airfield"
+   ]
+  },
+  {
+   "id": "maki:airport",
+   "title": "Airport",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "airport"
+   ]
+  },
+  {
+   "id": "maki:alcohol-shop",
+   "title": "Alcohol shop",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "alcohol",
+    "shop"
+   ]
+  },
+  {
+   "id": "maki:american-football",
+   "title": "American football",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "american",
+    "football"
+   ]
+  },
+  {
+   "id": "maki:amusement-park",
+   "title": "Amusement park",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "amusement",
+    "park"
+   ]
+  },
+  {
+   "id": "maki:animal-shelter",
+   "title": "Animal shelter",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "animal",
+    "shelter"
+   ]
+  },
+  {
+   "id": "maki:aquarium",
+   "title": "Aquarium",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "aquarium"
+   ]
+  },
+  {
+   "id": "maki:art-gallery",
+   "title": "Art gallery",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "art",
+    "gallery"
+   ]
+  },
+  {
+   "id": "maki:attraction",
+   "title": "Attraction",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "attraction"
+   ]
+  },
+  {
+   "id": "maki:bakery",
+   "title": "Bakery",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bakery"
+   ]
+  },
+  {
+   "id": "maki:bank-JP",
+   "title": "Bank (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bank",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:bank",
+   "title": "Bank",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bank"
+   ]
+  },
+  {
+   "id": "maki:bar",
+   "title": "Bar",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bar"
+   ]
+  },
+  {
+   "id": "maki:barrier",
+   "title": "Barrier",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "barrier"
+   ]
+  },
+  {
+   "id": "maki:baseball",
+   "title": "Baseball",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "baseball"
+   ]
+  },
+  {
+   "id": "maki:basketball",
+   "title": "Basketball",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "basketball"
+   ]
+  },
+  {
+   "id": "maki:bbq",
+   "title": "Bbq",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bbq"
+   ]
+  },
+  {
+   "id": "maki:beach",
+   "title": "Beach",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "beach"
+   ]
+  },
+  {
+   "id": "maki:beer",
+   "title": "Beer",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "beer"
+   ]
+  },
+  {
+   "id": "maki:bicycle-share",
+   "title": "Bicycle share",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bicycle",
+    "share"
+   ]
+  },
+  {
+   "id": "maki:bicycle",
+   "title": "Bicycle",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bicycle"
+   ]
+  },
+  {
+   "id": "maki:blood-bank",
+   "title": "Blood bank",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "blood",
+    "bank"
+   ]
+  },
+  {
+   "id": "maki:bowling-alley",
+   "title": "Bowling alley",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bowling",
+    "alley"
+   ]
+  },
+  {
+   "id": "maki:bridge",
+   "title": "Bridge",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "maki:building-alt1",
+   "title": "Building alt1",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "building",
+    "alt1"
+   ]
+  },
+  {
+   "id": "maki:building",
+   "title": "Building",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "building"
+   ]
+  },
+  {
+   "id": "maki:bus",
+   "title": "Bus",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "bus"
+   ]
+  },
+  {
+   "id": "maki:cafe",
+   "title": "Cafe",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "cafe"
+   ]
+  },
+  {
+   "id": "maki:campsite",
+   "title": "Campsite",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "campsite"
+   ]
+  },
+  {
+   "id": "maki:car-rental",
+   "title": "Car rental",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "car",
+    "rental"
+   ]
+  },
+  {
+   "id": "maki:car-repair",
+   "title": "Car repair",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "car",
+    "repair"
+   ]
+  },
+  {
+   "id": "maki:car",
+   "title": "Car",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "car"
+   ]
+  },
+  {
+   "id": "maki:casino",
+   "title": "Casino",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "casino"
+   ]
+  },
+  {
+   "id": "maki:castle-JP",
+   "title": "Castle (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "castle",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:castle",
+   "title": "Castle",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "castle"
+   ]
+  },
+  {
+   "id": "maki:caution",
+   "title": "Caution",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "caution"
+   ]
+  },
+  {
+   "id": "maki:cemetery-JP",
+   "title": "Cemetery (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "cemetery",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:cemetery",
+   "title": "Cemetery",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "cemetery"
+   ]
+  },
+  {
+   "id": "maki:charging-station",
+   "title": "Charging station",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "charging",
+    "station"
+   ]
+  },
+  {
+   "id": "maki:cinema",
+   "title": "Cinema",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "cinema"
+   ]
+  },
+  {
+   "id": "maki:city",
+   "title": "City",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "city"
+   ]
+  },
+  {
+   "id": "maki:clothing-store",
+   "title": "Clothing store",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "clothing",
+    "store"
+   ]
+  },
+  {
+   "id": "maki:college-JP",
+   "title": "College (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "college",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:college",
+   "title": "College",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "college"
+   ]
+  },
+  {
+   "id": "maki:commercial",
+   "title": "Commercial",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "commercial"
+   ]
+  },
+  {
+   "id": "maki:communications-tower",
+   "title": "Communications tower",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "communications",
+    "tower"
+   ]
+  },
+  {
+   "id": "maki:confectionery",
+   "title": "Confectionery",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "confectionery"
+   ]
+  },
+  {
+   "id": "maki:construction",
+   "title": "Construction",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "construction"
+   ]
+  },
+  {
+   "id": "maki:convenience",
+   "title": "Convenience",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "convenience"
+   ]
+  },
+  {
+   "id": "maki:cricket",
+   "title": "Cricket",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "cricket"
+   ]
+  },
+  {
+   "id": "maki:cross",
+   "title": "Cross",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "cross"
+   ]
+  },
+  {
+   "id": "maki:dam",
+   "title": "Dam",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "dam"
+   ]
+  },
+  {
+   "id": "maki:danger",
+   "title": "Danger",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "danger"
+   ]
+  },
+  {
+   "id": "maki:defibrillator",
+   "title": "Defibrillator",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "defibrillator"
+   ]
+  },
+  {
+   "id": "maki:dentist",
+   "title": "Dentist",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "dentist"
+   ]
+  },
+  {
+   "id": "maki:doctor",
+   "title": "Doctor",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "doctor"
+   ]
+  },
+  {
+   "id": "maki:dog-park",
+   "title": "Dog park",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "dog",
+    "park"
+   ]
+  },
+  {
+   "id": "maki:drinking-water",
+   "title": "Drinking water",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "drinking",
+    "water"
+   ]
+  },
+  {
+   "id": "maki:elevator",
+   "title": "Elevator",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "elevator"
+   ]
+  },
+  {
+   "id": "maki:embassy",
+   "title": "Embassy",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "embassy"
+   ]
+  },
+  {
+   "id": "maki:emergency-phone",
+   "title": "Emergency phone",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "emergency",
+    "phone"
+   ]
+  },
+  {
+   "id": "maki:entrance-alt1",
+   "title": "Entrance alt1",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "entrance",
+    "alt1"
+   ]
+  },
+  {
+   "id": "maki:entrance",
+   "title": "Entrance",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "entrance"
+   ]
+  },
+  {
+   "id": "maki:farm",
+   "title": "Farm",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "farm"
+   ]
+  },
+  {
+   "id": "maki:fast-food",
+   "title": "Fast food",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "fast",
+    "food"
+   ]
+  },
+  {
+   "id": "maki:fence",
+   "title": "Fence",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "fence"
+   ]
+  },
+  {
+   "id": "maki:ferry-JP",
+   "title": "Ferry (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "ferry",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:ferry",
+   "title": "Ferry",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "ferry"
+   ]
+  },
+  {
+   "id": "maki:fire-station-JP",
+   "title": "Fire station (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "fire",
+    "station",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:fire-station",
+   "title": "Fire station",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "fire",
+    "station"
+   ]
+  },
+  {
+   "id": "maki:fitness-centre",
+   "title": "Fitness centre",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "fitness",
+    "centre"
+   ]
+  },
+  {
+   "id": "maki:florist",
+   "title": "Florist",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "florist"
+   ]
+  },
+  {
+   "id": "maki:fuel",
+   "title": "Fuel",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "fuel"
+   ]
+  },
+  {
+   "id": "maki:furniture",
+   "title": "Furniture",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "furniture"
+   ]
+  },
+  {
+   "id": "maki:gaming",
+   "title": "Gaming",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "gaming"
+   ]
+  },
+  {
+   "id": "maki:garden-centre",
+   "title": "Garden centre",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "garden",
+    "centre"
+   ]
+  },
+  {
+   "id": "maki:garden",
+   "title": "Garden",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "garden"
+   ]
+  },
+  {
+   "id": "maki:gate",
+   "title": "Gate",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "gate"
+   ]
+  },
+  {
+   "id": "maki:gift",
+   "title": "Gift",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "gift"
+   ]
+  },
+  {
+   "id": "maki:globe",
+   "title": "Globe",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "globe"
+   ]
+  },
+  {
+   "id": "maki:golf",
+   "title": "Golf",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "golf"
+   ]
+  },
+  {
+   "id": "maki:grocery",
+   "title": "Grocery",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "grocery"
+   ]
+  },
+  {
+   "id": "maki:hairdresser",
+   "title": "Hairdresser",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "hairdresser"
+   ]
+  },
+  {
+   "id": "maki:harbor",
+   "title": "Harbor",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "harbor"
+   ]
+  },
+  {
+   "id": "maki:hardware",
+   "title": "Hardware",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "hardware"
+   ]
+  },
+  {
+   "id": "maki:heart",
+   "title": "Heart",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "heart"
+   ]
+  },
+  {
+   "id": "maki:heliport",
+   "title": "Heliport",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "heliport"
+   ]
+  },
+  {
+   "id": "maki:highway-rest-area",
+   "title": "Highway rest area",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "highway",
+    "rest",
+    "area"
+   ]
+  },
+  {
+   "id": "maki:historic",
+   "title": "Historic",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "historic"
+   ]
+  },
+  {
+   "id": "maki:home",
+   "title": "Home",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "home"
+   ]
+  },
+  {
+   "id": "maki:horse-riding",
+   "title": "Horse riding",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "horse",
+    "riding"
+   ]
+  },
+  {
+   "id": "maki:hospital-JP",
+   "title": "Hospital (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "hospital",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:hospital",
+   "title": "Hospital",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "hospital"
+   ]
+  },
+  {
+   "id": "maki:hot-spring",
+   "title": "Hot spring",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "hot",
+    "spring"
+   ]
+  },
+  {
+   "id": "maki:ice-cream",
+   "title": "Ice cream",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "ice",
+    "cream"
+   ]
+  },
+  {
+   "id": "maki:industry",
+   "title": "Industry",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "industry"
+   ]
+  },
+  {
+   "id": "maki:information",
+   "title": "Information",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "information"
+   ]
+  },
+  {
+   "id": "maki:jewelry-store",
+   "title": "Jewelry store",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "jewelry",
+    "store"
+   ]
+  },
+  {
+   "id": "maki:karaoke",
+   "title": "Karaoke",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "karaoke"
+   ]
+  },
+  {
+   "id": "maki:landmark-JP",
+   "title": "Landmark (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "landmark",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:landmark",
+   "title": "Landmark",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "landmark"
+   ]
+  },
+  {
+   "id": "maki:landuse",
+   "title": "Landuse",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "landuse"
+   ]
+  },
+  {
+   "id": "maki:laundry",
+   "title": "Laundry",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "laundry"
+   ]
+  },
+  {
+   "id": "maki:library",
+   "title": "Library",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "library"
+   ]
+  },
+  {
+   "id": "maki:lift-gate",
+   "title": "Lift gate",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "lift",
+    "gate"
+   ]
+  },
+  {
+   "id": "maki:lighthouse-JP",
+   "title": "Lighthouse (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "lighthouse",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:lighthouse",
+   "title": "Lighthouse",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "lighthouse"
+   ]
+  },
+  {
+   "id": "maki:lodging",
+   "title": "Lodging",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "lodging"
+   ]
+  },
+  {
+   "id": "maki:logging",
+   "title": "Logging",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "logging"
+   ]
+  },
+  {
+   "id": "maki:marae",
+   "title": "Marae",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "marae"
+   ]
+  },
+  {
+   "id": "maki:mobile-phone",
+   "title": "Mobile phone",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "mobile",
+    "phone"
+   ]
+  },
+  {
+   "id": "maki:monument-JP",
+   "title": "Monument (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "monument",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:monument",
+   "title": "Monument",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "monument"
+   ]
+  },
+  {
+   "id": "maki:mountain",
+   "title": "Mountain",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "mountain"
+   ]
+  },
+  {
+   "id": "maki:museum",
+   "title": "Museum",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "museum"
+   ]
+  },
+  {
+   "id": "maki:music",
+   "title": "Music",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "music"
+   ]
+  },
+  {
+   "id": "maki:natural",
+   "title": "Natural",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "natural"
+   ]
+  },
+  {
+   "id": "maki:nightclub",
+   "title": "Nightclub",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "nightclub"
+   ]
+  },
+  {
+   "id": "maki:observation-tower",
+   "title": "Observation tower",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "observation",
+    "tower"
+   ]
+  },
+  {
+   "id": "maki:optician",
+   "title": "Optician",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "optician"
+   ]
+  },
+  {
+   "id": "maki:paint",
+   "title": "Paint",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "paint"
+   ]
+  },
+  {
+   "id": "maki:park-alt1",
+   "title": "Park alt1",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "park",
+    "alt1"
+   ]
+  },
+  {
+   "id": "maki:park",
+   "title": "Park",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "park"
+   ]
+  },
+  {
+   "id": "maki:parking-garage",
+   "title": "Parking garage",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "parking",
+    "garage"
+   ]
+  },
+  {
+   "id": "maki:parking-paid",
+   "title": "Parking paid",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "parking",
+    "paid"
+   ]
+  },
+  {
+   "id": "maki:parking",
+   "title": "Parking",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "parking"
+   ]
+  },
+  {
+   "id": "maki:pharmacy",
+   "title": "Pharmacy",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "pharmacy"
+   ]
+  },
+  {
+   "id": "maki:picnic-site",
+   "title": "Picnic site",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "picnic",
+    "site"
+   ]
+  },
+  {
+   "id": "maki:pitch",
+   "title": "Pitch",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "pitch"
+   ]
+  },
+  {
+   "id": "maki:place-of-worship",
+   "title": "Place of worship",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "place",
+    "of",
+    "worship"
+   ]
+  },
+  {
+   "id": "maki:playground",
+   "title": "Playground",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "playground"
+   ]
+  },
+  {
+   "id": "maki:police-JP",
+   "title": "Police (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "police",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:police",
+   "title": "Police",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "police"
+   ]
+  },
+  {
+   "id": "maki:post-JP",
+   "title": "Post (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "post",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:post",
+   "title": "Post",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "post"
+   ]
+  },
+  {
+   "id": "maki:prison",
+   "title": "Prison",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "prison"
+   ]
+  },
+  {
+   "id": "maki:racetrack-boat",
+   "title": "Racetrack boat",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "racetrack",
+    "boat"
+   ]
+  },
+  {
+   "id": "maki:racetrack-cycling",
+   "title": "Racetrack cycling",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "racetrack",
+    "cycling"
+   ]
+  },
+  {
+   "id": "maki:racetrack-horse",
+   "title": "Racetrack horse",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "racetrack",
+    "horse"
+   ]
+  },
+  {
+   "id": "maki:racetrack",
+   "title": "Racetrack",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "racetrack"
+   ]
+  },
+  {
+   "id": "maki:rail-light",
+   "title": "Rail light",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "rail",
+    "light"
+   ]
+  },
+  {
+   "id": "maki:rail-metro",
+   "title": "Rail metro",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "rail",
+    "metro"
+   ]
+  },
+  {
+   "id": "maki:rail",
+   "title": "Rail",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "rail"
+   ]
+  },
+  {
+   "id": "maki:ranger-station",
+   "title": "Ranger station",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "ranger",
+    "station"
+   ]
+  },
+  {
+   "id": "maki:recycling",
+   "title": "Recycling",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "recycling"
+   ]
+  },
+  {
+   "id": "maki:religious-buddhist",
+   "title": "Religious buddhist",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "religious",
+    "buddhist"
+   ]
+  },
+  {
+   "id": "maki:religious-christian",
+   "title": "Religious christian",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "religious",
+    "christian"
+   ]
+  },
+  {
+   "id": "maki:religious-jewish",
+   "title": "Religious jewish",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "religious",
+    "jewish"
+   ]
+  },
+  {
+   "id": "maki:religious-muslim",
+   "title": "Religious muslim",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "religious",
+    "muslim"
+   ]
+  },
+  {
+   "id": "maki:religious-shinto",
+   "title": "Religious shinto",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "religious",
+    "shinto"
+   ]
+  },
+  {
+   "id": "maki:residential-community",
+   "title": "Residential community",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "residential",
+    "community"
+   ]
+  },
+  {
+   "id": "maki:restaurant-bbq",
+   "title": "Restaurant bbq",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "restaurant",
+    "bbq"
+   ]
+  },
+  {
+   "id": "maki:restaurant-noodle",
+   "title": "Restaurant noodle",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "restaurant",
+    "noodle"
+   ]
+  },
+  {
+   "id": "maki:restaurant-pizza",
+   "title": "Restaurant pizza",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "restaurant",
+    "pizza"
+   ]
+  },
+  {
+   "id": "maki:restaurant-seafood",
+   "title": "Restaurant seafood",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "restaurant",
+    "seafood"
+   ]
+  },
+  {
+   "id": "maki:restaurant-sushi",
+   "title": "Restaurant sushi",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "restaurant",
+    "sushi"
+   ]
+  },
+  {
+   "id": "maki:restaurant",
+   "title": "Restaurant",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "restaurant"
+   ]
+  },
+  {
+   "id": "maki:road-accident",
+   "title": "Road accident",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "road",
+    "accident"
+   ]
+  },
+  {
+   "id": "maki:roadblock",
+   "title": "Roadblock",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "roadblock"
+   ]
+  },
+  {
+   "id": "maki:rocket",
+   "title": "Rocket",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "rocket"
+   ]
+  },
+  {
+   "id": "maki:school-JP",
+   "title": "School (japan)",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "school",
+    "jp"
+   ]
+  },
+  {
+   "id": "maki:school",
+   "title": "School",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "school"
+   ]
+  },
+  {
+   "id": "maki:scooter",
+   "title": "Scooter",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "scooter"
+   ]
+  },
+  {
+   "id": "maki:shelter",
+   "title": "Shelter",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "shelter"
+   ]
+  },
+  {
+   "id": "maki:shoe",
+   "title": "Shoe",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "shoe"
+   ]
+  },
+  {
+   "id": "maki:shop",
+   "title": "Shop",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "shop"
+   ]
+  },
+  {
+   "id": "maki:skateboard",
+   "title": "Skateboard",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "skateboard"
+   ]
+  },
+  {
+   "id": "maki:skiing",
+   "title": "Skiing",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "skiing"
+   ]
+  },
+  {
+   "id": "maki:slaughterhouse",
+   "title": "Slaughterhouse",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "slaughterhouse"
+   ]
+  },
+  {
+   "id": "maki:slipway",
+   "title": "Slipway",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "slipway"
+   ]
+  },
+  {
+   "id": "maki:snowmobile",
+   "title": "Snowmobile",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "snowmobile"
+   ]
+  },
+  {
+   "id": "maki:soccer",
+   "title": "Soccer",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "soccer"
+   ]
+  },
+  {
+   "id": "maki:stadium",
+   "title": "Stadium",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "stadium"
+   ]
+  },
+  {
+   "id": "maki:suitcase",
+   "title": "Suitcase",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "suitcase"
+   ]
+  },
+  {
+   "id": "maki:swimming",
+   "title": "Swimming",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "swimming"
+   ]
+  },
+  {
+   "id": "maki:table-tennis",
+   "title": "Table tennis",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "table",
+    "tennis"
+   ]
+  },
+  {
+   "id": "maki:taxi",
+   "title": "Taxi",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "taxi"
+   ]
+  },
+  {
+   "id": "maki:teahouse",
+   "title": "Teahouse",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "teahouse"
+   ]
+  },
+  {
+   "id": "maki:telephone",
+   "title": "Telephone",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "telephone"
+   ]
+  },
+  {
+   "id": "maki:tennis",
+   "title": "Tennis",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "tennis"
+   ]
+  },
+  {
+   "id": "maki:terminal",
+   "title": "Terminal",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "terminal"
+   ]
+  },
+  {
+   "id": "maki:theatre",
+   "title": "Theatre",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "theatre"
+   ]
+  },
+  {
+   "id": "maki:toilet",
+   "title": "Toilet",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "toilet"
+   ]
+  },
+  {
+   "id": "maki:toll",
+   "title": "Toll",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "toll"
+   ]
+  },
+  {
+   "id": "maki:town-hall",
+   "title": "Town hall",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "town",
+    "hall"
+   ]
+  },
+  {
+   "id": "maki:town",
+   "title": "Town",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "town"
+   ]
+  },
+  {
+   "id": "maki:tunnel",
+   "title": "Tunnel",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "tunnel"
+   ]
+  },
+  {
+   "id": "maki:veterinary",
+   "title": "Veterinary",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "veterinary"
+   ]
+  },
+  {
+   "id": "maki:viewpoint",
+   "title": "Viewpoint",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "viewpoint"
+   ]
+  },
+  {
+   "id": "maki:village",
+   "title": "Village",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "village"
+   ]
+  },
+  {
+   "id": "maki:volcano",
+   "title": "Volcano",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "volcano"
+   ]
+  },
+  {
+   "id": "maki:volleyball",
+   "title": "Volleyball",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "volleyball"
+   ]
+  },
+  {
+   "id": "maki:warehouse",
+   "title": "Warehouse",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "warehouse"
+   ]
+  },
+  {
+   "id": "maki:waste-basket",
+   "title": "Waste basket",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "waste",
+    "basket"
+   ]
+  },
+  {
+   "id": "maki:watch",
+   "title": "Watch",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "watch"
+   ]
+  },
+  {
+   "id": "maki:water",
+   "title": "Water",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "water"
+   ]
+  },
+  {
+   "id": "maki:waterfall",
+   "title": "Waterfall",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "waterfall"
+   ]
+  },
+  {
+   "id": "maki:watermill",
+   "title": "Watermill",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "watermill"
+   ]
+  },
+  {
+   "id": "maki:wetland",
+   "title": "Wetland",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "wetland"
+   ]
+  },
+  {
+   "id": "maki:wheelchair",
+   "title": "Wheelchair",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "wheelchair"
+   ]
+  },
+  {
+   "id": "maki:windmill",
+   "title": "Windmill",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "windmill"
+   ]
+  },
+  {
+   "id": "maki:zoo",
+   "title": "Zoo",
+   "set": "maki",
+   "category": "Points of interest",
+   "tags": [
+    "zoo"
+   ]
+  }
+ ]
+}

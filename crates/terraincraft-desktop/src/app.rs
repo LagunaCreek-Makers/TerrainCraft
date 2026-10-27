@@ -281,54 +281,57 @@ impl eframe::App for Studio {
      });
     }
     ui.checkbox(&mut self.place_icon,"Place the selected icon on the engraving");
-    ui.collapsing("B&W engraving icon library (240 procedural SVGs)",|ui|{
-      ui.add(egui::Slider::new(&mut self.icon_id,0..=239).text("Icon index"));
+    ui.collapsing(format!("Icon library ({} line icons)",terraincraft_core::icon_library::all().len()),|ui|{
+      use terraincraft_core::icon_library as lib;
+      ui.horizontal(|ui|{ui.label("Search");ui.text_edit_singleline(&mut self.icon_search);});
+      egui::ComboBox::from_label("Category").selected_text(if self.icon_category.is_empty(){"All"}else{&self.icon_category}).show_ui(ui,|ui|{
+       ui.selectable_value(&mut self.icon_category,String::new(),"All");
+       for c in lib::categories(){ui.selectable_value(&mut self.icon_category,c.to_owned(),c);}
+      });
+      let matches=lib::search(&self.icon_search,(!self.icon_category.is_empty()).then_some(self.icon_category.as_str()));
+      ui.label(format!("{} matching icons",matches.len()));
+      egui::ScrollArea::vertical().id_salt("icon_grid").max_height(220.).show(ui,|ui|{
+       ui.horizontal_wrapped(|ui|{
+        for icon in matches {
+         let selected=self.cultural_icon_id.is_empty()&&self.selected_logo_id.is_empty()&&self.selected_unesco_svg.is_empty()&&self.library_icon==icon.id;
+         if icon_tile(ui,&icon.id,selected).on_hover_text(&icon.title).clicked(){
+          self.library_icon=icon.id.clone();
+          self.cultural_icon_id.clear();self.selected_logo_id.clear();self.selected_unesco_svg.clear();
+          self.message=format!("Selected icon: {}",icon.title);
+         }
+        }
+       });
+      });
+      if let Some(icon)=lib::get(&self.library_icon){
+       let set=lib::set_of(icon);
+       ui.small(format!("Selected: {} — {} {}, {}",icon.title,set.map_or("",|s|s.title.as_str()),set.map_or("",|s|s.version.as_str()),set.map_or("",|s|s.license.as_str())));
+      }
       ui.add(egui::Slider::new(&mut self.icon_x,0.0..=1.0).text("X position"));
       ui.add(egui::Slider::new(&mut self.icon_y,0.0..=1.0).text("Y position"));
       ui.add(egui::Slider::new(&mut self.icon_size,2.0..=60.0).text("Size mm"));
-      ui.label("Original generic symbols; not yet a verified landmark-specific collection.");
+      ui.small("Tabler Icons (MIT) and Maki (CC0). License texts are in assets/icon_library.");
     });
-    ui.collapsing("Icon engraving styles and building perspectives",|ui|{
-      ui.horizontal_wrapped(|ui|{
-       for (i,label) in ["Original","Simplified","Fine outline","Bold","Temple front","Temple side","Temple corner"].iter().enumerate(){
-        ui.selectable_value(&mut self.icon_variant,i,*label);
-       }
-      });
-      ui.small("Front, side and corner are distinct schematic Salt Lake Temple illustrations. Other icons support line-weight engraving treatments; selecting a temple view for another icon retains its original view.");
-    });
+    if self.cultural_icon_id=="us-ut-salt-lake-temple"{
+     ui.horizontal(|ui|{
+      ui.label("Temple view");
+      for (i,label) in [(0,"Original"),(4,"Front"),(5,"Side"),(6,"Corner")]{ui.selectable_value(&mut self.icon_variant,i,label);}
+     });
+    }
     ui.collapsing("US state cultural icons (engraving)",|ui|{
       ui.label("Select state using the jurisdiction field below (e.g. US-UT)");
       let icons=terraincraft_core::state_culture::for_state(&self.catalog_jurisdiction);
       egui::ScrollArea::vertical().max_height(190.).show(ui,|ui|{
        for icon in &icons {
         if ui.selectable_label(self.cultural_icon_id==icon.id,&icon.title).clicked(){
-          self.cultural_icon_id=icon.id.clone();self.regional_icon_id.clear();
+          self.cultural_icon_id=icon.id.clone();
           self.selected_logo_id.clear();
           self.message=format!("Selected cultural icon: {}",icon.title);
         }
        }
       });
-      if ui.button("Use generic icon instead").clicked(){self.cultural_icon_id.clear();}
+      if ui.button("Use the icon library instead").clicked(){self.cultural_icon_id.clear();}
       ui.small("Sports: six shared pictograms plus a curated regional sports illustration for each of the 50 states. All designs are unofficial.");
       ui.small("Illustrative symbols, not official state seals or licensed university logos.");
-    });
-    ui.collapsing("Regional cultural illustrations — states and countries",|ui|{
-      ui.small("Original thematic art, not official emblems or verified views of real buildings.");
-      ui.small("Choose a state code (US-UT) or country code (JP, FR, CA) in Jurisdiction below.");
-      let records=terraincraft_core::regional_icons::for_jurisdiction(&self.catalog_jurisdiction);
-      ui.horizontal_wrapped(|ui|{
-       for (idx,style) in ["Original","Simplified","Profile composition","Three-quarter composition"].iter().enumerate(){
-        ui.selectable_value(&mut self.regional_style,idx,*style);
-       }
-      });
-      for r in &records {
-       if ui.selectable_label(self.regional_icon_id==r.id,format!("{} — {}",r.name,r.motif)).clicked(){
-        self.regional_icon_id=r.id.clone();self.cultural_icon_id.clear();self.selected_logo_id.clear();
-        self.selected_unesco_svg.clear();
-       }
-      }
-      if ui.button("Clear regional selection").clicked(){self.regional_icon_id.clear();}
-      ui.small("Assets are loaded from assets/regional_icons relative to the working directory.");
     });
     ui.collapsing("College, university and professional team logos",|ui|{
       ui.small("Browse named organizations; artwork is not bundled. Import only logos you have permission to reproduce or engrave.");
@@ -424,7 +427,7 @@ impl eframe::App for Studio {
          for entry in matches.iter().take(100){
           if ui.button(format!("#{:02} {} · {}",entry.rank,entry.name,entry.category)).clicked(){
            self.observer_lat=entry.latitude;self.observer_lon=entry.longitude;
-           if let Some(index)=terraincraft_core::landmark_catalog::bundled_icon_index(&entry.icon_id){self.icon_id=index;}
+           if let Some(id)=terraincraft_core::landmark_catalog::bundled_icon(&entry.icon_id){self.library_icon=id.into();self.cultural_icon_id.clear();}
            self.message=format!("Selected {} ({:.5}, {:.5})",entry.name,entry.latitude,entry.longitude);
           }
          }
@@ -482,4 +485,40 @@ impl eframe::App for Studio {
             self.draw(ui);
         });
     }
+}
+
+/// A clickable thumbnail of a library icon, drawn from its engraving strokes.
+fn icon_tile(ui: &mut egui::Ui, id: &str, selected: bool) -> egui::Response {
+    use std::collections::HashMap;
+    use std::sync::OnceLock;
+    use terraincraft_core::svg_lines::Strokes;
+    static STROKES: OnceLock<HashMap<&'static str, Strokes>> = OnceLock::new();
+    let strokes = STROKES.get_or_init(|| {
+        terraincraft_core::icon_library::all()
+            .iter()
+            .filter_map(|i| {
+                let svg = terraincraft_core::icon_library::svg(&i.id)?;
+                Some((
+                    i.id.as_str(),
+                    terraincraft_core::svg_lines::parse(svg).ok()?,
+                ))
+            })
+            .collect()
+    });
+    let (rect, response) = ui.allocate_exact_size(egui::vec2(36., 36.), egui::Sense::click());
+    let visuals = ui.style().interact_selectable(&response, selected);
+    let painter = ui.painter_at(rect);
+    painter.rect(rect, 3., visuals.weak_bg_fill, visuals.bg_stroke);
+    if let Some(s) = strokes.get(id) {
+        let stroke = egui::Stroke::new(1.2_f32, visuals.fg_stroke.color);
+        let c = rect.center();
+        for line in s.placed(0., 0., 26.) {
+            let pts = line
+                .iter()
+                .map(|p| c + egui::vec2(p.0 as f32, p.1 as f32))
+                .collect();
+            painter.add(egui::Shape::line(pts, stroke));
+        }
+    }
+    response
 }

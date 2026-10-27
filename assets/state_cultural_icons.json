@@ -4,10 +4,10 @@
     "title": "Alabama \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-AL",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -15,10 +15,10 @@
     "title": "Alabama \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-AL",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -26,10 +26,10 @@
     "title": "Alabama \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-AL",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -37,10 +37,10 @@
     "title": "Alabama \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-AL",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -48,10 +48,10 @@
     "title": "Alabama \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-AL",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -59,10 +59,10 @@
     "title": "Alabama \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-AL",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -70,10 +70,10 @@
     "title": "Alaska \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-AK",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -81,10 +81,10 @@
     "title": "Alaska \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-AK",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -92,10 +92,10 @@
     "title": "Alaska \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-AK",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -103,10 +103,10 @@
     "title": "Alaska \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-AK",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -114,10 +114,10 @@
     "title": "Alaska \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-AK",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -125,10 +125,10 @@
     "title": "Alaska \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-AK",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -136,10 +136,10 @@
     "title": "Arizona \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-AZ",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -147,10 +147,10 @@
     "title": "Arizona \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-AZ",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -158,10 +158,10 @@
     "title": "Arizona \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-AZ",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -169,10 +169,10 @@
     "title": "Arizona \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-AZ",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -180,10 +180,10 @@
     "title": "Arizona \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-AZ",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -191,10 +191,10 @@
     "title": "Arizona \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-AZ",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -202,10 +202,10 @@
     "title": "Arkansas \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-AR",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -213,10 +213,10 @@
     "title": "Arkansas \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-AR",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -224,10 +224,10 @@
     "title": "Arkansas \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-AR",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -235,10 +235,10 @@
     "title": "Arkansas \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-AR",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -246,10 +246,10 @@
     "title": "Arkansas \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-AR",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -257,10 +257,10 @@
     "title": "Arkansas \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-AR",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -268,10 +268,10 @@
     "title": "California \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-CA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -279,10 +279,10 @@
     "title": "California \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-CA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -290,10 +290,10 @@
     "title": "California \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-CA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -301,10 +301,10 @@
     "title": "California \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-CA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -312,10 +312,10 @@
     "title": "California \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-CA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -323,10 +323,10 @@
     "title": "California \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-CA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -334,10 +334,10 @@
     "title": "Colorado \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-CO",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -345,10 +345,10 @@
     "title": "Colorado \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-CO",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -356,10 +356,10 @@
     "title": "Colorado \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-CO",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -367,10 +367,10 @@
     "title": "Colorado \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-CO",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -378,10 +378,10 @@
     "title": "Colorado \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-CO",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -389,10 +389,10 @@
     "title": "Colorado \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-CO",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -400,10 +400,10 @@
     "title": "Connecticut \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-CT",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -411,10 +411,10 @@
     "title": "Connecticut \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-CT",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -422,10 +422,10 @@
     "title": "Connecticut \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-CT",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -433,10 +433,10 @@
     "title": "Connecticut \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-CT",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -444,10 +444,10 @@
     "title": "Connecticut \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-CT",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -455,10 +455,10 @@
     "title": "Connecticut \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-CT",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -466,10 +466,10 @@
     "title": "Delaware \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-DE",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -477,10 +477,10 @@
     "title": "Delaware \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-DE",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -488,10 +488,10 @@
     "title": "Delaware \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-DE",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -499,10 +499,10 @@
     "title": "Delaware \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-DE",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -510,10 +510,10 @@
     "title": "Delaware \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-DE",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -521,10 +521,10 @@
     "title": "Delaware \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-DE",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -532,10 +532,10 @@
     "title": "Florida \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-FL",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -543,10 +543,10 @@
     "title": "Florida \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-FL",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -554,10 +554,10 @@
     "title": "Florida \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-FL",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -565,10 +565,10 @@
     "title": "Florida \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-FL",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -576,10 +576,10 @@
     "title": "Florida \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-FL",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -587,10 +587,10 @@
     "title": "Florida \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-FL",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -598,10 +598,10 @@
     "title": "Georgia \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-GA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -609,10 +609,10 @@
     "title": "Georgia \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-GA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -620,10 +620,10 @@
     "title": "Georgia \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-GA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -631,10 +631,10 @@
     "title": "Georgia \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-GA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -642,10 +642,10 @@
     "title": "Georgia \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-GA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -653,10 +653,10 @@
     "title": "Georgia \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-GA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -664,10 +664,10 @@
     "title": "Hawaii \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-HI",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -675,10 +675,10 @@
     "title": "Hawaii \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-HI",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -686,10 +686,10 @@
     "title": "Hawaii \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-HI",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -697,10 +697,10 @@
     "title": "Hawaii \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-HI",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -708,10 +708,10 @@
     "title": "Hawaii \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-HI",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -719,10 +719,10 @@
     "title": "Hawaii \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-HI",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -730,10 +730,10 @@
     "title": "Idaho \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-ID",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -741,10 +741,10 @@
     "title": "Idaho \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-ID",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -752,10 +752,10 @@
     "title": "Idaho \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-ID",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -763,10 +763,10 @@
     "title": "Idaho \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-ID",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -774,10 +774,10 @@
     "title": "Idaho \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-ID",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -785,10 +785,10 @@
     "title": "Idaho \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-ID",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -796,10 +796,10 @@
     "title": "Illinois \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-IL",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -807,10 +807,10 @@
     "title": "Illinois \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-IL",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -818,10 +818,10 @@
     "title": "Illinois \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-IL",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -829,10 +829,10 @@
     "title": "Illinois \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-IL",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -840,10 +840,10 @@
     "title": "Illinois \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-IL",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -851,10 +851,10 @@
     "title": "Illinois \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-IL",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -862,10 +862,10 @@
     "title": "Indiana \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-IN",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -873,10 +873,10 @@
     "title": "Indiana \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-IN",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -884,10 +884,10 @@
     "title": "Indiana \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-IN",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -895,10 +895,10 @@
     "title": "Indiana \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-IN",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -906,10 +906,10 @@
     "title": "Indiana \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-IN",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -917,10 +917,10 @@
     "title": "Indiana \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-IN",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -928,10 +928,10 @@
     "title": "Iowa \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-IA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -939,10 +939,10 @@
     "title": "Iowa \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-IA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -950,10 +950,10 @@
     "title": "Iowa \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-IA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -961,10 +961,10 @@
     "title": "Iowa \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-IA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -972,10 +972,10 @@
     "title": "Iowa \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-IA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -983,10 +983,10 @@
     "title": "Iowa \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-IA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -994,10 +994,10 @@
     "title": "Kansas \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-KS",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1005,10 +1005,10 @@
     "title": "Kansas \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-KS",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1016,10 +1016,10 @@
     "title": "Kansas \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-KS",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1027,10 +1027,10 @@
     "title": "Kansas \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-KS",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1038,10 +1038,10 @@
     "title": "Kansas \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-KS",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1049,10 +1049,10 @@
     "title": "Kansas \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-KS",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1060,10 +1060,10 @@
     "title": "Kentucky \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-KY",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1071,10 +1071,10 @@
     "title": "Kentucky \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-KY",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1082,10 +1082,10 @@
     "title": "Kentucky \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-KY",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1093,10 +1093,10 @@
     "title": "Kentucky \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-KY",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1104,10 +1104,10 @@
     "title": "Kentucky \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-KY",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1115,10 +1115,10 @@
     "title": "Kentucky \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-KY",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1126,10 +1126,10 @@
     "title": "Louisiana \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-LA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1137,10 +1137,10 @@
     "title": "Louisiana \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-LA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1148,10 +1148,10 @@
     "title": "Louisiana \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-LA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1159,10 +1159,10 @@
     "title": "Louisiana \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-LA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1170,10 +1170,10 @@
     "title": "Louisiana \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-LA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1181,10 +1181,10 @@
     "title": "Louisiana \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-LA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1192,10 +1192,10 @@
     "title": "Maine \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-ME",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1203,10 +1203,10 @@
     "title": "Maine \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-ME",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1214,10 +1214,10 @@
     "title": "Maine \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-ME",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1225,10 +1225,10 @@
     "title": "Maine \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-ME",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1236,10 +1236,10 @@
     "title": "Maine \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-ME",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1247,10 +1247,10 @@
     "title": "Maine \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-ME",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1258,10 +1258,10 @@
     "title": "Maryland \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-MD",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1269,10 +1269,10 @@
     "title": "Maryland \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-MD",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1280,10 +1280,10 @@
     "title": "Maryland \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-MD",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1291,10 +1291,10 @@
     "title": "Maryland \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-MD",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1302,10 +1302,10 @@
     "title": "Maryland \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-MD",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1313,10 +1313,10 @@
     "title": "Maryland \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-MD",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1324,10 +1324,10 @@
     "title": "Massachusetts \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-MA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1335,10 +1335,10 @@
     "title": "Massachusetts \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-MA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1346,10 +1346,10 @@
     "title": "Massachusetts \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-MA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1357,10 +1357,10 @@
     "title": "Massachusetts \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-MA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1368,10 +1368,10 @@
     "title": "Massachusetts \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-MA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1379,10 +1379,10 @@
     "title": "Massachusetts \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-MA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1390,10 +1390,10 @@
     "title": "Michigan \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-MI",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1401,10 +1401,10 @@
     "title": "Michigan \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-MI",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1412,10 +1412,10 @@
     "title": "Michigan \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-MI",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1423,10 +1423,10 @@
     "title": "Michigan \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-MI",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1434,10 +1434,10 @@
     "title": "Michigan \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-MI",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1445,10 +1445,10 @@
     "title": "Michigan \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-MI",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1456,10 +1456,10 @@
     "title": "Minnesota \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-MN",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1467,10 +1467,10 @@
     "title": "Minnesota \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-MN",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1478,10 +1478,10 @@
     "title": "Minnesota \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-MN",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1489,10 +1489,10 @@
     "title": "Minnesota \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-MN",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1500,10 +1500,10 @@
     "title": "Minnesota \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-MN",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1511,10 +1511,10 @@
     "title": "Minnesota \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-MN",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1522,10 +1522,10 @@
     "title": "Mississippi \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-MS",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1533,10 +1533,10 @@
     "title": "Mississippi \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-MS",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1544,10 +1544,10 @@
     "title": "Mississippi \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-MS",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1555,10 +1555,10 @@
     "title": "Mississippi \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-MS",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1566,10 +1566,10 @@
     "title": "Mississippi \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-MS",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1577,10 +1577,10 @@
     "title": "Mississippi \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-MS",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1588,10 +1588,10 @@
     "title": "Missouri \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-MO",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1599,10 +1599,10 @@
     "title": "Missouri \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-MO",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1610,10 +1610,10 @@
     "title": "Missouri \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-MO",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1621,10 +1621,10 @@
     "title": "Missouri \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-MO",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1632,10 +1632,10 @@
     "title": "Missouri \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-MO",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1643,10 +1643,10 @@
     "title": "Missouri \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-MO",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1654,10 +1654,10 @@
     "title": "Montana \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-MT",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1665,10 +1665,10 @@
     "title": "Montana \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-MT",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1676,10 +1676,10 @@
     "title": "Montana \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-MT",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1687,10 +1687,10 @@
     "title": "Montana \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-MT",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1698,10 +1698,10 @@
     "title": "Montana \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-MT",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1709,10 +1709,10 @@
     "title": "Montana \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-MT",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1720,10 +1720,10 @@
     "title": "Nebraska \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-NE",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1731,10 +1731,10 @@
     "title": "Nebraska \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-NE",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1742,10 +1742,10 @@
     "title": "Nebraska \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-NE",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1753,10 +1753,10 @@
     "title": "Nebraska \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-NE",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1764,10 +1764,10 @@
     "title": "Nebraska \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-NE",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1775,10 +1775,10 @@
     "title": "Nebraska \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-NE",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1786,10 +1786,10 @@
     "title": "Nevada \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-NV",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1797,10 +1797,10 @@
     "title": "Nevada \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-NV",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1808,10 +1808,10 @@
     "title": "Nevada \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-NV",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1819,10 +1819,10 @@
     "title": "Nevada \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-NV",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1830,10 +1830,10 @@
     "title": "Nevada \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-NV",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1841,10 +1841,10 @@
     "title": "Nevada \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-NV",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1852,10 +1852,10 @@
     "title": "New Hampshire \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-NH",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1863,10 +1863,10 @@
     "title": "New Hampshire \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-NH",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1874,10 +1874,10 @@
     "title": "New Hampshire \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-NH",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1885,10 +1885,10 @@
     "title": "New Hampshire \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-NH",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1896,10 +1896,10 @@
     "title": "New Hampshire \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-NH",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1907,10 +1907,10 @@
     "title": "New Hampshire \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-NH",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1918,10 +1918,10 @@
     "title": "New Jersey \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-NJ",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1929,10 +1929,10 @@
     "title": "New Jersey \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-NJ",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1940,10 +1940,10 @@
     "title": "New Jersey \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-NJ",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -1951,10 +1951,10 @@
     "title": "New Jersey \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-NJ",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1962,10 +1962,10 @@
     "title": "New Jersey \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-NJ",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1973,10 +1973,10 @@
     "title": "New Jersey \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-NJ",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1984,10 +1984,10 @@
     "title": "New Mexico \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-NM",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -1995,10 +1995,10 @@
     "title": "New Mexico \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-NM",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2006,10 +2006,10 @@
     "title": "New Mexico \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-NM",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2017,10 +2017,10 @@
     "title": "New Mexico \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-NM",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2028,10 +2028,10 @@
     "title": "New Mexico \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-NM",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2039,10 +2039,10 @@
     "title": "New Mexico \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-NM",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2050,10 +2050,10 @@
     "title": "New York \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-NY",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2061,10 +2061,10 @@
     "title": "New York \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-NY",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2072,10 +2072,10 @@
     "title": "New York \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-NY",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2083,10 +2083,10 @@
     "title": "New York \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-NY",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2094,10 +2094,10 @@
     "title": "New York \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-NY",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2105,10 +2105,10 @@
     "title": "New York \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-NY",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2116,10 +2116,10 @@
     "title": "North Carolina \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-NC",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2127,10 +2127,10 @@
     "title": "North Carolina \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-NC",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2138,10 +2138,10 @@
     "title": "North Carolina \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-NC",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2149,10 +2149,10 @@
     "title": "North Carolina \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-NC",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2160,10 +2160,10 @@
     "title": "North Carolina \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-NC",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2171,10 +2171,10 @@
     "title": "North Carolina \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-NC",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2182,10 +2182,10 @@
     "title": "North Dakota \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-ND",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2193,10 +2193,10 @@
     "title": "North Dakota \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-ND",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2204,10 +2204,10 @@
     "title": "North Dakota \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-ND",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2215,10 +2215,10 @@
     "title": "North Dakota \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-ND",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2226,10 +2226,10 @@
     "title": "North Dakota \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-ND",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2237,10 +2237,10 @@
     "title": "North Dakota \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-ND",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2248,10 +2248,10 @@
     "title": "Ohio \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-OH",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2259,10 +2259,10 @@
     "title": "Ohio \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-OH",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2270,10 +2270,10 @@
     "title": "Ohio \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-OH",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2281,10 +2281,10 @@
     "title": "Ohio \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-OH",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2292,10 +2292,10 @@
     "title": "Ohio \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-OH",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2303,10 +2303,10 @@
     "title": "Ohio \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-OH",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2314,10 +2314,10 @@
     "title": "Oklahoma \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-OK",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2325,10 +2325,10 @@
     "title": "Oklahoma \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-OK",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2336,10 +2336,10 @@
     "title": "Oklahoma \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-OK",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2347,10 +2347,10 @@
     "title": "Oklahoma \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-OK",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2358,10 +2358,10 @@
     "title": "Oklahoma \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-OK",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2369,10 +2369,10 @@
     "title": "Oklahoma \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-OK",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2380,10 +2380,10 @@
     "title": "Oregon \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-OR",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2391,10 +2391,10 @@
     "title": "Oregon \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-OR",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2402,10 +2402,10 @@
     "title": "Oregon \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-OR",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2413,10 +2413,10 @@
     "title": "Oregon \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-OR",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2424,10 +2424,10 @@
     "title": "Oregon \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-OR",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2435,10 +2435,10 @@
     "title": "Oregon \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-OR",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2446,10 +2446,10 @@
     "title": "Pennsylvania \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-PA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2457,10 +2457,10 @@
     "title": "Pennsylvania \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-PA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2468,10 +2468,10 @@
     "title": "Pennsylvania \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-PA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2479,10 +2479,10 @@
     "title": "Pennsylvania \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-PA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2490,10 +2490,10 @@
     "title": "Pennsylvania \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-PA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2501,10 +2501,10 @@
     "title": "Pennsylvania \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-PA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2512,10 +2512,10 @@
     "title": "Rhode Island \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-RI",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2523,10 +2523,10 @@
     "title": "Rhode Island \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-RI",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2534,10 +2534,10 @@
     "title": "Rhode Island \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-RI",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2545,10 +2545,10 @@
     "title": "Rhode Island \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-RI",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2556,10 +2556,10 @@
     "title": "Rhode Island \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-RI",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2567,10 +2567,10 @@
     "title": "Rhode Island \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-RI",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2578,10 +2578,10 @@
     "title": "South Carolina \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-SC",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2589,10 +2589,10 @@
     "title": "South Carolina \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-SC",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2600,10 +2600,10 @@
     "title": "South Carolina \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-SC",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2611,10 +2611,10 @@
     "title": "South Carolina \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-SC",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2622,10 +2622,10 @@
     "title": "South Carolina \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-SC",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2633,10 +2633,10 @@
     "title": "South Carolina \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-SC",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2644,10 +2644,10 @@
     "title": "South Dakota \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-SD",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2655,10 +2655,10 @@
     "title": "South Dakota \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-SD",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2666,10 +2666,10 @@
     "title": "South Dakota \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-SD",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2677,10 +2677,10 @@
     "title": "South Dakota \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-SD",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2688,10 +2688,10 @@
     "title": "South Dakota \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-SD",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2699,10 +2699,10 @@
     "title": "South Dakota \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-SD",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2710,10 +2710,10 @@
     "title": "Tennessee \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-TN",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2721,10 +2721,10 @@
     "title": "Tennessee \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-TN",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2732,10 +2732,10 @@
     "title": "Tennessee \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-TN",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2743,10 +2743,10 @@
     "title": "Tennessee \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-TN",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2754,10 +2754,10 @@
     "title": "Tennessee \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-TN",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2765,10 +2765,10 @@
     "title": "Tennessee \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-TN",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2776,10 +2776,10 @@
     "title": "Texas \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-TX",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2787,10 +2787,10 @@
     "title": "Texas \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-TX",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2798,10 +2798,10 @@
     "title": "Texas \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-TX",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2809,10 +2809,10 @@
     "title": "Texas \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-TX",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2820,10 +2820,10 @@
     "title": "Texas \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-TX",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2831,10 +2831,10 @@
     "title": "Texas \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-TX",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2842,10 +2842,10 @@
     "title": "Utah \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-UT",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2853,10 +2853,10 @@
     "title": "Utah \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-UT",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2864,10 +2864,10 @@
     "title": "Utah \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-UT",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2875,10 +2875,10 @@
     "title": "Utah \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-UT",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2886,10 +2886,10 @@
     "title": "Utah \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-UT",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2897,10 +2897,10 @@
     "title": "Utah \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-UT",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2908,10 +2908,10 @@
     "title": "Vermont \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-VT",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2919,10 +2919,10 @@
     "title": "Vermont \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-VT",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2930,10 +2930,10 @@
     "title": "Vermont \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-VT",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -2941,10 +2941,10 @@
     "title": "Vermont \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-VT",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2952,10 +2952,10 @@
     "title": "Vermont \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-VT",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2963,10 +2963,10 @@
     "title": "Vermont \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-VT",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2974,10 +2974,10 @@
     "title": "Virginia \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-VA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2985,10 +2985,10 @@
     "title": "Virginia \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-VA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -2996,10 +2996,10 @@
     "title": "Virginia \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-VA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -3007,10 +3007,10 @@
     "title": "Virginia \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-VA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3018,10 +3018,10 @@
     "title": "Virginia \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-VA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3029,10 +3029,10 @@
     "title": "Virginia \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-VA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3040,10 +3040,10 @@
     "title": "Washington \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-WA",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3051,10 +3051,10 @@
     "title": "Washington \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-WA",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3062,10 +3062,10 @@
     "title": "Washington \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-WA",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -3073,10 +3073,10 @@
     "title": "Washington \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-WA",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3084,10 +3084,10 @@
     "title": "Washington \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-WA",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3095,10 +3095,10 @@
     "title": "Washington \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-WA",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3106,10 +3106,10 @@
     "title": "West Virginia \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-WV",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3117,10 +3117,10 @@
     "title": "West Virginia \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-WV",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3128,10 +3128,10 @@
     "title": "West Virginia \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-WV",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -3139,10 +3139,10 @@
     "title": "West Virginia \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-WV",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3150,10 +3150,10 @@
     "title": "West Virginia \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-WV",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3161,10 +3161,10 @@
     "title": "West Virginia \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-WV",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3172,10 +3172,10 @@
     "title": "Wisconsin \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-WI",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3183,10 +3183,10 @@
     "title": "Wisconsin \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-WI",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3194,10 +3194,10 @@
     "title": "Wisconsin \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-WI",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -3205,10 +3205,10 @@
     "title": "Wisconsin \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-WI",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3216,10 +3216,10 @@
     "title": "Wisconsin \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-WI",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3227,10 +3227,10 @@
     "title": "Wisconsin \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-WI",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3238,10 +3238,10 @@
     "title": "Wyoming \u2014 Wildlife motif",
     "category": "wildlife",
     "jurisdiction": "US-WY",
-    "icon_id": "generic-010",
-    "svg_file": "icons/icon_010.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:deer",
+    "svg_file": "icon_library/tabler/deer.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3249,10 +3249,10 @@
     "title": "Wyoming \u2014 Heritage Transport motif",
     "category": "heritage transport",
     "jurisdiction": "US-WY",
-    "icon_id": "generic-004",
-    "svg_file": "icons/icon_004.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:train",
+    "svg_file": "icon_library/tabler/train.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3260,10 +3260,10 @@
     "title": "Wyoming \u2014 Local Food motif",
     "category": "local food",
     "jurisdiction": "US-WY",
-    "icon_id": "generic-009",
-    "svg_file": "icons/icon_009.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "maki:restaurant",
+    "svg_file": "icon_library/maki/restaurant.svg",
+    "license": "CC0-1.0 (Maki 8.2.0)",
+    "source": "https://labs.mapbox.com/maki-icons/",
     "official": false
   },
   {
@@ -3271,10 +3271,10 @@
     "title": "Wyoming \u2014 Historic Architecture motif",
     "category": "historic architecture",
     "jurisdiction": "US-WY",
-    "icon_id": "generic-003",
-    "svg_file": "icons/icon_003.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:building-monument",
+    "svg_file": "icon_library/tabler/building-monument.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3282,10 +3282,10 @@
     "title": "Wyoming \u2014 Landscape motif",
     "category": "landscape",
     "jurisdiction": "US-WY",
-    "icon_id": "generic-001",
-    "svg_file": "icons/icon_001.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:mountain",
+    "svg_file": "icon_library/tabler/mountain.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {
@@ -3293,10 +3293,10 @@
     "title": "Wyoming \u2014 Education motif",
     "category": "education",
     "jurisdiction": "US-WY",
-    "icon_id": "generic-016",
-    "svg_file": "icons/icon_016.svg",
-    "license": "CC0-1.0 original procedural artwork",
-    "source": "TerrainCraft generic motif; not an official state symbol",
+    "icon_id": "tabler:school",
+    "svg_file": "icon_library/tabler/school.svg",
+    "license": "MIT (Tabler Icons 3.49.0)",
+    "source": "https://tabler.io/icons",
     "official": false
   },
   {

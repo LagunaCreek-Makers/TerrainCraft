@@ -33,8 +33,7 @@ impl Studio {
                 &self.catalog_jurisdiction,
                 true,
             ) {
-                if let Some(i) = terraincraft_core::landmark_catalog::bundled_icon_index(&e.icon_id)
-                {
+                if let Some(i) = terraincraft_core::landmark_catalog::bundled_icon(&e.icon_id) {
                     names.push(Landmark {
                         name: e.name.clone(),
                         lat: e.latitude,
@@ -304,17 +303,6 @@ impl Studio {
                 return svg;
             }
         }
-        if !self.regional_icon_id.is_empty() {
-            let styles = ["original", "simplified", "profile", "three-quarter"];
-            let style = styles[self.regional_style.min(styles.len() - 1)];
-            if let Ok(svg) = terraincraft_core::regional_icons::read_svg(
-                std::path::Path::new("."),
-                &self.regional_icon_id,
-                style,
-            ) {
-                return svg;
-            }
-        }
         let style = terraincraft_core::icon_variants::IconStyle::from_index(self.icon_variant);
         let is_temple = self.cultural_icon_id == "us-ut-salt-lake-temple";
         if !self.selected_logo_id.is_empty() {
@@ -325,13 +313,19 @@ impl Studio {
                         record,
                         catalog.parent().unwrap_or(std::path::Path::new(".")),
                     ) {
-                        return terraincraft_core::icon_variants::apply(&svg, style, false);
+                        return svg;
                     }
                 }
             }
         }
-        let svg = terraincraft_core::state_culture::svg(&self.cultural_icon_id)
-            .unwrap_or_else(|| terraincraft_core::icon_library::procedural_icon(self.icon_id));
+        let svg =
+            terraincraft_core::state_culture::svg(&self.cultural_icon_id).unwrap_or_else(|| {
+                let id = terraincraft_core::icon_library::resolve(&self.library_icon)
+                    .unwrap_or(terraincraft_core::icon_library::DEFAULT_ICON);
+                terraincraft_core::icon_library::svg(id)
+                    .unwrap_or_default()
+                    .to_owned()
+            });
         terraincraft_core::icon_variants::apply(&svg, style, is_temple)
     }
     pub(crate) fn preset(&self) -> Preset {
