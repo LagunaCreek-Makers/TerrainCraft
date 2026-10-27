@@ -328,6 +328,55 @@ pub fn finish_tile(
     }
     Ok((faces, warnings))
 }
+/// A tile and its north-up mesh, ready for `finish_tile`.
+pub type RawTile = (Tile, Vec<[Vec3; 3]>);
+/// A finished tile mesh and the warnings from finishing it.
+pub type FinishedTile = (Tile, Vec<[Vec3; 3]>, Vec<String>);
+
+/// `finish_tile` for many tiles at once, spread over the available CPU cores. Results
+/// come back in the input order.
+pub fn finish_tiles(
+    tiles: Vec<RawTile>,
+    s: TerrainSettings,
+    opts: &export_settings::PrintExportSettings,
+) -> Result<Vec<FinishedTile>, String> {
+    use std::sync::atomic::{AtomicUsize, Ordering};
+    use std::sync::Mutex;
+    let n = tiles.len();
+    let work: Vec<Mutex<Option<RawTile>>> =
+        tiles.into_iter().map(|t| Mutex::new(Some(t))).collect();
+    let done: Vec<Mutex<Option<Result<FinishedTile, String>>>> =
+        (0..n).map(|_| Mutex::new(None)).collect();
+    let next = AtomicUsize::new(0);
+    let threads = std::thread::available_parallelism()
+        .map_or(1, |p| p.get())
+        .min(n)
+        .max(1);
+    std::thread::scope(|scope| {
+        for _ in 0..threads {
+            scope.spawn(|| loop {
+                let i = next.fetch_add(1, Ordering::Relaxed);
+                if i >= n {
+                    break;
+                }
+                let (t, faces) = work[i]
+                    .lock()
+                    .expect("unpoisoned")
+                    .take()
+                    .expect("taken once");
+                let result = finish_tile(faces, s, t, opts).map(|(f, w)| (t, f, w));
+                *done[i].lock().expect("unpoisoned") = Some(result);
+            });
+        }
+    });
+    done.into_iter()
+        .map(|d| {
+            d.into_inner()
+                .expect("unpoisoned")
+                .expect("every tile finished")
+        })
+        .collect()
+}
 /// Where a north-up tile's local origin (its south-west corner) sits in the assembled model.
 pub fn north_up_origin(dem: &Dem, s: TerrainSettings, t: Tile) -> [f64; 2] {
     [

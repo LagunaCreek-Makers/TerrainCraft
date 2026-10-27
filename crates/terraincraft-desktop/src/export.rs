@@ -38,6 +38,9 @@ impl Studio {
             }
         }
         let result = (|| {
+            let coarse =
+                dem.resample_for_model(self.width, PrintExportSettings::default().sample_mm);
+            let dem = coarse.as_ref().unwrap_or(dem);
             let levels = stack::levels_for_material(dem, s, st.material_mm);
             let parts = stack::build_parts(dem, s, &levels, &st)?;
             let placements = stack::place(&parts, &st)?;
@@ -47,7 +50,15 @@ impl Studio {
         result
     }
     pub(crate) fn export(&mut self) -> Result<String, String> {
-        let dem = self.dem.as_ref().ok_or("Load a terrain first")?;
+        let full = self.dem.clone().ok_or("Load a terrain first")?;
+        // Print and laser files use the grid at print resolution (see `sample_mm`).
+        let coarse = match self.view {
+            View::Print | View::Laser => {
+                full.resample_for_model(self.width, PrintExportSettings::default().sample_mm)
+            }
+            _ => None,
+        };
+        let dem = coarse.as_ref().unwrap_or(&full);
         self.settings().validate()?;
         fs::create_dir_all(&self.output).map_err(|e| e.to_string())?;
         match self.view {
@@ -112,12 +123,16 @@ impl Studio {
                 let mut audit_csv = String::from(terraincraft_core::mesh_audit::CSV_HEADER);
                 let mut finished = Vec::new();
                 let mut warnings = Vec::new();
+                let mut raw = Vec::with_capacity(ts.len());
                 for t in &ts {
-                    let name = format!("tile_r{:02}_c{:02}.stl", t.row + 1, t.col + 1);
                     // Previews use the raw mesh; exports are turned north-up and finished.
                     let mut faces = self.tile_print_mesh(dem, *t, &holes)?;
                     terraincraft_core::north_up(&mut faces, dem, s, *t);
-                    let (faces, w) = terraincraft_core::finish_tile(faces, s, *t, &opts)?;
+                    raw.push((*t, faces));
+                }
+                for (t, faces, w) in terraincraft_core::finish_tiles(raw, s, &opts)? {
+                    let t = &t;
+                    let name = format!("tile_r{:02}_c{:02}.stl", t.row + 1, t.col + 1);
                     warnings.extend(w);
                     let audit = terraincraft_core::mesh_audit::audit(&faces);
                     audit_csv.push_str(&audit.csv_row(&name));

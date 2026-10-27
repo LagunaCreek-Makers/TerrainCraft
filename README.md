@@ -41,6 +41,7 @@ Example: `cargo run -p terraincraft-cli -- usgs:-122.6,37.7,-122.4,37.85 out 220
 - Tiles are exported **north-up** (+x east, +y north). Earlier releases exported a north-south mirror image of the terrain.
 - Each tile's row-column number (e.g. `1-2`) is engraved 0.6 mm into its underside, mirrored so it reads correctly when the tile is turned over. `--no-labels` turns this off.
 - Meshes are simplified so no elevation sample moves more than 0.05 mm vertically (`--simplify <mm>`, or `--no-simplify` for the full grid). Tile edges are left untouched, so neighboring tiles still meet exactly. A Mount Rainier export shrinks from 26 MB to 6 MB of STL.
+- Elevation grids finer than 0.3 mm per sample on the model are resampled before print and laser files are made (`--sample-mm`, 0 keeps the full grid); engravings keep full detail. Tiles are finished in parallel. A 3000 x 2000 grid now exports in about 15 s instead of over 10 minutes, within 0.12 mm (95th percentile) of the full-resolution surface.
 - `terrain_tiles.3mf` holds every tile as a named part for PrusaSlicer, OrcaSlicer, Bambu Studio or Cura; `assembly_sheet.svg` is an A4 layout with tile numbers, north arrow, scale bar and map details.
 
 **Laser-cut stacked layers**

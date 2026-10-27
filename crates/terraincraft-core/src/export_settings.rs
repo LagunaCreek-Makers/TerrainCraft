@@ -47,6 +47,9 @@ pub struct PrintExportSettings {
     /// Simplify tile meshes so no surface sample moves more than this many millimeters
     /// vertically; `None` keeps the full grid mesh.
     pub simplify_mm: Option<f64>,
+    /// Coarsest useful sample spacing on the model: finer elevation grids are resampled
+    /// to this before meshing and laser outlines (0 keeps the full grid).
+    pub sample_mm: f64,
 }
 
 impl Default for PrintExportSettings {
@@ -60,6 +63,7 @@ impl Default for PrintExportSettings {
             check_intersections: false,
             labels: true,
             simplify_mm: Some(0.05),
+            sample_mm: 0.3,
         }
     }
 }
@@ -68,6 +72,9 @@ impl PrintExportSettings {
     pub fn validate(&self) -> Result<(), String> {
         if !self.base_mm.is_finite() || self.base_mm <= 0. {
             return Err("Base thickness must be a positive number of millimeters".into());
+        }
+        if !self.sample_mm.is_finite() || self.sample_mm < 0. {
+            return Err("Sample spacing must be zero or a positive number".into());
         }
         if self.simplify_mm.is_some_and(|t| !t.is_finite() || t < 0.) {
             return Err("Simplification tolerance must be zero or a positive number".into());
