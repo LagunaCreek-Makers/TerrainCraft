@@ -69,6 +69,26 @@ pub fn builtins() -> Vec<MapProvider> {
             max_zoom: 19,
             api_key: None,
         },
+        MapProvider {
+            name: "USGS Topo (United States)".into(),
+            url_template:
+                "https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}"
+                    .into(),
+            attribution: "USGS The National Map (public domain)".into(),
+            min_zoom: 0,
+            max_zoom: 16,
+            api_key: None,
+        },
+        MapProvider {
+            name: "USGS Imagery Topo (United States)".into(),
+            url_template:
+                "https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}"
+                    .into(),
+            attribution: "USGS The National Map (public domain)".into(),
+            min_zoom: 0,
+            max_zoom: 16,
+            api_key: None,
+        },
     ]
 }
 pub fn latlon_to_xyz(lat: f64, lon: f64, z: u8) -> Result<(u32, u32), String> {

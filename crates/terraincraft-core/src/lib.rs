@@ -9,6 +9,7 @@ pub mod engrave;
 pub mod engraving_editor;
 pub mod engraving_preview;
 pub mod export_settings;
+pub mod geocode;
 pub mod georef;
 pub mod geotiff;
 pub mod geoview;

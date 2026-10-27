@@ -77,6 +77,19 @@ impl Studio {
         self.applied_prep = None;
         self.reprocess();
     }
+    /// Search for `search_query` in the background.
+    pub(crate) fn begin_search(&mut self) {
+        let query = self.search_query.trim().to_string();
+        if query.is_empty() {
+            return;
+        }
+        let (tx, rx) = mpsc::channel();
+        self.search_rx = Some(rx);
+        self.message = format!("Searching for {query}…");
+        thread::spawn(move || {
+            let _ = tx.send(terraincraft_core::geocode::search(&query));
+        });
+    }
     /// Fetch USGS place names for the loaded area in the background.
     pub(crate) fn begin_place_names(&mut self) {
         let Some(bounds) = self.dem.as_ref().and_then(usgs::dem_bounds) else {
@@ -184,5 +197,47 @@ fn filled_note(filled: usize) -> String {
         String::new()
     } else {
         format!(" ({filled} missing samples filled)")
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::studio::Studio;
+    use terraincraft_core::landmarks::Landmark;
+
+    #[test]
+    fn project_round_trip_keeps_settings_and_names() {
+        let mut s = Studio {
+            width: 321.,
+            material: 6.,
+            map_center_lat: 45.97,
+            map_center_lon: 7.66,
+            engraving_title: "Matterhorn".into(),
+            ..Studio::default()
+        };
+        s.place_names.push(Landmark {
+            name: "Matterhorn".into(),
+            lat: 45.9764,
+            lon: 7.6586,
+            elevation_m: Some(4478.),
+            symbol: "summit".into(),
+        });
+        let json = serde_json::to_string(&s).unwrap();
+        let back: Studio = serde_json::from_str(&json).unwrap();
+        assert_eq!((back.width, back.material), (321., 6.));
+        assert_eq!((back.map_center_lat, back.map_center_lon), (45.97, 7.66));
+        assert_eq!(back.engraving_title, "Matterhorn");
+        assert_eq!(back.place_names.len(), 1);
+        assert_eq!(back.place_names[0].elevation_m, Some(4478.));
+    }
+
+    #[test]
+    fn older_project_files_still_open() {
+        // A project saved before map, search, undo and engraving settings existed.
+        let old = r#"{"path":"usgs_elevation.tif","output":"out","width":250.0,"view":"Laser"}"#;
+        let s: Studio = serde_json::from_str(old).unwrap();
+        assert_eq!(s.width, 250.);
+        assert!(s.place_names.is_empty());
+        assert_eq!(s.map_center_lat, Studio::default().map_center_lat);
     }
 }

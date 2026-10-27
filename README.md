@@ -60,6 +60,12 @@ Example: `cargo run -p terraincraft-cli -- usgs:-122.6,37.7,-122.4,37.85 out 220
 
 Example: `cargo run -p terraincraft-cli -- usgs:-121.85,46.8,-121.7,46.9 out 220 --engrave-map --place-names --title "Mount Rainier" --dem-only`
 
+**Desktop app**
+
+- *Find a place*: search US names (USGS GNIS) and worldwide names (OpenStreetMap Nominatim); results are pinned on the map.
+- The Terrain workspace opens on a basemap (OpenStreetMap, OpenTopoMap, USGS Topo or USGS Imagery): drag to pan, scroll to zoom, **Shift-drag to select the area to download**. The orange box is the download area, the blue one the loaded data. In the Engraving Studio the same map places the panorama viewpoint (click) and direction (drag).
+- Projects save every setting, including downloaded place names; older project files still open. **Undo/Redo** (Ctrl+Z, Ctrl+Y or Ctrl+Shift+Z) covers settings but not map navigation; Ctrl+S saves.
+
 A settings file uses the same names, e.g. `{"base_mm": 10, "connectors": "seam-sockets", "strict_mesh": true}`.
 Earlier releases read these from `TERRAINCRAFT_*` environment variables; those are no longer read, and the CLI prints a warning if one is set.
 

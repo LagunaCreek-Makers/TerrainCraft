@@ -2,7 +2,7 @@
 //! No claims of authoritative GNIS names: CSV entries are user-provided.
 use crate::geoview::GeographicExtent;
 use std::fmt::Write;
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Landmark {
     pub name: String,
     pub lat: f64,

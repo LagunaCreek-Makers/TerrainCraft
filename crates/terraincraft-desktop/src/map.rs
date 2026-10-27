@@ -1,93 +1,114 @@
-//! Interactive XYZ tile map, tile download/cache, and geographic selection canvas.
+//! Interactive basemap: tile download and cache, pan and zoom, selecting the area to
+//! download, and placing the panorama observer. Shared by every workspace.
 use crate::studio::Studio;
 use eframe::egui::{self, Color32, Pos2, Rect, Sense, Stroke, Vec2};
 use std::{fs, sync::mpsc, thread};
-use terraincraft_core::geoview::GeographicExtent;
+use terraincraft_core::map_providers::{latlon_to_world, world_to_latlon, MapProvider};
+use terraincraft_core::usgs::Bounds;
+
+const TILE: f64 = 256.;
+const MAX_ZOOM: u8 = 17;
+
+/// Screen geometry of the map for one frame.
+struct View {
+    rect: Rect,
+    /// Center in normalized Web Mercator coordinates (0..1).
+    cx: f64,
+    cy: f64,
+    /// Screen pixels per normalized unit.
+    scale: f64,
+}
+
+impl View {
+    fn to_screen(&self, lat: f64, lon: f64) -> Pos2 {
+        let (x, y) = latlon_to_world(lat, lon, 0);
+        // Take the shorter way around the antimeridian.
+        let dx = (x - self.cx + 0.5).rem_euclid(1.) - 0.5;
+        Pos2::new(
+            self.rect.center().x + (dx * self.scale) as f32,
+            self.rect.center().y + ((y - self.cy) * self.scale) as f32,
+        )
+    }
+    fn to_latlon(&self, p: Pos2) -> (f64, f64) {
+        world_to_latlon(
+            (self.cx + (p.x - self.rect.center().x) as f64 / self.scale).rem_euclid(1.),
+            (self.cy + (p.y - self.rect.center().y) as f64 / self.scale).clamp(0., 1.),
+        )
+    }
+}
 
 impl Studio {
-    pub(crate) fn request_map_tile(&mut self) -> Result<(), String> {
-        self.queue_visible_tiles(540., 320.)
-    }
-    pub(crate) fn queue_visible_tiles(&mut self, width: f32, height: f32) -> Result<(), String> {
+    pub(crate) fn map_provider(&self) -> MapProvider {
         let providers = terraincraft_core::map_providers::builtins();
-        let mut provider = providers[self.map_provider.min(providers.len() - 1)].clone();
-        if self.map_provider == 2 {
-            provider.url_template = self.map_url.clone();
+        let mut p = providers[self.map_provider.min(providers.len() - 1)].clone();
+        if self.map_provider == 2 && !self.map_url.is_empty() {
+            p.url_template = self.map_url.clone();
         }
-        let (wx, wy) = terraincraft_core::map_providers::latlon_to_world(
-            self.observer_lat,
-            self.observer_lon,
-            self.map_zoom,
-        );
-        let count = (1_u64 << self.map_zoom) as f64;
-        let cx = wx * count;
-        let cy = wy * count;
-        let left = (cx - width as f64 / 512.).floor() as i64;
-        let right = (cx + width as f64 / 512.).floor() as i64;
-        let top = (cy - height as f64 / 512.).floor() as i64;
-        let bottom = (cy + height as f64 / 512.).floor() as i64;
+        p
+    }
+
+    /// Start downloading tiles visible in `rect` that are not loaded or loading. Tiles are
+    /// cached on disk for a week and at most 12 requests start per frame, in line with the
+    /// OpenStreetMap tile usage policy.
+    fn queue_tiles(&mut self, size: Vec2) -> Result<(), String> {
+        let provider = self.map_provider();
+        let zoom = self.map_zoom.min(provider.max_zoom);
+        let (wx, wy) = latlon_to_world(self.map_center_lat, self.map_center_lon, zoom);
+        let count = (1_u64 << zoom) as f64;
+        let (cx, cy) = (wx * count, wy * count);
+        let (hx, hy) = (size.x as f64 / 2. / TILE, size.y as f64 / 2. / TILE);
         if self.map_results.is_none() {
             let (tx, rx) = mpsc::channel();
             self.map_tx = Some(tx);
             self.map_results = Some(rx);
         }
         let cache = std::env::temp_dir().join("terraincraft-map-cache-v4.9");
-        let provider_identity = format!("{}:{}", provider.name, provider.url_template);
-        let provider_hash = provider_identity
-            .bytes()
-            .fold(14695981039346656037_u64, |h, b| {
-                (h ^ b as u64).wrapping_mul(1099511628211)
-            });
         let mut scheduled = 0;
-        for y in top..=bottom {
+        for y in (cy - hy).floor() as i64..=(cy + hy).floor() as i64 {
             if y < 0 || y >= count as i64 {
                 continue;
             }
-            for x in left..=right {
+            for x in (cx - hx).floor() as i64..=(cx + hx).floor() as i64 {
                 if scheduled >= 12 {
-                    break;
+                    return Ok(());
                 }
                 let wrapped = x.rem_euclid(count as i64) as u32;
-                let key = format!("{:016x}-{}-{}-{}", provider_hash, self.map_zoom, wrapped, y);
-                if self.map_textures.contains_key(&key)
-                    || self.map_pending.contains(&key)
-                    || self.map_requested.contains(&key)
-                {
+                let key = tile_key(&provider, zoom, wrapped, y as u32);
+                if self.map_textures.contains_key(&key) || self.map_requested.contains(&key) {
                     continue;
                 }
-                let url = provider.xyz_url(self.map_zoom, wrapped, y as u32)?;
+                let url = provider.xyz_url(zoom, wrapped, y as u32)?;
                 let path = cache.join(format!("{key}.png"));
-                let tx = self.map_tx.as_ref().unwrap().clone();
+                let tx = self.map_tx.as_ref().expect("created above").clone();
                 self.map_pending.insert(key.clone());
                 self.map_requested.insert(key.clone());
                 scheduled += 1;
                 let cache = cache.clone();
                 thread::spawn(move || {
                     let result = (|| -> Result<Vec<u8>, String> {
-                        if let Ok(meta) = fs::metadata(&path) {
-                            if meta
-                                .modified()
-                                .ok()
-                                .and_then(|t| t.elapsed().ok())
-                                .map(|age| age.as_secs() < 7 * 86400)
-                                .unwrap_or(false)
-                            {
-                                return fs::read(&path).map_err(|e| e.to_string());
-                            }
+                        let fresh = fs::metadata(&path)
+                            .ok()
+                            .and_then(|m| m.modified().ok())
+                            .and_then(|t| t.elapsed().ok())
+                            .is_some_and(|age| age.as_secs() < 7 * 86400);
+                        if fresh {
+                            return fs::read(&path).map_err(|e| e.to_string());
                         }
-                        let client=reqwest::blocking::Client::builder().timeout(std::time::Duration::from_secs(20))
-       .user_agent("TerrainCraft/4.9 (interactive terrain mapping; contact: local desktop user)")
-       .build().map_err(|e|e.to_string())?;
-                        let response = client
+                        let client = reqwest::blocking::Client::builder()
+                            .timeout(std::time::Duration::from_secs(20))
+                            .user_agent(concat!(
+                                "TerrainCraft/",
+                                env!("CARGO_PKG_VERSION"),
+                                " (https://github.com/LagunaCreek-Makers/TerrainCraft)"
+                            ))
+                            .build()
+                            .map_err(|e| e.to_string())?;
+                        let bytes = client
                             .get(url)
                             .send()
-                            .map_err(|e| e.to_string())?
-                            .error_for_status()
+                            .and_then(|r| r.error_for_status())
+                            .and_then(|r| r.bytes())
                             .map_err(|e| e.to_string())?;
-                        if response.content_length().unwrap_or(0) > 2_000_000 {
-                            return Err("Tile too large".into());
-                        }
-                        let bytes = response.bytes().map_err(|e| e.to_string())?;
                         if bytes.len() > 2_000_000 {
                             return Err("Tile too large".into());
                         }
@@ -101,288 +122,263 @@ impl Studio {
         }
         Ok(())
     }
-    pub(crate) fn map_canvas(&mut self, ui: &mut egui::Ui) {
-        ui.label("Map navigation: drag to pan · wheel to zoom · Shift-click twice to define the terrain extent");
-        let size = egui::vec2(ui.available_width().clamp(180., 540.), 320.);
-        let (rect, response) = ui.allocate_exact_size(size, egui::Sense::click_and_drag());
+
+    /// Center the map on a point at a useful zoom.
+    pub(crate) fn map_go_to(&mut self, lat: f64, lon: f64, zoom: u8) {
+        self.map_center_lat = lat.clamp(-85., 85.);
+        self.map_center_lon = lon;
+        self.map_zoom = zoom.min(MAX_ZOOM);
+    }
+
+    /// The interactive map, filling `size`.
+    ///
+    /// - Drag to pan, scroll to zoom around the pointer.
+    /// - Shift-drag to select the area to download.
+    /// - With `place_observer`, click to set the panorama viewpoint and drag from it to
+    ///   set the viewing direction.
+    pub(crate) fn map_view(&mut self, ui: &mut egui::Ui, size: Vec2, place_observer: bool) {
+        let (rect, response) = ui.allocate_exact_size(size, Sense::click_and_drag());
         let painter = ui.painter_at(rect);
         painter.rect_filled(rect, 0., Color32::from_rgb(33, 43, 52));
-        let (wx, wy) = terraincraft_core::map_providers::latlon_to_world(
-            self.observer_lat,
-            self.observer_lon,
-            self.map_zoom,
-        );
-        let count = (1_u64 << self.map_zoom) as f64;
-        let center_x = wx * count;
-        let center_y = wy * count;
-        let left = (center_x - size.x as f64 / 512.).floor() as i64;
-        let right = (center_x + size.x as f64 / 512.).floor() as i64;
-        let top = (center_y - size.y as f64 / 512.).floor() as i64;
-        let bottom = (center_y + size.y as f64 / 512.).floor() as i64;
-        let providers = terraincraft_core::map_providers::builtins();
-        let mut provider = providers[self.map_provider.min(providers.len() - 1)].clone();
-        if self.map_provider == 2 {
-            provider.url_template = self.map_url.clone();
-        }
-        let identity = format!("{}:{}", provider.name, provider.url_template);
-        let hash = identity.bytes().fold(14695981039346656037_u64, |h, b| {
-            (h ^ b as u64).wrapping_mul(1099511628211)
-        });
-        for y in top..=bottom {
-            if y < 0 || y >= count as i64 {
-                continue;
-            }
-            for x in left..=right {
-                let key = format!(
-                    "{:016x}-{}-{}-{}",
-                    hash,
-                    self.map_zoom,
-                    x.rem_euclid(count as i64),
-                    y
-                );
-                if let Some(tex) = self.map_textures.get(&key) {
-                    let px = rect.center().x + (x as f64 - center_x) as f32 * 256.;
-                    let py = rect.center().y + (y as f64 - center_y) as f32 * 256.;
-                    let target = Rect::from_min_size(egui::pos2(px, py), egui::vec2(256., 256.));
-                    if let Some(clipped) = target
-                        .intersect(rect)
-                        .is_positive()
-                        .then(|| target.intersect(rect))
-                    {
-                        let uv = Rect::from_min_max(
-                            egui::pos2(
-                                (clipped.left() - target.left()) / 256.,
-                                (clipped.top() - target.top()) / 256.,
-                            ),
-                            egui::pos2(
-                                (clipped.right() - target.left()) / 256.,
-                                (clipped.bottom() - target.top()) / 256.,
-                            ),
-                        );
-                        painter.image(tex.id(), clipped, uv, Color32::WHITE);
-                    }
-                }
-            }
-        }
-        if let Err(e) = self.queue_visible_tiles(size.x, size.y) {
-            self.message = format!("Map: {e}");
-        }
-        // Overlay catalog points in the same Web Mercator coordinate system as tiles.
-        // Marker labels are intentionally capped to keep large imported catalogs responsive.
-        let mut visible_markers: Vec<(Pos2, String, f64, f64, usize)> = Vec::new();
-        if self.map_markers {
-            if let Ok(csv) = fs::read_to_string(&self.catalog_path) {
-                if let Ok(entries) = terraincraft_core::landmark_catalog::parse_catalog(&csv) {
-                    let matching = terraincraft_core::landmark_catalog::filter_jurisdiction(
-                        &entries,
-                        &self.catalog_jurisdiction,
-                        self.catalog_verified_only,
-                    );
-                    for entry in matching.into_iter().take(self.map_marker_limit.min(500)) {
-                        let (mx, my) = terraincraft_core::map_providers::latlon_to_world(
-                            entry.latitude,
-                            entry.longitude,
-                            self.map_zoom,
-                        );
-                        let dx = (mx - wx + 0.5).rem_euclid(1.) - 0.5;
-                        let position = egui::pos2(
-                            rect.center().x + (dx * count * 256.) as f32,
-                            rect.center().y + ((my - wy) * count * 256.) as f32,
-                        );
-                        if rect.contains(position) {
-                            painter.circle_filled(position, 5., Color32::from_rgb(255, 197, 50));
-                            painter.circle_stroke(position, 5., Stroke::new(1_f32, Color32::BLACK));
-                            visible_markers.push((
-                                position,
-                                entry.name.clone(),
-                                entry.latitude,
-                                entry.longitude,
-                                terraincraft_core::landmark_catalog::bundled_icon_index(
-                                    &entry.icon_id,
-                                )
-                                .unwrap_or(self.icon_id),
-                            ));
-                        }
-                    }
-                }
-            }
-        }
-        painter.rect_stroke(rect, 0., Stroke::new(1_f32, Color32::GRAY));
-        let cx = rect.center().x;
-        let cy = rect.center().y;
-        painter.line_segment(
-            [egui::pos2(cx - 8., cy), egui::pos2(cx + 8., cy)],
-            Stroke::new(1.5_f32, Color32::YELLOW),
-        );
-        painter.line_segment(
-            [egui::pos2(cx, cy - 8.), egui::pos2(cx, cy + 8.)],
-            Stroke::new(1.5_f32, Color32::YELLOW),
-        );
+        let provider = self.map_provider();
+        self.map_zoom = self.map_zoom.min(provider.max_zoom).min(MAX_ZOOM);
+        let (cx, cy) = latlon_to_world(self.map_center_lat, self.map_center_lon, 0);
+        let mut view = View {
+            rect,
+            cx,
+            cy,
+            scale: TILE * (1_u64 << self.map_zoom) as f64,
+        };
+
+        // Input first, so this frame draws the result.
+        let shift = ui.input(|i| i.modifiers.shift);
+        let pointer = response.interact_pointer_pos().or(response.hover_pos());
         if response.drag_started() {
-            self.map_drag_origin = Some((self.observer_lat, self.observer_lon));
+            if let Some(p) = pointer {
+                if shift {
+                    self.map_select_start = Some(view.to_latlon(p));
+                } else if place_observer {
+                    let obs = view.to_screen(self.observer_lat, self.observer_lon);
+                    if obs.distance(p) > 10. {
+                        (self.observer_lat, self.observer_lon) = view.to_latlon(p);
+                    }
+                    self.map_aiming = true;
+                }
+            }
+        }
+        if response.dragged() {
+            if let Some(p) = pointer {
+                if self.map_select_start.is_none() && !self.map_aiming {
+                    let d = response.drag_delta();
+                    view.cx = (view.cx - d.x as f64 / view.scale).rem_euclid(1.);
+                    view.cy = (view.cy - d.y as f64 / view.scale).clamp(0., 1.);
+                    (self.map_center_lat, self.map_center_lon) = world_to_latlon(view.cx, view.cy);
+                } else if self.map_aiming {
+                    let o = view.to_screen(self.observer_lat, self.observer_lon);
+                    let (dx, dy) = ((p.x - o.x) as f64, (o.y - p.y) as f64);
+                    if dx.hypot(dy) > 6. {
+                        self.bearing = dx.atan2(dy).to_degrees().rem_euclid(360.);
+                    }
+                }
+            }
         }
         if response.drag_stopped() {
-            if let Some((lat, lon)) = self.map_drag_origin.take() {
-                let d = response.drag_delta();
-                let scale = 256. * (2_f64.powi(self.map_zoom as i32));
-                let (x, y) =
-                    terraincraft_core::map_providers::latlon_to_world(lat, lon, self.map_zoom);
-                let (newlat, newlon) = terraincraft_core::map_providers::world_to_latlon(
-                    x - d.x as f64 / scale,
-                    y - d.y as f64 / scale,
-                );
-                self.observer_lat = newlat;
-                self.observer_lon = newlon;
-                let _ = self.request_map_tile();
+            if let (Some(a), Some(p)) = (self.map_select_start.take(), pointer) {
+                let b = view.to_latlon(p);
+                let sel = Bounds {
+                    west: a.1.min(b.1),
+                    east: a.1.max(b.1),
+                    south: a.0.min(b.0),
+                    north: a.0.max(b.0),
+                };
+                self.message = match sel.validate() {
+                    Ok(()) if sel.east - sel.west > 1e-4 && sel.north - sel.south > 1e-4 => {
+                        [self.west, self.south, self.east, self.north] =
+                            [sel.west, sel.south, sel.east, sel.north];
+                        "Download area selected; adjust the resolution and download".into()
+                    }
+                    Ok(()) => "Selection too small".into(),
+                    Err(e) => e,
+                };
+            }
+            self.map_aiming = false;
+        }
+        if response.clicked() && place_observer {
+            if let Some(p) = pointer {
+                (self.observer_lat, self.observer_lon) = view.to_latlon(p);
             }
         }
         if response.hovered() {
             let scroll = ui.input(|i| i.raw_scroll_delta.y);
             if scroll.abs() > 2. {
-                let next =
-                    (self.map_zoom as i32 + if scroll > 0. { 1 } else { -1 }).clamp(0, 17) as u8;
+                let next = (self.map_zoom as i32 + if scroll > 0. { 1 } else { -1 })
+                    .clamp(0, provider.max_zoom.min(MAX_ZOOM) as i32)
+                    as u8;
                 if next != self.map_zoom {
+                    // Keep the point under the pointer still.
+                    let anchor = pointer.unwrap_or(rect.center());
+                    let (lat, lon) = view.to_latlon(anchor);
                     self.map_zoom = next;
-                    let _ = self.request_map_tile();
+                    view.scale = TILE * (1_u64 << next) as f64;
+                    let (ax, ay) = latlon_to_world(lat, lon, 0);
+                    view.cx =
+                        (ax - (anchor.x - rect.center().x) as f64 / view.scale).rem_euclid(1.);
+                    view.cy = (ay - (anchor.y - rect.center().y) as f64 / view.scale).clamp(0., 1.);
+                    (self.map_center_lat, self.map_center_lon) = world_to_latlon(view.cx, view.cy);
                 }
             }
         }
-        if response.clicked() {
-            if let Some(pos) = response.interact_pointer_pos() {
-                let (x, y) = terraincraft_core::map_providers::latlon_to_world(
-                    self.observer_lat,
-                    self.observer_lon,
-                    self.map_zoom,
+
+        // Tiles.
+        let zoom = self.map_zoom;
+        let count = (1_u64 << zoom) as f64;
+        let (tcx, tcy) = (view.cx * count, view.cy * count);
+        let (hx, hy) = (size.x as f64 / 2. / TILE, size.y as f64 / 2. / TILE);
+        for y in (tcy - hy).floor() as i64..=(tcy + hy).floor() as i64 {
+            if y < 0 || y >= count as i64 {
+                continue;
+            }
+            for x in (tcx - hx).floor() as i64..=(tcx + hx).floor() as i64 {
+                let key = tile_key(&provider, zoom, x.rem_euclid(count as i64) as u32, y as u32);
+                let Some(tex) = self.map_textures.get(&key) else {
+                    continue;
+                };
+                let min = Pos2::new(
+                    rect.center().x + ((x as f64 - tcx) * TILE) as f32,
+                    rect.center().y + ((y as f64 - tcy) * TILE) as f32,
                 );
-                let scale = 256. * (2_f64.powi(self.map_zoom as i32));
-                let (lat, lon) = terraincraft_core::map_providers::world_to_latlon(
-                    x + (pos.x - cx) as f64 / scale,
-                    y + (pos.y - cy) as f64 / scale,
-                );
-                // Clicking a marker selects its icon and observer coordinates for engraving.
-                if !ui.input(|i| i.modifiers.shift) {
-                    if let Some((_, name, mlat, mlon, icon)) = visible_markers
-                        .iter()
-                        .filter(|(p, _, _, _, _)| p.distance(pos) < 12.)
-                        .min_by(|a, b| a.0.distance(pos).total_cmp(&b.0.distance(pos)))
-                    {
-                        self.observer_lat = *mlat;
-                        self.observer_lon = *mlon;
-                        self.icon_id = *icon;
-                        self.message = format!("Selected landmark: {name}");
-                        self.geo_view_enabled = true;
-                        return;
-                    }
-                }
-                let shift = ui.input(|i| i.modifiers.shift);
-                if shift {
-                    if let Some((a, b)) = self.map_extent_first.take() {
-                        self.south = a.min(lat);
-                        self.north = a.max(lat);
-                        self.west = b.min(lon);
-                        self.east = b.max(lon);
-                        self.message = "Terrain extent updated from map corners".into();
-                    } else {
-                        self.map_extent_first = Some((lat, lon));
-                        self.message = "Select the opposite extent corner with Shift-click".into();
-                    }
-                } else {
-                    self.observer_lat = lat;
-                    self.observer_lon = lon;
-                    self.geo_view_enabled = true;
-                    let _ = self.request_map_tile();
+                let target = Rect::from_min_size(min, Vec2::splat(TILE as f32));
+                let clipped = target.intersect(rect);
+                if clipped.is_positive() {
+                    let uv = Rect::from_min_max(
+                        ((clipped.min - target.min) / TILE as f32).to_pos2(),
+                        ((clipped.max - target.min) / TILE as f32).to_pos2(),
+                    );
+                    painter.image(tex.id(), clipped, uv, Color32::WHITE);
                 }
             }
         }
-        ui.small(format!(
-            "Center: {:.5}°, {:.5}° | Zoom {} | Extent: {:.4},{:.4} to {:.4},{:.4}",
-            self.observer_lat,
-            self.observer_lon,
-            self.map_zoom,
-            self.west,
-            self.south,
-            self.east,
-            self.north
-        ));
-    }
-    pub(crate) fn draw_geo_map(&mut self, ui: &mut egui::Ui) {
-        ui.label("Geographic selection canvas (coordinate grid, not a street basemap). Click to position observer; drag from observer to set bearing.");
-        let available = ui.available_size();
-        let side = available.x.min(available.y * 1.6).max(100.);
-        let (rect, response) =
-            ui.allocate_exact_size(Vec2::new(side, side * 0.65), Sense::click_and_drag());
-        let painter = ui.painter_at(rect);
-        painter.rect_filled(rect, 4., Color32::from_rgb(28, 43, 49));
-        for i in 0..=10 {
-            let f = i as f32 / 10.;
-            let x = rect.left() + f * rect.width();
-            let y = rect.top() + f * rect.height();
-            painter.line_segment(
-                [Pos2::new(x, rect.top()), Pos2::new(x, rect.bottom())],
-                Stroke::new(0.5_f32, Color32::DARK_GRAY),
-            );
-            painter.line_segment(
-                [Pos2::new(rect.left(), y), Pos2::new(rect.right(), y)],
-                Stroke::new(0.5_f32, Color32::DARK_GRAY),
+        if let Err(e) = self.queue_tiles(size) {
+            self.message = format!("Map: {e}");
+        }
+
+        // Overlays: loaded data, download selection, place names, search results, observer.
+        let outline = |b: [f64; 4]| {
+            let [w, s, e, n] = b;
+            let (a, c) = (view.to_screen(n, w), view.to_screen(s, e));
+            Rect::from_two_pos(a, c)
+        };
+        if let Some(b) = self
+            .dem
+            .as_ref()
+            .and_then(terraincraft_core::usgs::dem_bounds)
+        {
+            painter.rect_stroke(
+                outline([b.west, b.south, b.east, b.north]),
+                0.,
+                Stroke::new(1.5_f32, Color32::from_rgb(80, 200, 255)),
             );
         }
-        let extent = GeographicExtent {
-            west: self.west,
-            south: self.south,
-            east: self.east,
-            north: self.north,
-        };
-        if extent.validate().is_err() {
-            ui.colored_label(Color32::LIGHT_RED, "Invalid geographic bounds");
-            return;
-        }
-        let to_pos = |lat: f64, lon: f64| {
-            Pos2::new(
-                rect.left()
-                    + ((lon - extent.west) / (extent.east - extent.west)) as f32 * rect.width(),
-                rect.top()
-                    + ((extent.north - lat) / (extent.north - extent.south)) as f32 * rect.height(),
-            )
-        };
-        if response.clicked() {
-            if let Some(pos) = response.interact_pointer_pos() {
-                self.observer_lon = extent.west
-                    + ((pos.x - rect.left()) / rect.width()) as f64 * (extent.east - extent.west);
-                self.observer_lat = extent.north
-                    - ((pos.y - rect.top()) / rect.height()) as f64 * (extent.north - extent.south);
-                self.geo_view_enabled = true;
-            }
-        }
-        if response.dragged() {
-            if let Some(pos) = response.interact_pointer_pos() {
-                let origin = to_pos(self.observer_lat, self.observer_lon);
-                let dx = (pos.x - origin.x) as f64;
-                let dy = (origin.y - pos.y) as f64;
-                if dx.abs() + dy.abs() > 4. {
-                    self.bearing = dx.atan2(dy).to_degrees().rem_euclid(360.);
-                }
-            }
-        }
-        let origin = to_pos(self.observer_lat, self.observer_lon);
-        if rect.contains(origin) {
-            let length = rect.width().min(rect.height()) * 0.32;
-            let left = (self.bearing - self.fov * 0.5).to_radians();
-            let right = (self.bearing + self.fov * 0.5).to_radians();
-            for a in [left, right] {
-                let end = Pos2::new(
-                    origin.x + length * a.sin() as f32,
-                    origin.y - length * a.cos() as f32,
-                );
-                painter.line_segment([origin, end], Stroke::new(1.4_f32, Color32::YELLOW));
-            }
-            painter.circle_filled(origin, 5., Color32::LIGHT_GREEN);
-        }
-        painter.text(
-            rect.left_top() + Vec2::new(7., 7.),
-            egui::Align2::LEFT_TOP,
-            format!("N ↑  {:.5}°, {:.5}°", self.observer_lat, self.observer_lon),
-            egui::FontId::monospace(12.),
-            Color32::WHITE,
+        painter.rect_stroke(
+            outline([self.west, self.south, self.east, self.north]),
+            0.,
+            Stroke::new(2_f32, Color32::from_rgb(255, 150, 30)),
         );
+        if let (Some(a), Some(p)) = (self.map_select_start, pointer) {
+            painter.rect_stroke(
+                Rect::from_two_pos(view.to_screen(a.0, a.1), p),
+                0.,
+                Stroke::new(2_f32, Color32::YELLOW),
+            );
+        }
+        if self.place_names.len() <= 600 && zoom >= 10 {
+            for n in &self.place_names {
+                let p = view.to_screen(n.lat, n.lon);
+                if rect.contains(p) {
+                    let tri = vec![
+                        p + Vec2::new(0., -4.),
+                        p + Vec2::new(3.5, 2.5),
+                        p + Vec2::new(-3.5, 2.5),
+                    ];
+                    painter.add(egui::Shape::convex_polygon(
+                        tri,
+                        Color32::from_rgb(120, 60, 20),
+                        Stroke::NONE,
+                    ));
+                }
+            }
+        }
+        let mut hovered_place = None;
+        for (i, r) in self.search_results.iter().enumerate() {
+            let p = view.to_screen(r.lat, r.lon);
+            if !rect.contains(p) {
+                continue;
+            }
+            painter.circle_filled(p, 7., Color32::from_rgb(220, 40, 40));
+            painter.text(
+                p,
+                egui::Align2::CENTER_CENTER,
+                format!("{}", i + 1),
+                egui::FontId::proportional(10.),
+                Color32::WHITE,
+            );
+            if pointer.is_some_and(|q| q.distance(p) < 9.) {
+                hovered_place = Some((p, format!("{}  ({})", r.name, r.detail)));
+            }
+        }
+        if place_observer {
+            let o = view.to_screen(self.observer_lat, self.observer_lon);
+            let len = 90_f32;
+            for a in [self.bearing - self.fov * 0.5, self.bearing + self.fov * 0.5] {
+                let a = a.to_radians();
+                let end = o + Vec2::new(len * a.sin() as f32, -len * a.cos() as f32);
+                painter.line_segment([o, end], Stroke::new(1.5_f32, Color32::YELLOW));
+            }
+            painter.circle_filled(o, 5., Color32::LIGHT_GREEN);
+            painter.circle_stroke(o, 5., Stroke::new(1_f32, Color32::BLACK));
+        }
+        if let Some((p, text)) = hovered_place {
+            painter.text(
+                p + Vec2::new(10., -10.),
+                egui::Align2::LEFT_BOTTOM,
+                text,
+                egui::FontId::proportional(13.),
+                Color32::BLACK,
+            );
+        }
+        // Attribution is required by most tile providers.
+        let attribution = painter.text(
+            rect.right_bottom() + Vec2::new(-4., -3.),
+            egui::Align2::RIGHT_BOTTOM,
+            &provider.attribution,
+            egui::FontId::proportional(11.),
+            Color32::BLACK,
+        );
+        painter.rect_filled(attribution.expand(2.), 2., Color32::from_white_alpha(190));
+        painter.text(
+            rect.right_bottom() + Vec2::new(-4., -3.),
+            egui::Align2::RIGHT_BOTTOM,
+            &provider.attribution,
+            egui::FontId::proportional(11.),
+            Color32::BLACK,
+        );
+        painter.rect_stroke(rect, 0., Stroke::new(1_f32, Color32::GRAY));
+        if let Some(p) = response.hover_pos() {
+            let (lat, lon) = view.to_latlon(p);
+            ui.small(format!(
+                "{lat:.5}°, {lon:.5}°  zoom {zoom}  ·  drag to pan, scroll to zoom, Shift-drag to select the download area{}",
+                if place_observer { ", click to place the viewpoint, drag from it to aim" } else { "" }
+            ));
+        } else {
+            ui.small(" ");
+        }
     }
+}
+
+fn tile_key(provider: &MapProvider, zoom: u8, x: u32, y: u32) -> String {
+    let identity = format!("{}:{}", provider.name, provider.url_template);
+    let hash = identity.bytes().fold(14695981039346656037_u64, |h, b| {
+        (h ^ b as u64).wrapping_mul(1099511628211)
+    });
+    format!("{hash:016x}-{zoom}-{x}-{y}")
 }

@@ -6,6 +6,7 @@ mod canvas;
 mod engraving;
 mod export;
 mod gpu_view;
+mod history;
 mod map;
 mod project;
 mod studio;
