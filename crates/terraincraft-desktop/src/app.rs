@@ -188,11 +188,19 @@ impl eframe::App for Studio {
     self.view=View::Terrain;self.terrain_show_map=true;
    }
    ui.small("On the Terrain map the download area is the map window: pan and zoom to frame it. Double-click to start a selection box, then click its opposite corner; double-click again to go back to the window.");
-   if ui.button("Frame about 10 km around the map center").clicked(){
-    let (m_lon,m_lat)=terraincraft_core::georef::meters_per_degree(self.map_center_lat);
-    let (dx,dy)=(5000./m_lon,5000./m_lat);
-    [self.west,self.south,self.east,self.north]=[self.map_center_lon-dx,self.map_center_lat-dy,self.map_center_lon+dx,self.map_center_lat+dy];
-   }
+   ui.add_space(4.);
+   ui.strong(if self.map_selected{"Download area: selected box"}else{"Download area: map window"});
+   let (w,s,e,n)=(self.west,self.south,self.east,self.north);
+   egui::Grid::new("area_corners").num_columns(3).spacing([8.,2.]).show(ui,|ui|{
+    for (name,lat,lon) in [("Center",(s+n)/2.,(w+e)/2.),("NW",n,w),("NE",n,e),("SW",s,w),("SE",s,e)]{
+     ui.label(name);
+     ui.monospace(format!("{lat:.5}"));
+     ui.monospace(format!("{lon:.5}"));
+     ui.end_row();
+    }
+   });
+   let (mx,my)=terraincraft_core::georef::meters_per_degree((s+n)/2.);
+   ui.small(format!("{:.2} x {:.2} km  ·  latitude, longitude in degrees",(e-w)*mx/1000.,(n-s)*my/1000.));
    ui.separator();
    ui.heading("Project");
    ui.collapsing("USGS 3DEP geographic selection",|ui|{
