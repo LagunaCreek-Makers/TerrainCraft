@@ -187,7 +187,7 @@ impl eframe::App for Studio {
     self.observer_lat=lat;self.observer_lon=lon;
     self.view=View::Terrain;self.terrain_show_map=true;
    }
-   ui.small("The Terrain map window is the download area: pan and zoom to frame it, or Shift-drag a box to zoom to it.");
+   ui.small("On the Terrain map the download area is the map window: pan and zoom to frame it. Double-click to start a selection box, then click its opposite corner; double-click again to go back to the window.");
    if ui.button("Frame about 10 km around the map center").clicked(){
     let (m_lon,m_lat)=terraincraft_core::georef::meters_per_degree(self.map_center_lat);
     let (dx,dy)=(5000./m_lon,5000./m_lat);
@@ -197,8 +197,8 @@ impl eframe::App for Studio {
    ui.heading("Project");
    ui.collapsing("USGS 3DEP geographic selection",|ui|{
     ui.label("WGS84 geographic bounding box (degrees)");
-    ui.horizontal(|ui|{ui.label("West");ui.add(egui::DragValue::new(&mut self.west).speed(0.01));ui.label("East");ui.add(egui::DragValue::new(&mut self.east).speed(0.01));});
-    ui.horizontal(|ui|{ui.label("South");ui.add(egui::DragValue::new(&mut self.south).speed(0.01));ui.label("North");ui.add(egui::DragValue::new(&mut self.north).speed(0.01));});
+    ui.horizontal(|ui|{ui.label("West");ui.add(egui::DragValue::new(&mut self.west).speed(0.01).max_decimals(5));ui.label("East");ui.add(egui::DragValue::new(&mut self.east).speed(0.01).max_decimals(5));});
+    ui.horizontal(|ui|{ui.label("South");ui.add(egui::DragValue::new(&mut self.south).speed(0.01).max_decimals(5));ui.label("North");ui.add(egui::DragValue::new(&mut self.north).speed(0.01).max_decimals(5));});
     ui.horizontal(|ui|{
      ui.add(egui::Slider::new(&mut self.raster_pixels,128..=terraincraft_core::usgs::MAX_DOWNLOAD_SIDE).logarithmic(true).text("Raster long side (px)"));
      let bounds=Bounds{west:self.west,south:self.south,east:self.east,north:self.north};

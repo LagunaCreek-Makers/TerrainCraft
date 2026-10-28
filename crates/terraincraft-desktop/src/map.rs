@@ -168,22 +168,40 @@ impl Studio {
     /// The interactive map, filling `size`.
     ///
     /// - Drag to pan, scroll to zoom around the pointer.
-    /// - Without `place_observer` (the Terrain workspace) the map window is the download
-    ///   area: moving the map moves it, and Shift-dragging a box zooms the map to it.
+    /// - Without `place_observer` (the Terrain workspace) the download area is the map
+    ///   window, so moving the map moves it, until a box is selected: double-click to
+    ///   start the box, then click (or drag and release) at the opposite corner. A
+    ///   double-click removes the box, and the window is the download area again.
     /// - With `place_observer`, the download area is drawn as a box; click to set the
     ///   panorama viewpoint and drag from it to set the viewing direction.
     pub(crate) fn map_view(&mut self, ui: &mut egui::Ui, size: Vec2, place_observer: bool) {
+        let size = Vec2::new(size.x, size.y - if place_observer { 0. } else { 40. });
         let (rect, response) = ui.allocate_exact_size(size, Sense::click_and_drag());
         let painter = ui.painter_at(rect);
         painter.rect_filled(rect, 0., Color32::from_rgb(33, 43, 52));
         let provider = self.map_provider();
         let selects = !place_observer;
         let area = [self.west, self.south, self.east, self.north];
-        // The area was changed somewhere else (typed, undone, loaded): frame it.
-        if selects && rect.is_positive() && !self.map_synced.is_some_and(|s| same_area(s, area)) {
-            let fit = View::fitting(rect, area);
-            self.map_zoom = fit.zoom();
-            (self.map_center_lat, self.map_center_lon) = world_to_latlon(fit.cx, fit.cy);
+        if selects && rect.is_positive() {
+            // The area was changed somewhere else (typed, undone, loaded): the window
+            // becomes that area. After another map moved the view, show the area again.
+            let changed = !self.map_synced.is_some_and(|s| same_area(s, area));
+            if changed {
+                self.map_selected = false;
+                self.map_select_start = None;
+            }
+            if changed || self.map_refit {
+                let shown = if self.map_selected {
+                    let (dx, dy) = ((area[2] - area[0]) * 0.15, (area[3] - area[1]) * 0.15);
+                    [area[0] - dx, area[1] - dy, area[2] + dx, area[3] + dy]
+                } else {
+                    area
+                };
+                let fit = View::fitting(rect, shown);
+                self.map_zoom = fit.zoom();
+                (self.map_center_lat, self.map_center_lon) = world_to_latlon(fit.cx, fit.cy);
+                self.map_refit = false;
+            }
         }
         self.map_zoom = self.map_zoom.clamp(0., MAX_ZOOM);
         let (cx, cy) = latlon_to_world(self.map_center_lat, self.map_center_lon, 0);
@@ -196,13 +214,29 @@ impl Studio {
         let start_view = (view.cx, view.cy, view.scale);
 
         // Input first, so this frame draws the result.
-        let shift = ui.input(|i| i.modifiers.shift);
         let pointer = response.interact_pointer_pos().or(response.hover_pos());
+        let mut finish_box = None;
+        if selects {
+            if response.double_clicked() {
+                if self.map_selected || self.map_select_start.is_some() {
+                    // Back to the window as the download area.
+                    self.map_selected = false;
+                    self.map_select_start = None;
+                } else if let Some(p) = pointer {
+                    self.map_select_start = Some(view.to_latlon(p));
+                }
+            } else if self.map_select_start.is_some()
+                && (response.clicked() || response.drag_stopped())
+            {
+                finish_box = pointer;
+            }
+            if ui.input(|i| i.key_pressed(egui::Key::Escape)) {
+                self.map_select_start = None;
+            }
+        }
         if response.drag_started() {
             if let Some(p) = pointer {
-                if shift && selects {
-                    self.map_select_start = Some(view.to_latlon(p));
-                } else if place_observer {
+                if place_observer {
                     let obs = view.to_screen(self.observer_lat, self.observer_lon);
                     if obs.distance(p) > 10. {
                         (self.observer_lat, self.observer_lon) = view.to_latlon(p);
@@ -227,16 +261,18 @@ impl Studio {
             }
         }
         if response.drag_stopped() {
-            if let (Some(a), Some(p)) = (self.map_select_start.take(), pointer) {
-                // Zoom to the dragged box; the window then becomes the download area.
-                let b = view.to_latlon(p);
-                let boxed = [a.1.min(b.1), a.0.min(b.0), a.1.max(b.1), a.0.max(b.0)];
-                if boxed[2] - boxed[0] > 1e-5 && boxed[3] - boxed[1] > 1e-5 {
-                    let fit = View::fitting(rect, boxed);
-                    (view.cx, view.cy, view.scale) = (fit.cx, fit.cy, fit.scale);
-                }
-            }
             self.map_aiming = false;
+        }
+        if let (Some(a), Some(p)) = (self.map_select_start, finish_box) {
+            // A box at least a few pixels across becomes the download area.
+            let start = view.to_screen(a.0, a.1);
+            if (start.x - p.x).abs() >= 4. && (start.y - p.y).abs() >= 4. {
+                let b = view.to_latlon(p);
+                [self.west, self.south, self.east, self.north] =
+                    [a.1.min(b.1), a.0.min(b.0), a.1.max(b.1), a.0.max(b.0)];
+                self.map_selected = true;
+                self.map_select_start = None;
+            }
         }
         if response.clicked() && place_observer {
             if let Some(p) = pointer {
@@ -260,14 +296,15 @@ impl Studio {
             self.map_zoom = view.zoom();
             (self.map_center_lat, self.map_center_lon) = world_to_latlon(view.cx, view.cy);
             if place_observer {
-                // The Terrain map frames the download area again when it is next shown.
-                self.map_synced = None;
+                // The Terrain map shows the download area again when it is next shown.
+                self.map_refit = true;
             }
         }
         if selects && rect.is_positive() {
-            let b = view.bounds();
-            [self.west, self.south, self.east, self.north] = b;
-            self.map_synced = Some(b);
+            if !self.map_selected {
+                [self.west, self.south, self.east, self.north] = view.bounds();
+            }
+            self.map_synced = Some([self.west, self.south, self.east, self.north]);
         }
 
         // Tiles: the nearest whole zoom level, scaled to the fractional zoom.
@@ -327,19 +364,24 @@ impl Studio {
                 Stroke::new(1.5_f32, Color32::from_rgb(80, 200, 255)),
             );
         }
-        if place_observer {
-            painter.rect_stroke(
-                outline([self.west, self.south, self.east, self.north]),
-                0.,
-                Stroke::new(2_f32, Color32::from_rgb(255, 150, 30)),
-            );
+        let orange = Color32::from_rgb(255, 150, 30);
+        if place_observer || self.map_selected {
+            let boxed = outline([self.west, self.south, self.east, self.north]);
+            if self.map_selected {
+                painter.rect_filled(boxed, 0., Color32::from_rgba_unmultiplied(255, 150, 30, 40));
+            }
+            painter.rect_stroke(boxed, 0., Stroke::new(2_f32, orange));
         }
-        if let (Some(a), Some(p)) = (self.map_select_start, pointer) {
-            painter.rect_stroke(
-                Rect::from_two_pos(view.to_screen(a.0, a.1), p),
-                0.,
-                Stroke::new(2_f32, Color32::YELLOW),
-            );
+        if let Some(a) = self.map_select_start {
+            let start = view.to_screen(a.0, a.1);
+            painter.circle_filled(start, 4., Color32::YELLOW);
+            if let Some(p) = response.hover_pos().or(pointer) {
+                painter.rect_stroke(
+                    Rect::from_two_pos(start, p),
+                    0.,
+                    Stroke::new(2_f32, Color32::YELLOW),
+                );
+            }
         }
         if self.place_names.len() <= 600 && zoom >= 10. {
             for n in &self.place_names {
@@ -412,38 +454,56 @@ impl Studio {
             egui::FontId::proportional(11.),
             Color32::BLACK,
         );
-        if selects {
+        if selects && !self.map_selected {
             // The whole window is the download area.
-            painter.rect_stroke(
-                rect.shrink(1.),
-                0.,
-                Stroke::new(2_f32, Color32::from_rgb(255, 150, 30)),
-            );
+            painter.rect_stroke(rect.shrink(1.), 0., Stroke::new(2_f32, orange));
         } else {
             painter.rect_stroke(rect, 0., Stroke::new(1_f32, Color32::GRAY));
         }
+        if selects {
+            let [w, s, e, n] = [self.west, self.south, self.east, self.north];
+            let (mx, my) = terraincraft_core::georef::meters_per_degree((s + n) / 2.);
+            let mono = |ui: &mut egui::Ui, text: String| {
+                ui.label(egui::RichText::new(text).monospace().small());
+            };
+            mono(
+                ui,
+                format!(
+                    "{}  center {:.5}, {:.5}  ·  {:.2} x {:.2} km",
+                    if self.map_selected {
+                        "Selected box"
+                    } else {
+                        "Map window"
+                    },
+                    (s + n) / 2.,
+                    (w + e) / 2.,
+                    (e - w) * mx / 1000.,
+                    (n - s) * my / 1000.
+                ),
+            );
+            mono(
+                ui,
+                format!(
+                    "NW {n:.5}, {w:.5}   NE {n:.5}, {e:.5}   SW {s:.5}, {w:.5}   SE {s:.5}, {e:.5}"
+                ),
+            );
+        }
+        let help = if place_observer {
+            "drag to pan, scroll to zoom, click to place the viewpoint, drag from it to aim"
+        } else if self.map_select_start.is_some() {
+            "click the opposite corner to finish the box  ·  Esc or double-click to cancel"
+        } else if self.map_selected {
+            "drag to pan, scroll to zoom  ·  double-click to remove the box"
+        } else {
+            "drag to pan, scroll to zoom  ·  double-click to start a selection box"
+        };
         if let Some(p) = response.hover_pos() {
             let (lat, lon) = view.to_latlon(p);
-            let help = if place_observer {
-                "drag to pan, scroll to zoom, click to place the viewpoint, drag from it to aim"
-            } else {
-                "drag to pan, scroll to zoom, Shift-drag a box to zoom to it"
-            };
-            ui.small(format!("{lat:.5}°, {lon:.5}°  zoom {zoom:.1}  ·  {help}"));
-        } else if selects {
-            let (mx, my) =
-                terraincraft_core::georef::meters_per_degree((self.south + self.north) / 2.);
             ui.small(format!(
-                "Download area {:.1} x {:.1} km: {:.4}°, {:.4}° to {:.4}°, {:.4}°",
-                (self.east - self.west) * mx / 1000.,
-                (self.north - self.south) * my / 1000.,
-                self.south,
-                self.west,
-                self.north,
-                self.east
+                "Pointer {lat:.5}, {lon:.5}  zoom {zoom:.1}  ·  {help}"
             ));
         } else {
-            ui.small(" ");
+            ui.small(help);
         }
     }
 }

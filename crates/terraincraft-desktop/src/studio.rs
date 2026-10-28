@@ -103,6 +103,7 @@ pub(crate) struct Studio {
     pub(crate) history: crate::history::History,
     pub(crate) map_center_lon: f64,
     pub(crate) terrain_show_map: bool,
+    /// The first corner of a selection box being drawn on the Terrain map.
     #[serde(skip)]
     pub(crate) map_select_start: Option<(f64, f64)>,
     #[serde(skip)]
@@ -112,6 +113,14 @@ pub(crate) struct Studio {
     /// change (typed bounds, undo, a loaded project) makes the map frame the new area.
     #[serde(skip)]
     pub(crate) map_synced: Option<[f64; 4]>,
+    /// Whether the download area is a box drawn on the Terrain map (otherwise it is the
+    /// map window).
+    #[serde(skip)]
+    pub(crate) map_selected: bool,
+    /// Frame the download area the next time the Terrain map is shown, because another
+    /// map moved the shared view.
+    #[serde(skip)]
+    pub(crate) map_refit: bool,
     pub(crate) search_query: String,
     #[serde(skip)]
     pub(crate) search_results: Vec<terraincraft_core::geocode::Place>,
@@ -263,6 +272,8 @@ impl Default for Studio {
             terrain_show_map: true,
             map_select_start: None,
             map_synced: None,
+            map_selected: false,
+            map_refit: false,
             map_aiming: false,
             search_query: String::new(),
             search_results: Vec::new(),
