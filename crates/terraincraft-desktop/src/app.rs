@@ -187,17 +187,13 @@ impl eframe::App for Studio {
     self.observer_lat=lat;self.observer_lon=lon;
     self.view=View::Terrain;self.terrain_show_map=true;
    }
-   if ui.button("Select about 10 km around the map center").on_hover_text("Or Shift-drag on the map").clicked(){
-    let (m_lon,m_lat)=terraincraft_core::georef::meters_per_degree(self.map_center_lat);
-    let (dx,dy)=(5000./m_lon,5000./m_lat);
-    [self.west,self.south,self.east,self.north]=[self.map_center_lon-dx,self.map_center_lat-dy,self.map_center_lon+dx,self.map_center_lat+dy];
-   }
+   ui.small("On the Terrain map the download area is the map window: pan and zoom to frame it. Double-click to start a selection box, then click its opposite corner; double-click again to go back to the window.");
    ui.separator();
    ui.heading("Project");
    ui.collapsing("USGS 3DEP geographic selection",|ui|{
     ui.label("WGS84 geographic bounding box (degrees)");
-    ui.horizontal(|ui|{ui.label("West");ui.add(egui::DragValue::new(&mut self.west).speed(0.01));ui.label("East");ui.add(egui::DragValue::new(&mut self.east).speed(0.01));});
-    ui.horizontal(|ui|{ui.label("South");ui.add(egui::DragValue::new(&mut self.south).speed(0.01));ui.label("North");ui.add(egui::DragValue::new(&mut self.north).speed(0.01));});
+    ui.horizontal(|ui|{ui.label("West");ui.add(egui::DragValue::new(&mut self.west).speed(0.01).max_decimals(5));ui.label("East");ui.add(egui::DragValue::new(&mut self.east).speed(0.01).max_decimals(5));});
+    ui.horizontal(|ui|{ui.label("South");ui.add(egui::DragValue::new(&mut self.south).speed(0.01).max_decimals(5));ui.label("North");ui.add(egui::DragValue::new(&mut self.north).speed(0.01).max_decimals(5));});
     ui.horizontal(|ui|{
      ui.add(egui::Slider::new(&mut self.raster_pixels,128..=terraincraft_core::usgs::MAX_DOWNLOAD_SIDE).logarithmic(true).text("Raster long side (px)"));
      let bounds=Bounds{west:self.west,south:self.south,east:self.east,north:self.north};
@@ -449,7 +445,7 @@ impl eframe::App for Studio {
         if self.map_provider==2 && !self.map_url.is_empty(){provider.url_template=self.map_url.clone();}
         self.message=match terraincraft_core::map_providers::latlon_to_xyz(self.observer_lat,self.observer_lon,10).and_then(|(x,y)|provider.xyz_url(10,x,y)){Ok(url)=>{ui.ctx().copy_text(url);"Tile URL copied (not downloaded)".into()},Err(e)=>e};
       }
-      ui.add(egui::Slider::new(&mut self.map_zoom,0..=17).text("Tile zoom"));
+      ui.add(egui::Slider::new(&mut self.map_zoom,0.0..=17.0).text("Map zoom"));
       ui.checkbox(&mut self.map_markers,"Show jurisdiction landmark markers");
       ui.add(egui::Slider::new(&mut self.map_marker_limit,10..=500).text("Maximum markers"));
       ui.small("The map in the Terrain workspace and the viewpoint map use this provider. Tiles are cached for 7 days.");

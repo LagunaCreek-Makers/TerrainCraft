@@ -155,7 +155,9 @@ impl Studio {
                 ui.add_enabled_ui(self.dem.is_some(), |ui| {
                     ui.selectable_value(&mut self.terrain_show_map, false, "3D preview");
                 });
-                ui.label("Orange: download area · blue: loaded data");
+                ui.label(
+                    "Orange: download area (the window, or the selected box) · blue: loaded data",
+                );
             });
             if self.terrain_show_map || self.dem.is_none() {
                 let size = ui.available_size() - Vec2::new(0., 18.);

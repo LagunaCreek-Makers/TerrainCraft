@@ -94,7 +94,7 @@ Example: `cargo run -p terraincraft-cli -- usgs:-121.85,46.8,-121.7,46.9 out 220
 ## Desktop app
 
 - *Find a place*: search US names (USGS GNIS) and worldwide names (OpenStreetMap Nominatim); results are pinned on the map.
-- The Terrain workspace opens on a basemap (OpenStreetMap, OpenTopoMap, USGS Topo or USGS Imagery): drag to pan, scroll to zoom, **Shift-drag to select the area to download**. The orange box is the download area, the blue one the loaded data. In the Engraving Studio the same map places the panorama viewpoint (click) and direction (drag).
+- The Terrain workspace opens on a basemap (OpenStreetMap, OpenTopoMap, USGS Topo or USGS Imagery): drag to pan and scroll to zoom. The download area is the map window, or **double-click to start a selection box and click its opposite corner** (double-click again to go back to the window). Below the map are the area's center and four corners. Orange marks the download area, blue the loaded data. In the Engraving Studio the same map places the panorama viewpoint (click) and direction (drag).
 - Projects save every setting, including downloaded place names; older project files still open. **Undo/Redo** (Ctrl+Z, Ctrl+Y or Ctrl+Shift+Z) covers settings but not map navigation; Ctrl+S saves.
 
 

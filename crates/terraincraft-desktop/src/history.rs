@@ -146,6 +146,9 @@ impl Studio {
         self.engraving_cache = take(&mut old.engraving_cache);
         self.map_select_start = old.map_select_start.take();
         self.map_aiming = old.map_aiming;
+        self.map_synced = old.map_synced;
+        self.map_selected = old.map_selected;
+        self.map_refit = old.map_refit;
         self.search_results = take(&mut old.search_results);
         self.search_rx = old.search_rx.take();
         self.names_rx = old.names_rx.take();

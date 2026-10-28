@@ -103,10 +103,24 @@ pub(crate) struct Studio {
     pub(crate) history: crate::history::History,
     pub(crate) map_center_lon: f64,
     pub(crate) terrain_show_map: bool,
+    /// The first corner of a selection box being drawn on the Terrain map.
     #[serde(skip)]
     pub(crate) map_select_start: Option<(f64, f64)>,
     #[serde(skip)]
     pub(crate) map_aiming: bool,
+    /// The download area as the Terrain map last set it. While the area still equals
+    /// this, the map window is the download area and moving the map moves it; any other
+    /// change (typed bounds, undo, a loaded project) makes the map frame the new area.
+    #[serde(skip)]
+    pub(crate) map_synced: Option<[f64; 4]>,
+    /// Whether the download area is a box drawn on the Terrain map (otherwise it is the
+    /// map window).
+    #[serde(skip)]
+    pub(crate) map_selected: bool,
+    /// Frame the download area the next time the Terrain map is shown, because another
+    /// map moved the shared view.
+    #[serde(skip)]
+    pub(crate) map_refit: bool,
     pub(crate) search_query: String,
     #[serde(skip)]
     pub(crate) search_results: Vec<terraincraft_core::geocode::Place>,
@@ -180,7 +194,8 @@ pub(crate) struct Studio {
     pub(crate) raster_pixels: u32,
     #[serde(skip)]
     pub(crate) download_rx: Option<mpsc::Receiver<DownloadMsg>>,
-    pub(crate) map_zoom: u8,
+    /// Map zoom level; fractional, so any area can be framed exactly.
+    pub(crate) map_zoom: f64,
     pub(crate) map_markers: bool,
     pub(crate) map_marker_limit: usize,
     #[serde(skip)]
@@ -256,6 +271,9 @@ impl Default for Studio {
             map_center_lon: -121.76,
             terrain_show_map: true,
             map_select_start: None,
+            map_synced: None,
+            map_selected: false,
+            map_refit: false,
             map_aiming: false,
             search_query: String::new(),
             search_results: Vec::new(),
@@ -308,7 +326,7 @@ impl Default for Studio {
             north: 38.68,
             raster_pixels: 512,
             download_rx: None,
-            map_zoom: 10,
+            map_zoom: 10.,
             map_markers: true,
             map_marker_limit: 100,
             map_results: None,
