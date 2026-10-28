@@ -187,7 +187,8 @@ impl eframe::App for Studio {
     self.observer_lat=lat;self.observer_lon=lon;
     self.view=View::Terrain;self.terrain_show_map=true;
    }
-   if ui.button("Select about 10 km around the map center").on_hover_text("Or Shift-drag on the map").clicked(){
+   ui.small("The Terrain map window is the download area: pan and zoom to frame it, or Shift-drag a box to zoom to it.");
+   if ui.button("Frame about 10 km around the map center").clicked(){
     let (m_lon,m_lat)=terraincraft_core::georef::meters_per_degree(self.map_center_lat);
     let (dx,dy)=(5000./m_lon,5000./m_lat);
     [self.west,self.south,self.east,self.north]=[self.map_center_lon-dx,self.map_center_lat-dy,self.map_center_lon+dx,self.map_center_lat+dy];
@@ -449,7 +450,7 @@ impl eframe::App for Studio {
         if self.map_provider==2 && !self.map_url.is_empty(){provider.url_template=self.map_url.clone();}
         self.message=match terraincraft_core::map_providers::latlon_to_xyz(self.observer_lat,self.observer_lon,10).and_then(|(x,y)|provider.xyz_url(10,x,y)){Ok(url)=>{ui.ctx().copy_text(url);"Tile URL copied (not downloaded)".into()},Err(e)=>e};
       }
-      ui.add(egui::Slider::new(&mut self.map_zoom,0..=17).text("Tile zoom"));
+      ui.add(egui::Slider::new(&mut self.map_zoom,0.0..=17.0).text("Map zoom"));
       ui.checkbox(&mut self.map_markers,"Show jurisdiction landmark markers");
       ui.add(egui::Slider::new(&mut self.map_marker_limit,10..=500).text("Maximum markers"));
       ui.small("The map in the Terrain workspace and the viewpoint map use this provider. Tiles are cached for 7 days.");
